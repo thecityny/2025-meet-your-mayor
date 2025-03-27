@@ -8,7 +8,9 @@
     "build": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "validate": "node validate.mjs"
+    "validate": "node validate.mjs",
+    "download-content": "node -e 'require(\"./src/scripts\").downloadGoogleDocContent()'",
+    "generate-sitemap": "node -e 'require(\"./src/scripts\").generateSitemapXML()'"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
