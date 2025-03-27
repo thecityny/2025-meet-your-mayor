@@ -1,1 +1,51 @@
-export const pageContent = {"questionX":{"title":"The full text for the question.","subject":"The subject or topic that the question belongs to (such as Streets, Schools, Housing…)","tellMeMore":"A short explanation of the question or topic to give some more context. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.","option1":"Text for the first quiz option.","option2":"Text for the second quiz option.","option3":"Text for the third quiz option.","option4":"Text for the fourth quiz option, if there is one. (OPTIONAL)"},"question1":{"title":"What is your approach to public housing?","subject":"Housing","tellMeMore":"The New York City Housing Authority is participating in a federal program that allows private management to take over housing projects and borrow funds to refurbish them. {newParagraph} It has also begun to bring in developers for public housing sites, using new luxury housing to pay for new apartments for public housing residents.","option1":"Stop the use of private management to take over public housing buildings","option2":"Continue and expand current private management for existing public housing","option3":"Expand private management and pursue new development on NYCHA property","option4":""},"question2":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question3":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question4":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question5":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question6":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question7":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question8":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question9":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question10":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question11":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question12":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question13":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question14":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question15":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question16":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question17":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question18":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question19":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""},"question20":{"title":"","subject":"","tellMeMore":"","option1":"","option2":"","option3":"","option4":""}}
+export const pageContent = {
+  questionX: {
+    title: "The full text for the question.",
+    subject:
+      "The subject or topic that the question belongs to (such as Streets, Schools, Housing…)",
+    tellMeMore:
+      "A short explanation of the question or topic to give some more context. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
+    option1: "Text for the first quiz option.",
+    option2: "Text for the second quiz option.",
+    option3: "Text for the third quiz option.",
+    option4: "Text for the fourth quiz option, if there is one. (OPTIONAL)",
+  },
+  question1: {
+    title: "What is your preferred model for outdoor dining?",
+    subject: "Streets",
+    tellMeMore:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. {newParagraph} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    option1:
+      "Bring back year-round, outdoor dining without permits as it existed during the pandemic",
+    option2:
+      "Maintain the current restrictive permit program approved by the City Council",
+    option3:
+      "Consult with restaurant owners and propose a new permit program tailored to their needs",
+    option4: "",
+  },
+  question2: {
+    title: "What is your approach to public housing?",
+    subject: "Housing",
+    tellMeMore:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. {newParagraph} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    option1:
+      "Stop the use of private management to take over public housing buildings",
+    option2:
+      "Continue and expand current private management for existing public housing",
+    option3:
+      "Expand private management and pursue new development on NYCHA property",
+    option4:
+      "Provide subsidies to renovate existing apartments and office space",
+  },
+  question3: {
+    title: "How should the NYPD enforce transit fares?",
+    subject: "Law Enforcement",
+    tellMeMore:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. {newParagraph} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    option1:
+      "More consistent summonses for violators — additional fare enforcement is needed",
+    option2: "Fewer summonses for violators — enforcement is too aggressive",
+    option3: "Do not issue summonses for fare nonpayment",
+    option4: "",
+  },
+};
