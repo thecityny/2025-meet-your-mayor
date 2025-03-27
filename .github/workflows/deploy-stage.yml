@@ -1,0 +1,155 @@
+name: Deploy to staging
+
+concurrency:
+  group: deploy-stage-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "**" # always deploy for branches
+    tags-ignore:
+      - "**" # never deploy for tags
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2
+
+      - id: install-node
+        name: Install Node.js 21.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21
+          cache: "npm"
+
+      - name: npm install
+        run: npm ci --production
+
+      - name: Prepare the Delivery path prefix
+        uses: actions/github-script@v6
+        id: delivery-path-prefix
+        with:
+          result-encoding: string
+          script: |
+            // Print out production slug:
+            const slug = `${{ env.GATSBY_SLUG }}`;
+            console.log(`production slug will be -> ${slug.trim()}`);
+
+            // import path module
+            const path = require('path');
+
+            // get reference to this commit
+            const ref = context.ref;
+
+            // get repo that triggered this push
+            const { repo } = context.repo;
+
+            // pull branch name off the ref
+            const parts = ref.split('/');
+            const branch = parts[parts.length - 1];
+
+            // build path used for this deploy
+            const basePath = path.join(repo, branch);
+
+            // return the prepared path as the output
+            return basePath;
+
+      - name: Build the project
+        run: PREFIX=/${{ steps.delivery-path-prefix.outputs.result }} npm run build
+
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: ./build
+          if-no-files-found: error
+
+  validate-hyperlinks:
+    runs-on: ubuntu-latest
+    name: Validate hyperlinks
+    needs: [build]
+    continue-on-error: true
+
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: ./build
+
+      - name: Install link check dependencies
+        run: pip install pytest-check-links pytest-custom_exit_code
+
+      - name: Check links
+        run: pytest ./build --suppress-no-test-exit-code -p no:cacheprovider --check-links --check-links-ignore "/"
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: ./build
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_S3_STAGING_REGION }}
+
+      - name: Prepare the Delivery path prefix
+        uses: actions/github-script@v6
+        id: delivery-path-prefix
+        with:
+          result-encoding: string
+          script: |
+            // Print out production slug:
+            const slug = `${{ env.GATSBY_SLUG }}`;
+            console.log(`production slug will be -> ${slug.trim()}`);
+
+            // import path module
+            const path = require('path');
+
+            // get reference to this commit
+            const ref = context.ref;
+
+            // get repo that triggered this push
+            const { repo } = context.repo;
+
+            // pull branch name off the ref
+            const parts = ref.split('/');
+            const branch = parts[parts.length - 1];
+
+            // build path used for this deploy
+            const basePath = path.join(repo, branch);
+
+            // return the prepared path as the output
+            return basePath;
+
+      - name: Invalidate CloudFront (clear cache)
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.AWS_STAGING_CLOUDFRONT_DISTRIBUTION }}
+          PATHS: ${{ format('/{0}/*', steps.delivery-path-prefix.outputs.result) }}
+
+      - name: Upload the prepared files
+        uses: datadesk/delivery-deploy-action@v1
+        with:
+          bucket: ${{ secrets.AWS_S3_STAGING_BUCKET }}
+          base-path: ${{ steps.delivery-path-prefix.outputs.result }}
+          dir: build
+          should-cache: true
+          use-accelerate-endpoint: false
+          public: true

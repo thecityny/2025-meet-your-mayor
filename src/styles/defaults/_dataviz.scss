@@ -1,0 +1,981 @@
+.case-map-key {
+  display: block;
+  margin-bottom: 20px;
+
+  .key-title {
+    font-size: 13px;
+    @include medface();
+    margin: 0 0 5px 0;
+  }
+
+  text {
+    font-size: 12px;
+    color: #666;
+    @include lightface();
+  }
+
+  @media screen and (min-width: 440px) {
+    max-width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.key-graphic {
+  margin: 10px 0;
+
+  text {
+    @include bookface();
+    fill: #666;
+  }
+}
+
+.case-map,
+.vaccination-rate {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+  margin: 0;
+
+  .zcta-border {
+    stroke: #fff;
+    stroke-width: 0.6;
+    fill: none;
+  }
+
+  .borough-border {
+    stroke: #fff;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .highlight {
+    stroke: #000;
+    stroke-width: 2;
+    fill: none;
+    pointer-events: none;
+  }
+}
+
+.tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #999;
+  padding: 10px;
+  display: inline-block;
+  opacity: 1;
+  width: 250px;
+  position: absolute;
+  pointer-events: none;
+  font-size: 14px;
+  color: #333;
+  z-index: 1;
+
+  &.tooltip-hidden {
+    opacity: 0;
+    transition: all 0.2s;
+    transition-delay: 0.1s;
+  }
+
+  .tooltip-title {
+    @include medface();
+    font-size: 16px;
+    margin: 0 0 10px 0;
+  }
+
+  .tooltip-name {
+    @include bookface();
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+    display: block;
+  }
+
+  .tooltip-list {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      margin: 4px 0;
+    }
+  }
+}
+
+.key-instructions {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+
+  .info-icon {
+    vertical-align: middle;
+    width: 12px;
+  }
+
+  &.key-instructions-desktop {
+    display: none;
+  }
+
+  @media (min-width: 740px) {
+    &.key-instructions-mobile {
+      display: none;
+    }
+    &.key-instructions-desktop {
+      display: block;
+    }
+  }
+}
+
+.numbers {
+  margin: 16px 0;
+  overflow: auto;
+
+  @media (min-width: 640px) {
+    div {
+      float: left;
+      width: 33%;
+    }
+  }
+
+  div {
+    text-align: center;
+    font-size: 36px;
+    padding: 5px;
+    margin: 10px 0;
+    @include medface();
+  }
+
+  .label {
+    display: block;
+    font-size: 15px;
+    @include bookface();
+  }
+}
+
+.lead-numbers {
+  background: #fff;
+  padding: 8px 20px;
+  border-radius: 5px;
+  margin: 40px 0 10px 0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #dfdfdf;
+  padding: 10px;
+
+  p {
+    margin: 10px 0;
+  }
+}
+
+.filter-form-custom {
+  color: #333;
+
+  input {
+    line-height: 0;
+  }
+
+  input,
+  select {
+    border: 0;
+    border-bottom: 1px solid #333;
+    background: transparent;
+    font-size: inherit;
+    @include bookface();
+    margin: 5px 0;
+    min-width: 0;
+    padding: 2px 1px;
+    text-align: center;
+    height: 25px;
+    box-sizing: border-box;
+    color: #333;
+    border-radius: 0;
+
+    &[type="checkbox"] {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    &[type="number"]::-webkit-inner-adjust-hue-button,
+    &[type="number"]::-webkit-outer-adjust-hue-button {
+      opacity: 1;
+    }
+  }
+}
+
+.zips-showing {
+  text-align: center;
+  font-size: 14px;
+  @include lightface();
+}
+
+.button-group {
+  margin: 12px 0 18px 0;
+
+  button {
+    @include bookface();
+    font-size: 14px;
+    width: auto;
+    border: 1px solid #666;
+    border-radius: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #333;
+
+    &.active {
+      background: #fff;
+      color: #000;
+    }
+    &:hover:not(.active) {
+      background: #f6f6f6;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (min-width: 420px) {
+    display: block;
+  }
+}
+
+.group-selection-dropdown {
+  @media screen and (min-width: 420px) {
+    display: none;
+  }
+  margin-bottom: 20px;
+
+  select {
+    padding: 8px 20px 8px 5px;
+    font-size: 16px;
+    border: 1px solid #666;
+    width: 100%;
+  }
+}
+
+.interactive-table table {
+  width: 100%;
+}
+
+.limit-toggle {
+  width: 100%;
+  background: transparent;
+  color: #000;
+  @include bookface();
+  text-align: center;
+  margin: 5px 0 0 0;
+  padding: 5px 0;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.zip-name {
+  font-size: 10px;
+  @include bookface();
+  color: #666;
+  display: block;
+}
+
+.count-table,
+.interactive-table {
+  background-color: #ffffff;
+  padding: 1em;
+  margin: 16px 0;
+  font-size: 13px;
+  text-align: right;
+  @include lightface();
+  overflow: scroll;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+
+    &.limited::after {
+      content: "";
+      display: "block";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(0deg, #ffffff, rgba(255, 255, 255, 0.7));
+      height: 20px;
+    }
+  }
+  th,
+  td {
+    padding: 4px;
+  }
+  th {
+    @include lightface();
+    padding-bottom: 10px;
+    border-bottom: 1px solid #989898;
+    font-size: 10px;
+    @media screen and (min-width: 400px) {
+      font-size: 13px;
+    }
+
+    button {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+      text-align: inherit;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+      &.asc::after {
+        content: "\25B2";
+        display: inline-block;
+        margin-left: 4px;
+        font-size: 10px;
+        vertical-align: middle;
+        text-decoration: none;
+      }
+
+      &.desc::after {
+        content: "\25BC";
+        display: inline-block;
+        margin-left: 4px;
+        font-size: 10px;
+        vertical-align: middle;
+        text-decoration: none;
+      }
+    }
+  }
+  tbody tr:first-child td {
+    padding-top: 10px;
+  }
+  tbody tr:not(:last-child) td {
+    border-bottom: 1px solid #dddddd;
+  }
+  .borough,
+  .age,
+  .text {
+    text-align: left;
+  }
+}
+
+.count-table tr td {
+  padding: 8px 4px;
+}
+
+.count-summary {
+  margin: 10px 0;
+
+  @media screen and (min-width: 480px) {
+    margin: 30px 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+    margin: 16px 0;
+    table-layout: fixed;
+
+    thead {
+      display: none;
+
+      @media screen and (min-width: 480px) {
+        display: table-header-group;
+      }
+
+      th {
+        text-align: right;
+
+        &.label {
+          text-align: left;
+        }
+
+        @media screen and (min-width: 480px) {
+          padding: 10px;
+
+          &:first-child {
+            padding-left: 0;
+          }
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+
+    tr {
+      display: block;
+      font-size: 13px;
+      padding: 20px 0;
+
+      @media screen and (min-width: 480px) {
+        display: table-row;
+        margin: 18px auto;
+        padding: 0 5px;
+      }
+
+      td {
+        display: block;
+        width: 100%;
+        position: relative;
+        overflow: visible;
+        border-bottom: 1px solid #ccc;
+        padding: 6px 0;
+
+        strong {
+          display: block;
+          width: 50%;
+          float: right;
+        }
+
+        &:not(:first-child)::before {
+          content: attr(data-name);
+          display: block;
+          float: left;
+          text-transform: capitalize;
+          width: 50%;
+        }
+
+        &.label {
+          font-weight: 700;
+          font-size: 18px;
+          text-align: left;
+        }
+
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+
+        @media screen and (min-width: 480px) {
+          display: table-cell;
+          text-align: right;
+          padding: 10px;
+          border: 0;
+          margin: 10px 0;
+
+          strong {
+            width: auto;
+            display: inline;
+            float: none;
+          }
+
+          &.label {
+            font-size: inherit;
+          }
+
+          &:not(:first-child)::before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.updated-note {
+  font-size: 12px;
+  color: #666;
+}
+
+.chart-note {
+  @include lightface();
+  font-size: 13px;
+  color: #333;
+  margin: 10px 0;
+  line-height: 1.4em;
+
+  strong {
+    @include bookface();
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.subhead {
+  padding-top: 40px;
+}
+
+.range-input {
+  background-color: #dfdfdf;
+  padding: 5px 10px;
+  font-size: 16px;
+
+  .date-group {
+    display: none;
+    margin: 5px 5px 5px 0;
+
+    &.active {
+      display: inline-block;
+    }
+  }
+
+  .select-date {
+    min-width: 12em;
+  }
+
+  select {
+    padding: 5px 20px 5px 5px;
+  }
+
+  input {
+    padding: 6px;
+  }
+
+  select,
+  input {
+    font-size: 16px;
+    border: 1px solid #666;
+    cursor: pointer;
+  }
+
+  .range-input-group {
+    display: inline-block;
+  }
+
+  .select-range,
+  label {
+    margin: 5px 5px 5px 0;
+    display: inline-block;
+  }
+}
+
+.breakthrough-value {
+  @include medface();
+  min-width: 3em;
+}
+
+.flex-charts {
+  display: block;
+  margin: 20px 0;
+
+  @media screen and (min-width: 740px) {
+    display: flex;
+
+    .chart:not(:first-child) {
+      margin: 0 0 0 40px;
+    }
+  }
+
+  .chart {
+    margin: 0;
+    flex-grow: 1;
+    flex-basis: 0;
+    overflow: visible;
+  }
+}
+.chart-title {
+  @include medface();
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.chart-dek {
+  @include bookface();
+  font-size: 14px;
+  color: #333;
+}
+
+.chart-subhead {
+  @include medface();
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.tracking-head {
+  font-size: 28px;
+  margin: 50px 0 12px 0;
+  @include boldface();
+}
+
+.chart-key {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  display: block;
+  @include lightface();
+
+  & > li {
+    list-style-type: none;
+    vertical-align: middle;
+    flex-grow: 0;
+    margin: 10px 0;
+  }
+
+  @media screen and (min-width: 440px) {
+    display: flex;
+
+    & > li {
+      margin: 0 0 10px 0;
+
+      &:not(:first-child) {
+        margin-left: 12px;
+      }
+    }
+  }
+}
+
+.chart-key-square {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 2px;
+  color: #333;
+}
+
+$icu: #0c71fa;
+$hospitalization: #8ac4f3;
+$tests: #faba61;
+$cases: #fa7416;
+$deaths: #a9328a;
+$deaths-probable: #b57fdb;
+$deaths-incomplete: #d0b9df;
+
+.key-deaths-probable {
+  background-color: $deaths-probable;
+}
+.key-deaths {
+  background-color: $deaths;
+}
+.key-deaths-incomplete {
+  background-color: $deaths-incomplete;
+}
+.key-cases {
+  background-color: $cases;
+}
+.key-tests {
+  background-color: $tests;
+}
+.key-hospitalization {
+  background-color: $hospitalization;
+}
+.key-icu {
+  background-color: $icu;
+}
+
+.chart-container {
+  position: relative;
+}
+.chart-container.chart-error::after {
+  content: "Not enough data";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ddd;
+  color: #666;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plot-chart {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+  paint-order: stroke fill;
+
+  text {
+    pointer-events: none;
+  }
+}
+
+.case-map {
+  margin: 40px 0;
+}
+
+.plot-tooltip {
+  background: rgba(255, 255, 255, 1);
+  padding: 2px 6px;
+  display: inline-block;
+  opacity: 1;
+  min-width: 80px;
+  max-width: 180px;
+  font-size: 14px;
+  color: #000;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  line-height: 1.2em;
+  @include lightface();
+
+  p {
+    margin: 2px 0;
+  }
+
+  strong {
+    @include bookface();
+  }
+
+  .date {
+    font-size: 12px;
+    color: #333;
+  }
+
+  .note {
+    font-size: 12px;
+  }
+
+  .tooltip-title {
+    @include medface();
+    font-size: 16px;
+    margin: 0 0 10px 0;
+  }
+
+  .tooltip-name {
+    @include bookface();
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+    display: block;
+  }
+
+  .tooltip-list {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      margin: 4px 0;
+    }
+  }
+}
+
+.nav {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $city-light-grey;
+}
+
+.nav-container {
+  align-items: center;
+  display: flex;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  width: 115px;
+  flex-grow: 0;
+}
+
+.nav-title {
+  @include boldface();
+  text-transform: uppercase;
+  font-size: 26px;
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.nav-links {
+  flex-grow: 0;
+
+  a {
+    padding: 5px 20px 3px;
+    border: 2px solid #a40501;
+    font-size: 20px;
+    color: #a40501;
+    background: $city-white;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1em;
+    @include boldface();
+    letter-spacing: 1.66px;
+
+    &:hover {
+      transition: 0.2s;
+      border-color: $city-white;
+      color: $city-white;
+      background-color: $city-black;
+    }
+  }
+}
+
+.expandable {
+  & > .expandable-body {
+    display: none;
+    overflow: hidden;
+  }
+
+  &.expanded > .expandable-body {
+    display: inherit;
+  }
+
+  & > .expandable-header {
+    .display-open,
+    .display-closed {
+      display: none;
+    }
+    .visible-open,
+    .visible-closed {
+      visibility: hidden;
+    }
+  }
+
+  &.expanded > .expandable-header {
+    .display-open {
+      display: inherit;
+    }
+    .visible-open {
+      visibility: inherit;
+    }
+  }
+
+  &.collapsed > .expandable-header {
+    .display-closed {
+      display: inherit;
+    }
+    .visible-closed {
+      visibility: inherit;
+    }
+  }
+}
+
+a.about-link {
+  font-size: 14px;
+  color: #707070;
+  @include bookface();
+}
+
+.newsletter {
+  align-items: center;
+
+  @media screen and (min-width: 480px) {
+    display: flex;
+  }
+}
+
+.newsletter-text {
+  flex: 1;
+}
+
+.newsletter-head {
+  @include boldface();
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.newsletter-intro {
+  @include bookface();
+  font-size: 16px;
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+.newsletter-link {
+  margin: 30px 0;
+
+  @media screen and (min-width: 480px) {
+    margin-left: 30px;
+  }
+
+  a {
+    font-family: "Sharp Grotesk", Helvetica, sans-serif;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    background: #000;
+    padding: 10px 20px;
+    box-shadow: none;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+  }
+}
+
+.newsletter-container {
+  margin: 60px 0;
+  padding: 40px 0;
+  background: #f6f6f6;
+}
+
+.profile {
+  width: 100%;
+  color: #333;
+
+  @media screen and (min-width: 480px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.profile-image,
+.profile-info {
+  flex: 1;
+}
+
+.profile-image {
+  margin: 0 0 15px 0;
+
+  @media screen and (min-width: 480px) {
+    margin: 0 20px 0 0;
+    max-width: 250px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.image-caption {
+  color: #808080;
+  font-size: 11px;
+  font-family: Georgia, serif;
+}
+
+.missing-them {
+  margin: 30px auto;
+
+  h4 {
+    @include boldface();
+    font-size: 26px;
+    margin: 10px 0;
+    line-height: 1.1em;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.credit-box {
+  margin-top: 80px;
+  @include bookface();
+  font-size: 14px;
+  color: #333;
+}
