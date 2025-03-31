@@ -3,6 +3,7 @@ import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
 import parse from "html-react-parser";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import classnames from "classnames";
 
 /**
  * Groups an array of objects by a specified key.
@@ -287,8 +288,14 @@ const Quiz = () => {
                   </details>
 
                   <button
-                    className="button is-link is-light my-5"
+                    className={classnames(
+                      "button",
+                      "is-link",
+                      "my-5",
+                      !!answerSelected && answerSelected !== "1" && "is-dark"
+                    )}
                     onClick={() => recordAnswer(number, "1")}
+                    disabled={!!answerSelected}
                   >
                     {option1.text}
                   </button>
@@ -301,8 +308,14 @@ const Quiz = () => {
                     </div>
                   )}
                   <button
-                    className="button is-link is-light my-5"
+                    className={classnames(
+                      "button",
+                      "is-link",
+                      "my-5",
+                      !!answerSelected && answerSelected !== "2" && "is-dark"
+                    )}
                     onClick={() => recordAnswer(number, "2")}
+                    disabled={!!answerSelected}
                   >
                     {option2.text}
                   </button>
@@ -314,8 +327,14 @@ const Quiz = () => {
                     </div>
                   )}
                   <button
-                    className="button is-link is-light my-5"
+                    className={classnames(
+                      "button",
+                      "is-link",
+                      "my-5",
+                      !!answerSelected && answerSelected !== "3" && "is-dark"
+                    )}
                     onClick={() => recordAnswer(number, "3")}
+                    disabled={!!answerSelected}
                   >
                     {option3.text}
                   </button>
@@ -329,8 +348,16 @@ const Quiz = () => {
                   {option4?.text && (
                     <>
                       <button
-                        className="button is-link is-light my-5"
+                        className={classnames(
+                          "button",
+                          "is-link",
+                          "my-5",
+                          !!answerSelected &&
+                            answerSelected !== "4" &&
+                            "is-dark"
+                        )}
                         onClick={() => recordAnswer(number, "4")}
+                        disabled={!!answerSelected}
                       >
                         {option4.text}
                       </button>
