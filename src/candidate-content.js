@@ -46,6 +46,7 @@ export const candidateContent = {
     quizResponse2:
       '1 | Mamdani said he\'d carry out the requirements of Local Law 195 and exceed its mandate for 150 miles of protected bus lanes and 250 miles of protected bike lanes at a mayoral forum hosted by Transportation Alternatives. | <a href="https://www.youtube.com/live/A2he_B5f3ZE">Mayoral Forum for Safe, Beautiful, Accessible Streets</a>, Feb 21, 2025',
     quizResponse3: "2",
+    quizResponse4: "2",
   },
   candidateEric: {
     name: "Eric Adams",
@@ -63,6 +64,7 @@ export const candidateContent = {
     quizResponse2: "4",
     quizResponse3:
       '1 | Mamdani said he\'d carry out the requirements of Local Law 195 and exceed its mandate for 150 miles of protected bus lanes and 250 miles of protected bike lanes at a mayoral forum hosted by Transportation Alternatives. | <a href="https://www.youtube.com/live/A2he_B5f3ZE">Mayoral Forum for Safe, Beautiful, Accessible Streets</a>, Feb 21, 2025',
+    quizResponse4: "2",
   },
   candidateSliwa: {
     name: "Curtis Sliwa",
@@ -80,5 +82,6 @@ export const candidateContent = {
     quizResponse2: "",
     quizResponse3:
       '1 | Mamdani said he\'d carry out the requirements of Local Law 195 and exceed its mandate for 150 miles of protected bus lanes and 250 miles of protected bike lanes at a mayoral forum hosted by Transportation Alternatives. | <a href="https://www.youtube.com/live/A2he_B5f3ZE">Mayoral Forum for Safe, Beautiful, Accessible Streets</a>, Feb 21, 2025',
+    quizResponse4: "2",
   },
 };
