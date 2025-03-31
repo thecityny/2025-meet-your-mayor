@@ -94,16 +94,39 @@ const formatQuestionContent = () => {
   return groupBy(questonsArray, "subject");
 };
 
+const NumberLabel: FC<{ number: number }> = ({ number }) => (
+  <div
+    className="tag is-light"
+    style={{
+      position: "absolute",
+      left: "-20px",
+      borderRadius: "100%",
+    }}
+  >
+    {number}
+  </div>
+);
+
 type MatchingCandidate = {
   name: string;
   quote: string;
   source: string;
 };
 
-const MatchingCandidate: FC<MatchingCandidate> = ({ name, quote, source }) => (
-  <span key={name}>
-    {name} {!!quote && `(${quote})`} {!!source && <a href={source}>source</a>}
-  </span>
+const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
+  candidates,
+}) => (
+  <>
+    {candidates.map((candidate, i) => {
+      const { name, quote, source } = candidate;
+      return (
+        <span key={i}>
+          <div className="tag">{name}</div>
+          {!!quote && `(${quote})`} {!!source && <a href={source}>source</a>}
+        </span>
+      );
+    })}
+  </>
 );
 
 const Quiz = () => {
@@ -142,44 +165,73 @@ const Quiz = () => {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container" style={{ maxWidth: "600px" }}>
         {Object.entries(questions).map((questionGroup, i) => (
           <div key={i} className="question-group">
-            <h2 className="deck has-text-left">{questionGroup[0]}</h2>
-            {questionGroup[1].map((question) => (
-              <div key={question.number} className="question">
-                {question.number} <h1>{question.title}</h1>
-                <p>{question.tellMeMore}</p>
-                <p>1: {question.option1.text}</p>
-                <p>
-                  {question.option1.matchingCandidates.map((candidate) => (
-                    <MatchingCandidate {...candidate} />
-                  ))}
-                </p>
-                <p>2: {question.option2.text}</p>
-                <p>
-                  {question.option2.matchingCandidates.map((candidate) => (
-                    <MatchingCandidate {...candidate} />
-                  ))}
-                </p>
-                <p>3: {question.option3.text}</p>
-                <p>
-                  {question.option3.matchingCandidates.map((candidate) => (
-                    <MatchingCandidate {...candidate} />
-                  ))}
-                </p>
-                {question.option4?.text && (
-                  <>
-                    <p>4: {question.option4.text}</p>
-                    <p>
-                      {question.option4.matchingCandidates.map((candidate) => (
-                        <MatchingCandidate {...candidate} />
-                      ))}
-                    </p>
-                  </>
-                )}
-              </div>
-            ))}
+            <h2 className="headline has-text-left">{questionGroup[0]}</h2>
+            {questionGroup[1].map((question) => {
+              const {
+                number,
+                title,
+                tellMeMore,
+                option1,
+                option2,
+                option3,
+                option4,
+              } = question;
+              return (
+                <div key={number} className="question">
+                  <NumberLabel number={number} />
+                  <h3 className="deck has-text-left mb-2">{title}</h3>
+
+                  <details className="mb-5">
+                    <summary>Tell me more</summary>
+                    {tellMeMore}
+                  </details>
+
+                  <button className="button is-link is-light mb-5">
+                    {option1.text}
+                  </button>
+
+                  <p>
+                    <MatchingCandidates
+                      candidates={option1.matchingCandidates}
+                    />
+                  </p>
+                  <button className="button is-link is-light mb-5">
+                    {option2.text}
+                  </button>
+                  <p>
+                    <MatchingCandidates
+                      candidates={option2.matchingCandidates}
+                    />
+                  </p>
+                  <button className="button is-link is-light mb-5">
+                    {option3.text}
+                  </button>
+                  <p>
+                    <MatchingCandidates
+                      candidates={option3.matchingCandidates}
+                    />
+                  </p>
+                  {option4?.text && (
+                    <>
+                      <button className="button is-link is-light mb-5">
+                        {option4.text}
+                      </button>
+                      <p>
+                        <MatchingCandidates
+                          candidates={option4.matchingCandidates}
+                        />
+                      </p>
+                    </>
+                  )}
+                  <button className="button is-link is-outlined mb-5">
+                    Skip this question.
+                  </button>
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
