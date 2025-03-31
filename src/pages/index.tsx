@@ -1,6 +1,7 @@
 import React from "react";
 import { PageLayout } from "../components/PageLayout";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import Quiz from "../components/Quiz";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -41,37 +42,7 @@ const Homepage = () => (
         </div>
       </div>
     </div>
-    <div className="hero is-fullheight-with-navbar" id="quiz">
-      <div className="container" style={{ maxWidth: "600px" }}>
-        <div>
-          <h1 className="headline has-text-left">The Ultimate Match Quiz</h1>
-          <p className="copy has-text-left mt-5">
-            Voters of New York City: It’s time to pick your nominee for mayor,
-            with primary day approaching on June 22. Since March, THE CITY has
-            been presenting the candidates’ positions, issue by issue. Meet Your
-            Mayor shows you how the contenders' stands fit with your take on
-            what matters most to New Yorkers.
-          </p>
-          <p className="copy has-text-left my-5">
-            Now we’ve pulled all 15 Meet Your Mayor editions into one final,
-            supersized superquiz that will show you your ultimate match.
-            Actually, your top matches, since voters will be ranking up to five
-            selections at the polls.
-          </p>
-
-          <h2 className="deck has-text-left">To start, pick your party:</h2>
-
-          <div className="field is-grouped">
-            <p className="control">
-              <button className="button is-link">Democrat</button>
-            </p>
-            <p className="control">
-              <button className="button is-link">Republican</button>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Quiz />
   </PageLayout>
 );
 
