@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
 import parse from "html-react-parser";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 /**
  * Groups an array of objects by a specified key.
@@ -212,19 +213,22 @@ const Quiz = () => {
             <h2 className="deck has-text-left">To start, pick your party:</h2>
 
             <div className="field is-grouped">
-              <p className="control">
+              <AnchorLink href="#questions" className="control">
                 <button className="button is-link">Democrat</button>
-              </p>
-              <p className="control">
+              </AnchorLink>
+              <AnchorLink href="#questions" className="control">
                 <button className="button is-link">Republican</button>
-              </p>
+              </AnchorLink>
+              <AnchorLink href="#questions" className="control">
+                <button className="button is-link">All</button>
+              </AnchorLink>
             </div>
           </div>
         </div>
       </div>
-      <div className="container" style={{ maxWidth: "600px" }}>
+      <div className="container" style={{ maxWidth: "600px" }} id="questions">
         {Object.entries(questions).map((questionGroup, i) => (
-          <div key={i}>
+          <div key={i} className="py-5">
             <h2 className="headline has-text-left">{questionGroup[0]}</h2>
             {questionGroup[1].map((question) => {
               const {
