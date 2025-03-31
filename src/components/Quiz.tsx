@@ -118,6 +118,21 @@ const formatQuestionContent = () => {
   return groupBy(questonsArray, "subject");
 };
 
+type QuizInput = {
+  questionNumber: number;
+  numberOfOptions: number;
+  answer: string | null;
+};
+
+const createBlankAnswersList = (): QuizInput[] => {
+  const { questionX, ...questions } = questionContent;
+  return Object.entries(questions).map((question, i) => ({
+    questionNumber: i + 1,
+    numberOfOptions: !!question[1].option4 ? 4 : 3,
+    answer: null,
+  }));
+};
+
 const NumberLabel: FC<{ number: number }> = ({ number }) => (
   <div
     className="tag is-light"
@@ -189,6 +204,20 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
 
 const Quiz = () => {
   const questions = formatQuestionContent();
+  const [answers, setAnswers] = React.useState(createBlankAnswersList());
+
+  const recordAnswer = (questionNumber: number, answer: string | null) => {
+    const updatedAnswers = answers.map((answerObj) => {
+      if (answerObj.questionNumber === questionNumber) {
+        return { ...answerObj, answer };
+      }
+      return answerObj;
+    });
+    setAnswers(updatedAnswers);
+  };
+
+  const clearAnswer = (answerList: QuizInput[], questionNumber: number) =>
+    recordAnswer(questionNumber, null);
 
   return (
     <>
@@ -209,7 +238,6 @@ const Quiz = () => {
               Actually, your top matches, since voters will be ranking up to
               five selections at the polls.
             </p>
-
             <h2 className="deck has-text-left">To start, pick your party:</h2>
 
             <div className="field is-grouped">
@@ -241,6 +269,9 @@ const Quiz = () => {
                 option4,
                 skipped,
               } = question;
+              const answerSelected = answers.find(
+                (answer) => answer.questionNumber === number
+              )?.answer;
               return (
                 <div
                   key={number}
@@ -255,51 +286,76 @@ const Quiz = () => {
                     {tellMeMore}
                   </details>
 
-                  <button className="button is-link is-light my-5">
+                  <button
+                    className="button is-link is-light my-5"
+                    onClick={() => recordAnswer(number, "1")}
+                  >
                     {option1.text}
                   </button>
 
-                  <p>
-                    <MatchingCandidates
-                      candidates={option1.matchingCandidates}
-                    />
-                  </p>
-                  <button className="button is-link is-light my-5">
+                  {!!answerSelected && (
+                    <div>
+                      <MatchingCandidates
+                        candidates={option1.matchingCandidates}
+                      />
+                    </div>
+                  )}
+                  <button
+                    className="button is-link is-light my-5"
+                    onClick={() => recordAnswer(number, "2")}
+                  >
                     {option2.text}
                   </button>
-                  <p>
-                    <MatchingCandidates
-                      candidates={option2.matchingCandidates}
-                    />
-                  </p>
-                  <button className="button is-link is-light my-5">
+                  {!!answerSelected && (
+                    <div>
+                      <MatchingCandidates
+                        candidates={option2.matchingCandidates}
+                      />
+                    </div>
+                  )}
+                  <button
+                    className="button is-link is-light my-5"
+                    onClick={() => recordAnswer(number, "3")}
+                  >
                     {option3.text}
                   </button>
-                  <p>
-                    <MatchingCandidates
-                      candidates={option3.matchingCandidates}
-                    />
-                  </p>
+                  {!!answerSelected && (
+                    <div>
+                      <MatchingCandidates
+                        candidates={option3.matchingCandidates}
+                      />
+                    </div>
+                  )}
                   {option4?.text && (
                     <>
-                      <button className="button is-link is-light my-5">
+                      <button
+                        className="button is-link is-light my-5"
+                        onClick={() => recordAnswer(number, "4")}
+                      >
                         {option4.text}
                       </button>
-                      <p>
-                        <MatchingCandidates
-                          candidates={option4.matchingCandidates}
-                        />
-                      </p>
+                      {!!answerSelected && (
+                        <div>
+                          <MatchingCandidates
+                            candidates={option4.matchingCandidates}
+                          />
+                        </div>
+                      )}
                     </>
                   )}
-                  <button className="button is-link is-outlined my-5">
+                  <button
+                    className="button is-link is-outlined my-5"
+                    onClick={() => recordAnswer(number, "0")}
+                  >
                     Skip this question.
                   </button>
-                  <p>
-                    <MatchingCandidates
-                      candidates={skipped.matchingCandidates}
-                    />
-                  </p>
+                  {!!answerSelected && (
+                    <div>
+                      <MatchingCandidates
+                        candidates={skipped.matchingCandidates}
+                      />
+                    </div>
+                  )}
                 </div>
               );
             })}
