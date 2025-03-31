@@ -2,7 +2,7 @@ require("dotenv").config();
 const fs = require("fs");
 
 const downloadGoogleDocContent = () => {
-  const fileName = process.env.FILENAME || "page-content.js";
+  const fileName = process.env.FILENAME || "page";
   fetch(`http://127.0.0.1:6006/${process.env.DOCID}`, {
     headers: {
       "Content-Type": "application/json",
@@ -17,8 +17,8 @@ const downloadGoogleDocContent = () => {
         );
       } else {
         fs.writeFile(
-          `src/${fileName}`,
-          `export const pageContent = ${JSON.stringify(json)}`,
+          `src/${fileName}-content.js`,
+          `export const ${fileName}Content = ${JSON.stringify(json)}`,
           (err) => {
             // In case of a error throw err.
             if (err) throw err;

@@ -1,6 +1,7 @@
-export const pageContent = {
+export const candidateContent = {
   candidateX: {
     name: "Full name of candidate.",
+    party: "democrat",
     website: "URL for candidate’s website.",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
@@ -31,6 +32,7 @@ export const pageContent = {
   },
   candidateZohran: {
     name: "Zohran Mamdani",
+    party: "democrat",
     website: "https://www.zohranfornyc.com/",
     bio: "Zohran Kwame Mamdani is a New York State Assemblymember and democratic socialist running for Mayor. Born in Uganda and raised in New York City, he has fought for the working class in and outside the legislature: hunger striking alongside taxi drivers to achieve more than $450 million in transformative debt relief, winning over $100 million in the state budget for increased subway service and a successful fare-free bus pilot, and organizing New Yorkers to defeat a proposed dirty power plant.{newParagraph}The cost of living is crushing working people but Zohran believes that government can lower costs and make life easier in our city — he’ll use every tool available to bring down the rent, create world class public transit, and make it easier to raise a family.",
     quote1:
@@ -47,6 +49,7 @@ export const pageContent = {
   },
   candidateEric: {
     name: "Eric Adams",
+    party: "democrat",
     website: "https://www.zohranfornyc.com/",
     bio: "Zohran Kwame Mamdani is a New York State Assemblymember and democratic socialist running for Mayor. Born in Uganda and raised in New York City, he has fought for the working class in and outside the legislature: hunger striking alongside taxi drivers to achieve more than $450 million in transformative debt relief, winning over $100 million in the state budget for increased subway service and a successful fare-free bus pilot, and organizing New Yorkers to defeat a proposed dirty power plant.{newParagraph}The cost of living is crushing working people but Zohran believes that government can lower costs and make life easier in our city — he’ll use every tool available to bring down the rent, create world class public transit, and make it easier to raise a family.",
     quote1:
@@ -61,8 +64,9 @@ export const pageContent = {
     quizResponse3:
       '1 | Mamdani said he\'d carry out the requirements of Local Law 195 and exceed its mandate for 150 miles of protected bus lanes and 250 miles of protected bike lanes at a mayoral forum hosted by Transportation Alternatives. | <a href="https://www.youtube.com/live/A2he_B5f3ZE">Mayoral Forum for Safe, Beautiful, Accessible Streets</a>, Feb 21, 2025',
   },
-  candidateBrad: {
-    name: "Brad Lander",
+  candidateSliwa: {
+    name: "Curtis Sliwa",
+    party: "republican",
     website: "https://www.zohranfornyc.com/",
     bio: "Zohran Kwame Mamdani is a New York State Assemblymember and democratic socialist running for Mayor. Born in Uganda and raised in New York City, he has fought for the working class in and outside the legislature: hunger striking alongside taxi drivers to achieve more than $450 million in transformative debt relief, winning over $100 million in the state budget for increased subway service and a successful fare-free bus pilot, and organizing New Yorkers to defeat a proposed dirty power plant.{newParagraph}The cost of living is crushing working people but Zohran believes that government can lower costs and make life easier in our city — he’ll use every tool available to bring down the rent, create world class public transit, and make it easier to raise a family.",
     quote1:

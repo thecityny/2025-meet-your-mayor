@@ -1,4 +1,4 @@
-export const pageContent = {
+export const questionContent = {
   questionX: {
     title: "The full text for the question.",
     subject:
