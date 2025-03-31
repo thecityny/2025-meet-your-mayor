@@ -226,7 +226,7 @@ const Quiz = () => {
       </div>
       <div className="container" style={{ maxWidth: "600px" }}>
         {Object.entries(questions).map((questionGroup, i) => (
-          <div key={i} className="question-group">
+          <div key={i}>
             <h2 className="headline has-text-left">{questionGroup[0]}</h2>
             {questionGroup[1].map((question) => {
               const {
@@ -240,7 +240,11 @@ const Quiz = () => {
                 skipped,
               } = question;
               return (
-                <div key={number} className="question">
+                <div
+                  key={number}
+                  className="mb-5"
+                  style={{ minHeight: "100vh" }}
+                >
                   <NumberLabel number={number} />
                   <h3 className="deck has-text-left mb-2">{title}</h3>
 
