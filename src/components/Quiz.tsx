@@ -18,53 +18,99 @@ const groupBy = <T, K extends keyof any>(
   }, {} as Record<K, T[]>);
 };
 
-type AnyObject = Record<string, any>;
+// type AnyObject = Record<string, any>;
 
-const modifyValuesByPrefix = <T extends AnyObject>(
-  obj: T,
-  prefix: string,
-  fn: (value: any) => any
-): T => {
-  return Object.fromEntries(
-    Object.entries(obj).map(([key, value]) =>
-      key.startsWith(prefix) ? [key, fn(value)] : [key, value]
-    )
-  ) as T;
+// const modifyValuesByPrefix = <T extends AnyObject>(
+//   obj: T,
+//   prefix: string,
+//   fn: (value: any) => any
+// ): T => {
+//   return Object.fromEntries(
+//     Object.entries(obj).map(([key, value]) =>
+//       key.startsWith(prefix) ? [key, fn(value)] : [key, value]
+//     )
+//   ) as T;
+// };
+
+const formatCandidateContent = () => {
+  const { candidateX, ...candidates } = candidateContent;
+  const splitCandidateInfo = (text: string) => text.split(" | ");
+
+  return Object.values(candidates).map((candidate) => {
+    const quizResponses = Object.entries(candidate)
+      .filter(([key]) => key.startsWith("quizResponse"))
+      .map(([, value]) => ({
+        optionNumber: splitCandidateInfo(value)[0],
+        quote: splitCandidateInfo(value)[1],
+        source: splitCandidateInfo(value)[2],
+      }));
+
+    const quotes = Object.entries(candidate)
+      .filter(([key]) => key.startsWith("quote"))
+      .map(([, value]) => ({
+        subject: splitCandidateInfo(value)[0],
+        quote: splitCandidateInfo(value)[1],
+        source: splitCandidateInfo(value)[2],
+      }));
+
+    return { responses: quizResponses, quotes, ...candidate };
+  });
 };
 
 const formatQuestionContent = () => {
+  const candidates = formatCandidateContent();
   const { questionX, ...questions } = questionContent;
   const questonsArray = Object.values(questions).map((question, i) => ({
-    number: i + 1,
     ...question,
+    number: i + 1,
+    option1: {
+      text: question.option1,
+      matchingCandidates: candidates
+        .filter((c) => c.responses[i].optionNumber === "1")
+        .map((c) => ({
+          name: c.name,
+          quote: c.responses[i].quote,
+          source: c.responses[i].source,
+        })),
+    },
+    option2: {
+      text: question.option2,
+      matchingCandidates: candidates
+        .filter((c) => c.responses[i].optionNumber === "2")
+        .map((c) => ({
+          name: c.name,
+          quote: c.responses[i].quote,
+          source: c.responses[i].source,
+        })),
+    },
+    option3: {
+      text: question.option3,
+      matchingCandidates: candidates
+        .filter((c) => c.responses[i].optionNumber === "3")
+        .map((c) => ({
+          name: c.name,
+          quote: c.responses[i].quote,
+          source: c.responses[i].source,
+        })),
+    },
+    option4: {
+      text: question.option4,
+      matchingCandidates: candidates
+        .filter((c) => c.responses[i].optionNumber === "4")
+        .map((c) => ({
+          name: c.name,
+          quote: c.responses[i].quote,
+          source: c.responses[i].source,
+        })),
+    },
   }));
 
   const questionsGroupedBySubject = groupBy(questonsArray, "subject");
   return questionsGroupedBySubject;
 };
 
-const formatCandidateContent = () => {
-  const { candidateX, ...candidates } = candidateContent;
-  const splitCandidateInfo = (text: string) => text.split(" | ");
-  const candidatesArray = Object.values(candidates)
-    .map((candidate, i) => ({
-      ...candidate,
-      number: i + 1,
-    }))
-    .map((candidate) =>
-      modifyValuesByPrefix(candidate, "quote", splitCandidateInfo)
-    )
-    .map((candidate) =>
-      modifyValuesByPrefix(candidate, "quizResponse", splitCandidateInfo)
-    );
-
-  return candidatesArray;
-};
-
 const Quiz = () => {
   const questions = formatQuestionContent();
-  const candidates = formatCandidateContent();
-  console.log(candidates);
 
   return (
     <>
@@ -107,10 +153,34 @@ const Quiz = () => {
               <div key={question.number} className="question">
                 {question.number} <h1>{question.title}</h1>
                 <p>{question.tellMeMore}</p>
-                <p>1: {question.option1}</p>
-                <p>2: {question.option2}</p>
-                <p>3: {question.option3}</p>
-                {question.option4 && <p>4: {question.option4}</p>}
+                <p>1: {question.option1.text}</p>
+                <p>
+                  {question.option1.matchingCandidates.map((candidate) => (
+                    <span key={candidate.name}>
+                      {candidate.name} ({candidate.quote}){" "}
+                      <a href={candidate.source}>source</a>
+                    </span>
+                  ))}
+                </p>
+                <p>2: {question.option2.text}</p>
+                <p>
+                  {question.option2.matchingCandidates.map((candidate) => (
+                    <span key={candidate.name}>
+                      {candidate.name} ({candidate.quote}){" "}
+                      <a href={candidate.source}>source</a>
+                    </span>
+                  ))}
+                </p>
+                <p>3: {question.option3.text}</p>
+                <p>
+                  {question.option3.matchingCandidates.map((candidate) => (
+                    <span key={candidate.name}>
+                      {candidate.name} ({candidate.quote}){" "}
+                      <a href={candidate.source}>source</a>
+                    </span>
+                  ))}
+                </p>
+                {question.option4?.text && <p>4: {question.option4.text}</p>}
               </div>
             ))}
           </div>
