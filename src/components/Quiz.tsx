@@ -343,18 +343,25 @@ const Quiz = () => {
                       )}
                     </>
                   )}
-                  <button
-                    className="button is-link is-outlined my-5"
-                    onClick={() => recordAnswer(number, "0")}
-                  >
-                    Skip this question.
-                  </button>
-                  {!!answerSelected && (
+
+                  {!!answerSelected ? (
                     <div>
                       <MatchingCandidates
                         candidates={skipped.matchingCandidates}
                       />
+                      {skipped.matchingCandidates.length > 0 && (
+                        <p className="is-inline-block mt-6">
+                          didn't respond to this question
+                        </p>
+                      )}
                     </div>
+                  ) : (
+                    <button
+                      className="button is-link is-outlined my-5"
+                      onClick={() => recordAnswer(number, "0")}
+                    >
+                      Skip this question.
+                    </button>
                   )}
                 </div>
               );
