@@ -3,6 +3,13 @@ import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
 import parse from "html-react-parser";
 
+/**
+ * Groups an array of objects by a specified key.
+ * @param array - The array to group.
+ * @param key - The key to group by.
+ * @returns An object where each key is a unique value from the specified key,
+ *           and the value is an array of objects that share that key value.
+ */
 const groupBy = <T, K extends keyof any>(
   array: T[],
   key: keyof T
@@ -19,6 +26,12 @@ const groupBy = <T, K extends keyof any>(
   }, {} as Record<K, T[]>);
 };
 
+/**
+ * Converts a string containing HTML to a React component.
+ *
+ * @param text - The string containing HTML to convert.
+ * @returns A React component representing the HTML.
+ */
 const convertToHtml = (text: string) => {
   let formattedText = text;
 
@@ -62,48 +75,33 @@ const formatCandidateContent = () => {
 const formatQuestionContent = () => {
   const candidates = formatCandidateContent();
   const { questionX, ...questions } = questionContent;
+  const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
+    candidates
+      .filter((c) => c.responses[questionIndex].optionNumber === quizOption)
+      .map((c) => ({
+        name: c.name,
+        quote: c.responses[questionIndex].quote,
+        source: c.responses[questionIndex].source,
+      }));
   const questonsArray = Object.values(questions).map((question, i) => ({
     ...question,
     number: i + 1,
     option1: {
       text: question.option1,
-      matchingCandidates: candidates
-        .filter((c) => c.responses[i].optionNumber === "1")
-        .map((c) => ({
-          name: c.name,
-          quote: c.responses[i].quote,
-          source: c.responses[i].source,
-        })),
+
+      matchingCandidates: findMatchingCandidates(i, "1"),
     },
     option2: {
       text: question.option2,
-      matchingCandidates: candidates
-        .filter((c) => c.responses[i].optionNumber === "2")
-        .map((c) => ({
-          name: c.name,
-          quote: c.responses[i].quote,
-          source: c.responses[i].source,
-        })),
+      matchingCandidates: findMatchingCandidates(i, "2"),
     },
     option3: {
       text: question.option3,
-      matchingCandidates: candidates
-        .filter((c) => c.responses[i].optionNumber === "3")
-        .map((c) => ({
-          name: c.name,
-          quote: c.responses[i].quote,
-          source: c.responses[i].source,
-        })),
+      matchingCandidates: findMatchingCandidates(i, "3"),
     },
     option4: {
       text: question.option4,
-      matchingCandidates: candidates
-        .filter((c) => c.responses[i].optionNumber === "4")
-        .map((c) => ({
-          name: c.name,
-          quote: c.responses[i].quote,
-          source: c.responses[i].source,
-        })),
+      matchingCandidates: findMatchingCandidates(i, "4"),
     },
     skipped: {
       matchingCandidates: candidates
