@@ -60,7 +60,7 @@ export const candidateContent = {
       "Feds | “What we saw under Donald Trump's first presidency is there's far more respect for someone who fights back than someone who simply relents” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">New York Editorial Board Interview</a>, Feb 2, 2025",
     quizResponse1:
       '2 |  “We have an opportunity here to do immense amounts of pedestrianization for the entire congestion pricing zone. We have an opportunity to expand busways, to harden busways. We have an opportunity to make one-way bike lanes into two-way bike lanes.” | <a href="https://www.youtube.com/live/lqQIiczm7Kc">Transit Riders Mayoral Forum</a>,  Dec 2, 2024',
-    quizResponse2: "3",
+    quizResponse2: "4",
     quizResponse3:
       '1 | Mamdani said he\'d carry out the requirements of Local Law 195 and exceed its mandate for 150 miles of protected bus lanes and 250 miles of protected bike lanes at a mayoral forum hosted by Transportation Alternatives. | <a href="https://www.youtube.com/live/A2he_B5f3ZE">Mayoral Forum for Safe, Beautiful, Accessible Streets</a>, Feb 21, 2025',
   },

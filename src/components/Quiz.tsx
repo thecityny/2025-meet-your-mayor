@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
 
@@ -17,20 +17,6 @@ const groupBy = <T, K extends keyof any>(
     return acc;
   }, {} as Record<K, T[]>);
 };
-
-// type AnyObject = Record<string, any>;
-
-// const modifyValuesByPrefix = <T extends AnyObject>(
-//   obj: T,
-//   prefix: string,
-//   fn: (value: any) => any
-// ): T => {
-//   return Object.fromEntries(
-//     Object.entries(obj).map(([key, value]) =>
-//       key.startsWith(prefix) ? [key, fn(value)] : [key, value]
-//     )
-//   ) as T;
-// };
 
 const formatCandidateContent = () => {
   const { candidateX, ...candidates } = candidateContent;
@@ -105,9 +91,20 @@ const formatQuestionContent = () => {
     },
   }));
 
-  const questionsGroupedBySubject = groupBy(questonsArray, "subject");
-  return questionsGroupedBySubject;
+  return groupBy(questonsArray, "subject");
 };
+
+type MatchingCandidate = {
+  name: string;
+  quote: string;
+  source: string;
+};
+
+const MatchingCandidate: FC<MatchingCandidate> = ({ name, quote, source }) => (
+  <span key={name}>
+    {name} {!!quote && `(${quote})`} {!!source && <a href={source}>source</a>}
+  </span>
+);
 
 const Quiz = () => {
   const questions = formatQuestionContent();
@@ -156,31 +153,31 @@ const Quiz = () => {
                 <p>1: {question.option1.text}</p>
                 <p>
                   {question.option1.matchingCandidates.map((candidate) => (
-                    <span key={candidate.name}>
-                      {candidate.name} ({candidate.quote}){" "}
-                      <a href={candidate.source}>source</a>
-                    </span>
+                    <MatchingCandidate {...candidate} />
                   ))}
                 </p>
                 <p>2: {question.option2.text}</p>
                 <p>
                   {question.option2.matchingCandidates.map((candidate) => (
-                    <span key={candidate.name}>
-                      {candidate.name} ({candidate.quote}){" "}
-                      <a href={candidate.source}>source</a>
-                    </span>
+                    <MatchingCandidate {...candidate} />
                   ))}
                 </p>
                 <p>3: {question.option3.text}</p>
                 <p>
                   {question.option3.matchingCandidates.map((candidate) => (
-                    <span key={candidate.name}>
-                      {candidate.name} ({candidate.quote}){" "}
-                      <a href={candidate.source}>source</a>
-                    </span>
+                    <MatchingCandidate {...candidate} />
                   ))}
                 </p>
-                {question.option4?.text && <p>4: {question.option4.text}</p>}
+                {question.option4?.text && (
+                  <>
+                    <p>4: {question.option4.text}</p>
+                    <p>
+                      {question.option4.matchingCandidates.map((candidate) => (
+                        <MatchingCandidate {...candidate} />
+                      ))}
+                    </p>
+                  </>
+                )}
               </div>
             ))}
           </div>
