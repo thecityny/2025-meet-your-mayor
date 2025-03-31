@@ -48,4 +48,15 @@ export const questionContent = {
     option3: "Do not issue summonses for fare nonpayment",
     option4: "",
   },
+  question4: {
+    title: "How should the NYPD enforce transit fares?",
+    subject: "Law Enforcement",
+    tellMeMore:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. {newParagraph} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    option1:
+      "More consistent summonses for violators — additional fare enforcement is needed",
+    option2: "Fewer summonses for violators — enforcement is too aggressive",
+    option3: "Do not issue summonses for fare nonpayment",
+    option4: "",
+  },
 };

@@ -4,6 +4,7 @@ import { candidateContent } from "../candidate-content";
 import parse from "html-react-parser";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import classnames from "classnames";
+import Results from "./Results";
 
 /**
  * Groups an array of objects by a specified key.
@@ -74,7 +75,7 @@ const formatCandidateContent = () => {
   });
 };
 
-const formatQuestionContent = () => {
+export const formatQuestionContent = () => {
   const candidates = formatCandidateContent();
   const { questionX, ...questions } = questionContent;
   const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
@@ -119,7 +120,7 @@ const formatQuestionContent = () => {
   return groupBy(questonsArray, "subject");
 };
 
-type QuizInput = {
+export type QuizInput = {
   questionNumber: number;
   numberOfOptions: number;
   answer: string | null;
@@ -415,7 +416,23 @@ const Quiz = () => {
             })}
           </div>
         ))}
+        <div
+          id={`question-${answers.length + 1}`}
+          className="container mb-5"
+          style={{ minHeight: "100vh", maxWidth: "600px" }}
+        >
+          <h2 className="headline has-text-left">
+            Now, pick which topics matter most to you
+          </h2>
+          <h3 className="deck has-text-left mb-2">
+            Choose up to 3. These will impact your matching score more
+          </h3>
+        </div>
       </div>
+      <Results
+        answers={answers}
+        resetAnswers={() => setAnswers(createBlankAnswersList())}
+      />
     </>
   );
 };
