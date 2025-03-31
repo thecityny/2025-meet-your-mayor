@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
+import parse from "html-react-parser";
 
 const groupBy = <T, K extends keyof any>(
   array: T[],
@@ -16,6 +17,21 @@ const groupBy = <T, K extends keyof any>(
     acc[groupKey].push(item);
     return acc;
   }, {} as Record<K, T[]>);
+};
+
+const convertToHtml = (text: string) => {
+  let formattedText = text;
+
+  // Make links outbound:
+  formattedText = formattedText.replace(
+    "<a href=",
+    '<a target="_blank" rel="noopener noreferrer" href='
+  );
+
+  // Fix double spaces and non-spaced commas:
+  formattedText = formattedText.replace("  ", " ").replace(",", ", ");
+
+  return parse(formattedText);
 };
 
 const formatCandidateContent = () => {
@@ -89,6 +105,15 @@ const formatQuestionContent = () => {
           source: c.responses[i].source,
         })),
     },
+    skipped: {
+      matchingCandidates: candidates
+        .filter((c) => !c.responses[i].optionNumber)
+        .map((c) => ({
+          name: c.name,
+          quote: null,
+          source: null,
+        })),
+    },
   }));
 
   return groupBy(questonsArray, "subject");
@@ -109,25 +134,59 @@ const NumberLabel: FC<{ number: number }> = ({ number }) => (
 
 type MatchingCandidate = {
   name: string;
-  quote: string;
-  source: string;
+  quote: string | null;
+  source: string | null;
 };
 
 const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
   candidates,
-}) => (
-  <>
-    {candidates.map((candidate, i) => {
-      const { name, quote, source } = candidate;
-      return (
-        <span key={i}>
-          <div className="tag">{name}</div>
-          {!!quote && `(${quote})`} {!!source && <a href={source}>source</a>}
+}) => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  const handleClick = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  return isExpanded ? (
+    <>
+      {candidates.map((candidate, i) => {
+        const { name, quote, source } = candidate;
+        return (
+          <span key={i}>
+            <div className="tag mb-2">{name}</div>
+            {quote && (
+              <div className="mb-5">
+                <p className="copy">{quote}</p>
+                {source && <span> - From {convertToHtml(source)}</span>}
+              </div>
+            )}
+          </span>
+        );
+      })}
+      <p className="is-inline-block is-underlined" onClick={handleClick}>
+        Hide responses -
+      </p>
+    </>
+  ) : (
+    <>
+      {candidates.map((candidate, i) => {
+        const { name } = candidate;
+
+        return (
+          <span key={i}>
+            <div className="tag mr-2">{name}</div>
+          </span>
+        );
+      })}
+      {candidates.length > 0 && candidates.filter((c) => !!c.quote).length > 0 && (
+        <span key="x" onClick={handleClick}>
+          <div className="mx-2 is-inline-block is-underlined">
+            See responses +
+          </div>
         </span>
-      );
-    })}
-  </>
-);
+      )}
+    </>
+  );
+};
 
 const Quiz = () => {
   const questions = formatQuestionContent();
@@ -178,6 +237,7 @@ const Quiz = () => {
                 option2,
                 option3,
                 option4,
+                skipped,
               } = question;
               return (
                 <div key={number} className="question">
@@ -189,7 +249,7 @@ const Quiz = () => {
                     {tellMeMore}
                   </details>
 
-                  <button className="button is-link is-light mb-5">
+                  <button className="button is-link is-light my-5">
                     {option1.text}
                   </button>
 
@@ -198,7 +258,7 @@ const Quiz = () => {
                       candidates={option1.matchingCandidates}
                     />
                   </p>
-                  <button className="button is-link is-light mb-5">
+                  <button className="button is-link is-light my-5">
                     {option2.text}
                   </button>
                   <p>
@@ -206,7 +266,7 @@ const Quiz = () => {
                       candidates={option2.matchingCandidates}
                     />
                   </p>
-                  <button className="button is-link is-light mb-5">
+                  <button className="button is-link is-light my-5">
                     {option3.text}
                   </button>
                   <p>
@@ -216,7 +276,7 @@ const Quiz = () => {
                   </p>
                   {option4?.text && (
                     <>
-                      <button className="button is-link is-light mb-5">
+                      <button className="button is-link is-light my-5">
                         {option4.text}
                       </button>
                       <p>
@@ -226,9 +286,14 @@ const Quiz = () => {
                       </p>
                     </>
                   )}
-                  <button className="button is-link is-outlined mb-5">
+                  <button className="button is-link is-outlined my-5">
                     Skip this question.
                   </button>
+                  <p>
+                    <MatchingCandidates
+                      candidates={skipped.matchingCandidates}
+                    />
+                  </p>
                 </div>
               );
             })}
