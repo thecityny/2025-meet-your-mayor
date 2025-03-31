@@ -217,7 +217,7 @@ const Quiz = () => {
     setAnswers(updatedAnswers);
   };
 
-  const clearAnswer = (answerList: QuizInput[], questionNumber: number) =>
+  const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
 
   return (
@@ -276,6 +276,7 @@ const Quiz = () => {
               return (
                 <div
                   key={number}
+                  id={`question-${number}`}
                   className="mb-5"
                   style={{ minHeight: "100vh" }}
                 >
@@ -372,16 +373,35 @@ const Quiz = () => {
                   )}
 
                   {!!answerSelected ? (
-                    <div>
-                      <MatchingCandidates
-                        candidates={skipped.matchingCandidates}
-                      />
-                      {skipped.matchingCandidates.length > 0 && (
-                        <p className="is-inline-block mt-6">
-                          didn't respond to this question
-                        </p>
-                      )}
-                    </div>
+                    <>
+                      <div className="mb-6">
+                        <MatchingCandidates
+                          candidates={skipped.matchingCandidates}
+                        />
+                        {skipped.matchingCandidates.length > 0 && (
+                          <p className="is-inline-block mt-6">
+                            didn't respond to this question
+                          </p>
+                        )}
+                      </div>
+                      <div className="field is-grouped">
+                        <AnchorLink
+                          href={`#question-${number + 1}`}
+                          offset={120}
+                          className="control"
+                        >
+                          <button className="button is-link">
+                            Next Question
+                          </button>
+                        </AnchorLink>
+                        <button
+                          className="button is-link is-outlined"
+                          onClick={() => clearAnswer(number)}
+                        >
+                          Change answer
+                        </button>
+                      </div>
+                    </>
                   ) : (
                     <button
                       className="button is-link is-outlined my-5"
