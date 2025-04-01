@@ -241,15 +241,15 @@ const Results: React.FC<ResultsProps> = ({
                     </h2>
                   </summary>
                   {Object.entries(groupBy(candidate.scoreList, "subject")).map(
-                    (questionGroup) => (
-                      <div className="mb-2 p-2">
+                    (questionGroup, i) => (
+                      <div className="mb-2 p-2" key={i}>
                         <h3 className="has-text-weight-semibold">
                           {favoriteTopics.has(questionGroup[0]) && "★"}{" "}
                           {questionGroup[0]}{" "}
                           {favoriteTopics.has(questionGroup[0]) && "★"}
                         </h3>
                         {questionGroup[1].map((question, i) => (
-                          <div key={question.questionNumber}>
+                          <div key={i}>
                             Question {question.questionNumber}:{" "}
                             {question.points} points
                             <br />
