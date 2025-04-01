@@ -2,17 +2,32 @@ import React from "react";
 import { PageLayout } from "./PageLayout";
 import { Link } from "gatsby";
 import { OutboundLink } from "./OutboundLink";
+import { formatCandidateContent } from "./QuizContent";
+import { convertToHtml, formatContent } from "../utils";
 
-const ExamplePage: React.FC<{ pageContext: any }> = ({ pageContext }) => (
-  <PageLayout customMetadata={{ siteName: pageContext.candidateName }}>
-    <div>
+const splitByFirstComma = (text: string) => {
+  let textSplit = text.split(",");
+  const firstBit = textSplit.shift();
+  return [firstBit, textSplit.join(",")];
+};
+
+const ExamplePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
+  const { candidateName } = pageContext;
+  const candidateInfo = formatCandidateContent().find(
+    (candidate) => candidate.name === candidateName
+  );
+
+  if (!candidateInfo) return <></>;
+
+  const { website, bio, quotes } = candidateInfo;
+
+  return (
+    <PageLayout customMetadata={{ siteName: candidateName }}>
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
         <Link to="/" className="byline is-underlined">
           Meet your mayor
         </Link>
-        <h1 className="headline has-text-left mt-1">
-          {pageContext.candidateName}
-        </h1>
+        <h1 className="headline has-text-left mt-1">{candidateName}</h1>
         <div className="columns">
           <div className="column">
             <div
@@ -29,29 +44,52 @@ const ExamplePage: React.FC<{ pageContext: any }> = ({ pageContext }) => (
       </div>
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
         <div className="field is-grouped">
-          <OutboundLink to={"TKTKTK"} className="control">
+          <OutboundLink to={website} className="control">
             <button className="button is-link">Website</button>
           </OutboundLink>
           <Link to="/" className="button is-link is-outlined">
             See if you're a match
           </Link>
         </div>
-        <p className="copy has-text-left mt-5">
-          Voters of New York City: It’s time to pick your nominee for mayor,
-          with primary day approaching on June 22. Since March, THE CITY has
-          been presenting the candidates’ positions, issue by issue. Meet Your
-          Mayor shows you how the contenders' stands fit with your take on what
-          matters most to New Yorkers.
-        </p>
-        <p className="copy has-text-left my-5">
-          Now we’ve pulled all 15 Meet Your Mayor editions into one final,
-          supersized superquiz that will show you your ultimate match. Actually,
-          your top matches, since voters will be ranking up to five selections
-          at the polls.
-        </p>
+        <div className="my-5 py-5">{formatContent(bio)}</div>
       </div>
-    </div>
-  </PageLayout>
-);
+      <div className="columns has-background-info has-text-black">
+        {quotes.map((quoteInfo, i) => {
+          const { subject, quote, source } = quoteInfo;
+          return (
+            <div className="column" key={i}>
+              <div className="container px-6 pt-6 pb-5">
+                <div className="mb-2">ON: {subject}</div>
+                <div className="mb-5">
+                  <p className="copy">{formatContent(quote)}</p>
+                  {source && (
+                    <span>
+                      {splitByFirstComma(source).map((text, i) => (
+                        <p key={i} className="copy mb-0">
+                          {text && convertToHtml(text)}
+                        </p>
+                      ))}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="container pt-6" style={{ maxWidth: "600px" }}>
+        <h1 className="headline has-text-left mt-1">Positions on Key Issues</h1>
+        <div className="copy my-5">
+          THE CITY sent three multiple-choice surveys to every Democratic and
+          Republican mayoral candidate on the ballot for the June 22 primary,
+          starting in March. See how Zohran Mamdani answered below.
+        </div>
+        <Link to="/" className="button is-link">
+          Take our quiz
+        </Link>
+      </div>
+    </PageLayout>
+  );
+};
 
 export default ExamplePage;

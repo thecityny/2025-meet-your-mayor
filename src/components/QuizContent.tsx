@@ -7,7 +7,7 @@ import { groupBy } from "../utils";
  * and formats it into a organized JS object that keeps track of all
  * candidates' responses to quiz questions, with explanations.
  */
-const formatCandidateContent = () => {
+export const formatCandidateContent = () => {
   const { candidateX, ...candidates } = candidateContent;
   const splitCandidateInfo = (text: string) => text.split(" | ");
 
