@@ -1,5 +1,7 @@
 import React from "react";
 import { PageLayout } from "../components/PageLayout";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import Quiz from "../components/Quiz";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -7,42 +9,40 @@ const byline = process.env.GATSBY_AUTHOR
 
 const Homepage = () => (
   <PageLayout>
-    <div>
-      <div className="container">
-        <h1 className="headline">This is not a headline</h1>
-        <div className="attribution">
-          <p className="byline">
-            By{" "}
-            {byline.map((author: any, i: number) => (
-              <span key={i} className="author">
-                <a href={author.url}>{author.name}</a>
-                {i < byline.length - 2
-                  ? ", "
-                  : i < byline.length - 1
-                  ? " and "
-                  : ""}
-              </span>
-            ))}
-          </p>
+    <div className="hero is-fullheight-with-navbar">
+      <div className="hero-body">
+        <div>
+          <h1 className="headline has-text-left">Meet your Mayor: 2025</h1>
+          <div className="attribution">
+            <p className="byline has-text-left mb-0">
+              By{" "}
+              {byline.map((author: any, i: number) => (
+                <span key={i} className="author">
+                  <a href={author.url}>{author.name}</a>
+                  {i < byline.length - 2
+                    ? ", "
+                    : i < byline.length - 1
+                    ? " and "
+                    : ""}
+                </span>
+              ))}
+            </p>
+            <p className="byline has-text-left mt-0 mb-4">
+              In partnership with WNYC
+            </p>
+            <p className="copy has-text-left" style={{ maxWidth: "600px" }}>
+              Candidates for NYC mayor told us where they stand on 15 big
+              issues. Now you can pick your positions and see which contenders
+              are the right ones for you.
+            </p>
+            <AnchorLink href="#quiz" className="button is-primary">
+              TAKE THE QUIZ
+            </AnchorLink>
+          </div>
         </div>
       </div>
-
-      <br />
-
-      <div className="container">
-        <p className="copy">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-          pellentesque luctus magna sed auctor. Cras ullamcorper urna mattis
-          lectus sagittis, quis vehicula dui vestibulum.
-        </p>
-        <p className="copy">
-          Aliquam sollicitudin libero vel diam cursus, ut egestas ex
-          scelerisque. Nullam vestibulum metus interdum, dictum erat vel, luctus
-          elit. Nullam aliquam ante elit, mollis aliquet nulla efficitur
-          molestie. Praesent a tempus mi.
-        </p>
-      </div>
     </div>
+    <Quiz />
   </PageLayout>
 );
 
