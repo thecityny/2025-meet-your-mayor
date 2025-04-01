@@ -250,8 +250,6 @@ const Quiz = () => {
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
 
-  console.log(favoriteTopics);
-
   return (
     <>
       <div className="hero is-fullheight-with-navbar" id="quiz">
@@ -302,9 +300,11 @@ const Quiz = () => {
                 option4,
                 skipped,
               } = question;
+
               const answerSelected = answers.find(
                 (answer) => answer.questionNumber === number
               )?.answer;
+
               return (
                 <div
                   key={number}
@@ -319,20 +319,20 @@ const Quiz = () => {
                     <summary>Tell me more</summary>
                     {formatContent(tellMeMore)}
                   </details>
-
-                  <button
-                    className={classnames(
-                      "button",
-                      "is-link",
-                      "my-5",
-                      !!answerSelected && answerSelected !== "1" && "is-dark"
-                    )}
-                    onClick={() => recordAnswer(number, "1")}
-                    disabled={!!answerSelected}
-                  >
-                    {option1.text}
-                  </button>
-
+                  <div style={{ width: "100%" }}>
+                    <button
+                      className={classnames(
+                        "button",
+                        "is-link",
+                        "my-2",
+                        !!answerSelected && answerSelected !== "1" && "is-dark"
+                      )}
+                      onClick={() => recordAnswer(number, "1")}
+                      disabled={!!answerSelected}
+                    >
+                      {option1.text}
+                    </button>
+                  </div>
                   {!!answerSelected && (
                     <div>
                       <MatchingCandidates
@@ -340,18 +340,20 @@ const Quiz = () => {
                       />
                     </div>
                   )}
-                  <button
-                    className={classnames(
-                      "button",
-                      "is-link",
-                      "my-5",
-                      !!answerSelected && answerSelected !== "2" && "is-dark"
-                    )}
-                    onClick={() => recordAnswer(number, "2")}
-                    disabled={!!answerSelected}
-                  >
-                    {option2.text}
-                  </button>
+                  <div style={{ width: "100%" }}>
+                    <button
+                      className={classnames(
+                        "button",
+                        "is-link",
+                        "my-3",
+                        !!answerSelected && answerSelected !== "2" && "is-dark"
+                      )}
+                      onClick={() => recordAnswer(number, "2")}
+                      disabled={!!answerSelected}
+                    >
+                      {option2.text}
+                    </button>
+                  </div>
                   {!!answerSelected && (
                     <div>
                       <MatchingCandidates
@@ -359,18 +361,20 @@ const Quiz = () => {
                       />
                     </div>
                   )}
-                  <button
-                    className={classnames(
-                      "button",
-                      "is-link",
-                      "my-5",
-                      !!answerSelected && answerSelected !== "3" && "is-dark"
-                    )}
-                    onClick={() => recordAnswer(number, "3")}
-                    disabled={!!answerSelected}
-                  >
-                    {option3.text}
-                  </button>
+                  <div style={{ width: "100%" }}>
+                    <button
+                      className={classnames(
+                        "button",
+                        "is-link",
+                        "my-3",
+                        !!answerSelected && answerSelected !== "3" && "is-dark"
+                      )}
+                      onClick={() => recordAnswer(number, "3")}
+                      disabled={!!answerSelected}
+                    >
+                      {option3.text}
+                    </button>
+                  </div>
                   {!!answerSelected && (
                     <div>
                       <MatchingCandidates
@@ -379,12 +383,12 @@ const Quiz = () => {
                     </div>
                   )}
                   {option4?.text && (
-                    <>
+                    <div style={{ width: "100%" }}>
                       <button
                         className={classnames(
                           "button",
                           "is-link",
-                          "my-5",
+                          "my-3",
                           !!answerSelected &&
                             answerSelected !== "4" &&
                             "is-dark"
@@ -401,7 +405,7 @@ const Quiz = () => {
                           />
                         </div>
                       )}
-                    </>
+                    </div>
                   )}
 
                   {!!answerSelected ? (
