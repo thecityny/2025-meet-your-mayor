@@ -79,8 +79,11 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
   );
 };
 
+type Party = "Democrat" | "Republican" | "Independent" | null;
+
 const Quiz = () => {
   const questions = formatQuestionContent();
+  const [party, setParty] = React.useState<Party>(null);
   const [answers, setAnswers] = React.useState(createBlankAnswersList());
 
   const recordAnswer = (questionNumber: number, answer: string | null) => {
@@ -192,12 +195,25 @@ const Quiz = () => {
 
                 <div className="field is-grouped">
                   <AnchorLink href="#questions" className="control">
-                    <button className="button is-link">Democrat</button>
+                    <button
+                      className="button is-link"
+                      onClick={() => setParty("Democrat")}
+                    >
+                      Democrat
+                    </button>
                   </AnchorLink>
-                  <AnchorLink href="#questions" className="control">
+                  <AnchorLink
+                    href="#questions"
+                    onClick={() => setParty("Republican")}
+                    className="control"
+                  >
                     <button className="button is-link">Republican</button>
                   </AnchorLink>
-                  <AnchorLink href="#questions" className="control">
+                  <AnchorLink
+                    href="#questions"
+                    onClick={() => setParty("Independent")}
+                    className="control"
+                  >
                     <button className="button is-link">All</button>
                   </AnchorLink>
                 </div>
@@ -206,122 +222,129 @@ const Quiz = () => {
           </div>
         </div>
       </div>
-      <div className="container" style={{ maxWidth: "600px" }} id="questions">
-        {Object.entries(questions).map((questionGroup, i) => (
-          <div key={i} className="py-5">
-            <h2 className="headline has-text-left">{questionGroup[0]}</h2>
-            {questionGroup[1].map((question) => {
-              const {
-                number,
-                title,
-                tellMeMore,
-                option1,
-                option2,
-                option3,
-                option4,
-                skipped,
-              } = question;
+      <div id="questions">
+        <div style={{ display: !!party ? "block" : "none" }}>
+          <div className="container" style={{ maxWidth: "600px" }}>
+            {Object.entries(questions).map((questionGroup, i) => (
+              <div key={i} className="py-5">
+                <h2 className="headline has-text-left">{questionGroup[0]}</h2>
+                {questionGroup[1].map((question) => {
+                  const {
+                    number,
+                    title,
+                    tellMeMore,
+                    option1,
+                    option2,
+                    option3,
+                    option4,
+                    skipped,
+                  } = question;
 
-              const answerSelected = answers.find(
-                (answer) => answer.questionNumber === number
-              )?.answer;
+                  const answerSelected = answers.find(
+                    (answer) => answer.questionNumber === number
+                  )?.answer;
 
-              return (
-                <div
-                  key={number}
-                  id={`question-${number}`}
-                  className="mb-5"
-                  style={{ minHeight: "100vh" }}
-                >
-                  <NumberLabel number={number} />
-                  <h3 className="deck has-text-left mb-2">{title}</h3>
-
-                  <details className="mb-5">
-                    <summary>Tell me more</summary>
-                    {formatContent(tellMeMore)}
-                  </details>
-                  {[option1, option2, option3, option4].map((optionInfo, i) =>
-                    !!optionInfo.text ? (
-                      <div key={i}>
-                        <div style={{ width: "100%" }}>
-                          <button
-                            className={classnames(
-                              "button",
-                              "is-link",
-                              "my-2",
-                              !!answerSelected &&
-                                answerSelected !== `${i + 1}` &&
-                                "is-dark"
-                            )}
-                            onClick={() => recordAnswer(number, `${i + 1}`)}
-                            disabled={!!answerSelected}
-                          >
-                            {optionInfo.text}
-                          </button>
-                        </div>
-                        {!!answerSelected && (
-                          <div>
-                            <MatchingCandidates
-                              candidates={optionInfo.matchingCandidates}
-                            />
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <></>
-                    )
-                  )}
-
-                  {!!answerSelected ? (
-                    <>
-                      <div className="mb-6">
-                        <MatchingCandidates
-                          candidates={skipped.matchingCandidates}
-                        />
-                        {skipped.matchingCandidates.length > 0 && (
-                          <p className="is-inline-block mt-6">
-                            didn't respond to this question
-                          </p>
-                        )}
-                      </div>
-                      <div className="field is-grouped">
-                        <AnchorLink
-                          href={`#question-${number + 1}`}
-                          offset={QUESTION_ANCHOR_LINK_OFFSET}
-                          className="control"
-                        >
-                          <button className="button is-link">
-                            Next Question
-                          </button>
-                        </AnchorLink>
-                        <button
-                          className="button is-link is-outlined"
-                          onClick={() => clearAnswer(number)}
-                        >
-                          Change answer
-                        </button>
-                      </div>
-                    </>
-                  ) : (
-                    <button
-                      className="button is-link is-outlined my-5"
-                      onClick={() => recordAnswer(number, "0")}
+                  return (
+                    <div
+                      key={number}
+                      id={`question-${number}`}
+                      className="mb-5"
+                      style={{ minHeight: "100vh" }}
                     >
-                      Skip this question.
-                    </button>
-                  )}
-                </div>
-              );
-            })}
+                      <NumberLabel number={number} />
+                      <h3 className="deck has-text-left mb-2">{title}</h3>
+
+                      <details className="mb-5">
+                        <summary>Tell me more</summary>
+                        {formatContent(tellMeMore)}
+                      </details>
+                      {[option1, option2, option3, option4].map(
+                        (optionInfo, i) =>
+                          !!optionInfo.text ? (
+                            <div key={i}>
+                              <div style={{ width: "100%" }}>
+                                <button
+                                  className={classnames(
+                                    "button",
+                                    "is-link",
+                                    "my-2",
+                                    !!answerSelected &&
+                                      answerSelected !== `${i + 1}` &&
+                                      "is-dark"
+                                  )}
+                                  onClick={() =>
+                                    recordAnswer(number, `${i + 1}`)
+                                  }
+                                  disabled={!!answerSelected}
+                                >
+                                  {optionInfo.text}
+                                </button>
+                              </div>
+                              {!!answerSelected && (
+                                <div>
+                                  <MatchingCandidates
+                                    candidates={optionInfo.matchingCandidates}
+                                  />
+                                </div>
+                              )}
+                            </div>
+                          ) : (
+                            <></>
+                          )
+                      )}
+
+                      {!!answerSelected ? (
+                        <>
+                          <div className="mb-6">
+                            <MatchingCandidates
+                              candidates={skipped.matchingCandidates}
+                            />
+                            {skipped.matchingCandidates.length > 0 && (
+                              <p className="is-inline-block mt-6">
+                                didn't respond to this question
+                              </p>
+                            )}
+                          </div>
+                          <div className="field is-grouped">
+                            <AnchorLink
+                              href={`#question-${number + 1}`}
+                              offset={QUESTION_ANCHOR_LINK_OFFSET}
+                              className="control"
+                            >
+                              <button className="button is-link">
+                                Next Question
+                              </button>
+                            </AnchorLink>
+                            <button
+                              className="button is-link is-outlined"
+                              onClick={() => clearAnswer(number)}
+                            >
+                              Change answer
+                            </button>
+                          </div>
+                        </>
+                      ) : (
+                        <button
+                          className="button is-link is-outlined my-5"
+                          onClick={() => recordAnswer(number, "0")}
+                        >
+                          Skip this question.
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
           </div>
-        ))}
+          <Results
+            favoriteTopics={favoriteTopics}
+            changeFavoriteTopics={changeFavoriteTopics}
+            answers={answers}
+            resetAnswers={() => setAnswers(createBlankAnswersList())}
+          />
+        </div>
       </div>
-      <Results
-        favoriteTopics={favoriteTopics}
-        changeFavoriteTopics={changeFavoriteTopics}
-        answers={answers}
-        resetAnswers={() => setAnswers(createBlankAnswersList())}
-      />
     </>
   );
 };
