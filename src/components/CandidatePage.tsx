@@ -12,7 +12,7 @@ const splitByFirstComma = (text: string) => {
   return [firstBit, textSplit.join(",")];
 };
 
-const ExamplePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
+const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { candidateName } = pageContext;
   const firstName = candidateName.split(" ")[0];
   const candidateInfo = formatCandidateContent().find(
@@ -96,4 +96,4 @@ const ExamplePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   );
 };
 
-export default ExamplePage;
+export default CandidatePage;
