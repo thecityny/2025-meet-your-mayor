@@ -90,10 +90,36 @@ const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
   });
 };
 
-export const getQuestionsLeftToAnswer = (answers: QuizInput[]) =>
-  answers
+export function useFavoriteTopics() {
+  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
+    new Set()
+  );
+
+  const changeFavoriteTopics = (topic: string) =>
+    setFavoriteTopics((prevSet) => {
+      const newSet = new Set(prevSet); // Create a copy of the previous Set
+      prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
+      return newSet; // Return the updated Set
+    });
+  return { favoriteTopics, changeFavoriteTopics };
+}
+
+export const getQuestionsLeftToAnswer = (
+  answers: QuizInput[],
+  pickedFavoriteTopics: boolean
+) => {
+  let remainingQuestions = answers
     .filter((question) => question.answer === null)
     .map((question) => question.questionNumber);
+
+  // If the user hasn't selected their favorite quiz topics, make sure that
+  // question number is included in the list of questions left to answer:
+  if (!pickedFavoriteTopics) {
+    remainingQuestions.push(answers.length + 1);
+  }
+
+  return remainingQuestions;
+};
 
 /**
  * Total matching candidates we should show users in their quiz results.
@@ -101,25 +127,16 @@ export const getQuestionsLeftToAnswer = (answers: QuizInput[]) =>
 const MATCHES_TO_SHOW = 5;
 
 const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
-  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
-    new Set()
-  );
-  const changeFavoriteTopics = (topic: string) =>
-    setFavoriteTopics((prevSet) => {
-      const newSet = new Set(prevSet); // Create a copy of the previous Set
-      prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
-      return newSet; // Return the updated Set
-    });
+  const { favoriteTopics, changeFavoriteTopics } = useFavoriteTopics();
+
+  console.log("results page: ", favoriteTopics);
 
   const score = calculateScore(answers, favoriteTopics);
   const totalPossiblePoints = answers.length + favoriteTopics.size;
-  let questionsLeftToAnswer = getQuestionsLeftToAnswer(answers);
-
-  // If the user hasn't selected their favorite quiz topics, make sure that
-  // question number is included in the list of questions left to answer:
-  if (favoriteTopics.size === 0) {
-    questionsLeftToAnswer.push(answers.length + 1);
-  }
+  let questionsLeftToAnswer = getQuestionsLeftToAnswer(
+    answers,
+    favoriteTopics.size > 0
+  );
 
   return (
     <>

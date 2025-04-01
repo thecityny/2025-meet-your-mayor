@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import classnames from "classnames";
-import Results from "./Results";
+import Results, {
+  getQuestionsLeftToAnswer,
+  useFavoriteTopics,
+} from "./Results";
 import { formatContent } from "../utils";
 import { createBlankAnswersList, formatQuestionContent } from "./QuizContent";
 
@@ -96,6 +99,13 @@ const Quiz = () => {
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
 
+  const { favoriteTopics } = useFavoriteTopics();
+  console.log("quiz page: ", favoriteTopics);
+  const questionsLeftToAnswer = getQuestionsLeftToAnswer(
+    answers,
+    favoriteTopics.size > 0
+  );
+
   return (
     <>
       <div className="hero is-fullheight-with-navbar" id="quiz">
@@ -115,19 +125,76 @@ const Quiz = () => {
               Actually, your top matches, since voters will be ranking up to
               five selections at the polls.
             </p>
-            <h2 className="deck has-text-left">To start, pick your party:</h2>
 
-            <div className="field is-grouped">
-              <AnchorLink href="#questions" className="control">
-                <button className="button is-link">Democrat</button>
-              </AnchorLink>
-              <AnchorLink href="#questions" className="control">
-                <button className="button is-link">Republican</button>
-              </AnchorLink>
-              <AnchorLink href="#questions" className="control">
-                <button className="button is-link">All</button>
-              </AnchorLink>
-            </div>
+            {questionsLeftToAnswer.length === 0 ? (
+              <>
+                <h2 className="deck has-text-left">
+                  You completed the quiz on TKTKT!
+                </h2>
+
+                <div className="field is-grouped">
+                  <AnchorLink
+                    href="#results"
+                    offset={QUESTION_ANCHOR_LINK_OFFSET}
+                    className="control"
+                  >
+                    <button className="button is-link">See my Results</button>
+                  </AnchorLink>
+                  <AnchorLink
+                    href="#question-1"
+                    offset={QUESTION_ANCHOR_LINK_OFFSET}
+                    className="button is-link is-outlined"
+                    onClick={() => setAnswers(createBlankAnswersList())}
+                  >
+                    Reset Answers
+                  </AnchorLink>
+                </div>
+              </>
+            ) : questionsLeftToAnswer.length < answers.length ? (
+              <>
+                <>
+                  <h2 className="deck has-text-left">
+                    You started the quiz already!
+                  </h2>
+
+                  <div className="field is-grouped">
+                    <AnchorLink
+                      href={`#question-${questionsLeftToAnswer[0]}`}
+                      offset={QUESTION_ANCHOR_LINK_OFFSET}
+                      className="control"
+                    >
+                      <button className="button is-link">Continue</button>
+                    </AnchorLink>
+                    <AnchorLink
+                      href="#question-1"
+                      offset={QUESTION_ANCHOR_LINK_OFFSET}
+                      className="button is-link is-outlined"
+                      onClick={() => setAnswers(createBlankAnswersList())}
+                    >
+                      Reset Answers
+                    </AnchorLink>
+                  </div>
+                </>
+              </>
+            ) : (
+              <>
+                <h2 className="deck has-text-left">
+                  To start, pick your party:
+                </h2>
+
+                <div className="field is-grouped">
+                  <AnchorLink href="#questions" className="control">
+                    <button className="button is-link">Democrat</button>
+                  </AnchorLink>
+                  <AnchorLink href="#questions" className="control">
+                    <button className="button is-link">Republican</button>
+                  </AnchorLink>
+                  <AnchorLink href="#questions" className="control">
+                    <button className="button is-link">All</button>
+                  </AnchorLink>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
