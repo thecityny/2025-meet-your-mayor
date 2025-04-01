@@ -18,7 +18,7 @@ export const QUESTION_ANCHOR_LINK_OFFSET = 120;
  * @returns An object where each key is a unique value from the specified key,
  *           and the value is an array of objects that share that key value.
  */
-const groupBy = <T, K extends keyof any>(
+export const groupBy = <T, K extends keyof any>(
   array: T[],
   key: keyof T
 ): Record<K, T[]> => {

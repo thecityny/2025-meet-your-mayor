@@ -1,6 +1,7 @@
 import React from "react";
 import {
   formatQuestionContent,
+  groupBy,
   NumberLabel,
   QUESTION_ANCHOR_LINK_OFFSET,
   QuizInput,
@@ -15,7 +16,7 @@ type ResultsProps = {
 
 type ScoreCard = {
   candidateName: string;
-  scoreList: { questionNumber: number; points: number }[];
+  scoreList: { questionNumber: number; subject: string; points: number }[];
   totalScore: number;
 }[];
 
@@ -50,6 +51,7 @@ const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
         ) {
           scorecard[i].scoreList.push({
             questionNumber: number,
+            subject,
             points: pointValue,
           });
         } else if (
@@ -60,6 +62,7 @@ const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
         ) {
           scorecard[i].scoreList.push({
             questionNumber: number,
+            subject,
             points: pointValue,
           });
         } else if (
@@ -70,6 +73,7 @@ const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
         ) {
           scorecard[i].scoreList.push({
             questionNumber: number,
+            subject,
             points: pointValue,
           });
         } else if (
@@ -80,11 +84,13 @@ const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
         ) {
           scorecard[i].scoreList.push({
             questionNumber: number,
+            subject,
             points: pointValue,
           });
         } else {
           scorecard[i].scoreList.push({
             questionNumber: number,
+            subject,
             points: 0,
           });
         }
@@ -244,16 +250,28 @@ const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
                       % Match ▼
                     </h2>
                   </summary>
-                  <span>
-                    {candidate.scoreList.map((question) => (
-                      <span key={question.questionNumber}>
-                        Question {question.questionNumber}: {question.points}{" "}
-                        points
-                        <br />
-                      </span>
-                    ))}
+                  {Object.entries(groupBy(candidate.scoreList, "subject")).map(
+                    (questionGroup) => (
+                      <div className="mb-2 p-2">
+                        <h3 className="has-text-weight-semibold">
+                          {favoriteTopics.has(questionGroup[0]) && "★"}{" "}
+                          {questionGroup[0]}{" "}
+                          {favoriteTopics.has(questionGroup[0]) && "★"}
+                        </h3>
+                        {questionGroup[1].map((question, i) => (
+                          <div key={question.questionNumber}>
+                            Question {question.questionNumber}:{" "}
+                            {question.points} points
+                            <br />
+                          </div>
+                        ))}
+                      </div>
+                    )
+                  )}
+                  <span className="has-text-weight-semibold">
+                    {" "}
+                    Total Score: {candidate.totalScore}/{totalPossiblePoints}
                   </span>
-                  Total Score: {candidate.totalScore}
                 </details>
                 <br />
 
