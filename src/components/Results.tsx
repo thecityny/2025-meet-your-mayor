@@ -32,11 +32,9 @@ const calculateScore = (answers: QuizInput[]) => {
     console.log(subject);
     questions.forEach((question) => {
       const { number, option1, option2, option3, option4 } = question;
-      console.log(number);
       const userAnswer = answers.find(
         (answer) => answer.questionNumber === number
       );
-      console.log("user selected", userAnswer?.answer);
       scorecard.forEach((candidate, i) => {
         if (
           userAnswer?.answer === "1" &&
@@ -51,16 +49,6 @@ const calculateScore = (answers: QuizInput[]) => {
         } else if (
           userAnswer?.answer === "2" &&
           option2.matchingCandidates.find(
-            (c) => c.name === candidate.candidateName
-          )
-        ) {
-          scorecard[i].scoreList.push({
-            questionNumber: number,
-            points: 1,
-          });
-        } else if (
-          userAnswer?.answer === "3" &&
-          option3.matchingCandidates.find(
             (c) => c.name === candidate.candidateName
           )
         ) {
@@ -97,12 +85,20 @@ const calculateScore = (answers: QuizInput[]) => {
       });
     });
   });
-  return scorecard;
+  scorecard.forEach((candidate) => {
+    candidate.totalScore = candidate.scoreList.reduce(
+      (total, current) => total + current.points,
+      0
+    );
+  });
+  return scorecard.sort((a, b) => {
+    return b.totalScore - a.totalScore;
+  });
 };
 
 const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
   const score = calculateScore(answers);
-  console.log(score);
+  console.log(score[0]);
 
   return (
     <div
@@ -110,7 +106,22 @@ const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
       style={{ maxWidth: "900px" }}
     >
       <h2>Results</h2>
-      <p>Your results will be displayed here.</p>
+      {score.map((candidate, i) => (
+        <div className="copy has-text-black-bis" key={i}>
+          <h1 className="headline has-text-left">{candidate.candidateName}</h1>
+          <br />
+          <span>
+            {candidate.scoreList.map((question) => (
+              <span key={question.questionNumber}>
+                Question {question.questionNumber}: {question.points} points
+                <br />
+              </span>
+            ))}
+          </span>
+          Total Score: {candidate.totalScore}
+          <hr />
+        </div>
+      ))}
     </div>
   );
 };
