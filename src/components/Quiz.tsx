@@ -477,6 +477,15 @@ const Quiz = () => {
               </div>
             ))}
           </div>
+          {favoriteTopics.size > 0 && (
+            <AnchorLink
+              href="#results"
+              offset={QUESTION_ANCHOR_LINK_OFFSET}
+              className="button is-large mt-6"
+            >
+              See my Results
+            </AnchorLink>
+          )}
         </div>
       </div>
       <Results

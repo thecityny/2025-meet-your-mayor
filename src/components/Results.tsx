@@ -112,14 +112,25 @@ export const getQuestionsLeftToAnswer = (answers: QuizInput[]) =>
  */
 const MATCHES_TO_SHOW = 5;
 
-const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
+const Results: React.FC<ResultsProps> = ({
+  answers,
+  favoriteTopics,
+  resetAnswers,
+}) => {
   const score = calculateScore(answers);
   const totalPossiblePoints = answers.length;
-  const questionsLeftToAnswer = getQuestionsLeftToAnswer(answers);
+  let questionsLeftToAnswer = getQuestionsLeftToAnswer(answers);
+
+  // If the user hasn't selected their favorite quiz topics, make sure that
+  // question number is included in the list of questions left to answer:
+  if (favoriteTopics.size === 0) {
+    questionsLeftToAnswer.push(answers.length + 1);
+  }
 
   return (
     <div
       className="container has-background-light p-6"
+      id="results"
       style={{ maxWidth: "1100px" }}
     >
       {questionsLeftToAnswer.length > 0 ? (
