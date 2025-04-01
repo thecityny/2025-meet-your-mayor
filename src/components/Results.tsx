@@ -9,6 +9,8 @@ import {
 } from "./QuizContent";
 
 type ResultsProps = {
+  favoriteTopics: Set<string>;
+  changeFavoriteTopics: (topic: string) => void;
   answers: QuizInput[];
   resetAnswers: () => void;
 };
@@ -90,20 +92,6 @@ const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
   });
 };
 
-export function useFavoriteTopics() {
-  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
-    new Set()
-  );
-
-  const changeFavoriteTopics = (topic: string) =>
-    setFavoriteTopics((prevSet) => {
-      const newSet = new Set(prevSet); // Create a copy of the previous Set
-      prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
-      return newSet; // Return the updated Set
-    });
-  return { favoriteTopics, changeFavoriteTopics };
-}
-
 export const getQuestionsLeftToAnswer = (
   answers: QuizInput[],
   pickedFavoriteTopics: boolean
@@ -126,9 +114,12 @@ export const getQuestionsLeftToAnswer = (
  */
 const MATCHES_TO_SHOW = 5;
 
-const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
-  const { favoriteTopics, changeFavoriteTopics } = useFavoriteTopics();
-
+const Results: React.FC<ResultsProps> = ({
+  answers,
+  resetAnswers,
+  favoriteTopics,
+  changeFavoriteTopics,
+}) => {
   console.log("results page: ", favoriteTopics);
 
   const score = calculateScore(answers, favoriteTopics);

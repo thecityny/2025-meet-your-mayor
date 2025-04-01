@@ -1,10 +1,7 @@
 import React, { FC } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import classnames from "classnames";
-import Results, {
-  getQuestionsLeftToAnswer,
-  useFavoriteTopics,
-} from "./Results";
+import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
 import { createBlankAnswersList, formatQuestionContent } from "./QuizContent";
 
@@ -99,8 +96,19 @@ const Quiz = () => {
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
 
-  const { favoriteTopics } = useFavoriteTopics();
+  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
+    new Set()
+  );
+
+  const changeFavoriteTopics = (topic: string) =>
+    setFavoriteTopics((prevSet) => {
+      const newSet = new Set(prevSet); // Create a copy of the previous Set
+      prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
+      return newSet; // Return the updated Set
+    });
+
   console.log("quiz page: ", favoriteTopics);
+
   const questionsLeftToAnswer = getQuestionsLeftToAnswer(
     answers,
     favoriteTopics.size > 0
@@ -309,6 +317,8 @@ const Quiz = () => {
         ))}
       </div>
       <Results
+        favoriteTopics={favoriteTopics}
+        changeFavoriteTopics={changeFavoriteTopics}
         answers={answers}
         resetAnswers={() => setAnswers(createBlankAnswersList())}
       />
