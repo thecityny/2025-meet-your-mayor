@@ -7,7 +7,7 @@ import { groupBy } from "../utils";
  * and formats it into a organized JS object that keeps track of all
  * candidates' responses to quiz questions, with explanations.
  */
-const formatCandidateContent = () => {
+export const formatCandidateContent = () => {
   const { candidateX, ...candidates } = candidateContent;
   const splitCandidateInfo = (text: string) => text.split(" | ");
 
@@ -30,6 +30,26 @@ const formatCandidateContent = () => {
 
     return { responses: quizResponses, quotes, ...candidate };
   });
+};
+
+/**
+ * Converts string to kebab case (for generating a url slug).
+ * NOTE: this implementation is copied with an implementation in gatsby-node.js (not ideal).
+ */
+const kebabCase = (string: string) => {
+  return string
+    .replace(/\d+/g, " ")
+    .split(/ |\B(?=[A-Z])/)
+    .map((word) => word.toLowerCase())
+    .join("-");
+};
+
+export const generateListOfCandidates = () => {
+  const { candidateX, ...candidates } = candidateContent;
+  return Object.values(candidates).map((candidate) => ({
+    name: candidate.name,
+    slug: kebabCase(candidate.name),
+  }));
 };
 
 /**

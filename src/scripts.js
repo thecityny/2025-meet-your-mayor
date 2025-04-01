@@ -25,8 +25,23 @@ const downloadGoogleDocContent = () => {
           }
         );
         console.log(
-          `✅ Downloaded district page content from Google Docs and saved it in page-content.js`
+          `✅ Downloaded ${fileName} content from Google Docs and saved it in ${fileName}-content.js`
         );
+        if (fileName === "candidate") {
+          fs.writeFile(
+            `src/candidate-list.json`,
+            `${JSON.stringify(
+              Object.values(json).map((candidate) => ({ name: candidate.name }))
+            )}`,
+            (err) => {
+              // In case of a error throw err.
+              if (err) throw err;
+            }
+          );
+          console.log(
+            `✅ Downloaded candidate list from Google Docs and saved it in candidate-list.json`
+          );
+        }
       }
     })
     .catch((err) =>

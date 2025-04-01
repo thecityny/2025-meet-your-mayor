@@ -2,6 +2,7 @@ import React from "react";
 import { PageLayout } from "../components/PageLayout";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import Quiz from "../components/Quiz";
+import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -43,6 +44,26 @@ const Homepage = () => (
       </div>
     </div>
     <Quiz />
+    <div className="hero is-fullheight-with-navbar pt-6">
+      <div className="container mt-6">
+        <div className="columns">
+          <div className="column is-two-thirds">
+            <h1
+              className="headline has-text-left"
+              style={{ maxWidth: "500px" }}
+            >
+              Learn more about the candidates...
+            </h1>
+            <CandidateSelectorMenu isBig />
+          </div>
+          <div className="column">
+            <h1 className="headline has-text-left">
+              ...or read recent news coverage
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
   </PageLayout>
 );
 
