@@ -55,6 +55,21 @@ const convertToHtml = (text: string) => {
   return parse(formattedText);
 };
 
+const Paragraph: React.FC<{ text: string }> = ({ text }) => (
+  <p className="copy">{convertToHtml(text)}</p>
+);
+
+export const splitParagraphs = (content: string) =>
+  content.split("{newParagraph}");
+
+export const formatContent = (content: string) => (
+  <>
+    {splitParagraphs(content).map((paragraph, i) => (
+      <Paragraph key={i} text={paragraph} />
+    ))}
+  </>
+);
+
 const formatCandidateContent = () => {
   const { candidateX, ...candidates } = candidateContent;
   const splitCandidateInfo = (text: string) => text.split(" | ");
@@ -177,7 +192,7 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
             {quote && (
               <div className="mb-5">
                 <p className="copy">{quote}</p>
-                {source && <span> - From {convertToHtml(source)}</span>}
+                {source && <span> - From {formatContent(source)}</span>}
               </div>
             )}
           </span>
@@ -291,7 +306,7 @@ const Quiz = () => {
 
                   <details className="mb-5">
                     <summary>Tell me more</summary>
-                    {tellMeMore}
+                    {formatContent(tellMeMore)}
                   </details>
 
                   <button
