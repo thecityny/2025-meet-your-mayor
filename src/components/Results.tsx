@@ -30,12 +30,12 @@ const generateBlankScorecard = (): ScoreCard => {
   });
 };
 
-const calculateScore = (answers: QuizInput[]) => {
+const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
   let scorecard = generateBlankScorecard();
   const questionContent = formatQuestionContent();
   Object.entries(questionContent).forEach((questionGroup) => {
     const [subject, questions] = questionGroup;
-    console.log(subject);
+    const pointValue = favoriteTopics.has(subject) ? 2 : 1;
     questions.forEach((question) => {
       const { number, option1, option2, option3, option4 } = question;
       const userAnswer = answers.find(
@@ -50,7 +50,7 @@ const calculateScore = (answers: QuizInput[]) => {
         ) {
           scorecard[i].scoreList.push({
             questionNumber: number,
-            points: 1,
+            points: pointValue,
           });
         } else if (
           userAnswer?.answer === "2" &&
@@ -60,7 +60,7 @@ const calculateScore = (answers: QuizInput[]) => {
         ) {
           scorecard[i].scoreList.push({
             questionNumber: number,
-            points: 1,
+            points: pointValue,
           });
         } else if (
           userAnswer?.answer === "3" &&
@@ -70,7 +70,7 @@ const calculateScore = (answers: QuizInput[]) => {
         ) {
           scorecard[i].scoreList.push({
             questionNumber: number,
-            points: 1,
+            points: pointValue,
           });
         } else if (
           userAnswer?.answer === "4" &&
@@ -80,7 +80,7 @@ const calculateScore = (answers: QuizInput[]) => {
         ) {
           scorecard[i].scoreList.push({
             questionNumber: number,
-            points: 1,
+            points: pointValue,
           });
         } else {
           scorecard[i].scoreList.push({
@@ -113,10 +113,6 @@ export const getQuestionsLeftToAnswer = (answers: QuizInput[]) =>
 const MATCHES_TO_SHOW = 5;
 
 const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
-  const score = calculateScore(answers);
-  const totalPossiblePoints = answers.length;
-  let questionsLeftToAnswer = getQuestionsLeftToAnswer(answers);
-
   const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
     new Set()
   );
@@ -126,6 +122,10 @@ const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
       prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
       return newSet; // Return the updated Set
     });
+
+  const score = calculateScore(answers, favoriteTopics);
+  const totalPossiblePoints = answers.length + favoriteTopics.size;
+  let questionsLeftToAnswer = getQuestionsLeftToAnswer(answers);
 
   // If the user hasn't selected their favorite quiz topics, make sure that
   // question number is included in the list of questions left to answer:
