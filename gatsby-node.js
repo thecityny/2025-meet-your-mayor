@@ -28,8 +28,8 @@ exports.createPages = async function ({ actions }) {
     const slug = kebabCase(name);
     actions.createPage({
       path: slug,
-      component: require.resolve("./src/components/ExamplePage.tsx"),
-      context: { slug: slug, title: name },
+      component: require.resolve("./src/components/CandidatePage.tsx"),
+      context: { slug: slug, candidateName: name },
     });
   });
 };
