@@ -1,34 +1,16 @@
 import React from "react";
-import {
-  formatQuestionContent,
-  NumberLabel,
-  QUESTION_ANCHOR_LINK_OFFSET,
-  QuizInput,
-} from "./Quiz";
-import { candidateContent } from "../candidate-content";
+import { NumberLabel, QUESTION_ANCHOR_LINK_OFFSET } from "./Quiz";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { groupBy } from "../utils";
+import {
+  formatQuestionContent,
+  generateBlankScorecard,
+  QuizInput,
+} from "./QuizContent";
 
 type ResultsProps = {
   answers: QuizInput[];
   resetAnswers: () => void;
-};
-
-type ScoreCard = {
-  candidateName: string;
-  scoreList: { questionNumber: number; subject: string; points: number }[];
-  totalScore: number;
-}[];
-
-const generateBlankScorecard = (): ScoreCard => {
-  const { candidateX, ...candidates } = candidateContent;
-  return Object.entries(candidates).map((candidate) => {
-    return {
-      candidateName: candidate[1].name,
-      scoreList: [],
-      totalScore: 0,
-    };
-  });
 };
 
 const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {

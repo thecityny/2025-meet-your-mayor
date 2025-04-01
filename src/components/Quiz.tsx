@@ -1,100 +1,14 @@
 import React, { FC } from "react";
-import { questionContent } from "../question-content";
-import { candidateContent } from "../candidate-content";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import classnames from "classnames";
 import Results from "./Results";
-import { formatContent, groupBy } from "../utils";
+import { formatContent } from "../utils";
+import { createBlankAnswersList, formatQuestionContent } from "./QuizContent";
 
 /**
  * How many pixels above each section we should jump to when we click on an anchor link.
  */
 export const QUESTION_ANCHOR_LINK_OFFSET = 120;
-
-const formatCandidateContent = () => {
-  const { candidateX, ...candidates } = candidateContent;
-  const splitCandidateInfo = (text: string) => text.split(" | ");
-
-  return Object.values(candidates).map((candidate) => {
-    const quizResponses = Object.entries(candidate)
-      .filter(([key]) => key.startsWith("quizResponse"))
-      .map(([, value]) => ({
-        optionNumber: splitCandidateInfo(value)[0],
-        quote: splitCandidateInfo(value)[1],
-        source: splitCandidateInfo(value)[2],
-      }));
-
-    const quotes = Object.entries(candidate)
-      .filter(([key]) => key.startsWith("quote"))
-      .map(([, value]) => ({
-        subject: splitCandidateInfo(value)[0],
-        quote: splitCandidateInfo(value)[1],
-        source: splitCandidateInfo(value)[2],
-      }));
-
-    return { responses: quizResponses, quotes, ...candidate };
-  });
-};
-
-export const formatQuestionContent = () => {
-  const candidates = formatCandidateContent();
-  const { questionX, ...questions } = questionContent;
-  const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
-    candidates
-      .filter((c) => c.responses[questionIndex].optionNumber === quizOption)
-      .map((c) => ({
-        name: c.name,
-        quote: c.responses[questionIndex].quote,
-        source: c.responses[questionIndex].source,
-      }));
-  const questonsArray = Object.values(questions).map((question, i) => ({
-    ...question,
-    number: i + 1,
-    option1: {
-      text: question.option1,
-
-      matchingCandidates: findMatchingCandidates(i, "1"),
-    },
-    option2: {
-      text: question.option2,
-      matchingCandidates: findMatchingCandidates(i, "2"),
-    },
-    option3: {
-      text: question.option3,
-      matchingCandidates: findMatchingCandidates(i, "3"),
-    },
-    option4: {
-      text: question.option4,
-      matchingCandidates: findMatchingCandidates(i, "4"),
-    },
-    skipped: {
-      matchingCandidates: candidates
-        .filter((c) => !c.responses[i].optionNumber)
-        .map((c) => ({
-          name: c.name,
-          quote: null,
-          source: null,
-        })),
-    },
-  }));
-
-  return groupBy(questonsArray, "subject");
-};
-
-export type QuizInput = {
-  questionNumber: number;
-  numberOfOptions: number;
-  answer: string | null;
-};
-
-const createBlankAnswersList = (): QuizInput[] => {
-  const { questionX, ...questions } = questionContent;
-  return Object.entries(questions).map((question, i) => ({
-    questionNumber: i + 1,
-    numberOfOptions: !!question[1].option4 ? 4 : 3,
-    answer: null,
-  }));
-};
 
 export const NumberLabel: FC<{ number: number }> = ({ number }) => (
   <div
