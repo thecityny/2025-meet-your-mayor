@@ -165,93 +165,36 @@ const Quiz = () => {
                     <summary>Tell me more</summary>
                     {formatContent(tellMeMore)}
                   </details>
-                  <div style={{ width: "100%" }}>
-                    <button
-                      className={classnames(
-                        "button",
-                        "is-link",
-                        "my-2",
-                        !!answerSelected && answerSelected !== "1" && "is-dark"
-                      )}
-                      onClick={() => recordAnswer(number, "1")}
-                      disabled={!!answerSelected}
-                    >
-                      {option1.text}
-                    </button>
-                  </div>
-                  {!!answerSelected && (
-                    <div>
-                      <MatchingCandidates
-                        candidates={option1.matchingCandidates}
-                      />
-                    </div>
-                  )}
-                  <div style={{ width: "100%" }}>
-                    <button
-                      className={classnames(
-                        "button",
-                        "is-link",
-                        "my-3",
-                        !!answerSelected && answerSelected !== "2" && "is-dark"
-                      )}
-                      onClick={() => recordAnswer(number, "2")}
-                      disabled={!!answerSelected}
-                    >
-                      {option2.text}
-                    </button>
-                  </div>
-                  {!!answerSelected && (
-                    <div>
-                      <MatchingCandidates
-                        candidates={option2.matchingCandidates}
-                      />
-                    </div>
-                  )}
-                  <div style={{ width: "100%" }}>
-                    <button
-                      className={classnames(
-                        "button",
-                        "is-link",
-                        "my-3",
-                        !!answerSelected && answerSelected !== "3" && "is-dark"
-                      )}
-                      onClick={() => recordAnswer(number, "3")}
-                      disabled={!!answerSelected}
-                    >
-                      {option3.text}
-                    </button>
-                  </div>
-                  {!!answerSelected && (
-                    <div>
-                      <MatchingCandidates
-                        candidates={option3.matchingCandidates}
-                      />
-                    </div>
-                  )}
-                  {option4?.text && (
-                    <div style={{ width: "100%" }}>
-                      <button
-                        className={classnames(
-                          "button",
-                          "is-link",
-                          "my-3",
-                          !!answerSelected &&
-                            answerSelected !== "4" &&
-                            "is-dark"
-                        )}
-                        onClick={() => recordAnswer(number, "4")}
-                        disabled={!!answerSelected}
-                      >
-                        {option4.text}
-                      </button>
-                      {!!answerSelected && (
-                        <div>
-                          <MatchingCandidates
-                            candidates={option4.matchingCandidates}
-                          />
+                  {[option1, option2, option3, option4].map((optionInfo, i) =>
+                    !!optionInfo.text ? (
+                      <div key={i}>
+                        <div style={{ width: "100%" }}>
+                          <button
+                            className={classnames(
+                              "button",
+                              "is-link",
+                              "my-2",
+                              !!answerSelected &&
+                                answerSelected !== `${i + 1}` &&
+                                "is-dark"
+                            )}
+                            onClick={() => recordAnswer(number, `${i + 1}`)}
+                            disabled={!!answerSelected}
+                          >
+                            {optionInfo.text}
+                          </button>
                         </div>
-                      )}
-                    </div>
+                        {!!answerSelected && (
+                          <div>
+                            <MatchingCandidates
+                              candidates={optionInfo.matchingCandidates}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <></>
+                    )
                   )}
 
                   {!!answerSelected ? (
