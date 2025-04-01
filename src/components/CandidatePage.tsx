@@ -13,6 +13,7 @@ const splitByFirstComma = (text: string) => {
 
 const ExamplePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { candidateName } = pageContext;
+  const firstName = candidateName.split(" ")[0];
   const candidateInfo = formatCandidateContent().find(
     (candidate) => candidate.name === candidateName
   );
@@ -45,7 +46,7 @@ const ExamplePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
         <div className="field is-grouped">
           <OutboundLink to={website} className="control">
-            <button className="button is-link">Website</button>
+            <button className="button is-link">{firstName}'s Website</button>
           </OutboundLink>
           <Link to="/" className="button is-link is-outlined">
             See if you're a match
