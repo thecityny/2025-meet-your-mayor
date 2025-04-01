@@ -1,6 +1,11 @@
 import React from "react";
-import { formatQuestionContent, QuizInput } from "./Quiz";
+import {
+  formatQuestionContent,
+  QUESTION_ANCHOR_LINK_OFFSET,
+  QuizInput,
+} from "./Quiz";
 import { candidateContent } from "../candidate-content";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 type ResultsProps = {
   answers: QuizInput[];
@@ -98,7 +103,9 @@ const calculateScore = (answers: QuizInput[]) => {
 
 const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
   const score = calculateScore(answers);
-  console.log(score[0]);
+  const questionsLeftToAnswer = answers
+    .filter((question) => question.answer === null)
+    .map((question) => question.questionNumber);
 
   return (
     <div
@@ -106,22 +113,56 @@ const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
       style={{ maxWidth: "900px" }}
     >
       <h2>Results</h2>
-      {score.map((candidate, i) => (
-        <div className="copy has-text-black-bis" key={i}>
-          <h1 className="headline has-text-left">{candidate.candidateName}</h1>
-          <br />
-          <span>
-            {candidate.scoreList.map((question) => (
-              <span key={question.questionNumber}>
-                Question {question.questionNumber}: {question.points} points
-                <br />
-              </span>
-            ))}
-          </span>
-          Total Score: {candidate.totalScore}
-          <hr />
+      {questionsLeftToAnswer.length > 0 ? (
+        <div>
+          <p className="copy">
+            Oops! You're not finished with the quiz yet! Please go back and
+            answer{" "}
+            {questionsLeftToAnswer.length > 1 ? (
+              <>
+                questions{" "}
+                <b>
+                  {questionsLeftToAnswer.slice(0, -1).join(", ")} and{" "}
+                  {questionsLeftToAnswer.slice(-1)}
+                </b>
+              </>
+            ) : (
+              <>
+                question <b>{questionsLeftToAnswer}</b>
+              </>
+            )}
+            .
+          </p>
+          <AnchorLink
+            href={`#question-${questionsLeftToAnswer[0]}`}
+            offset={QUESTION_ANCHOR_LINK_OFFSET}
+            className="button is-dark mt-4"
+          >
+            Go back
+          </AnchorLink>
         </div>
-      ))}
+      ) : (
+        <div>
+          {score.map((candidate, i) => (
+            <div className="copy has-text-black-bis" key={i}>
+              <h1 className="headline has-text-left">
+                {candidate.candidateName}
+              </h1>
+              <br />
+              <span>
+                {candidate.scoreList.map((question) => (
+                  <span key={question.questionNumber}>
+                    Question {question.questionNumber}: {question.points} points
+                    <br />
+                  </span>
+                ))}
+              </span>
+              Total Score: {candidate.totalScore}
+              <hr />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

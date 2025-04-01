@@ -7,6 +7,11 @@ import classnames from "classnames";
 import Results from "./Results";
 
 /**
+ * How many pixels above each section we should jump to when we click on an anchor link.
+ */
+export const QUESTION_ANCHOR_LINK_OFFSET = 120;
+
+/**
  * Groups an array of objects by a specified key.
  * @param array - The array to group.
  * @param key - The key to group by.
@@ -388,7 +393,7 @@ const Quiz = () => {
                       <div className="field is-grouped">
                         <AnchorLink
                           href={`#question-${number + 1}`}
-                          offset={120}
+                          offset={QUESTION_ANCHOR_LINK_OFFSET}
                           className="control"
                         >
                           <button className="button is-link">
