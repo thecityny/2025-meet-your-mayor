@@ -1,161 +1,16 @@
 import React, { FC } from "react";
-import { questionContent } from "../question-content";
-import { candidateContent } from "../candidate-content";
-import parse from "html-react-parser";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import classnames from "classnames";
-import Results from "./Results";
+import Results, { getQuestionsLeftToAnswer } from "./Results";
+import { formatContent } from "../utils";
+import { createBlankAnswersList, formatQuestionContent } from "./QuizContent";
 
 /**
  * How many pixels above each section we should jump to when we click on an anchor link.
  */
 export const QUESTION_ANCHOR_LINK_OFFSET = 120;
 
-/**
- * Groups an array of objects by a specified key.
- * @param array - The array to group.
- * @param key - The key to group by.
- * @returns An object where each key is a unique value from the specified key,
- *           and the value is an array of objects that share that key value.
- */
-const groupBy = <T, K extends keyof any>(
-  array: T[],
-  key: keyof T
-): Record<K, T[]> => {
-  return array.reduce((acc, item) => {
-    const groupKey = item[key] as K; // Ensure the key is treated as the correct type
-
-    if (!acc[groupKey]) {
-      acc[groupKey] = [];
-    }
-
-    acc[groupKey].push(item);
-    return acc;
-  }, {} as Record<K, T[]>);
-};
-
-/**
- * Converts a string containing HTML to a React component.
- *
- * @param text - The string containing HTML to convert.
- * @returns A React component representing the HTML.
- */
-const convertToHtml = (text: string) => {
-  let formattedText = text;
-
-  // Make links outbound:
-  formattedText = formattedText.replace(
-    "<a href=",
-    '<a target="_blank" rel="noopener noreferrer" href='
-  );
-
-  // Fix double spaces and non-spaced commas:
-  formattedText = formattedText.replace("  ", " ").replace(",", ", ");
-
-  return parse(formattedText);
-};
-
-const Paragraph: React.FC<{ text: string }> = ({ text }) => (
-  <p className="copy">{convertToHtml(text)}</p>
-);
-
-export const splitParagraphs = (content: string) =>
-  content.split("{newParagraph}");
-
-export const formatContent = (content: string) => (
-  <>
-    {splitParagraphs(content).map((paragraph, i) => (
-      <Paragraph key={i} text={paragraph} />
-    ))}
-  </>
-);
-
-const formatCandidateContent = () => {
-  const { candidateX, ...candidates } = candidateContent;
-  const splitCandidateInfo = (text: string) => text.split(" | ");
-
-  return Object.values(candidates).map((candidate) => {
-    const quizResponses = Object.entries(candidate)
-      .filter(([key]) => key.startsWith("quizResponse"))
-      .map(([, value]) => ({
-        optionNumber: splitCandidateInfo(value)[0],
-        quote: splitCandidateInfo(value)[1],
-        source: splitCandidateInfo(value)[2],
-      }));
-
-    const quotes = Object.entries(candidate)
-      .filter(([key]) => key.startsWith("quote"))
-      .map(([, value]) => ({
-        subject: splitCandidateInfo(value)[0],
-        quote: splitCandidateInfo(value)[1],
-        source: splitCandidateInfo(value)[2],
-      }));
-
-    return { responses: quizResponses, quotes, ...candidate };
-  });
-};
-
-export const formatQuestionContent = () => {
-  const candidates = formatCandidateContent();
-  const { questionX, ...questions } = questionContent;
-  const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
-    candidates
-      .filter((c) => c.responses[questionIndex].optionNumber === quizOption)
-      .map((c) => ({
-        name: c.name,
-        quote: c.responses[questionIndex].quote,
-        source: c.responses[questionIndex].source,
-      }));
-  const questonsArray = Object.values(questions).map((question, i) => ({
-    ...question,
-    number: i + 1,
-    option1: {
-      text: question.option1,
-
-      matchingCandidates: findMatchingCandidates(i, "1"),
-    },
-    option2: {
-      text: question.option2,
-      matchingCandidates: findMatchingCandidates(i, "2"),
-    },
-    option3: {
-      text: question.option3,
-      matchingCandidates: findMatchingCandidates(i, "3"),
-    },
-    option4: {
-      text: question.option4,
-      matchingCandidates: findMatchingCandidates(i, "4"),
-    },
-    skipped: {
-      matchingCandidates: candidates
-        .filter((c) => !c.responses[i].optionNumber)
-        .map((c) => ({
-          name: c.name,
-          quote: null,
-          source: null,
-        })),
-    },
-  }));
-
-  return groupBy(questonsArray, "subject");
-};
-
-export type QuizInput = {
-  questionNumber: number;
-  numberOfOptions: number;
-  answer: string | null;
-};
-
-const createBlankAnswersList = (): QuizInput[] => {
-  const { questionX, ...questions } = questionContent;
-  return Object.entries(questions).map((question, i) => ({
-    questionNumber: i + 1,
-    numberOfOptions: !!question[1].option4 ? 4 : 3,
-    answer: null,
-  }));
-};
-
-const NumberLabel: FC<{ number: number }> = ({ number }) => (
+export const NumberLabel: FC<{ number: number }> = ({ number }) => (
   <div
     className="tag is-light"
     style={{
@@ -241,6 +96,24 @@ const Quiz = () => {
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
 
+  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
+    new Set()
+  );
+
+  const changeFavoriteTopics = (topic: string) =>
+    setFavoriteTopics((prevSet) => {
+      const newSet = new Set(prevSet); // Create a copy of the previous Set
+      prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
+      return newSet; // Return the updated Set
+    });
+
+  console.log("quiz page: ", favoriteTopics);
+
+  const questionsLeftToAnswer = getQuestionsLeftToAnswer(
+    answers,
+    favoriteTopics.size > 0
+  );
+
   return (
     <>
       <div className="hero is-fullheight-with-navbar" id="quiz">
@@ -260,19 +133,76 @@ const Quiz = () => {
               Actually, your top matches, since voters will be ranking up to
               five selections at the polls.
             </p>
-            <h2 className="deck has-text-left">To start, pick your party:</h2>
 
-            <div className="field is-grouped">
-              <AnchorLink href="#questions" className="control">
-                <button className="button is-link">Democrat</button>
-              </AnchorLink>
-              <AnchorLink href="#questions" className="control">
-                <button className="button is-link">Republican</button>
-              </AnchorLink>
-              <AnchorLink href="#questions" className="control">
-                <button className="button is-link">All</button>
-              </AnchorLink>
-            </div>
+            {questionsLeftToAnswer.length === 0 ? (
+              <>
+                <h2 className="deck has-text-left">
+                  You completed the quiz on TKTKT!
+                </h2>
+
+                <div className="field is-grouped">
+                  <AnchorLink
+                    href="#results"
+                    offset={QUESTION_ANCHOR_LINK_OFFSET}
+                    className="control"
+                  >
+                    <button className="button is-link">See my Results</button>
+                  </AnchorLink>
+                  <AnchorLink
+                    href="#question-1"
+                    offset={QUESTION_ANCHOR_LINK_OFFSET}
+                    className="button is-link is-outlined"
+                    onClick={() => setAnswers(createBlankAnswersList())}
+                  >
+                    Reset Answers
+                  </AnchorLink>
+                </div>
+              </>
+            ) : questionsLeftToAnswer.length < answers.length ? (
+              <>
+                <>
+                  <h2 className="deck has-text-left">
+                    You started the quiz already!
+                  </h2>
+
+                  <div className="field is-grouped">
+                    <AnchorLink
+                      href={`#question-${questionsLeftToAnswer[0]}`}
+                      offset={QUESTION_ANCHOR_LINK_OFFSET}
+                      className="control"
+                    >
+                      <button className="button is-link">Continue</button>
+                    </AnchorLink>
+                    <AnchorLink
+                      href="#question-1"
+                      offset={QUESTION_ANCHOR_LINK_OFFSET}
+                      className="button is-link is-outlined"
+                      onClick={() => setAnswers(createBlankAnswersList())}
+                    >
+                      Reset Answers
+                    </AnchorLink>
+                  </div>
+                </>
+              </>
+            ) : (
+              <>
+                <h2 className="deck has-text-left">
+                  To start, pick your party:
+                </h2>
+
+                <div className="field is-grouped">
+                  <AnchorLink href="#questions" className="control">
+                    <button className="button is-link">Democrat</button>
+                  </AnchorLink>
+                  <AnchorLink href="#questions" className="control">
+                    <button className="button is-link">Republican</button>
+                  </AnchorLink>
+                  <AnchorLink href="#questions" className="control">
+                    <button className="button is-link">All</button>
+                  </AnchorLink>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -291,9 +221,11 @@ const Quiz = () => {
                 option4,
                 skipped,
               } = question;
+
               const answerSelected = answers.find(
                 (answer) => answer.questionNumber === number
               )?.answer;
+
               return (
                 <div
                   key={number}
@@ -308,89 +240,36 @@ const Quiz = () => {
                     <summary>Tell me more</summary>
                     {formatContent(tellMeMore)}
                   </details>
-
-                  <button
-                    className={classnames(
-                      "button",
-                      "is-link",
-                      "my-5",
-                      !!answerSelected && answerSelected !== "1" && "is-dark"
-                    )}
-                    onClick={() => recordAnswer(number, "1")}
-                    disabled={!!answerSelected}
-                  >
-                    {option1.text}
-                  </button>
-
-                  {!!answerSelected && (
-                    <div>
-                      <MatchingCandidates
-                        candidates={option1.matchingCandidates}
-                      />
-                    </div>
-                  )}
-                  <button
-                    className={classnames(
-                      "button",
-                      "is-link",
-                      "my-5",
-                      !!answerSelected && answerSelected !== "2" && "is-dark"
-                    )}
-                    onClick={() => recordAnswer(number, "2")}
-                    disabled={!!answerSelected}
-                  >
-                    {option2.text}
-                  </button>
-                  {!!answerSelected && (
-                    <div>
-                      <MatchingCandidates
-                        candidates={option2.matchingCandidates}
-                      />
-                    </div>
-                  )}
-                  <button
-                    className={classnames(
-                      "button",
-                      "is-link",
-                      "my-5",
-                      !!answerSelected && answerSelected !== "3" && "is-dark"
-                    )}
-                    onClick={() => recordAnswer(number, "3")}
-                    disabled={!!answerSelected}
-                  >
-                    {option3.text}
-                  </button>
-                  {!!answerSelected && (
-                    <div>
-                      <MatchingCandidates
-                        candidates={option3.matchingCandidates}
-                      />
-                    </div>
-                  )}
-                  {option4?.text && (
-                    <>
-                      <button
-                        className={classnames(
-                          "button",
-                          "is-link",
-                          "my-5",
-                          !!answerSelected &&
-                            answerSelected !== "4" &&
-                            "is-dark"
-                        )}
-                        onClick={() => recordAnswer(number, "4")}
-                        disabled={!!answerSelected}
-                      >
-                        {option4.text}
-                      </button>
-                      {!!answerSelected && (
-                        <div>
-                          <MatchingCandidates
-                            candidates={option4.matchingCandidates}
-                          />
+                  {[option1, option2, option3, option4].map((optionInfo, i) =>
+                    !!optionInfo.text ? (
+                      <div key={i}>
+                        <div style={{ width: "100%" }}>
+                          <button
+                            className={classnames(
+                              "button",
+                              "is-link",
+                              "my-2",
+                              !!answerSelected &&
+                                answerSelected !== `${i + 1}` &&
+                                "is-dark"
+                            )}
+                            onClick={() => recordAnswer(number, `${i + 1}`)}
+                            disabled={!!answerSelected}
+                          >
+                            {optionInfo.text}
+                          </button>
                         </div>
-                      )}
-                    </>
+                        {!!answerSelected && (
+                          <div>
+                            <MatchingCandidates
+                              candidates={optionInfo.matchingCandidates}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <></>
+                    )
                   )}
 
                   {!!answerSelected ? (
@@ -436,20 +315,10 @@ const Quiz = () => {
             })}
           </div>
         ))}
-        <div
-          id={`question-${answers.length + 1}`}
-          className="container mb-5"
-          style={{ minHeight: "100vh", maxWidth: "600px" }}
-        >
-          <h2 className="headline has-text-left">
-            Now, pick which topics matter most to you
-          </h2>
-          <h3 className="deck has-text-left mb-2">
-            Choose up to 3. These will impact your matching score more
-          </h3>
-        </div>
       </div>
       <Results
+        favoriteTopics={favoriteTopics}
+        changeFavoriteTopics={changeFavoriteTopics}
         answers={answers}
         resetAnswers={() => setAnswers(createBlankAnswersList())}
       />
