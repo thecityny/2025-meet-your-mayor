@@ -101,20 +101,23 @@ const calculateScore = (answers: QuizInput[]) => {
   });
 };
 
-const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
-  const score = calculateScore(answers);
-  const questionsLeftToAnswer = answers
+export const getQuestionsLeftToAnswer = (answers: QuizInput[]) =>
+  answers
     .filter((question) => question.answer === null)
     .map((question) => question.questionNumber);
+
+const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
+  const score = calculateScore(answers);
+  const questionsLeftToAnswer = getQuestionsLeftToAnswer(answers);
 
   return (
     <div
       className="container has-background-light"
       style={{ maxWidth: "900px" }}
     >
-      <h2>Results</h2>
       {questionsLeftToAnswer.length > 0 ? (
         <div>
+          <h1 className="headline has-text-left is-inline-block">Results</h1>
           <p className="copy">
             Oops! You're not finished with the quiz yet! Please go back and
             answer{" "}
@@ -143,11 +146,22 @@ const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
         </div>
       ) : (
         <div>
+          <h1 className="headline has-text-left is-inline-block">Results</h1>
+          <div className="field is-grouped">
+            <AnchorLink
+              href="#quiz"
+              offset={QUESTION_ANCHOR_LINK_OFFSET}
+              className="button is-link is-outlined"
+              onClick={() => resetAnswers()}
+            >
+              Take Quiz Again
+            </AnchorLink>
+          </div>
           {score.map((candidate, i) => (
             <div className="copy has-text-black-bis" key={i}>
-              <h1 className="headline has-text-left">
+              <h2 className="headline has-text-left">
                 {candidate.candidateName}
-              </h1>
+              </h2>
               <br />
               <span>
                 {candidate.scoreList.map((question) => (
