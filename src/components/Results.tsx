@@ -1,13 +1,13 @@
 import React from "react";
 import {
   formatQuestionContent,
-  groupBy,
   NumberLabel,
   QUESTION_ANCHOR_LINK_OFFSET,
   QuizInput,
 } from "./Quiz";
 import { candidateContent } from "../candidate-content";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { groupBy } from "../utils";
 
 type ResultsProps = {
   answers: QuizInput[];

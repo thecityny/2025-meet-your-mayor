@@ -1,74 +1,15 @@
 import React, { FC } from "react";
 import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
-import parse from "html-react-parser";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import classnames from "classnames";
 import Results from "./Results";
+import { formatContent, groupBy } from "../utils";
 
 /**
  * How many pixels above each section we should jump to when we click on an anchor link.
  */
 export const QUESTION_ANCHOR_LINK_OFFSET = 120;
-
-/**
- * Groups an array of objects by a specified key.
- * @param array - The array to group.
- * @param key - The key to group by.
- * @returns An object where each key is a unique value from the specified key,
- *           and the value is an array of objects that share that key value.
- */
-export const groupBy = <T, K extends keyof any>(
-  array: T[],
-  key: keyof T
-): Record<K, T[]> => {
-  return array.reduce((acc, item) => {
-    const groupKey = item[key] as K; // Ensure the key is treated as the correct type
-
-    if (!acc[groupKey]) {
-      acc[groupKey] = [];
-    }
-
-    acc[groupKey].push(item);
-    return acc;
-  }, {} as Record<K, T[]>);
-};
-
-/**
- * Converts a string containing HTML to a React component.
- *
- * @param text - The string containing HTML to convert.
- * @returns A React component representing the HTML.
- */
-const convertToHtml = (text: string) => {
-  let formattedText = text;
-
-  // Make links outbound:
-  formattedText = formattedText.replace(
-    "<a href=",
-    '<a target="_blank" rel="noopener noreferrer" href='
-  );
-
-  // Fix double spaces and non-spaced commas:
-  formattedText = formattedText.replace("  ", " ").replace(",", ", ");
-
-  return parse(formattedText);
-};
-
-const Paragraph: React.FC<{ text: string }> = ({ text }) => (
-  <p className="copy">{convertToHtml(text)}</p>
-);
-
-export const splitParagraphs = (content: string) =>
-  content.split("{newParagraph}");
-
-export const formatContent = (content: string) => (
-  <>
-    {splitParagraphs(content).map((paragraph, i) => (
-      <Paragraph key={i} text={paragraph} />
-    ))}
-  </>
-);
 
 const formatCandidateContent = () => {
   const { candidateX, ...candidates } = candidateContent;
