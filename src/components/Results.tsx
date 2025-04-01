@@ -180,20 +180,22 @@ const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
                     {Math.round(
                       (candidate.totalScore / totalPossiblePoints) * 100
                     )}
-                    % Match
+                    % Match ▼
                   </h2>
                 </summary>
+                <span>
+                  {candidate.scoreList.map((question) => (
+                    <span key={question.questionNumber}>
+                      Question {question.questionNumber}: {question.points}{" "}
+                      points
+                      <br />
+                    </span>
+                  ))}
+                </span>
+                Total Score: {candidate.totalScore}
               </details>
               <br />
-              <span>
-                {candidate.scoreList.map((question) => (
-                  <span key={question.questionNumber}>
-                    Question {question.questionNumber}: {question.points} points
-                    <br />
-                  </span>
-                ))}
-              </span>
-              Total Score: {candidate.totalScore}
+
               <hr />
             </div>
           ))}
