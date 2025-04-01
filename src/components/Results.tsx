@@ -1,6 +1,7 @@
 import React from "react";
 import {
   formatQuestionContent,
+  NumberLabel,
   QUESTION_ANCHOR_LINK_OFFSET,
   QuizInput,
 } from "./Quiz";
@@ -9,7 +10,6 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 type ResultsProps = {
   answers: QuizInput[];
-  favoriteTopics: Set<string>;
   resetAnswers: () => void;
 };
 
@@ -112,14 +112,20 @@ export const getQuestionsLeftToAnswer = (answers: QuizInput[]) =>
  */
 const MATCHES_TO_SHOW = 5;
 
-const Results: React.FC<ResultsProps> = ({
-  answers,
-  favoriteTopics,
-  resetAnswers,
-}) => {
+const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
   const score = calculateScore(answers);
   const totalPossiblePoints = answers.length;
   let questionsLeftToAnswer = getQuestionsLeftToAnswer(answers);
+
+  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
+    new Set()
+  );
+  const changeFavoriteTopics = (topic: string) =>
+    setFavoriteTopics((prevSet) => {
+      const newSet = new Set(prevSet); // Create a copy of the previous Set
+      prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
+      return newSet; // Return the updated Set
+    });
 
   // If the user hasn't selected their favorite quiz topics, make sure that
   // question number is included in the list of questions left to answer:
@@ -128,92 +134,136 @@ const Results: React.FC<ResultsProps> = ({
   }
 
   return (
-    <div
-      className="container has-background-light p-6"
-      id="results"
-      style={{ maxWidth: "1100px" }}
-    >
-      {questionsLeftToAnswer.length > 0 ? (
-        <div>
-          <h1 className="headline has-text-left is-inline-block">Results</h1>
-          <p className="copy">
-            Oops! You're not finished with the quiz yet! Please go back and
-            answer{" "}
-            {questionsLeftToAnswer.length > 1 ? (
-              <>
-                questions{" "}
-                <b>
-                  {questionsLeftToAnswer.slice(0, -1).join(", ")} and{" "}
-                  {questionsLeftToAnswer.slice(-1)}
-                </b>
-              </>
-            ) : (
-              <>
-                question <b>{questionsLeftToAnswer}</b>
-              </>
-            )}
-            .
-          </p>
-          <AnchorLink
-            href={`#question-${questionsLeftToAnswer[0]}`}
-            offset={QUESTION_ANCHOR_LINK_OFFSET}
-            className="button is-dark mt-4"
-          >
-            Go back
-          </AnchorLink>
-        </div>
-      ) : (
-        <div>
-          <div className="level">
-            <h1 className="headline has-text-left is-inline-block">Results</h1>
-            <div className="field is-grouped">
-              <AnchorLink
-                href="#quiz"
-                offset={QUESTION_ANCHOR_LINK_OFFSET}
-                className="button is-link is-outlined"
-                onClick={() => resetAnswers()}
+    <>
+      <div
+        id={`question-${answers.length + 1}`}
+        className="container mb-5"
+        style={{ minHeight: "100vh", maxWidth: "600px" }}
+      >
+        <NumberLabel number={answers.length + 1} />
+        <h2 className="headline has-text-left">
+          Now, pick which topics matter most to you
+        </h2>
+        <h3 className="deck has-text-left mb-2">
+          Choose up to 3. These will impact your matching score more
+        </h3>
+        <div className="buttons">
+          Selected: {Array.from(favoriteTopics).join(", ")}
+          {Object.entries(formatQuestionContent()).map((questionGroup, i) => (
+            <div style={{ width: "100%" }} key={i}>
+              <button
+                className="button"
+                onClick={() => {
+                  changeFavoriteTopics(questionGroup[0]);
+                }}
               >
-                Take Quiz Again
-              </AnchorLink>
-            </div>
-          </div>
-          <hr />
-          {score.slice(0, MATCHES_TO_SHOW).map((candidate, i) => (
-            <div className="copy has-text-black-bis" key={i}>
-              <details>
-                <summary
-                  className="is-inline-flex is-justify-content-space-between"
-                  style={{ width: "100%" }}
-                >
-                  <h2 className="headline has-text-left">
-                    {candidate.candidateName}
-                  </h2>
-                  <h2 className="headline">
-                    {Math.round(
-                      (candidate.totalScore / totalPossiblePoints) * 100
-                    )}
-                    % Match ▼
-                  </h2>
-                </summary>
-                <span>
-                  {candidate.scoreList.map((question) => (
-                    <span key={question.questionNumber}>
-                      Question {question.questionNumber}: {question.points}{" "}
-                      points
-                      <br />
-                    </span>
-                  ))}
-                </span>
-                Total Score: {candidate.totalScore}
-              </details>
-              <br />
-
-              <hr />
+                {favoriteTopics.has(questionGroup[0]) && (
+                  <span className="icon is-small mr-1">✕</span>
+                )}
+                {questionGroup[0]}
+              </button>
             </div>
           ))}
         </div>
-      )}
-    </div>
+        {favoriteTopics.size > 0 && (
+          <AnchorLink
+            href="#results"
+            offset={QUESTION_ANCHOR_LINK_OFFSET}
+            className="button is-large mt-6"
+          >
+            See my Results
+          </AnchorLink>
+        )}
+      </div>
+      <div
+        className="container has-background-light p-6"
+        id="results"
+        style={{ maxWidth: "1100px" }}
+      >
+        {questionsLeftToAnswer.length > 0 ? (
+          <div>
+            <h1 className="headline has-text-left is-inline-block">Results</h1>
+            <p className="copy">
+              Oops! You're not finished with the quiz yet! Please go back and
+              answer{" "}
+              {questionsLeftToAnswer.length > 1 ? (
+                <>
+                  questions{" "}
+                  <b>
+                    {questionsLeftToAnswer.slice(0, -1).join(", ")} and{" "}
+                    {questionsLeftToAnswer.slice(-1)}
+                  </b>
+                </>
+              ) : (
+                <>
+                  question <b>{questionsLeftToAnswer}</b>
+                </>
+              )}
+              .
+            </p>
+            <AnchorLink
+              href={`#question-${questionsLeftToAnswer[0]}`}
+              offset={QUESTION_ANCHOR_LINK_OFFSET}
+              className="button is-dark mt-4"
+            >
+              Go back
+            </AnchorLink>
+          </div>
+        ) : (
+          <div>
+            <div className="level">
+              <h1 className="headline has-text-left is-inline-block">
+                Results
+              </h1>
+              <div className="field is-grouped">
+                <AnchorLink
+                  href="#quiz"
+                  offset={QUESTION_ANCHOR_LINK_OFFSET}
+                  className="button is-link is-outlined"
+                  onClick={() => resetAnswers()}
+                >
+                  Take Quiz Again
+                </AnchorLink>
+              </div>
+            </div>
+            <hr />
+            {score.slice(0, MATCHES_TO_SHOW).map((candidate, i) => (
+              <div className="copy has-text-black-bis" key={i}>
+                <details>
+                  <summary
+                    className="is-inline-flex is-justify-content-space-between"
+                    style={{ width: "100%" }}
+                  >
+                    <h2 className="headline has-text-left">
+                      {candidate.candidateName}
+                    </h2>
+                    <h2 className="headline">
+                      {Math.round(
+                        (candidate.totalScore / totalPossiblePoints) * 100
+                      )}
+                      % Match ▼
+                    </h2>
+                  </summary>
+                  <span>
+                    {candidate.scoreList.map((question) => (
+                      <span key={question.questionNumber}>
+                        Question {question.questionNumber}: {question.points}{" "}
+                        points
+                        <br />
+                      </span>
+                    ))}
+                  </span>
+                  Total Score: {candidate.totalScore}
+                </details>
+                <br />
+
+                <hr />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

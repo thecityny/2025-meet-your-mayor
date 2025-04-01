@@ -155,7 +155,7 @@ const createBlankAnswersList = (): QuizInput[] => {
   }));
 };
 
-const NumberLabel: FC<{ number: number }> = ({ number }) => (
+export const NumberLabel: FC<{ number: number }> = ({ number }) => (
   <div
     className="tag is-light"
     style={{
@@ -227,15 +227,6 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
 const Quiz = () => {
   const questions = formatQuestionContent();
   const [answers, setAnswers] = React.useState(createBlankAnswersList());
-  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
-    new Set()
-  );
-  const changeFavoriteTopics = (topic: string) =>
-    setFavoriteTopics((prevSet) => {
-      const newSet = new Set(prevSet); // Create a copy of the previous Set
-      prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
-      return newSet; // Return the updated Set
-    });
 
   const recordAnswer = (questionNumber: number, answer: string | null) => {
     const updatedAnswers = answers.map((answerObj) => {
@@ -451,50 +442,9 @@ const Quiz = () => {
             })}
           </div>
         ))}
-        <div
-          id={`question-${answers.length + 1}`}
-          className="container mb-5"
-          style={{ minHeight: "100vh", maxWidth: "600px" }}
-        >
-          <NumberLabel number={answers.length + 1} />
-          <h2 className="headline has-text-left">
-            Now, pick which topics matter most to you
-          </h2>
-          <h3 className="deck has-text-left mb-2">
-            Choose up to 3. These will impact your matching score more
-          </h3>
-          <div className="buttons">
-            Selected: {Array.from(favoriteTopics).join(", ")}
-            {Object.entries(questions).map((questionGroup, i) => (
-              <div style={{ width: "100%" }} key={i}>
-                <button
-                  className="button"
-                  onClick={() => {
-                    changeFavoriteTopics(questionGroup[0]);
-                  }}
-                >
-                  {favoriteTopics.has(questionGroup[0]) && (
-                    <span className="icon is-small mr-1">✕</span>
-                  )}
-                  {questionGroup[0]}
-                </button>
-              </div>
-            ))}
-          </div>
-          {favoriteTopics.size > 0 && (
-            <AnchorLink
-              href="#results"
-              offset={QUESTION_ANCHOR_LINK_OFFSET}
-              className="button is-large mt-6"
-            >
-              See my Results
-            </AnchorLink>
-          )}
-        </div>
       </div>
       <Results
         answers={answers}
-        favoriteTopics={favoriteTopics}
         resetAnswers={() => setAnswers(createBlankAnswersList())}
       />
     </>
