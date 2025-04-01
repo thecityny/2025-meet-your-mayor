@@ -106,14 +106,20 @@ export const getQuestionsLeftToAnswer = (answers: QuizInput[]) =>
     .filter((question) => question.answer === null)
     .map((question) => question.questionNumber);
 
+/**
+ * Total matching candidates we should show users in their quiz results.
+ */
+const MATCHES_TO_SHOW = 5;
+
 const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
   const score = calculateScore(answers);
+  const totalPossiblePoints = answers.length;
   const questionsLeftToAnswer = getQuestionsLeftToAnswer(answers);
 
   return (
     <div
-      className="container has-background-light"
-      style={{ maxWidth: "900px" }}
+      className="container has-background-light p-6"
+      style={{ maxWidth: "1100px" }}
     >
       {questionsLeftToAnswer.length > 0 ? (
         <div>
@@ -146,22 +152,38 @@ const Results: React.FC<ResultsProps> = ({ answers, resetAnswers }) => {
         </div>
       ) : (
         <div>
-          <h1 className="headline has-text-left is-inline-block">Results</h1>
-          <div className="field is-grouped">
-            <AnchorLink
-              href="#quiz"
-              offset={QUESTION_ANCHOR_LINK_OFFSET}
-              className="button is-link is-outlined"
-              onClick={() => resetAnswers()}
-            >
-              Take Quiz Again
-            </AnchorLink>
+          <div className="level">
+            <h1 className="headline has-text-left is-inline-block">Results</h1>
+            <div className="field is-grouped">
+              <AnchorLink
+                href="#quiz"
+                offset={QUESTION_ANCHOR_LINK_OFFSET}
+                className="button is-link is-outlined"
+                onClick={() => resetAnswers()}
+              >
+                Take Quiz Again
+              </AnchorLink>
+            </div>
           </div>
-          {score.map((candidate, i) => (
+          <hr />
+          {score.slice(0, MATCHES_TO_SHOW).map((candidate, i) => (
             <div className="copy has-text-black-bis" key={i}>
-              <h2 className="headline has-text-left">
-                {candidate.candidateName}
-              </h2>
+              <details>
+                <summary
+                  className="is-inline-flex is-justify-content-space-between"
+                  style={{ width: "100%" }}
+                >
+                  <h2 className="headline has-text-left">
+                    {candidate.candidateName}
+                  </h2>
+                  <h2 className="headline">
+                    {Math.round(
+                      (candidate.totalScore / totalPossiblePoints) * 100
+                    )}
+                    % Match
+                  </h2>
+                </summary>
+              </details>
               <br />
               <span>
                 {candidate.scoreList.map((question) => (
