@@ -30,7 +30,9 @@ const downloadGoogleDocContent = () => {
         if (fileName === "candidate") {
           fs.writeFile(
             `src/candidate-list.json`,
-            `${JSON.stringify(json)}`,
+            `${JSON.stringify(
+              Object.values(json).map((candidate) => ({ name: candidate.name }))
+            )}`,
             (err) => {
               // In case of a error throw err.
               if (err) throw err;
