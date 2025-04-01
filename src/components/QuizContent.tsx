@@ -33,6 +33,26 @@ export const formatCandidateContent = () => {
 };
 
 /**
+ * Converts string to kebab case (for generating a url slug).
+ * NOTE: this implementation is copied with an implementation in gatsby-node.js (not ideal).
+ */
+const kebabCase = (string: string) => {
+  return string
+    .replace(/\d+/g, " ")
+    .split(/ |\B(?=[A-Z])/)
+    .map((word) => word.toLowerCase())
+    .join("-");
+};
+
+export const generateListOfCandidates = () => {
+  const { candidateX, ...candidates } = candidateContent;
+  return Object.values(candidates).map((candidate) => ({
+    name: candidate.name,
+    slug: kebabCase(candidate.name),
+  }));
+};
+
+/**
  * This function takes our raw JSON content from `question-content.js`
  * and formats it into a organized JS object that keeps track of the quiz
  * questions and answers, joining on which candidates correspond to which

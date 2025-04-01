@@ -2,6 +2,7 @@ import React from "react";
 import { PageLayout } from "../components/PageLayout";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import Quiz from "../components/Quiz";
+import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -53,6 +54,7 @@ const Homepage = () => (
             >
               Learn more about the candidates...
             </h1>
+            <CandidateSelectorMenu />
           </div>
           <div className="column">
             <h1 className="headline has-text-left">

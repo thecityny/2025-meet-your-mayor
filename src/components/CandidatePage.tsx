@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import { OutboundLink } from "./OutboundLink";
 import { formatCandidateContent } from "./QuizContent";
 import { convertToHtml, formatContent } from "../utils";
+import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -40,7 +41,9 @@ const ExamplePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
               }}
             ></div>{" "}
           </div>
-          <div className="column"></div>
+          <div className="column">
+            <CandidateSelectorMenu />
+          </div>
         </div>
       </div>
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
