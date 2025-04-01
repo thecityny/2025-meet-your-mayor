@@ -9,6 +9,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 type ResultsProps = {
   answers: QuizInput[];
+  favoriteTopics: Set<string>;
   resetAnswers: () => void;
 };
 
