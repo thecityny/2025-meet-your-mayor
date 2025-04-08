@@ -13,7 +13,7 @@ import "../styles/app.scss";
 
 const Header = () => (
   <nav className="nav">
-    <div className="nav-container">
+    <div className="nav-container" style={{ maxWidth: "100vw" }}>
       <div className="nav-logo">
         <OutboundLink to="https://thecity.nyc/" aria-label="THE CITY">
           <TheCityLogo />
