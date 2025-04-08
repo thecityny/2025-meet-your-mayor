@@ -78,7 +78,7 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
   );
 };
 
-type Party = "Democrat" | "Republican" | "Independent" | null;
+type Party = "Democrat" | "Independent" | null;
 
 const Quiz = () => {
   const questions = formatQuestionContent();
@@ -223,17 +223,10 @@ const Quiz = () => {
                   </SmoothScroll>
                   <SmoothScroll
                     to="questions"
-                    onClick={() => saveParty("Republican")}
-                    className="control"
-                  >
-                    <button className="button is-link">Republican</button>
-                  </SmoothScroll>
-                  <SmoothScroll
-                    to="questions"
                     onClick={() => saveParty("Independent")}
                     className="control"
                   >
-                    <button className="button is-link">All</button>
+                    <button className="button is-link">All Candidates</button>
                   </SmoothScroll>
                 </div>
               </>
