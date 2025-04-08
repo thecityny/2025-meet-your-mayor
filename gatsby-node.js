@@ -38,6 +38,7 @@ exports.createPages = async function ({ actions }) {
   });
 };
 
+// Allows us to cleanly import SVG assets into react files:
 exports.onCreateWebpackConfig = ({ actions, getConfig, stage }) => {
   const config = getConfig();
 
