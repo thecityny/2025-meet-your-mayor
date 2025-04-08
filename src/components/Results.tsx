@@ -231,10 +231,10 @@ const Results: React.FC<ResultsProps> = ({
                     className="is-inline-flex is-justify-content-space-between"
                     style={{ width: "100%" }}
                   >
-                    <h2 className="headline has-text-left">
+                    <h2 className="headline has-text-left is-size-3-touch">
                       {candidate.candidateName}
                     </h2>
-                    <h2 className="headline">
+                    <h2 className="headline is-size-3-touch">
                       {Math.round(
                         (candidate.totalScore / totalPossiblePoints) * 100
                       )}
