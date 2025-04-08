@@ -1,5 +1,4 @@
 import React, { FC, useEffect } from "react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
@@ -8,11 +7,7 @@ import {
   formatQuestionContent,
   QuizInput,
 } from "./QuizContent";
-
-/**
- * How many pixels above each section we should jump to when we click on an anchor link.
- */
-export const QUESTION_ANCHOR_LINK_OFFSET = 120;
+import { SmoothScroll } from "./Links";
 
 export const NumberLabel: FC<{ number: number }> = ({ number }) => (
   <div
@@ -175,21 +170,16 @@ const Quiz = () => {
                 </h2>
 
                 <div className="field is-grouped">
-                  <AnchorLink
-                    href="#results"
-                    offset={QUESTION_ANCHOR_LINK_OFFSET}
-                    className="control"
-                  >
+                  <SmoothScroll to="results" className="control">
                     <button className="button is-link">See my Results</button>
-                  </AnchorLink>
-                  <AnchorLink
-                    href="#question-1"
-                    offset={QUESTION_ANCHOR_LINK_OFFSET}
+                  </SmoothScroll>
+                  <SmoothScroll
+                    to="quiz"
                     className="button is-link is-outlined"
                     onClick={() => resetAnswers()}
                   >
                     Reset Answers
-                  </AnchorLink>
+                  </SmoothScroll>
                 </div>
               </>
             ) : !!party ? (
@@ -200,21 +190,19 @@ const Quiz = () => {
                   </h2>
 
                   <div className="field is-grouped">
-                    <AnchorLink
-                      href={`#question-${questionsLeftToAnswer()[0]}`}
-                      offset={QUESTION_ANCHOR_LINK_OFFSET}
+                    <SmoothScroll
+                      to={`question-${questionsLeftToAnswer()[0]}`}
                       className="control"
                     >
                       <button className="button is-link">Continue</button>
-                    </AnchorLink>
-                    <AnchorLink
-                      href="#quiz"
-                      offset={QUESTION_ANCHOR_LINK_OFFSET}
+                    </SmoothScroll>
+                    <SmoothScroll
+                      to="quiz"
                       className="button is-link is-outlined"
                       onClick={() => resetAnswers()}
                     >
                       Reset Answers
-                    </AnchorLink>
+                    </SmoothScroll>
                   </div>
                 </>
               </>
@@ -225,28 +213,28 @@ const Quiz = () => {
                 </h2>
 
                 <div className="field is-grouped">
-                  <AnchorLink href="#questions" className="control">
+                  <SmoothScroll to="questions" className="control">
                     <button
                       className="button is-link"
                       onClick={() => saveParty("Democrat")}
                     >
                       Democrat
                     </button>
-                  </AnchorLink>
-                  <AnchorLink
-                    href="#questions"
+                  </SmoothScroll>
+                  <SmoothScroll
+                    to="questions"
                     onClick={() => saveParty("Republican")}
                     className="control"
                   >
                     <button className="button is-link">Republican</button>
-                  </AnchorLink>
-                  <AnchorLink
-                    href="#questions"
+                  </SmoothScroll>
+                  <SmoothScroll
+                    to="questions"
                     onClick={() => saveParty("Independent")}
                     className="control"
                   >
                     <button className="button is-link">All</button>
-                  </AnchorLink>
+                  </SmoothScroll>
                 </div>
               </>
             )}
@@ -255,118 +243,144 @@ const Quiz = () => {
       </div>
       <div id="questions">
         <div style={{ display: !!party ? "block" : "none" }}>
-          <div className="container" style={{ maxWidth: "600px" }}>
-            {Object.entries(questions).map((questionGroup, i) => (
-              <div key={i} className="py-5">
-                <h2 className="headline has-text-left">{questionGroup[0]}</h2>
-                {questionGroup[1].map((question) => {
-                  const {
-                    number,
-                    title,
-                    tellMeMore,
-                    option1,
-                    option2,
-                    option3,
-                    option4,
-                    skipped,
-                  } = question;
+          <div>
+            <div
+              className="is-hidden-touch has-background-white-ter is-flex is-flex-direction-column has-text-right p-3 mr-5"
+              style={{
+                position: "sticky",
+                top: "6rem",
+                left: "100vw",
+                maxWidth: "180px",
+              }}
+            >
+              <p className="eyebrow mb-2">SECTIONS:</p>
+              {["Streets", "Housing", "Law Enforcement"].map((section, i) => (
+                <SmoothScroll
+                  key={i}
+                  className="mb-2"
+                  to={`section-${section.toLowerCase()}`}
+                >
+                  {section}
+                </SmoothScroll>
+              ))}
+            </div>
+            <div className="container" style={{ maxWidth: "600px" }}>
+              {Object.entries(questions).map((questionGroup, i) => (
+                <div
+                  key={i}
+                  className="py-5"
+                  id={`section-${questionGroup[0].toLowerCase()}`}
+                >
+                  <h2 className="headline has-text-left">{questionGroup[0]}</h2>
+                  {questionGroup[1].map((question) => {
+                    const {
+                      number,
+                      title,
+                      tellMeMore,
+                      option1,
+                      option2,
+                      option3,
+                      option4,
+                      skipped,
+                    } = question;
 
-                  const answerSelected = answers.find(
-                    (answer) => answer.questionNumber === number
-                  )?.answer;
+                    const answerSelected = answers.find(
+                      (answer) => answer.questionNumber === number
+                    )?.answer;
 
-                  return (
-                    <div
-                      key={number}
-                      id={`question-${number}`}
-                      className="mb-5"
-                      style={{ minHeight: "100vh" }}
-                    >
-                      <NumberLabel number={number} />
-                      <h3 className="deck has-text-left mb-2">{title}</h3>
+                    return (
+                      <div
+                        key={number}
+                        id={`question-${number}`}
+                        className="mb-5"
+                        style={{ minHeight: "100vh" }}
+                      >
+                        <NumberLabel number={number} />
+                        <h3 className="deck has-text-left mb-2">{title}</h3>
 
-                      <details className="mb-5">
-                        <summary>Tell me more</summary>
-                        {formatContent(tellMeMore)}
-                      </details>
-                      {[option1, option2, option3, option4].map(
-                        (optionInfo, i) =>
-                          !!optionInfo.text ? (
-                            <div key={i}>
-                              <div style={{ width: "100%" }}>
-                                <button
-                                  className={classnames(
-                                    "button",
-                                    "is-link",
-                                    "my-2",
-                                    !!answerSelected &&
-                                      answerSelected !== `${i + 1}` &&
-                                      "is-dark"
-                                  )}
-                                  onClick={() =>
-                                    recordAnswer(number, `${i + 1}`)
-                                  }
-                                  disabled={!!answerSelected}
-                                >
-                                  {optionInfo.text}
-                                </button>
-                              </div>
-                              {!!answerSelected && (
-                                <div>
-                                  <MatchingCandidates
-                                    candidates={optionInfo.matchingCandidates}
-                                  />
+                        <details className="mb-5">
+                          <summary>Tell me more</summary>
+                          {formatContent(tellMeMore)}
+                        </details>
+                        {[option1, option2, option3, option4].map(
+                          (optionInfo, i) =>
+                            !!optionInfo.text ? (
+                              <div key={i}>
+                                <div style={{ width: "100%" }}>
+                                  <button
+                                    className={classnames(
+                                      "button",
+                                      "is-link",
+                                      "is-multiline",
+                                      "my-4",
+                                      !!answerSelected &&
+                                        answerSelected !== `${i + 1}` &&
+                                        "is-dark"
+                                    )}
+                                    onClick={() =>
+                                      recordAnswer(number, `${i + 1}`)
+                                    }
+                                    disabled={!!answerSelected}
+                                  >
+                                    {optionInfo.text}
+                                  </button>
                                 </div>
+                                {!!answerSelected && (
+                                  <div>
+                                    <MatchingCandidates
+                                      candidates={optionInfo.matchingCandidates}
+                                    />
+                                  </div>
+                                )}
+                              </div>
+                            ) : (
+                              <div key={i} />
+                            )
+                        )}
+
+                        {!!answerSelected ? (
+                          <>
+                            <div className="mb-6">
+                              <MatchingCandidates
+                                candidates={skipped.matchingCandidates}
+                              />
+                              {skipped.matchingCandidates.length > 0 && (
+                                <p className="is-inline-block mt-6">
+                                  didn't respond to this question
+                                </p>
                               )}
                             </div>
-                          ) : (
-                            <div key={i} />
-                          )
-                      )}
-
-                      {!!answerSelected ? (
-                        <>
-                          <div className="mb-6">
-                            <MatchingCandidates
-                              candidates={skipped.matchingCandidates}
-                            />
-                            {skipped.matchingCandidates.length > 0 && (
-                              <p className="is-inline-block mt-6">
-                                didn't respond to this question
-                              </p>
-                            )}
-                          </div>
-                          <div className="field is-grouped">
-                            <AnchorLink
-                              href={`#question-${number + 1}`}
-                              offset={QUESTION_ANCHOR_LINK_OFFSET}
-                              className="control"
-                            >
-                              <button className="button is-link">
-                                Next Question
+                            <div className="field is-grouped">
+                              <SmoothScroll
+                                to={`question-${number + 1}`}
+                                className="control"
+                              >
+                                <button className="button is-link">
+                                  Next Question
+                                </button>
+                              </SmoothScroll>
+                              <button
+                                className="button is-link is-outlined"
+                                onClick={() => clearAnswer(number)}
+                              >
+                                Change answer
                               </button>
-                            </AnchorLink>
-                            <button
-                              className="button is-link is-outlined"
-                              onClick={() => clearAnswer(number)}
-                            >
-                              Change answer
-                            </button>
-                          </div>
-                        </>
-                      ) : (
-                        <button
-                          className="button is-link is-outlined my-5"
-                          onClick={() => recordAnswer(number, "0")}
-                        >
-                          Skip this question.
-                        </button>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
+                            </div>
+                          </>
+                        ) : (
+                          <button
+                            className="button is-link is-outlined my-5"
+                            onClick={() => recordAnswer(number, "0")}
+                          >
+                            Skip this question.
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
           </div>
           <Results
             favoriteTopics={favoriteTopics}
