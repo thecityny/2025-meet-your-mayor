@@ -19,8 +19,8 @@ export const CandidateSelectorMenu: React.FC<{ isBig?: boolean }> = ({
           <div className="is-flex is-flex-direction-column is-align-items-center">
             <div
               style={{
-                width: `${isBig ? "150" : "100"}px`,
-                height: `${isBig ? "150" : "100"}px`,
+                width: `${isBig ? "100" : "60"}px`,
+                height: `${isBig ? "100" : "60"}px`,
                 borderRadius: "100%",
                 backgroundColor: "#BBBBBB",
               }}

@@ -241,130 +241,136 @@ const Quiz = () => {
           </div>
         </div>
       </div>
-      <div id="questions">
+      <div className="section" id="questions">
         <div style={{ display: !!party ? "block" : "none" }}>
           <div className="columns">
             <div className="column is-one-quarter" />
             <div className="column is-half" style={{ maxWidth: "600px" }}>
-              {Object.entries(questions).map((questionGroup, i) => (
-                <div
-                  key={i}
-                  className="py-5"
-                  id={`section-${questionGroup[0].toLowerCase()}`}
-                >
-                  <h2 className="headline has-text-left">{questionGroup[0]}</h2>
-                  {questionGroup[1].map((question) => {
-                    const {
-                      number,
-                      title,
-                      tellMeMore,
-                      option1,
-                      option2,
-                      option3,
-                      option4,
-                      skipped,
-                    } = question;
+              <div>
+                {Object.entries(questions).map((questionGroup, i) => (
+                  <div
+                    key={i}
+                    className="py-5"
+                    id={`section-${questionGroup[0].toLowerCase()}`}
+                  >
+                    <h2 className="headline has-text-left">
+                      {questionGroup[0]}
+                    </h2>
+                    {questionGroup[1].map((question) => {
+                      const {
+                        number,
+                        title,
+                        tellMeMore,
+                        option1,
+                        option2,
+                        option3,
+                        option4,
+                        skipped,
+                      } = question;
 
-                    const answerSelected = answers.find(
-                      (answer) => answer.questionNumber === number
-                    )?.answer;
+                      const answerSelected = answers.find(
+                        (answer) => answer.questionNumber === number
+                      )?.answer;
 
-                    return (
-                      <div
-                        key={number}
-                        id={`question-${number}`}
-                        className="mb-5"
-                        style={{ minHeight: "100vh" }}
-                      >
-                        <NumberLabel number={number} />
-                        <h3 className="deck has-text-left mb-2">{title}</h3>
+                      return (
+                        <div
+                          key={number}
+                          id={`question-${number}`}
+                          className="mb-5"
+                          style={{ minHeight: "100vh" }}
+                        >
+                          <NumberLabel number={number} />
+                          <h3 className="deck has-text-left mb-2">{title}</h3>
 
-                        <details className="mb-5">
-                          <summary>Tell me more</summary>
-                          {formatContent(tellMeMore)}
-                        </details>
-                        {[option1, option2, option3, option4].map(
-                          (optionInfo, i) =>
-                            !!optionInfo.text ? (
-                              <div key={i}>
-                                <div style={{ width: "100%" }}>
-                                  <button
-                                    className={classnames(
-                                      "button",
-                                      "is-link",
-                                      "is-multiline",
-                                      "my-4",
-                                      !!answerSelected &&
-                                        answerSelected !== `${i + 1}` &&
-                                        "is-dark"
-                                    )}
-                                    onClick={() =>
-                                      recordAnswer(number, `${i + 1}`)
-                                    }
-                                    disabled={!!answerSelected}
-                                  >
-                                    {optionInfo.text}
-                                  </button>
-                                </div>
-                                {!!answerSelected && (
-                                  <div>
-                                    <MatchingCandidates
-                                      candidates={optionInfo.matchingCandidates}
-                                    />
+                          <details className="mb-5">
+                            <summary>Tell me more</summary>
+                            {formatContent(tellMeMore)}
+                          </details>
+                          {[option1, option2, option3, option4].map(
+                            (optionInfo, i) =>
+                              !!optionInfo.text ? (
+                                <div key={i}>
+                                  <div style={{ width: "100%" }}>
+                                    <button
+                                      className={classnames(
+                                        "button",
+                                        "is-link",
+                                        "is-multiline",
+                                        "my-4",
+                                        !!answerSelected &&
+                                          answerSelected !== `${i + 1}` &&
+                                          "is-dark"
+                                      )}
+                                      onClick={() =>
+                                        recordAnswer(number, `${i + 1}`)
+                                      }
+                                      disabled={!!answerSelected}
+                                    >
+                                      {optionInfo.text}
+                                    </button>
                                   </div>
+                                  {!!answerSelected && (
+                                    <div>
+                                      <MatchingCandidates
+                                        candidates={
+                                          optionInfo.matchingCandidates
+                                        }
+                                      />
+                                    </div>
+                                  )}
+                                </div>
+                              ) : (
+                                <div key={i} />
+                              )
+                          )}
+
+                          {!!answerSelected ? (
+                            <>
+                              <div className="mb-6">
+                                <MatchingCandidates
+                                  candidates={skipped.matchingCandidates}
+                                />
+                                {skipped.matchingCandidates.length > 0 && (
+                                  <p className="is-inline-block mt-6">
+                                    didn't respond to this question
+                                  </p>
                                 )}
                               </div>
-                            ) : (
-                              <div key={i} />
-                            )
-                        )}
-
-                        {!!answerSelected ? (
-                          <>
-                            <div className="mb-6">
-                              <MatchingCandidates
-                                candidates={skipped.matchingCandidates}
-                              />
-                              {skipped.matchingCandidates.length > 0 && (
-                                <p className="is-inline-block mt-6">
-                                  didn't respond to this question
-                                </p>
-                              )}
-                            </div>
-                            <div className="field is-grouped">
-                              <SmoothScroll
-                                to={`question-${number + 1}`}
-                                className="control"
-                              >
-                                <button className="button is-link">
-                                  Next Question
+                              <div className="field is-grouped">
+                                <SmoothScroll
+                                  to={`question-${number + 1}`}
+                                  className="control"
+                                >
+                                  <button className="button is-link">
+                                    Next Question
+                                  </button>
+                                </SmoothScroll>
+                                <button
+                                  className="button is-link is-outlined"
+                                  onClick={() => clearAnswer(number)}
+                                >
+                                  Change answer
                                 </button>
-                              </SmoothScroll>
-                              <button
-                                className="button is-link is-outlined"
-                                onClick={() => clearAnswer(number)}
-                              >
-                                Change answer
-                              </button>
-                            </div>
-                          </>
-                        ) : (
-                          <button
-                            className="button is-link is-outlined my-5"
-                            onClick={() => recordAnswer(number, "0")}
-                          >
-                            Skip this question.
-                          </button>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              ))}
+                              </div>
+                            </>
+                          ) : (
+                            <button
+                              className="button is-link is-outlined my-5"
+                              onClick={() => recordAnswer(number, "0")}
+                            >
+                              Skip this question.
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="column is-hidden-touch is-one-quarter">
               <div
-                className="is-hidden-touch has-background-white-ter is-flex is-flex-direction-column has-text-right p-3 mr-5"
+                className="is-hidden-touch has-background-white-ter is-flex is-flex-direction-column has-text-right p-3"
                 style={{
                   position: "sticky",
                   top: "6rem",
