@@ -69,8 +69,9 @@ const Footer = () => {
           </OutboundLink>
         </div>
         <div className="footer-credit" style={{ maxWidth: "750px" }}>
-          Data Privacy Disclaimer: We store anonymous quiz responses to improve
-          the tool—no personal data is collected.
+          Meet Your Mayor does not collect any personal data from users. We do
+          collect quiz responses anonymously to improve this resource and track
+          aggregate results.
         </div>
         <ul className="footer-links">
           <li>
