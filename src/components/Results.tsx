@@ -120,8 +120,6 @@ const Results: React.FC<ResultsProps> = ({
   favoriteTopics,
   changeFavoriteTopics,
 }) => {
-  console.log("results page: ", favoriteTopics);
-
   const score = calculateScore(answers, favoriteTopics);
   const totalPossiblePoints = answers.length + favoriteTopics.size;
   let questionsLeftToAnswer = getQuestionsLeftToAnswer(
