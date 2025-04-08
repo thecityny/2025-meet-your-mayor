@@ -68,7 +68,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
               <div className="container px-6 pt-6 pb-5">
                 <div className="mb-2">ON: {subject}</div>
                 <div className="mb-5">
-                  <p className="copy">{formatContent(quote)}</p>
+                  <div className="copy">{formatContent(quote)}</div>
                   {source && (
                     <span>
                       {splitByFirstComma(source).map((text, i) => (
