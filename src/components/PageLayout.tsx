@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import pym from "pym.js";
 
-import Logo from "../assets/images/logo.svg";
+import TheCityLogo from "../assets/images/logo.svg";
+import GothamistLogo from "../assets/images/logo-gothamist.svg";
 import TwitterIcon from "../assets/images/social-icons/twitter.svg";
 import InstagramIcon from "../assets/images/social-icons/instagram.svg";
 import FacebookIcon from "../assets/images/social-icons/facebook.svg";
 import { Helmet } from "react-helmet";
+import { OutboundLink } from "./Links";
 
 import "../styles/app.scss";
 
@@ -13,9 +15,14 @@ const Header = () => (
   <nav className="nav">
     <div className="nav-container">
       <div className="nav-logo">
-        <a href="https://thecity.nyc/" aria-label="THE CITY">
-          <Logo />
-        </a>
+        <OutboundLink to="https://thecity.nyc/" aria-label="THE CITY">
+          <TheCityLogo />
+        </OutboundLink>
+      </div>
+      <div className="nav-logo ml-4 mt-2">
+        <OutboundLink to="https://gothamist.com/" aria-label="THE CITY">
+          <GothamistLogo />
+        </OutboundLink>
       </div>
       <div className="nav-title"></div>
       <div className="nav-links">
