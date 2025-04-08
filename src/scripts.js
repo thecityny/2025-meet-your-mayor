@@ -41,7 +41,7 @@ const scrapeLinksToCoverage = async () => {
 
     fs.writeFile(
       "src/coverage-links.js",
-      `export const coverageLinks = ${JSON.stringify(links)}`,
+      `export const coverageLinksTheCity = ${JSON.stringify(links)}`,
       (err) => {
         // In case of a error throw err.
         if (err) throw err;
