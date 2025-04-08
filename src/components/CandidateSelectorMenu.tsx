@@ -9,8 +9,9 @@ export const CandidateSelectorMenu: React.FC<{ isBig?: boolean }> = ({
   const candidates = generateListOfCandidates();
   return (
     <div className="columns is-multiline is-mobile">
-      {candidates.map((candidate) => (
+      {candidates.map((candidate, i) => (
         <Link
+          key={i}
           to={`/${candidate.slug}`}
           className="column is-one-quarter"
           activeClassName="has-background-light"
