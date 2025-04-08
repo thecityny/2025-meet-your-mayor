@@ -3,7 +3,8 @@ import { PageLayout } from "../components/PageLayout";
 import Quiz from "../components/Quiz";
 import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 import { SocialShareButtons } from "../components/SocialShareButtons";
-import { SmoothScroll } from "../components/Links";
+import { OutboundLink, SmoothScroll } from "../components/Links";
+import { coverageLinksTheCity } from "../coverage-links";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -63,6 +64,28 @@ const Homepage = () => (
             <h1 className="headline has-text-left">
               ...or read recent news coverage
             </h1>
+            <div>THE CITY</div>
+            <ul>
+              {coverageLinksTheCity.map((link, i) => (
+                <li key={i} className="is-inline-block mb-1">
+                  •{" "}
+                  <OutboundLink to={link.href} className="has-text-left">
+                    {link.text}
+                  </OutboundLink>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-3">GOTHAMIST</div>
+            <ul>
+              {coverageLinksTheCity.map((link, i) => (
+                <li key={i} className="is-inline-block mb-1">
+                  •{" "}
+                  <OutboundLink to={link.href} className="has-text-left">
+                    {link.text}
+                  </OutboundLink>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
