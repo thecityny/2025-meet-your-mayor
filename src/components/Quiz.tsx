@@ -89,6 +89,9 @@ const Quiz = () => {
   const questions = formatQuestionContent();
   const [party, setParty] = React.useState<Party>(null);
   const [answers, setAnswers] = React.useState(createBlankAnswersList());
+  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
+    new Set()
+  );
 
   useEffect(() => {
     const savedParty = localStorage.getItem(`party`);
@@ -99,6 +102,9 @@ const Quiz = () => {
       const recordedAnswers = JSON.parse(userAnswers) as QuizInput[];
       setAnswers(recordedAnswers);
     }
+
+    const savedFavoriteTopics = localStorage.getItem(`favoriteTopics`);
+    setFavoriteTopics(new Set(JSON.parse(savedFavoriteTopics || "[]")));
   }, []);
 
   const saveParty = (party: Party) => {
@@ -120,21 +126,23 @@ const Quiz = () => {
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
 
-  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
-    new Set()
-  );
-
   const changeFavoriteTopics = (topic: string) =>
     setFavoriteTopics((prevSet) => {
-      const newSet = new Set(prevSet); // Create a copy of the previous Set
+      let newSet = new Set(prevSet); // Create a copy of the previous Set
       prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
+      localStorage.setItem(
+        `favoriteTopics`,
+        JSON.stringify(Array.from(newSet))
+      );
       return newSet; // Return the updated Set
     });
 
   const resetAnswers = () => {
     setAnswers(createBlankAnswersList());
-    saveParty(null);
     localStorage.setItem(`userAnswers`, "");
+    setFavoriteTopics(new Set());
+    localStorage.setItem(`favoriteTopics`, "");
+    saveParty(null);
   };
 
   const questionsLeftToAnswer = () =>
