@@ -174,7 +174,7 @@ const Quiz = () => {
                     <button className="button is-link">See my Results</button>
                   </SmoothScroll>
                   <SmoothScroll
-                    to="question-1"
+                    to="quiz"
                     className="button is-link is-outlined"
                     onClick={() => resetAnswers()}
                   >
