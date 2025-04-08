@@ -9,6 +9,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "validate": "node validate.mjs",
+    "scrape-coverage": "node -e 'require(\"./src/scripts\").scrapeLinksToCoverage()'",
     "download-content": "node -e 'require(\"./src/scripts\").downloadGoogleDocContent()'",
     "generate-sitemap": "node -e 'require(\"./src/scripts\").generateSitemapXML()'"
   },
@@ -24,6 +25,7 @@
     "@types/react-dom": "^18.0.9",
     "@types/react-helmet": "^6.1.6",
     "bulma": "^1.0.3",
+    "cheerio": "^1.0.0",
     "classnames": "^2.5.1",
     "dotenv": "^16.0.3",
     "gatsby": "^5.9.0",
@@ -38,6 +40,7 @@
     "gatsby-source-filesystem": "^5.9.0",
     "gatsby-transformer-sharp": "^5.9.0",
     "html-react-parser": "^5.2.2",
+    "node-fetch": "^2.7.0",
     "pym.js": "^1.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

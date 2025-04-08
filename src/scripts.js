@@ -1,5 +1,57 @@
 require("dotenv").config();
 const fs = require("fs");
+const fetch = require("node-fetch");
+const cheerio = require("cheerio");
+
+const THE_CITY_COVERAGE_URL = "https://www.thecity.nyc/category/campaign-2025/";
+
+const scrapeLinksToCoverage = async () => {
+  try {
+    const response = await fetch(THE_CITY_COVERAGE_URL);
+    const body = await response.text();
+    const $ = cheerio.load(body);
+
+    const links = [];
+    $(".entry-title a").each((i, elem) => {
+      if (i < 3) {
+        const text = $(elem).text().trim();
+        const href = $(elem).attr("href");
+        links.push({ text, href });
+      }
+    });
+
+    if (links.length < 3) {
+      throw new Error(
+        "Less than 3 links found on THE CITY's Election Coverage page"
+      );
+    }
+
+    for (let i = 0; i < links.length; i++) {
+      if (!links[i].text || links[i].text.length === 0) {
+        throw new Error(
+          `Link ${i + 1} on THE CITY's Election Coverage page is missing text`
+        );
+      }
+      if (!links[i].href || links[i].href.length < 6) {
+        throw new Error(
+          `Link ${i + 1} on THE CITY's Election Coverage page is missing href`
+        );
+      }
+    }
+
+    fs.writeFile(
+      "src/coverage-links.js",
+      `export const coverageLinksTheCity = ${JSON.stringify(links)}`,
+      (err) => {
+        // In case of a error throw err.
+        if (err) throw err;
+      }
+    );
+  } catch (err) {
+    console.error("Scraping failed:", err);
+    process.exit(1);
+  }
+};
 
 const downloadGoogleDocContent = () => {
   const fileName = process.env.FILENAME || "page";
@@ -69,6 +121,7 @@ function generateSitemapXML() {
 }
 
 module.exports = {
+  scrapeLinksToCoverage,
   downloadGoogleDocContent,
   generateSitemapXML,
 };

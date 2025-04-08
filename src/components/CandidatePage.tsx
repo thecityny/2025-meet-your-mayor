@@ -6,6 +6,7 @@ import { formatCandidateContent } from "./QuizContent";
 import { convertToHtml, formatContent } from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 import { SocialShareButtons } from "./SocialShareButtons";
+import { RecentCoverage } from "./RecentCoverage";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -94,6 +95,8 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         <Link to="/" className="button is-link">
           Take our quiz
         </Link>
+        <h1 className="headline has-text-left mt-6">Recent Coverage</h1>
+        <RecentCoverage />
       </div>
     </PageLayout>
   );

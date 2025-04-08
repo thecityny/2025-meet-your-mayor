@@ -4,6 +4,7 @@ import Quiz from "../components/Quiz";
 import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 import { SocialShareButtons } from "../components/SocialShareButtons";
 import { SmoothScroll } from "../components/Links";
+import { RecentCoverage } from "../components/RecentCoverage";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -63,6 +64,7 @@ const Homepage = () => (
             <h1 className="headline has-text-left">
               ...or read recent news coverage
             </h1>
+            <RecentCoverage />
           </div>
         </div>
       </div>
