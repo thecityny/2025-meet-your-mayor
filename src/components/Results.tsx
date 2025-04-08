@@ -210,15 +210,15 @@ const Results: React.FC<ResultsProps> = ({
               <h1 className="headline has-text-left is-inline-block">
                 Results
               </h1>
-              <SocialShareButtons
-                results={{
-                  topCandidate: score[0].candidateName,
-                  matchScore: Math.round(
-                    (score[0].totalScore / totalPossiblePoints) * 100
-                  ),
-                }}
-              />
               <div className="field is-grouped">
+                <SocialShareButtons
+                  results={{
+                    topCandidate: score[0].candidateName,
+                    matchScore: Math.round(
+                      (score[0].totalScore / totalPossiblePoints) * 100
+                    ),
+                  }}
+                />
                 <AnchorLink
                   href="#quiz"
                   offset={QUESTION_ANCHOR_LINK_OFFSET}
