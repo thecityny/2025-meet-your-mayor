@@ -5,6 +5,7 @@ import { OutboundLink } from "./OutboundLink";
 import { formatCandidateContent } from "./QuizContent";
 import { convertToHtml, formatContent } from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
+import { SocialShareButtons } from "./SocialShareButtons";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -55,6 +56,8 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
             See if you're a match
           </Link>
         </div>
+        <p className="byline has-text-left mt-4 mb-2">Share this page</p>
+        <SocialShareButtons />
         <div className="my-5 py-5">{formatContent(bio)}</div>
       </div>
       <div className="columns has-background-info has-text-black">

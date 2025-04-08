@@ -15,11 +15,7 @@ export const SocialShareButtons: React.FC<{
    * Details on the matching score with the top candidate — only present if the user has completed the quiz.
    */
   results?: ScoreShareDetails;
-  /**
-   * The name of the candidate in focus — only present if the user is on a particular candidate's bio page.
-   */
-  candidatePage?: string;
-}> = ({ results, candidatePage }) => {
+}> = ({ results }) => {
   const shareUrl = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}`;
   const shareText = !!results
     ? `I'm a ${results.matchScore}%25 match with ${results.topCandidate} on THE CITY's Meet Your Mayor quiz:`
