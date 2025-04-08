@@ -3,6 +3,7 @@ import { PageLayout } from "../components/PageLayout";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import Quiz from "../components/Quiz";
 import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
+import { SocialShareButtons } from "../components/SocialShareButtons";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -39,6 +40,8 @@ const Homepage = () => (
             <AnchorLink href="#quiz" className="button is-primary">
               TAKE THE QUIZ
             </AnchorLink>
+            <p className="byline has-text-left mt-4 mb-2">Share this tool</p>
+            <SocialShareButtons />
           </div>
         </div>
       </div>

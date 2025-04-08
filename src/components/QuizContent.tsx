@@ -120,7 +120,7 @@ export const createBlankAnswersList = (): QuizInput[] => {
   }));
 };
 
-type ScoreCard = {
+export type ScoreCard = {
   candidateName: string;
   scoreList: { questionNumber: number; subject: string; points: number }[];
   totalScore: number;

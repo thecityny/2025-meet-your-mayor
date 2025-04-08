@@ -38,6 +38,28 @@ exports.createPages = async function ({ actions }) {
   });
 };
 
+// Allows us to cleanly import SVG assets into react files:
+exports.onCreateWebpackConfig = ({ actions, getConfig, stage }) => {
+  const config = getConfig();
+
+  // Remove default svg rule
+  const svgRule = config.module.rules.find((rule) => {
+    return String(rule.test).includes("svg");
+  });
+
+  if (svgRule) {
+    svgRule.exclude = /\.svg$/;
+  }
+
+  // Add custom svg rule using @svgr/webpack
+  config.module.rules.push({
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  });
+
+  actions.replaceWebpackConfig(config);
+};
+
 // Changes build folder from `public` to `build`.
 // See https://github.com/gatsbyjs/gatsby/issues/18975#issuecomment-591403950 for more details.
 

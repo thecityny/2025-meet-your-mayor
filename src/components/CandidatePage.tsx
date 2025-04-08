@@ -5,6 +5,7 @@ import { OutboundLink } from "./OutboundLink";
 import { formatCandidateContent } from "./QuizContent";
 import { convertToHtml, formatContent } from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
+import { SocialShareButtons } from "./SocialShareButtons";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -55,6 +56,8 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
             See if you're a match
           </Link>
         </div>
+        <p className="byline has-text-left mt-4 mb-2">Share this page</p>
+        <SocialShareButtons />
         <div className="my-5 py-5">{formatContent(bio)}</div>
       </div>
       <div className="columns has-background-info has-text-black">
@@ -65,7 +68,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
               <div className="container px-6 pt-6 pb-5">
                 <div className="mb-2">ON: {subject}</div>
                 <div className="mb-5">
-                  <p className="copy">{formatContent(quote)}</p>
+                  <div className="copy">{formatContent(quote)}</div>
                   {source && (
                     <span>
                       {splitByFirstComma(source).map((text, i) => (

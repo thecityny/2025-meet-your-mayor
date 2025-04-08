@@ -7,6 +7,7 @@ import {
   generateBlankScorecard,
   QuizInput,
 } from "./QuizContent";
+import { SocialShareButtons } from "./SocialShareButtons";
 
 type ResultsProps = {
   favoriteTopics: Set<string>;
@@ -210,6 +211,14 @@ const Results: React.FC<ResultsProps> = ({
                 Results
               </h1>
               <div className="field is-grouped">
+                <SocialShareButtons
+                  results={{
+                    topCandidate: score[0].candidateName,
+                    matchScore: Math.round(
+                      (score[0].totalScore / totalPossiblePoints) * 100
+                    ),
+                  }}
+                />
                 <AnchorLink
                   href="#quiz"
                   offset={QUESTION_ANCHOR_LINK_OFFSET}
