@@ -1,27 +1,33 @@
-import React, { useEffect } from "react";
-import pym from "pym.js";
+import React from "react";
 
-import Logo from "../assets/images/logo.svg";
+import TheCityLogo from "../assets/images/logo.svg";
+import GothamistLogo from "../assets/images/logo-gothamist.svg";
 import TwitterIcon from "../assets/images/social-icons/twitter.svg";
 import InstagramIcon from "../assets/images/social-icons/instagram.svg";
 import FacebookIcon from "../assets/images/social-icons/facebook.svg";
 import { Helmet } from "react-helmet";
+import { OutboundLink } from "./Links";
 
 import "../styles/app.scss";
 
 const Header = () => (
   <nav className="nav">
-    <div className="nav-container">
+    <div className="nav-container" style={{ maxWidth: "100vw" }}>
       <div className="nav-logo">
-        <a href="https://thecity.nyc/" aria-label="THE CITY">
-          <Logo />
-        </a>
+        <OutboundLink to="https://thecity.nyc/" aria-label="THE CITY">
+          <TheCityLogo />
+        </OutboundLink>
+      </div>
+      <div className="nav-logo ml-4 mt-2">
+        <OutboundLink to="https://gothamist.com/" aria-label="Gothamist">
+          <GothamistLogo />
+        </OutboundLink>
       </div>
       <div className="nav-title"></div>
       <div className="nav-links">
-        <a href="https://checkout.fundjournalism.org/memberform?&org_id=thecity&campaign=7011U000000VXZIQA4">
+        <OutboundLink to="https://checkout.fundjournalism.org/memberform?&org_id=thecity&campaign=7011U000000VXZIQA4">
           Donate
-        </a>
+        </OutboundLink>
       </div>
     </div>
   </nav>
@@ -30,80 +36,81 @@ const Header = () => (
 const Footer = () => {
   const year = new Date().getFullYear();
 
-  useEffect(() => {
-    const pymParent = new pym.Parent(
-      "donation-box",
-      "https://projects.thecity.nyc/donation-form/",
-      {}
-    );
-    /**
-     * This is a meaningless call of a method from `pymParent` that does nothing,
-     * just to avoid the "no unused variables" linting error.
-     */
-    pymParent.onMessage("", () => {});
-  }, []);
-
   return (
-    <footer className="footer">
-      <div className="donation-box-container">
-        <div id="donation-box" />
-      </div>
-
-      <div className="container">
+    <footer className="footer has-background-light">
+      <div className="container is-flex is-flex-direction-column is-align-items-center">
         <div className="footer-credit">
           Made with ♥ in NYC by{" "}
-          <a href="https://thecity.nyc/" aria-label="THE CITY">
+          <OutboundLink to="https://thecity.nyc/" aria-label="THE CITY">
             THE CITY
-          </a>
+          </OutboundLink>
         </div>
         <div className="footer-icons">
-          <a
+          <OutboundLink
             className="twitter"
             aria-label="Twitter"
-            href="https://twitter.com/intent/follow?screen_name=TheCityNY"
+            to="https://twitter.com/intent/follow?screen_name=TheCityNY"
           >
             <TwitterIcon />
-          </a>
-          <a
+          </OutboundLink>
+          <OutboundLink
             className="instagram"
             aria-label="Instagram"
-            href="https://www.instagram.com/thecityny"
+            to="https://www.instagram.com/thecityny"
           >
             <InstagramIcon />
-          </a>
-          <a
+          </OutboundLink>
+          <OutboundLink
             className="facebook"
             aria-label="Facebook"
-            href="https://www.facebook.com/thecityny"
+            to="https://www.facebook.com/thecityny"
           >
             <FacebookIcon />
-          </a>
+          </OutboundLink>
+        </div>
+        <div className="footer-credit" style={{ maxWidth: "750px" }}>
+          Data Privacy Disclaimer: We store anonymous quiz responses to improve
+          the tool—no personal data is collected.
         </div>
         <ul className="footer-links">
           <li>
-            <a href="https://www.thecity.nyc/about-us/">About</a>
+            <OutboundLink to="https://www.thecity.nyc/about-us/">
+              About
+            </OutboundLink>
           </li>
           <li>
-            <a href="https://donorbox.org/nycdonate">Donate</a>
+            <OutboundLink to="https://donorbox.org/nycdonate">
+              Donate
+            </OutboundLink>
           </li>
           <li>
-            <a href="https://www.thecity.nyc/team/">Team</a>
+            <OutboundLink to="https://www.thecity.nyc/team/">Team</OutboundLink>
           </li>
           <li>
-            <a href="https://www.thecity.nyc/funders/">Funders</a>
+            <OutboundLink to="https://www.thecity.nyc/funders/">
+              Funders
+            </OutboundLink>
           </li>
           <li>
-            <a href="https://www.thecity.nyc/ethics/">Ethics</a>
+            <OutboundLink to="https://www.thecity.nyc/ethics/">
+              Ethics
+            </OutboundLink>
           </li>
           <li>
-            <a href="https://www.thecity.nyc/republishing/">Republish</a>
+            <OutboundLink to="https://www.thecity.nyc/republishing/">
+              Republish
+            </OutboundLink>
           </li>
           <br />
           <li>
-            <a href="https://www.thecity.nyc/contact/">Contact</a>
+            <OutboundLink to="https://www.thecity.nyc/contact/">
+              Contact
+            </OutboundLink>
           </li>
           <li>
-            <a href="https://www.thecity.nyc/privacy-policy/">Privacy Notice</a>
+            <OutboundLink to="https://www.thecity.nyc/privacy-policy/">
+              Privacy Notice
+            </OutboundLink>
           </li>
         </ul>
         <div className="copyright">

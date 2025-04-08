@@ -243,28 +243,9 @@ const Quiz = () => {
       </div>
       <div id="questions">
         <div style={{ display: !!party ? "block" : "none" }}>
-          <div>
-            <div
-              className="is-hidden-touch has-background-white-ter is-flex is-flex-direction-column has-text-right p-3 mr-5"
-              style={{
-                position: "sticky",
-                top: "6rem",
-                left: "100vw",
-                maxWidth: "180px",
-              }}
-            >
-              <p className="eyebrow mb-2">SECTIONS:</p>
-              {["Streets", "Housing", "Law Enforcement"].map((section, i) => (
-                <SmoothScroll
-                  key={i}
-                  className="mb-2"
-                  to={`section-${section.toLowerCase()}`}
-                >
-                  {section}
-                </SmoothScroll>
-              ))}
-            </div>
-            <div className="container" style={{ maxWidth: "600px" }}>
+          <div className="columns">
+            <div className="column is-one-quarter" />
+            <div className="column is-half" style={{ maxWidth: "600px" }}>
               {Object.entries(questions).map((questionGroup, i) => (
                 <div
                   key={i}
@@ -380,6 +361,28 @@ const Quiz = () => {
                   })}
                 </div>
               ))}
+            </div>
+            <div className="column is-hidden-touch is-one-quarter">
+              <div
+                className="is-hidden-touch has-background-white-ter is-flex is-flex-direction-column has-text-right p-3 mr-5"
+                style={{
+                  position: "sticky",
+                  top: "6rem",
+                  left: "100vw",
+                  maxWidth: "180px",
+                }}
+              >
+                <p className="eyebrow mb-2">SECTIONS:</p>
+                {["Streets", "Housing", "Law Enforcement"].map((section, i) => (
+                  <SmoothScroll
+                    key={i}
+                    className="mb-2"
+                    to={`section-${section.toLowerCase()}`}
+                  >
+                    {section}
+                  </SmoothScroll>
+                ))}{" "}
+              </div>
             </div>
           </div>
           <Results
