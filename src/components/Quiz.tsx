@@ -1,9 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
-import { createBlankAnswersList, formatQuestionContent } from "./QuizContent";
+import {
+  createBlankAnswersList,
+  formatQuestionContent,
+  QuizInput,
+} from "./QuizContent";
 
 /**
  * How many pixels above each section we should jump to when we click on an anchor link.
@@ -85,6 +89,28 @@ const Quiz = () => {
   const questions = formatQuestionContent();
   const [party, setParty] = React.useState<Party>(null);
   const [answers, setAnswers] = React.useState(createBlankAnswersList());
+  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
+    new Set()
+  );
+
+  useEffect(() => {
+    const savedParty = localStorage.getItem(`party`);
+    saveParty(savedParty as Party);
+
+    const userAnswers = localStorage.getItem(`userAnswers`);
+    if (!!userAnswers) {
+      const recordedAnswers = JSON.parse(userAnswers) as QuizInput[];
+      setAnswers(recordedAnswers);
+    }
+
+    const savedFavoriteTopics = localStorage.getItem(`favoriteTopics`);
+    setFavoriteTopics(new Set(JSON.parse(savedFavoriteTopics || "[]")));
+  }, []);
+
+  const saveParty = (party: Party) => {
+    setParty(party);
+    localStorage.setItem(`party`, party || "");
+  };
 
   const recordAnswer = (questionNumber: number, answer: string | null) => {
     const updatedAnswers = answers.map((answerObj) => {
@@ -94,28 +120,33 @@ const Quiz = () => {
       return answerObj;
     });
     setAnswers(updatedAnswers);
+    localStorage.setItem(`userAnswers`, `${JSON.stringify(updatedAnswers)}`);
   };
 
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
 
-  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
-    new Set()
-  );
-
   const changeFavoriteTopics = (topic: string) =>
     setFavoriteTopics((prevSet) => {
-      const newSet = new Set(prevSet); // Create a copy of the previous Set
+      let newSet = new Set(prevSet); // Create a copy of the previous Set
       prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
+      localStorage.setItem(
+        `favoriteTopics`,
+        JSON.stringify(Array.from(newSet))
+      );
       return newSet; // Return the updated Set
     });
 
-  console.log("quiz page: ", favoriteTopics);
+  const resetAnswers = () => {
+    setAnswers(createBlankAnswersList());
+    localStorage.setItem(`userAnswers`, "");
+    setFavoriteTopics(new Set());
+    localStorage.setItem(`favoriteTopics`, "");
+    saveParty(null);
+  };
 
-  const questionsLeftToAnswer = getQuestionsLeftToAnswer(
-    answers,
-    favoriteTopics.size > 0
-  );
+  const questionsLeftToAnswer = () =>
+    getQuestionsLeftToAnswer(answers, favoriteTopics.size > 0);
 
   return (
     <>
@@ -137,10 +168,10 @@ const Quiz = () => {
               five selections at the polls.
             </p>
 
-            {questionsLeftToAnswer.length === 0 ? (
+            {questionsLeftToAnswer().length === 0 ? (
               <>
                 <h2 className="deck has-text-left">
-                  You completed the quiz on TKTKT!
+                  You completed the quiz already!
                 </h2>
 
                 <div className="field is-grouped">
@@ -155,13 +186,13 @@ const Quiz = () => {
                     href="#question-1"
                     offset={QUESTION_ANCHOR_LINK_OFFSET}
                     className="button is-link is-outlined"
-                    onClick={() => setAnswers(createBlankAnswersList())}
+                    onClick={() => resetAnswers()}
                   >
                     Reset Answers
                   </AnchorLink>
                 </div>
               </>
-            ) : questionsLeftToAnswer.length < answers.length ? (
+            ) : !!party ? (
               <>
                 <>
                   <h2 className="deck has-text-left">
@@ -170,17 +201,17 @@ const Quiz = () => {
 
                   <div className="field is-grouped">
                     <AnchorLink
-                      href={`#question-${questionsLeftToAnswer[0]}`}
+                      href={`#question-${questionsLeftToAnswer()[0]}`}
                       offset={QUESTION_ANCHOR_LINK_OFFSET}
                       className="control"
                     >
                       <button className="button is-link">Continue</button>
                     </AnchorLink>
                     <AnchorLink
-                      href="#question-1"
+                      href="#quiz"
                       offset={QUESTION_ANCHOR_LINK_OFFSET}
                       className="button is-link is-outlined"
-                      onClick={() => setAnswers(createBlankAnswersList())}
+                      onClick={() => resetAnswers()}
                     >
                       Reset Answers
                     </AnchorLink>
@@ -197,21 +228,21 @@ const Quiz = () => {
                   <AnchorLink href="#questions" className="control">
                     <button
                       className="button is-link"
-                      onClick={() => setParty("Democrat")}
+                      onClick={() => saveParty("Democrat")}
                     >
                       Democrat
                     </button>
                   </AnchorLink>
                   <AnchorLink
                     href="#questions"
-                    onClick={() => setParty("Republican")}
+                    onClick={() => saveParty("Republican")}
                     className="control"
                   >
                     <button className="button is-link">Republican</button>
                   </AnchorLink>
                   <AnchorLink
                     href="#questions"
-                    onClick={() => setParty("Independent")}
+                    onClick={() => saveParty("Independent")}
                     className="control"
                   >
                     <button className="button is-link">All</button>
@@ -341,7 +372,7 @@ const Quiz = () => {
             favoriteTopics={favoriteTopics}
             changeFavoriteTopics={changeFavoriteTopics}
             answers={answers}
-            resetAnswers={() => setAnswers(createBlankAnswersList())}
+            resetAnswers={resetAnswers}
           />
         </div>
       </div>
