@@ -200,7 +200,7 @@ const Quiz = () => {
                       <button className="button is-link">Continue</button>
                     </AnchorLink>
                     <AnchorLink
-                      href="#question-1"
+                      href="#quiz"
                       offset={QUESTION_ANCHOR_LINK_OFFSET}
                       className="button is-link is-outlined"
                       onClick={() => resetAnswers()}
