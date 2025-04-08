@@ -171,7 +171,7 @@ const Quiz = () => {
             {questionsLeftToAnswer().length === 0 ? (
               <>
                 <h2 className="deck has-text-left">
-                  You completed the quiz on TKTKT!
+                  You completed the quiz already!
                 </h2>
 
                 <div className="field is-grouped">
