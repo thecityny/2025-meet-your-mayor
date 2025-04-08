@@ -9,8 +9,8 @@ export const SocialShareButtons: React.FC = () => {
         className="mr-2"
         target="_blank"
         rel="noopener noreferrer"
-        // style={{ width: "30px", height: "30px" }}
-        // url={`https://twitter.com/intent/tweet?text=${shareUrl}`}
+        style={{ width: "30px", height: "30px" }}
+        url={`https://twitter.com/intent/tweet?text=${shareUrl}`}
       />
       <SocialIcon
         className="mr-2"
