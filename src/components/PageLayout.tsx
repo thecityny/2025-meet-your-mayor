@@ -70,8 +70,7 @@ const Footer = () => {
         </div>
         <div className="footer-credit" style={{ maxWidth: "750px" }}>
           Data Privacy Disclaimer: We store anonymous quiz responses to improve
-          the tool and better understand our users—no personal data is
-          collected.
+          the tool—no personal data is collected.
         </div>
         <ul className="footer-links">
           <li>
