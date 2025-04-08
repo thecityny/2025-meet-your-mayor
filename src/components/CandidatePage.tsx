@@ -1,7 +1,7 @@
 import React from "react";
 import { PageLayout } from "./PageLayout";
 import { Link } from "gatsby";
-import { OutboundLink } from "./OutboundLink";
+import { OutboundLink } from "./Links";
 import { formatCandidateContent } from "./QuizContent";
 import { convertToHtml, formatContent } from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";

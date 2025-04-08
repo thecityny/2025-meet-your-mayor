@@ -18,3 +18,11 @@
 
 // YOUR CODE
 // Starting writing your stuff below here
+
+.button.is-multiline {
+    width: 100%;
+    min-height: 2.25em;
+    white-space: unset;
+    height: auto;
+    flex-direction: column;
+  }

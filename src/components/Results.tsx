@@ -1,6 +1,5 @@
 import React from "react";
-import { NumberLabel, QUESTION_ANCHOR_LINK_OFFSET } from "./Quiz";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import { NumberLabel } from "./Quiz";
 import { groupBy } from "../utils";
 import {
   formatQuestionContent,
@@ -8,6 +7,7 @@ import {
   QuizInput,
 } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
+import { SmoothScroll } from "./Links";
 
 type ResultsProps = {
   favoriteTopics: Set<string>;
@@ -161,13 +161,9 @@ const Results: React.FC<ResultsProps> = ({
           ))}
         </div>
         {favoriteTopics.size > 0 && (
-          <AnchorLink
-            href="#results"
-            offset={QUESTION_ANCHOR_LINK_OFFSET}
-            className="button is-large mt-6"
-          >
+          <SmoothScroll to="results" className="button is-large mt-6">
             See my Results
-          </AnchorLink>
+          </SmoothScroll>
         )}
       </div>
       <div
@@ -196,13 +192,12 @@ const Results: React.FC<ResultsProps> = ({
               )}
               .
             </p>
-            <AnchorLink
-              href={`#question-${questionsLeftToAnswer[0]}`}
-              offset={QUESTION_ANCHOR_LINK_OFFSET}
+            <SmoothScroll
+              to={`question-${questionsLeftToAnswer[0]}`}
               className="button is-dark mt-4"
             >
               Go back
-            </AnchorLink>
+            </SmoothScroll>
           </div>
         ) : (
           <div>
@@ -219,14 +214,13 @@ const Results: React.FC<ResultsProps> = ({
                     ),
                   }}
                 />
-                <AnchorLink
-                  href="#quiz"
-                  offset={QUESTION_ANCHOR_LINK_OFFSET}
+                <SmoothScroll
+                  to="quiz"
                   className="button is-link is-outlined"
                   onClick={() => resetAnswers()}
                 >
                   Take Quiz Again
-                </AnchorLink>
+                </SmoothScroll>
               </div>
             </div>
             <hr />

@@ -1,9 +1,9 @@
 import React from "react";
 import { PageLayout } from "../components/PageLayout";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import Quiz from "../components/Quiz";
 import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 import { SocialShareButtons } from "../components/SocialShareButtons";
+import { SmoothScroll } from "../components/Links";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -37,9 +37,9 @@ const Homepage = () => (
               issues. Now you can pick your positions and see which contenders
               are the right ones for you.
             </p>
-            <AnchorLink href="#quiz" className="button is-primary">
+            <SmoothScroll to="quiz" className="button is-primary">
               TAKE THE QUIZ
-            </AnchorLink>
+            </SmoothScroll>
             <p className="byline has-text-left mt-4 mb-2">Share this tool</p>
             <SocialShareButtons />
           </div>
