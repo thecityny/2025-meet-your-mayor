@@ -372,15 +372,17 @@ const Quiz = () => {
                 }}
               >
                 <p className="eyebrow mb-2">SECTIONS:</p>
-                {["Streets", "Housing", "Law Enforcement"].map((section, i) => (
-                  <SmoothScroll
-                    key={i}
-                    className="mb-2"
-                    to={`section-${section.toLowerCase()}`}
-                  >
-                    {section}
-                  </SmoothScroll>
-                ))}{" "}
+                {Object.entries(formatQuestionContent()).map(
+                  (questionGroup, i) => (
+                    <SmoothScroll
+                      key={i}
+                      className="mb-2"
+                      to={`section-${questionGroup[0].toLowerCase()}`}
+                    >
+                      {questionGroup[0]}
+                    </SmoothScroll>
+                  )
+                )}{" "}
               </div>
             </div>
           </div>
