@@ -43,12 +43,16 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
         return (
           <span key={i}>
             <div className="tag mb-2">{name}</div>
-            {quote && (
-              <div className="mb-5">
-                <p className="copy">{quote}</p>
-                {source && <span> - From {formatContent(source)}</span>}
-              </div>
-            )}
+            <div className="mb-5">
+              <p className="copy">
+                {quote ||
+                  `${
+                    // Candidate's Last Name:
+                    name.split(" ")[name.split(" ").length - 1]
+                  } selected this response in our survey to their team.`}
+              </p>
+              {source && <span> - From {formatContent(source)}</span>}
+            </div>
           </span>
         );
       })}
@@ -67,7 +71,7 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
           </span>
         );
       })}
-      {candidates.length > 0 && candidates.filter((c) => !!c.quote).length > 0 && (
+      {candidates.length > 0 && (
         <span key="x" onClick={handleClick}>
           <div className="mx-2 is-inline-block is-underlined">
             See responses +
