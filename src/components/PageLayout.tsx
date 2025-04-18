@@ -18,17 +18,13 @@ const Header = () => (
           <TheCityLogo />
         </OutboundLink>
       </div>
-      <div className="nav-logo ml-4 mt-2">
+      <div className="ml-2 has-text-weight-bold is-size-4">×</div>
+      <div className="nav-logo ml-2 mt-2">
         <OutboundLink to="https://gothamist.com/" aria-label="Gothamist">
           <GothamistLogo />
         </OutboundLink>
       </div>
       <div className="nav-title"></div>
-      <div className="nav-links">
-        <OutboundLink to="https://checkout.fundjournalism.org/memberform?&org_id=thecity&campaign=7011U000000VXZIQA4">
-          Donate
-        </OutboundLink>
-      </div>
     </div>
   </nav>
 );
@@ -79,11 +75,7 @@ const Footer = () => {
               About
             </OutboundLink>
           </li>
-          <li>
-            <OutboundLink to="https://donorbox.org/nycdonate">
-              Donate
-            </OutboundLink>
-          </li>
+
           <li>
             <OutboundLink to="https://www.thecity.nyc/team/">Team</OutboundLink>
           </li>
