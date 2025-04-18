@@ -221,17 +221,18 @@ const Quiz = () => {
                 </h2>
 
                 <div className="field is-grouped">
-                  <SmoothScroll to="questions" className="control">
-                    <button
-                      className="button is-link"
-                      onClick={() => saveParty("Democrat")}
-                    >
-                      Democrat
-                    </button>
+                  <SmoothScroll
+                    to="questions"
+                    className="control"
+                    onClick={() => saveParty("Democrat")}
+                    extraOffset={80}
+                  >
+                    <button className="button is-link">Democrat</button>
                   </SmoothScroll>
                   <SmoothScroll
                     to="questions"
                     onClick={() => saveParty("Independent")}
+                    extraOffset={80}
                     className="control"
                   >
                     <button className="button is-link">All Candidates</button>
