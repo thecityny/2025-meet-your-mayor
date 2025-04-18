@@ -389,21 +389,33 @@ const Quiz = () => {
                   top: "6rem",
                   left: "100vw",
                   marginBottom: "60vh", // To avoid overlap with the next section
-                  maxWidth: "180px",
+                  maxWidth: "220px",
                 }}
               >
                 <p className="has-text-left eyebrow mb-2">SECTIONS:</p>
                 {Object.entries(formatQuestionContent()).map(
                   (questionGroup, i) => (
-                    <SmoothScroll
-                      key={i}
-                      className="has-text-left m-0"
-                      to={`section-${questionGroup[0].toLowerCase()}`}
-                    >
-                      {questionGroup[0]}
-                    </SmoothScroll>
+                    <div className="has-text-left ">
+                      <SmoothScroll
+                        key={i}
+                        className="m-0 mr-2"
+                        to={`section-${questionGroup[0].toLowerCase()}`}
+                      >
+                        {questionGroup[0]}
+                      </SmoothScroll>
+                      {questionGroup[1].map((question, i) => {
+                        const questionAnswered = answers.find(
+                          (answer) => answer.questionNumber === question.number
+                        )?.answer;
+                        return (
+                          <span key={i} className="has-text-weight-bold">
+                            {!!questionAnswered ? "☑" : "☐"}
+                          </span>
+                        );
+                      })}
+                    </div>
                   )
-                )}{" "}
+                )}
               </div>
             </div>
           </div>
