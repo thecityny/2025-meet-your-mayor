@@ -388,6 +388,7 @@ const Quiz = () => {
                   position: "sticky",
                   top: "6rem",
                   left: "100vw",
+                  marginBottom: "60vh", // To avoid overlap with the next section
                   maxWidth: "180px",
                 }}
               >
