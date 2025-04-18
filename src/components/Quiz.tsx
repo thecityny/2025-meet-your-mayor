@@ -347,12 +347,13 @@ const Quiz = () => {
                                     Next Question
                                   </button>
                                 </SmoothScroll>
-                                <button
+                                <SmoothScroll
+                                  to={`question-${number}`}
                                   className="button is-link is-outlined"
                                   onClick={() => clearAnswer(number)}
                                 >
                                   Change answer
-                                </button>
+                                </SmoothScroll>
                               </div>
                             </>
                           ) : (
