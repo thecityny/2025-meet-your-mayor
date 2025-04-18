@@ -46,7 +46,7 @@ export const convertToHtml = (text: string) => {
 };
 
 export const Paragraph: React.FC<{ text: string }> = ({ text }) => (
-  <p className="copy">{convertToHtml(text)}</p>
+  <p>{convertToHtml(text)}</p>
 );
 
 export const splitParagraphs = (content: string) =>

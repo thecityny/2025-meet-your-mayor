@@ -7,7 +7,7 @@ const RANDOMIZE_QUIZ_RESPONSES = true;
 const QUIZ_RESPONSE_OPTIONS = ["1", "2", "3", null];
 const QUIZ_RESPONSE_SAMPLE_QUOTE = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  '<a href="https://www.youtube.com/live/A2he_B5f3ZE">Mayoral Forum for Safe, Beautiful, Accessible Streets</a>, Feb 21, 2025',
+  '<a href="https://www.youtube.com/live/A2he_B5f3ZE">Mayoral Forum</a>, Feb 21, 2025',
 ];
 
 const generateRandomQuizResponses = (n: number) => {

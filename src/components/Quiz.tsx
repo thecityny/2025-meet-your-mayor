@@ -14,7 +14,8 @@ export const NumberLabel: FC<{ number: number }> = ({ number }) => (
     className="tag is-light"
     style={{
       position: "absolute",
-      left: "-20px",
+      marginLeft: "-35px",
+      marginTop: "2px",
       borderRadius: "100%",
     }}
   >
@@ -44,14 +45,16 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
           <span key={i}>
             <div className="tag mb-2">{name}</div>
             <div className="mb-5">
-              <p className="copy">
+              <p>
                 {quote ||
                   `${
                     // Candidate's Last Name:
                     name.split(" ")[name.split(" ").length - 1]
                   } selected this response in our survey to their team.`}
               </p>
-              {source && <span> - From {formatContent(source)}</span>}
+              {source && (
+                <div className="mt-1">{formatContent(" - From " + source)}</div>
+              )}
             </div>
           </span>
         );
@@ -276,8 +279,10 @@ const Quiz = () => {
                           className="mb-5"
                           style={{ minHeight: "100vh" }}
                         >
-                          <NumberLabel number={number} />
-                          <h3 className="deck has-text-left mb-2">{title}</h3>
+                          <h3 className="deck has-text-left mb-2">
+                            <NumberLabel number={number} />
+                            {title}
+                          </h3>
 
                           <details className="mb-5">
                             <summary>Tell me more</summary>
@@ -375,12 +380,12 @@ const Quiz = () => {
                   maxWidth: "180px",
                 }}
               >
-                <p className="eyebrow mb-2">SECTIONS:</p>
+                <p className="has-text-left eyebrow mb-2">SECTIONS:</p>
                 {Object.entries(formatQuestionContent()).map(
                   (questionGroup, i) => (
                     <SmoothScroll
                       key={i}
-                      className="mb-2"
+                      className="has-text-left m-0"
                       to={`section-${questionGroup[0].toLowerCase()}`}
                     >
                       {questionGroup[0]}
