@@ -45,6 +45,15 @@ const MatchingCandidates: FC<{
         return (
           <span key={i}>
             <div className="tag mb-2">{name}</div>
+            {i === 0 && (
+              <div
+                className="is-inline-block is-underlined is-float-right"
+                onClick={handleClick}
+              >
+                Hide responses -
+              </div>
+            )}
+            <span></span>
             <div className="mb-5">
               <p>
                 {quote ||
@@ -60,9 +69,6 @@ const MatchingCandidates: FC<{
           </span>
         );
       })}
-      <p className="is-inline-block is-underlined" onClick={handleClick}>
-        Hide responses -
-      </p>
     </>
   ) : (
     <>
@@ -395,7 +401,7 @@ const Quiz = () => {
                 <p className="has-text-left eyebrow mb-2">SECTIONS:</p>
                 {Object.entries(formatQuestionContent()).map(
                   (questionGroup, i) => (
-                    <div className="has-text-left ">
+                    <div className="has-text-left" key={i}>
                       <SmoothScroll
                         key={i}
                         className="m-0 mr-2"
