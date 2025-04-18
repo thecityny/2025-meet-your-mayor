@@ -29,9 +29,10 @@ type MatchingCandidate = {
   source: string | null;
 };
 
-const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
-  candidates,
-}) => {
+const MatchingCandidates: FC<{
+  candidates: MatchingCandidate[];
+  dontShowResponses?: boolean;
+}> = ({ candidates, dontShowResponses }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const handleClick = () => {
     setIsExpanded(!isExpanded);
@@ -74,7 +75,7 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
           </span>
         );
       })}
-      {candidates.length > 0 && (
+      {candidates.length > 0 && !dontShowResponses && (
         <span key="x" onClick={handleClick}>
           <div className="mx-2 is-inline-block is-underlined">
             See responses +
@@ -338,6 +339,7 @@ const Quiz = () => {
                               <div className="mb-6">
                                 <MatchingCandidates
                                   candidates={skipped.matchingCandidates}
+                                  dontShowResponses
                                 />
                                 {skipped.matchingCandidates.length > 0 && (
                                   <p className="is-inline-block mt-6">
