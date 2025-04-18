@@ -111,6 +111,11 @@ export const getQuestionsLeftToAnswer = (
 };
 
 /**
+ * Maximum number of favorite topics a user can select.
+ */
+const MAX_FAVORITE_TOPICS = 3;
+
+/**
  * Total matching candidates we should show users in their quiz results.
  */
 const MATCHES_TO_SHOW = 5;
@@ -140,7 +145,8 @@ const Results: React.FC<ResultsProps> = ({
           Now, pick which topics matter most to you
         </h2>
         <h3 className="deck has-text-left mb-2">
-          Choose up to 3. These will impact your matching score more
+          Choose up to {MAX_FAVORITE_TOPICS}. These will impact your matching
+          score more
         </h3>
         <div className="buttons">
           Selected: {Array.from(favoriteTopics).join(", ")}
@@ -151,6 +157,10 @@ const Results: React.FC<ResultsProps> = ({
                 onClick={() => {
                   changeFavoriteTopics(questionGroup[0]);
                 }}
+                disabled={
+                  !favoriteTopics.has(questionGroup[0]) &&
+                  favoriteTopics.size >= MAX_FAVORITE_TOPICS
+                }
               >
                 {favoriteTopics.has(questionGroup[0]) && (
                   <span className="icon is-small mr-1">✕</span>

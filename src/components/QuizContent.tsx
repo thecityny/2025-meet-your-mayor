@@ -2,6 +2,24 @@ import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
 import { groupBy } from "../utils";
 
+const RANDOMIZE_QUIZ_RESPONSES = true;
+
+const QUIZ_RESPONSE_OPTIONS = ["1", "2", "3", null];
+const QUIZ_RESPONSE_SAMPLE_QUOTE = [
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  '<a href="https://www.youtube.com/live/A2he_B5f3ZE">Mayoral Forum</a>, Feb 21, 2025',
+];
+
+const generateRandomQuizResponses = (n: number) => {
+  // Randomize the quiz response with some funky math based on the input number
+  const includeSampleQuote = (n * 7) % 3 === 0;
+  return {
+    optionNumber: QUIZ_RESPONSE_OPTIONS[(n * 7) % 4],
+    quote: includeSampleQuote ? QUIZ_RESPONSE_SAMPLE_QUOTE[0] : null,
+    source: includeSampleQuote ? QUIZ_RESPONSE_SAMPLE_QUOTE[1] : null,
+  };
+};
+
 /**
  * This function takes our raw JSON content from `candidate-content.js`
  * and formats it into a organized JS object that keeps track of all
@@ -14,11 +32,18 @@ export const formatCandidateContent = () => {
   return Object.values(candidates).map((candidate) => {
     const quizResponses = Object.entries(candidate)
       .filter(([key]) => key.startsWith("quizResponse"))
-      .map(([, value]) => ({
-        optionNumber: splitCandidateInfo(value)[0],
-        quote: splitCandidateInfo(value)[1],
-        source: splitCandidateInfo(value)[2],
-      }));
+      .map(([, value], i) =>
+        !!RANDOMIZE_QUIZ_RESPONSES
+          ? // Input a random but fixed number to generate a random quiz response
+            generateRandomQuizResponses(
+              candidate.website.length * candidate.name.length * (i + 1)
+            )
+          : {
+              optionNumber: splitCandidateInfo(value)[0],
+              quote: splitCandidateInfo(value)[1],
+              source: splitCandidateInfo(value)[2],
+            }
+      );
 
     const quotes = Object.entries(candidate)
       .filter(([key]) => key.startsWith("quote"))

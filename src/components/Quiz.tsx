@@ -14,7 +14,8 @@ export const NumberLabel: FC<{ number: number }> = ({ number }) => (
     className="tag is-light"
     style={{
       position: "absolute",
-      left: "-20px",
+      marginLeft: "-35px",
+      marginTop: "2px",
       borderRadius: "100%",
     }}
   >
@@ -28,9 +29,10 @@ type MatchingCandidate = {
   source: string | null;
 };
 
-const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
-  candidates,
-}) => {
+const MatchingCandidates: FC<{
+  candidates: MatchingCandidate[];
+  dontShowResponses?: boolean;
+}> = ({ candidates, dontShowResponses }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const handleClick = () => {
     setIsExpanded(!isExpanded);
@@ -43,18 +45,30 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
         return (
           <span key={i}>
             <div className="tag mb-2">{name}</div>
-            {quote && (
-              <div className="mb-5">
-                <p className="copy">{quote}</p>
-                {source && <span> - From {formatContent(source)}</span>}
+            {i === 0 && (
+              <div
+                className="is-inline-block is-underlined is-float-right"
+                onClick={handleClick}
+              >
+                Hide responses -
               </div>
             )}
+            <span></span>
+            <div className="mb-5">
+              <p>
+                {quote ||
+                  `${
+                    // Candidate's Last Name:
+                    name.split(" ")[name.split(" ").length - 1]
+                  } selected this response in our survey to their team.`}
+              </p>
+              {source && (
+                <div className="mt-1">{formatContent(" - From " + source)}</div>
+              )}
+            </div>
           </span>
         );
       })}
-      <p className="is-inline-block is-underlined" onClick={handleClick}>
-        Hide responses -
-      </p>
     </>
   ) : (
     <>
@@ -67,7 +81,7 @@ const MatchingCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
           </span>
         );
       })}
-      {candidates.length > 0 && candidates.filter((c) => !!c.quote).length > 0 && (
+      {candidates.length > 0 && !dontShowResponses && (
         <span key="x" onClick={handleClick}>
           <div className="mx-2 is-inline-block is-underlined">
             See responses +
@@ -213,17 +227,18 @@ const Quiz = () => {
                 </h2>
 
                 <div className="field is-grouped">
-                  <SmoothScroll to="questions" className="control">
-                    <button
-                      className="button is-link"
-                      onClick={() => saveParty("Democrat")}
-                    >
-                      Democrat
-                    </button>
+                  <SmoothScroll
+                    to="questions"
+                    className="control"
+                    onClick={() => saveParty("Democrat")}
+                    extraOffset={80}
+                  >
+                    <button className="button is-link">Democrat</button>
                   </SmoothScroll>
                   <SmoothScroll
                     to="questions"
                     onClick={() => saveParty("Independent")}
+                    extraOffset={80}
                     className="control"
                   >
                     <button className="button is-link">All Candidates</button>
@@ -249,7 +264,7 @@ const Quiz = () => {
                     <h2 className="headline has-text-left">
                       {questionGroup[0]}
                     </h2>
-                    {questionGroup[1].map((question) => {
+                    {questionGroup[1].map((question, i) => {
                       const {
                         number,
                         title,
@@ -261,6 +276,8 @@ const Quiz = () => {
                         skipped,
                       } = question;
 
+                      const isFirstQuestionInSection = i === 0;
+
                       const answerSelected = answers.find(
                         (answer) => answer.questionNumber === number
                       )?.answer;
@@ -270,10 +287,17 @@ const Quiz = () => {
                           key={number}
                           id={`question-${number}`}
                           className="mb-5"
-                          style={{ minHeight: "100vh" }}
+                          style={{
+                            minHeight: "100vh",
+                            margin: isFirstQuestionInSection
+                              ? "0 0 50vh 0"
+                              : "50vh 0",
+                          }}
                         >
-                          <NumberLabel number={number} />
-                          <h3 className="deck has-text-left mb-2">{title}</h3>
+                          <h3 className="deck has-text-left mb-2">
+                            <NumberLabel number={number} />
+                            {title}
+                          </h3>
 
                           <details className="mb-5">
                             <summary>Tell me more</summary>
@@ -322,6 +346,7 @@ const Quiz = () => {
                               <div className="mb-6">
                                 <MatchingCandidates
                                   candidates={skipped.matchingCandidates}
+                                  dontShowResponses
                                 />
                                 {skipped.matchingCandidates.length > 0 && (
                                   <p className="is-inline-block mt-6">
@@ -338,12 +363,13 @@ const Quiz = () => {
                                     Next Question
                                   </button>
                                 </SmoothScroll>
-                                <button
+                                <SmoothScroll
+                                  to={`question-${number}`}
                                   className="button is-link is-outlined"
                                   onClick={() => clearAnswer(number)}
                                 >
                                   Change answer
-                                </button>
+                                </SmoothScroll>
                               </div>
                             </>
                           ) : (
@@ -368,19 +394,34 @@ const Quiz = () => {
                   position: "sticky",
                   top: "6rem",
                   left: "100vw",
-                  maxWidth: "180px",
+                  marginBottom: "60vh", // To avoid overlap with the next section
+                  maxWidth: "220px",
                 }}
               >
-                <p className="eyebrow mb-2">SECTIONS:</p>
-                {["Streets", "Housing", "Law Enforcement"].map((section, i) => (
-                  <SmoothScroll
-                    key={i}
-                    className="mb-2"
-                    to={`section-${section.toLowerCase()}`}
-                  >
-                    {section}
-                  </SmoothScroll>
-                ))}{" "}
+                <p className="has-text-left eyebrow mb-2">SECTIONS:</p>
+                {Object.entries(formatQuestionContent()).map(
+                  (questionGroup, i) => (
+                    <div className="has-text-left" key={i}>
+                      <SmoothScroll
+                        key={i}
+                        className="m-0 mr-2"
+                        to={`section-${questionGroup[0].toLowerCase()}`}
+                      >
+                        {questionGroup[0]}
+                      </SmoothScroll>
+                      {questionGroup[1].map((question, i) => {
+                        const questionAnswered = answers.find(
+                          (answer) => answer.questionNumber === question.number
+                        )?.answer;
+                        return (
+                          <span key={i} className="has-text-weight-bold">
+                            {!!questionAnswered ? "☑" : "☐"}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </div>

@@ -59,7 +59,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         </div>
         <p className="byline has-text-left mt-4 mb-2">Share this page</p>
         <SocialShareButtons />
-        <div className="my-5 py-5">{formatContent(bio)}</div>
+        <div className="copy my-5 py-5">{formatContent(bio)}</div>
       </div>
       <div className="columns has-background-info has-text-black">
         {quotes.map((quoteInfo, i) => {

@@ -29,9 +29,10 @@ export const SmoothScroll: React.FC<{
   to: string;
   children: React.ReactNode;
   className?: string;
+  extraOffset?: number;
   style?: React.CSSProperties;
   onClick?: () => void;
-}> = ({ to, children, className, style, onClick }) => {
+}> = ({ to, children, className, extraOffset, style, onClick }) => {
   return (
     <AnchorLink
       className={className}
@@ -40,7 +41,7 @@ export const SmoothScroll: React.FC<{
       spy={true}
       smooth={true}
       duration={800}
-      offset={QUESTION_ANCHOR_LINK_OFFSET}
+      offset={QUESTION_ANCHOR_LINK_OFFSET + (extraOffset || 0)}
       to={to}
       onClick={onClick}
     >
