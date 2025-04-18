@@ -256,7 +256,7 @@ const Quiz = () => {
                     <h2 className="headline has-text-left">
                       {questionGroup[0]}
                     </h2>
-                    {questionGroup[1].map((question) => {
+                    {questionGroup[1].map((question, i) => {
                       const {
                         number,
                         title,
@@ -268,6 +268,8 @@ const Quiz = () => {
                         skipped,
                       } = question;
 
+                      const isFirstQuestionInSection = i === 0;
+
                       const answerSelected = answers.find(
                         (answer) => answer.questionNumber === number
                       )?.answer;
@@ -277,7 +279,12 @@ const Quiz = () => {
                           key={number}
                           id={`question-${number}`}
                           className="mb-5"
-                          style={{ minHeight: "100vh" }}
+                          style={{
+                            minHeight: "100vh",
+                            margin: isFirstQuestionInSection
+                              ? "0 0 50vh 0"
+                              : "50vh 0",
+                          }}
                         >
                           <h3 className="deck has-text-left mb-2">
                             <NumberLabel number={number} />
