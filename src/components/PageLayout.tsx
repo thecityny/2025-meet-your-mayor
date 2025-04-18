@@ -18,8 +18,8 @@ const Header = () => (
           <TheCityLogo />
         </OutboundLink>
       </div>
-
-      <div className="nav-logo ml-4 mt-2">
+      <div className="ml-2 has-text-weight-bold is-size-4">+</div>
+      <div className="nav-logo ml-2 mt-2">
         <OutboundLink to="https://gothamist.com/" aria-label="Gothamist">
           <GothamistLogo />
         </OutboundLink>
