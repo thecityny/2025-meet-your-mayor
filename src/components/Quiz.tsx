@@ -47,7 +47,7 @@ const MatchingCandidates: FC<{
             <div className="tag mb-2">{name}</div>
             {i === 0 && (
               <div
-                className="is-inline-block is-underlined is-float-right"
+                className="eyebrow is-link is-inline-block is-float-right"
                 onClick={handleClick}
               >
                 Hide responses -
@@ -83,7 +83,7 @@ const MatchingCandidates: FC<{
       })}
       {candidates.length > 0 && !dontShowResponses && (
         <span key="x" onClick={handleClick}>
-          <div className="mx-2 is-inline-block is-underlined">
+          <div className="mx-2 eyebrow is-link is-inline-block">
             See responses +
           </div>
         </span>
@@ -177,73 +177,73 @@ const Quiz = () => {
               five selections at the polls.
             </p>
 
-            {questionsLeftToAnswer().length === 0 ? (
-              <>
-                <h2 className="deck has-text-left">
-                  You completed the quiz already!
-                </h2>
-
-                <div className="field is-grouped">
-                  <SmoothScroll to="results" className="control">
-                    <button className="button">See my Results</button>
-                  </SmoothScroll>
-                  <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
-                    <button className="button is-outlined">
-                      Reset Answers
-                    </button>
-                  </SmoothScroll>
-                </div>
-              </>
-            ) : !!party ? (
-              <>
+            <div className="pt-5">
+              {questionsLeftToAnswer().length === 0 ? (
                 <>
                   <h2 className="deck has-text-left">
-                    You started the quiz already!
+                    You completed the quiz already!
+                  </h2>
+
+                  <div className="field is-grouped">
+                    <SmoothScroll to="results" className="control">
+                      <button className="button">See my Results</button>
+                    </SmoothScroll>
+                    <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                      <button className="button is-outlined">
+                        Reset Answers
+                      </button>
+                    </SmoothScroll>
+                  </div>
+                </>
+              ) : !!party ? (
+                <>
+                  <>
+                    <h2 className="deck has-text-left">
+                      You started the quiz already!
+                    </h2>
+
+                    <div className="field is-grouped">
+                      <SmoothScroll
+                        to={`question-${questionsLeftToAnswer()[0]}`}
+                        className="control"
+                      >
+                        <button className="button">Continue</button>
+                      </SmoothScroll>
+                      <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                        <button className="button is-outlined">
+                          Reset Answers
+                        </button>
+                      </SmoothScroll>
+                    </div>
+                  </>
+                </>
+              ) : (
+                <>
+                  <h2 className="deck has-text-left">
+                    To start, pick your party:
                   </h2>
 
                   <div className="field is-grouped">
                     <SmoothScroll
-                      to={`question-${questionsLeftToAnswer()[0]}`}
+                      to="questions"
                       className="control"
+                      onClick={() => saveParty("Democrat")}
+                      extraOffset={80}
                     >
-                      <button className="button">Continue</button>
+                      <button className="button">Democrat</button>
                     </SmoothScroll>
                     <SmoothScroll
-                      to="quiz"
-                      className="button is-outlined"
-                      onClick={() => resetAnswers()}
+                      to="questions"
+                      onClick={() => saveParty("Independent")}
+                      extraOffset={80}
+                      className="control"
                     >
-                      Reset Answers
+                      <button className="button">All Candidates</button>
                     </SmoothScroll>
                   </div>
                 </>
-              </>
-            ) : (
-              <>
-                <h2 className="deck has-text-left">
-                  To start, pick your party:
-                </h2>
-
-                <div className="field is-grouped">
-                  <SmoothScroll
-                    to="questions"
-                    className="control"
-                    onClick={() => saveParty("Democrat")}
-                    extraOffset={80}
-                  >
-                    <button className="button">Democrat</button>
-                  </SmoothScroll>
-                  <SmoothScroll
-                    to="questions"
-                    onClick={() => saveParty("Independent")}
-                    extraOffset={80}
-                    className="control"
-                  >
-                    <button className="button">All Candidates</button>
-                  </SmoothScroll>
-                </div>
-              </>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -298,7 +298,10 @@ const Quiz = () => {
                           </h3>
 
                           <details className="mb-5">
-                            <summary>Tell me more</summary>
+                            <summary className="eyebrow is-link">
+                              Tell me <span className="open-text">more +</span>
+                              <span className="close-text">less -</span>
+                            </summary>
                             {formatContent(tellMeMore)}
                           </details>
                           {[option1, option2, option3, option4].map(
