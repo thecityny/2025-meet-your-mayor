@@ -343,13 +343,13 @@ const Quiz = () => {
 
                           {!!answerSelected ? (
                             <>
-                              <div className="mb-6">
+                              <div className="mt-6">
                                 <MatchingCandidates
                                   candidates={skipped.matchingCandidates}
                                   dontShowResponses
                                 />
                                 {skipped.matchingCandidates.length > 0 && (
-                                  <p className="is-inline-block mt-6">
+                                  <p className="is-inline-block mb-6">
                                     didn't respond to this question
                                   </p>
                                 )}
