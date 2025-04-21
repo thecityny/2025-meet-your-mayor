@@ -28,7 +28,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   return (
     <PageLayout customMetadata={{ siteName: candidateName }}>
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
-        <Link to="/" className="byline is-underlined">
+        <Link to="/" className="eyebrow is-underlined">
           Meet your mayor
         </Link>
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
@@ -57,7 +57,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
             See if you're a match
           </Link>
         </div>
-        <p className="byline has-text-left mt-4 mb-2">Share this page</p>
+        <p className="eyebrow has-text-left mt-4 mb-2">Share this page</p>
         <SocialShareButtons />
         <div className="copy my-5 py-5">{formatContent(bio)}</div>
       </div>

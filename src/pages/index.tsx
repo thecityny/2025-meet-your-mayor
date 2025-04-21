@@ -10,6 +10,21 @@ const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
   : ([] as any);
 
+const getDateUpdated = () => {
+  const timestamp = process.env.GATSBY_UPDATE_DATE;
+  if (!timestamp) {
+    throw new Error("No publication date defined in .env file!");
+  } else {
+    const date = new Date(timestamp.replace(/-/g, "/"));
+    const dateFormatted = date.toLocaleDateString("en-us", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    return dateFormatted;
+  }
+};
+
 const Homepage = () => (
   <PageLayout>
     <div className="hero is-fullheight-with-navbar">
@@ -17,7 +32,10 @@ const Homepage = () => (
         <div>
           <h1 className="headline has-text-left">Meet your Mayor: 2025</h1>
           <div className="attribution">
-            <p className="byline has-text-left mb-0">
+            <p className="eyebrow has-text-left mb-2">
+              Updated: {getDateUpdated()}
+            </p>
+            <p className="eyebrow has-text-left mb-0">
               By{" "}
               {byline.map((author: any, i: number) => (
                 <span key={i} className="author">
@@ -30,10 +48,10 @@ const Homepage = () => (
                 </span>
               ))}
             </p>
-            <p className="byline has-text-left mt-0 mb-4">
-              In partnership with WNYC
+            <p className="eyebrow has-text-left mt-0 mb-4">
+              In partnership with Gothamist
             </p>
-            <p className="copy has-text-left" style={{ maxWidth: "600px" }}>
+            <p className="deck has-text-left" style={{ maxWidth: "600px" }}>
               Candidates for NYC mayor told us where they stand on 15 big
               issues. Now you can pick your positions and see which contenders
               are the right ones for you.
@@ -41,7 +59,7 @@ const Homepage = () => (
             <SmoothScroll to="quiz" className="button is-primary">
               TAKE THE QUIZ
             </SmoothScroll>
-            <p className="byline has-text-left mt-4 mb-2">Share this tool</p>
+            <p className="eyebrow has-text-left mt-4 mb-2">Share this tool</p>
             <SocialShareButtons />
           </div>
         </div>

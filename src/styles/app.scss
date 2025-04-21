@@ -16,8 +16,45 @@
 // External CSS framework
 @import "../../node_modules/bulma/bulma.scss";
 
-// YOUR CODE
-// Starting writing your stuff below here
+
+
+
+// DESIGN OVERRIDES:
+
+
+
+
+// TEXT:
+
+.deck {
+  font-family: $sans;
+  font-size: 1.5rem;
+}
+
+.copy {
+  font-family: $sans;
+  font-size: 1rem;
+}
+
+.eyebrow {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1.8px;
+}
+
+.eyebrow, p {
+  a {
+    color: inherit;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}
+
+
 
 .button.is-multiline {
     width: 100%;
