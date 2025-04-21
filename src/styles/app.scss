@@ -54,7 +54,56 @@
 
 }
 
+// BUTTONS: 
 
+.button {
+  font-family: $sans;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  padding: 0.15rem 2rem;
+  border-radius: 45px;
+  transition: all .2s ease-in-out;
+  color: $city-black;
+  border: none;
+  background-color: $city-light-grey;
+  box-shadow: 2px 4px 0px darken($color: $city-light-grey, $amount: 30);
+
+  &.is-outlined {
+    background-color: transparent;
+    color: $city-black;
+    border: 2px solid $city-light-grey;
+    box-shadow: 2px 4px 0px $city-black;
+  }
+
+  &:hover {
+    box-shadow: 1px 2px 0px darken($color: $city-light-grey, $amount: 30);
+  }
+
+  &:active {
+    box-shadow: inset 2px 1px 0px darken($color: $city-light-grey, $amount: 30);
+  }
+
+  &:disabled {
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  &.is-outlined {
+    background-color: transparent;
+    color: $city-black;
+    border: 1px solid $city-black;
+
+    &:hover {
+      box-shadow: 1px 2px 0px $city-black;;
+    }
+  
+    &:active {
+      box-shadow: inset 2px 1px 0px $city-black;;
+    }
+  }
+}
 
 .button.is-multiline {
     width: 100%;

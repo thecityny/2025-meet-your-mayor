@@ -185,14 +185,12 @@ const Quiz = () => {
 
                 <div className="field is-grouped">
                   <SmoothScroll to="results" className="control">
-                    <button className="button is-link">See my Results</button>
+                    <button className="button">See my Results</button>
                   </SmoothScroll>
-                  <SmoothScroll
-                    to="quiz"
-                    className="button is-link is-outlined"
-                    onClick={() => resetAnswers()}
-                  >
-                    Reset Answers
+                  <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                    <button className="button is-outlined">
+                      Reset Answers
+                    </button>
                   </SmoothScroll>
                 </div>
               </>
@@ -208,11 +206,11 @@ const Quiz = () => {
                       to={`question-${questionsLeftToAnswer()[0]}`}
                       className="control"
                     >
-                      <button className="button is-link">Continue</button>
+                      <button className="button">Continue</button>
                     </SmoothScroll>
                     <SmoothScroll
                       to="quiz"
-                      className="button is-link is-outlined"
+                      className="button is-outlined"
                       onClick={() => resetAnswers()}
                     >
                       Reset Answers
@@ -233,7 +231,7 @@ const Quiz = () => {
                     onClick={() => saveParty("Democrat")}
                     extraOffset={80}
                   >
-                    <button className="button is-link">Democrat</button>
+                    <button className="button">Democrat</button>
                   </SmoothScroll>
                   <SmoothScroll
                     to="questions"
@@ -241,7 +239,7 @@ const Quiz = () => {
                     extraOffset={80}
                     className="control"
                   >
-                    <button className="button is-link">All Candidates</button>
+                    <button className="button">All Candidates</button>
                   </SmoothScroll>
                 </div>
               </>
@@ -404,6 +402,7 @@ const Quiz = () => {
                     <div className="has-text-left" key={i}>
                       <SmoothScroll
                         key={i}
+                        enableActiveClass
                         className="m-0 mr-2"
                         to={`section-${questionGroup[0].toLowerCase()}`}
                       >

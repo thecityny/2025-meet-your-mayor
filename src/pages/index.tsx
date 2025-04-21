@@ -56,11 +56,28 @@ const Homepage = () => (
               issues. Now you can pick your positions and see which contenders
               are the right ones for you.
             </p>
-            <SmoothScroll to="quiz" className="button is-primary">
-              TAKE THE QUIZ
-            </SmoothScroll>
-            <p className="eyebrow has-text-left mt-4 mb-2">Share this tool</p>
-            <SocialShareButtons />
+            <div className="is-flex is-flex-direction-column my-6">
+              <SmoothScroll to="quiz">
+                <button
+                  className="button is-primary mb-4"
+                  style={{ width: "350px" }}
+                >
+                  Take the quiz
+                </button>
+              </SmoothScroll>
+              <SmoothScroll to="learn">
+                <button
+                  className="button is-primary is-outlined"
+                  style={{ width: "350px" }}
+                >
+                  Learn on your own
+                </button>
+              </SmoothScroll>
+            </div>
+            <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
+              <div className="mr-3">Share this tool: </div>{" "}
+              <SocialShareButtons />
+            </div>
           </div>
         </div>
       </div>
@@ -71,6 +88,7 @@ const Homepage = () => (
         <div className="columns">
           <div className="column is-two-thirds">
             <h1
+              id="learn"
               className="headline has-text-left"
               style={{ maxWidth: "500px" }}
             >

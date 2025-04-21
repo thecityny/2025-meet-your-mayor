@@ -31,13 +31,22 @@ export const SmoothScroll: React.FC<{
   className?: string;
   extraOffset?: number;
   style?: React.CSSProperties;
+  enableActiveClass?: boolean;
   onClick?: () => void;
-}> = ({ to, children, className, extraOffset, style, onClick }) => {
+}> = ({
+  to,
+  children,
+  className,
+  extraOffset,
+  style,
+  enableActiveClass,
+  onClick,
+}) => {
   return (
     <AnchorLink
       className={className}
       style={style}
-      activeClass="has-text-weight-bold"
+      activeClass={enableActiveClass ? "has-text-weight-bold" : ""}
       spy={true}
       smooth={true}
       duration={800}

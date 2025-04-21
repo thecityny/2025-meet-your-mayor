@@ -27,18 +27,33 @@ export const SocialShareButtons: React.FC<{
         className="mr-2"
         target="_blank"
         rel="noopener noreferrer"
+        bgColor="#111111" // THE CITY Black
+        style={{
+          width: "25px",
+          height: "25px",
+        }}
         url={`https://x.com/intent/post?text=${shareText}&url=${shareUrl}`}
       />
       <SocialIcon
         className="mr-2"
         target="_blank"
         rel="noopener noreferrer"
+        bgColor="#111111" // THE CITY Black
+        style={{
+          width: "25px",
+          height: "25px",
+        }}
         url={`https://bsky.app/intent/compose?text=${shareText} ${shareUrl}`}
       />
       <SocialIcon
         className="mr-2"
         target="_blank"
         rel="noopener noreferrer"
+        bgColor="#111111" // THE CITY Black
+        style={{
+          width: "25px",
+          height: "25px",
+        }}
         url={`mailto:?subject=Meet Your Mayor: 2025&body=${shareText} ${shareUrl}`}
       />
     </>
