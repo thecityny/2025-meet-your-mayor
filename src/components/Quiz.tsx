@@ -313,20 +313,32 @@ const Quiz = () => {
                                   <div style={{ width: "100%" }}>
                                     <button
                                       className={classnames(
-                                        "button",
-                                        "is-link",
-                                        "is-multiline",
+                                        "quiz-selection-button",
+                                        "is-flex",
+                                        "is-flex-direction-row",
+                                        "is-align-items-center",
+                                        "has-text-left",
                                         "my-4",
-                                        !!answerSelected &&
-                                          answerSelected !== `${i + 1}` &&
-                                          "is-dark"
+                                        !!answerSelected
+                                          ? answerSelected == `${i + 1}`
+                                            ? "is-selected"
+                                            : "is-disabled"
+                                          : "is-active"
                                       )}
                                       onClick={() =>
                                         recordAnswer(number, `${i + 1}`)
                                       }
                                       disabled={!!answerSelected}
                                     >
-                                      {optionInfo.text}
+                                      <div
+                                        className={classnames(
+                                          "quiz-selection-oval",
+                                          "mr-2"
+                                        )}
+                                      />
+                                      <div className="quiz-selection-text">
+                                        {optionInfo.text}
+                                      </div>
                                     </button>
                                   </div>
                                   {!!answerSelected && (

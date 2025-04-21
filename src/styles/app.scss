@@ -141,3 +141,40 @@ details {
     height: auto;
     flex-direction: column;
   }
+
+// QUIZ ELEMENTS
+
+.quiz-selection-button {
+
+  .quiz-selection-oval {
+    background-color: transparent;
+    display: inline-block;
+    border: 2px solid $city-black;
+    border-radius: 50%;
+    width: 40px;
+    height: 25px;
+
+  }
+
+  &.is-active:hover .quiz-selection-oval {
+    background-color: #00000055;
+  }
+
+  &.is-selected { 
+      font-weight: 600;
+      .quiz-selection-oval {
+        background-color: $city-black;
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.7;
+
+  }
+
+  .quiz-selection-text {
+    flex: 1;
+  }
+}
