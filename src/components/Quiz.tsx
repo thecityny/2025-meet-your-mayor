@@ -302,7 +302,9 @@ const Quiz = () => {
                               Tell me <span className="open-text">more +</span>
                               <span className="close-text">less -</span>
                             </summary>
-                            {formatContent(tellMeMore)}
+                            <div className="copy">
+                              {formatContent(tellMeMore)}
+                            </div>
                           </details>
                           {[option1, option2, option3, option4].map(
                             (optionInfo, i) =>

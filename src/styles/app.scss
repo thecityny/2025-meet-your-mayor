@@ -95,22 +95,17 @@ details {
   background-color: $city-light-grey;
   box-shadow: 2px 4px 0px darken($color: $city-light-grey, $amount: 30);
 
-  &.is-outlined {
-    background-color: transparent;
-    color: $city-black;
-    border: 2px solid $city-light-grey;
-    box-shadow: 2px 4px 0px $city-black;
-  }
 
   &:hover {
     box-shadow: 1px 2px 0px darken($color: $city-light-grey, $amount: 30);
   }
 
-  &:active {
+  &:active, &.is-selected {
     box-shadow: inset 2px 1px 0px darken($color: $city-light-grey, $amount: 30);
   }
 
   &:disabled {
+    background-color: $city-light-grey;
     box-shadow: none;
     pointer-events: none;
   }
@@ -123,13 +118,18 @@ details {
     background-color: transparent;
     color: $city-black;
     border: 1px solid $city-black;
+    box-shadow: 2px 4px 0px $city-black;
 
     &:hover {
       box-shadow: 1px 2px 0px $city-black;;
     }
   
-    &:active {
+    &:active, &.is-selected {
       box-shadow: inset 2px 1px 0px $city-black;;
+    }
+
+    &:disabled {
+      background-color: transparent;
     }
   }
 }

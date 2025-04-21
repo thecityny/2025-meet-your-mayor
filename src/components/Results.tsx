@@ -8,6 +8,7 @@ import {
 } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
+import classNames from "classnames";
 
 type ResultsProps = {
   favoriteTopics: Set<string>;
@@ -144,16 +145,18 @@ const Results: React.FC<ResultsProps> = ({
         <h2 className="headline has-text-left">
           Now, pick which topics matter most to you
         </h2>
-        <h3 className="deck has-text-left mb-2">
+        <h3 className="deck has-text-left">
           Choose up to {MAX_FAVORITE_TOPICS}. These will impact your matching
           score more
         </h3>
-        <div className="buttons">
-          Selected: {Array.from(favoriteTopics).join(", ")}
+        <div className="buttons mt-5">
           {Object.entries(formatQuestionContent()).map((questionGroup, i) => (
             <div style={{ width: "100%" }} key={i}>
               <button
-                className="button"
+                className={classNames(
+                  "button",
+                  favoriteTopics.has(questionGroup[0]) && "is-selected"
+                )}
                 onClick={() => {
                   changeFavoriteTopics(questionGroup[0]);
                 }}
