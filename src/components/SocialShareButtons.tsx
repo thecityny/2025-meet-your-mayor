@@ -24,7 +24,7 @@ export const SocialShareButtons: React.FC<{
   return (
     <>
       <SocialIcon
-        className="mr-2"
+        className="button is-icon mr-2 p-0"
         target="_blank"
         rel="noopener noreferrer"
         bgColor="#111111" // THE CITY Black
@@ -35,7 +35,7 @@ export const SocialShareButtons: React.FC<{
         url={`https://x.com/intent/post?text=${shareText}&url=${shareUrl}`}
       />
       <SocialIcon
-        className="mr-2"
+        className="button is-icon mr-2 p-0"
         target="_blank"
         rel="noopener noreferrer"
         bgColor="#111111" // THE CITY Black
@@ -46,7 +46,7 @@ export const SocialShareButtons: React.FC<{
         url={`https://bsky.app/intent/compose?text=${shareText} ${shareUrl}`}
       />
       <SocialIcon
-        className="mr-2"
+        className="button is-icon mr-2 p-0"
         target="_blank"
         rel="noopener noreferrer"
         bgColor="#111111" // THE CITY Black

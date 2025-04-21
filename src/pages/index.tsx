@@ -65,14 +65,14 @@ const Homepage = () => (
                   Take the quiz
                 </button>
               </SmoothScroll>
-              <SmoothScroll to="learn">
+              <a href="#learn">
                 <button
                   className="button is-primary is-outlined"
                   style={{ width: "350px" }}
                 >
                   Learn on your own
                 </button>
-              </SmoothScroll>
+              </a>
             </div>
             <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
               <div className="mr-3">Share this tool: </div>{" "}
@@ -83,12 +83,11 @@ const Homepage = () => (
       </div>
     </div>
     <Quiz />
-    <div className="hero is-fullheight-with-navbar pt-6">
+    <div className="hero is-fullheight-with-navbar pt-6" id="learn">
       <div className="container mt-6">
         <div className="columns">
           <div className="column is-two-thirds">
             <h1
-              id="learn"
               className="headline has-text-left"
               style={{ maxWidth: "500px" }}
             >
