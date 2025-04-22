@@ -192,16 +192,20 @@ details {
 
 // QUIZ ELEMENTS
 
-.quiz-selection-button {
-  .quiz-selection-oval {
-    background-color: transparent;
-    display: inline-block;
-    border: 2px solid $city-black;
-    border-radius: 50%;
-    width: 40px;
-    height: 25px;
-  }
+.quiz-selection-oval {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid $city-black;
+  border-radius: 50%;
+  width: 40px;
+  height: 25px;
 
+  &.is-filled {
+    background-color: $city-black;
+  }
+}
+
+.quiz-selection-button {
   &.is-active:hover .quiz-selection-oval {
     background-color: #00000055;
   }

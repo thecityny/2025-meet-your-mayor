@@ -8,7 +8,7 @@ import {
 } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
-import classNames from "classnames";
+import classnames from "classnames";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
@@ -158,7 +158,7 @@ const Results: React.FC<ResultsProps> = ({
                 (questionGroup, i) => (
                   <div style={{ width: "100%" }} key={i}>
                     <button
-                      className={classNames(
+                      className={classnames(
                         "button",
                         favoriteTopics.has(questionGroup[0]) && "is-selected"
                       )}
@@ -282,21 +282,30 @@ const Results: React.FC<ResultsProps> = ({
                       % Match
                     </h2>
                   </summary>
+                  <div className="copy">You agreed with them on...</div>
                   {Object.entries(groupBy(candidate.scoreList, "subject")).map(
                     (questionGroup, i) => (
                       <div className="mb-2 p-2" key={i}>
+                        {questionGroup[1].map((question, i) => (
+                          <div
+                            key={i}
+                            className={classnames(
+                              "quiz-selection-oval",
+                              "mr-6",
+                              question.points > 0 && "is-filled"
+                            )}
+                          />
+                        ))}
                         <h3 className="has-text-weight-semibold">
                           {favoriteTopics.has(questionGroup[0]) && "★"}{" "}
                           {questionGroup[0]}{" "}
                           {favoriteTopics.has(questionGroup[0]) && "★"}
                         </h3>
-                        {questionGroup[1].map((question, i) => (
-                          <div key={i}>
-                            Question {question.questionNumber}:{" "}
-                            {question.points} points
-                            <br />
-                          </div>
-                        ))}
+                        <p className="copy">
+                          {questionGroup[1].filter((q) => q.points > 0).length}{" "}
+                          out of {questionGroup[1].length} question
+                          {questionGroup[1].length > 1 ? "s" : ""}
+                        </p>
                       </div>
                     )
                   )}
