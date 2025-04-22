@@ -171,6 +171,24 @@ details {
   flex-direction: column;
 }
 
+.field.is-grouped {
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    .button {
+      width: 100%;
+    }
+  }
+}
+
+.buttons {
+  @media screen and (max-width: 768px) {
+    .button {
+      width: 100%;
+      white-space: normal; // Wrap text on mobile
+    }
+  }
+}
+
 // QUIZ ELEMENTS
 
 .quiz-selection-button {
