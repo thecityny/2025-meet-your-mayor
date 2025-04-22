@@ -283,15 +283,16 @@ const Results: React.FC<ResultsProps> = ({
                     </h2>
                   </summary>
                   <div className="copy">You agreed with them on...</div>
-                  {Object.entries(groupBy(candidate.scoreList, "subject")).map(
-                    (questionGroup, i) => (
-                      <div className="mb-2 p-2" key={i}>
+                  <div className="results-scorecard is-flex is-flex-direction-row is-flex-wrap-wrap">
+                    {Object.entries(
+                      groupBy(candidate.scoreList, "subject")
+                    ).map((questionGroup, i) => (
+                      <div key={i}>
                         {questionGroup[1].map((question, i) => (
                           <div
                             key={i}
                             className={classnames(
                               "quiz-selection-oval",
-                              "mr-6",
                               question.points > 0 && "is-filled"
                             )}
                           />
@@ -303,12 +304,11 @@ const Results: React.FC<ResultsProps> = ({
                         </h3>
                         <p className="copy">
                           {questionGroup[1].filter((q) => q.points > 0).length}{" "}
-                          out of {questionGroup[1].length} question
-                          {questionGroup[1].length > 1 ? "s" : ""}
+                          out of {questionGroup[1].length}
                         </p>
                       </div>
-                    )
-                  )}
+                    ))}
+                  </div>
                   <span className="has-text-weight-semibold">
                     {" "}
                     Total Score: {candidate.totalScore}/{totalPossiblePoints}
