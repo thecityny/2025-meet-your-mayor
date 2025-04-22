@@ -29,6 +29,7 @@ const MatchingCandidates: FC<{
     <div
       className={classnames(
         "is-flex",
+        "is-flex-wrap-wrap",
         isExpanded ? "is-flex-direction-column" : "is-flex-direction-row"
       )}
     >
