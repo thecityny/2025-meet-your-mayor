@@ -260,9 +260,13 @@ const Results: React.FC<ResultsProps> = ({
                 <details>
                   <summary
                     className="is-inline-flex is-justify-content-space-between"
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", cursor: "pointer" }}
                   >
                     <div className="is-flex is-align-items-center">
+                      <span className="headline">
+                        <span className="open-text">+</span>
+                        <span className="close-text">-</span>
+                      </span>
                       <figure className="image is-96x96">
                         <StaticImage
                           src="../assets/images/sample-bobblehead.png"
