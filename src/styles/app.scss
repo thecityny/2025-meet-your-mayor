@@ -16,8 +16,6 @@
 // External CSS framework
 @import "../../node_modules/bulma/bulma.scss";
 
-// DESIGN OVERRIDES:
-
 // HEADER:
 
 .nav-container {
@@ -50,6 +48,7 @@
 
 .label {
   font-family: $sans;
+  font-weight: 400;
   font-size: 0.75rem;
 }
 
@@ -105,6 +104,10 @@ details {
   background-color: $city-light-grey;
   box-shadow: 2px 4px 0px darken($color: $city-light-grey, $amount: 30);
   transform: translate(-2px, -4px);
+
+  &.is-small {
+    font-size: 0.875rem;
+  }
 
   &:hover {
     box-shadow: 1px 2px 0px darken($color: $city-light-grey, $amount: 30);
@@ -191,16 +194,20 @@ details {
 
 // QUIZ ELEMENTS
 
-.quiz-selection-button {
-  .quiz-selection-oval {
-    background-color: transparent;
-    display: inline-block;
-    border: 2px solid $city-black;
-    border-radius: 50%;
-    width: 40px;
-    height: 25px;
-  }
+.quiz-selection-oval {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid $city-black;
+  border-radius: 50%;
+  width: 40px;
+  height: 25px;
 
+  &.is-filled {
+    background-color: $city-black;
+  }
+}
+
+.quiz-selection-button {
   &.is-active:hover .quiz-selection-oval {
     background-color: #00000055;
   }
@@ -242,6 +249,26 @@ details {
   }
 }
 
+.question-number-tag {
+  position: absolute;
+  transform: translate(-40px, 5px);
+  border-radius: 100%;
+  @media screen and (max-width: 768px) {
+    position: relative;
+    transform: translate(0px, -5px);
+    margin-right: 0.5rem;
+  }
+}
+
+.results-scorecard {
+  .quiz-selection-oval {
+    margin-right: 4rem;
+    @media screen and (max-width: 768px) {
+      margin-right: 1rem;
+    }
+  }
+}
+
 // CANDIDATE PAGES:
 
 .candidate-selector-menu {
@@ -258,6 +285,11 @@ details {
 }
 
 // HELPERS:
+
+hr {
+  background-color: unset;
+  border: 1px dashed #11111155;
+}
 
 .no-wrap {
   white-space: nowrap;

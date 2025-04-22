@@ -177,23 +177,6 @@ body {
   line-height: 26px;
   margin: 0 auto 0.78em auto;
 
-  a {
-    text-decoration: none;
-
-    &,
-    &:visited {
-      color: #000;
-      box-shadow: 0 1px 0 #0c71fa;
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      color: #000;
-      box-shadow: 0 2px 0 #0c71fa;
-    }
-  }
-
   pre {
     font-size: 16px;
     font-family: $mono;
@@ -217,23 +200,6 @@ body {
 .photo {
   width: 100%;
   margin: 20px auto;
-
-  a {
-    text-decoration: none;
-
-    &,
-    &:visited {
-      color: #000;
-      box-shadow: 0 1px 0 #0c71fa;
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      color: #000;
-      box-shadow: 0 2px 0 #0c71fa;
-    }
-  }
 
   img {
     max-width: inherit;

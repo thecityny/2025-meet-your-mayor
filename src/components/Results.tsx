@@ -1,14 +1,16 @@
 import React from "react";
-import { NumberLabel } from "./Quiz";
 import { groupBy } from "../utils";
 import {
   formatQuestionContent,
   generateBlankScorecard,
+  kebabCase,
   QuizInput,
 } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
-import classNames from "classnames";
+import classnames from "classnames";
+import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 type ResultsProps = {
   favoriteTopics: Set<string>;
@@ -136,48 +138,54 @@ const Results: React.FC<ResultsProps> = ({
 
   return (
     <>
-      <div
-        id={`question-${answers.length + 1}`}
-        className="container mb-5"
-        style={{ minHeight: "100vh", maxWidth: "600px" }}
-      >
-        <NumberLabel number={answers.length + 1} />
-        <h2 className="headline has-text-left">
-          Now, pick which topics matter most to you
-        </h2>
-        <h3 className="deck has-text-left">
-          Choose up to {MAX_FAVORITE_TOPICS}. These will impact your matching
-          score more
-        </h3>
-        <div className="buttons mt-5">
-          {Object.entries(formatQuestionContent()).map((questionGroup, i) => (
-            <div style={{ width: "100%" }} key={i}>
-              <button
-                className={classNames(
-                  "button",
-                  favoriteTopics.has(questionGroup[0]) && "is-selected"
-                )}
-                onClick={() => {
-                  changeFavoriteTopics(questionGroup[0]);
-                }}
-                disabled={
-                  !favoriteTopics.has(questionGroup[0]) &&
-                  favoriteTopics.size >= MAX_FAVORITE_TOPICS
-                }
-              >
-                {favoriteTopics.has(questionGroup[0]) && (
-                  <span className="icon is-small mr-1">✕</span>
-                )}
-                {questionGroup[0]}
-              </button>
+      <div className="columns" style={{ margin: "50vh 0" }}>
+        <div className="column is-one-quarter" />
+        <div className="column is-half" style={{ maxWidth: "600px" }}>
+          <div
+            id={`question-${answers.length + 1}`}
+            className="container p-0 mb-5"
+            style={{ minHeight: "100vh" }}
+          >
+            <h2 className="headline has-text-left">
+              Now, pick which topics matter most to you
+            </h2>
+            <h3 className="deck has-text-left">
+              Choose up to {MAX_FAVORITE_TOPICS}. These will impact your
+              matching score more
+            </h3>
+            <div className="buttons mt-5">
+              {Object.entries(formatQuestionContent()).map(
+                (questionGroup, i) => (
+                  <div style={{ width: "100%" }} key={i}>
+                    <button
+                      className={classnames(
+                        "button",
+                        favoriteTopics.has(questionGroup[0]) && "is-selected"
+                      )}
+                      onClick={() => {
+                        changeFavoriteTopics(questionGroup[0]);
+                      }}
+                      disabled={
+                        !favoriteTopics.has(questionGroup[0]) &&
+                        favoriteTopics.size >= MAX_FAVORITE_TOPICS
+                      }
+                    >
+                      {favoriteTopics.has(questionGroup[0]) && (
+                        <span className="icon is-small mr-1">✕</span>
+                      )}
+                      {questionGroup[0]}
+                    </button>
+                  </div>
+                )
+              )}
             </div>
-          ))}
+            {favoriteTopics.size > 0 && (
+              <SmoothScroll to="results" className="button is-large mt-6">
+                See my Results
+              </SmoothScroll>
+            )}
+          </div>
         </div>
-        {favoriteTopics.size > 0 && (
-          <SmoothScroll to="results" className="button is-large mt-6">
-            See my Results
-          </SmoothScroll>
-        )}
       </div>
       <div
         className="container has-background-light p-6"
@@ -215,71 +223,107 @@ const Results: React.FC<ResultsProps> = ({
         ) : (
           <div>
             <div className="level">
-              <h1 className="headline has-text-left is-inline-block">
+              <h1 className="headline has-text-left is-inline-block my-5">
                 Results
               </h1>
-              <div className="field is-grouped">
-                <SocialShareButtons
-                  results={{
-                    topCandidate: score[0].candidateName,
-                    matchScore: Math.round(
-                      (score[0].totalScore / totalPossiblePoints) * 100
-                    ),
-                  }}
-                />
-                <SmoothScroll
-                  to="quiz"
-                  className="button is-link is-outlined"
-                  onClick={() => resetAnswers()}
-                >
-                  Take Quiz Again
+              <div className="field is-grouped is-flex is-align-items-center">
+                <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
+                  <div className="mr-3">Share this tool: </div>{" "}
+                  <SocialShareButtons
+                    results={{
+                      topCandidate: score[0].candidateName,
+                      matchScore: Math.round(
+                        (score[0].totalScore / totalPossiblePoints) * 100
+                      ),
+                    }}
+                  />
+                </div>
+
+                <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                  <button className="button is-link is-outlined">
+                    Take Quiz Again
+                  </button>
                 </SmoothScroll>
               </div>
             </div>
-            <hr />
+            <div
+              className="copy has-text-left ml-0"
+              style={{ maxWidth: "600px" }}
+            >
+              Here are your top 5 matches. On election day, you are allowed to
+              rank up to 5 candidates, or however many you like.
+            </div>
+
             {score.slice(0, MATCHES_TO_SHOW).map((candidate, i) => (
               <div className="copy has-text-black-bis" key={i}>
+                <hr className="my-6" />
                 <details>
                   <summary
                     className="is-inline-flex is-justify-content-space-between"
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", cursor: "pointer" }}
                   >
-                    <h2 className="headline has-text-left is-size-3-touch">
-                      {candidate.candidateName}
-                    </h2>
+                    <div className="is-flex is-align-items-center">
+                      <span className="headline">
+                        <span className="open-text">+</span>
+                        <span className="close-text">-</span>
+                      </span>
+                      <figure className="image is-96x96">
+                        <StaticImage
+                          src="../assets/images/sample-bobblehead.png"
+                          alt="CandidateBobblehead"
+                          placeholder="blurred"
+                          layout="constrained"
+                        />
+                      </figure>
+                      <h2 className="headline has-text-left is-size-3-touch">
+                        {candidate.candidateName}
+                      </h2>
+                    </div>
                     <h2 className="headline is-size-3-touch">
                       {Math.round(
                         (candidate.totalScore / totalPossiblePoints) * 100
                       )}
-                      % Match ▼
+                      % Match
                     </h2>
                   </summary>
-                  {Object.entries(groupBy(candidate.scoreList, "subject")).map(
-                    (questionGroup, i) => (
-                      <div className="mb-2 p-2" key={i}>
+                  <div className="copy mt-4 ml-4">
+                    You agreed with them on...
+                  </div>
+                  <div className="results-scorecard is-flex is-flex-direction-row is-flex-wrap-wrap ml-4">
+                    {Object.entries(
+                      groupBy(candidate.scoreList, "subject")
+                    ).map((questionGroup, i) => (
+                      <div key={i} className="mb-5">
+                        {questionGroup[1].map((question, i) => (
+                          <div
+                            key={i}
+                            className={classnames(
+                              "quiz-selection-oval",
+                              question.points > 0 && "is-filled"
+                            )}
+                          />
+                        ))}
                         <h3 className="has-text-weight-semibold">
                           {favoriteTopics.has(questionGroup[0]) && "★"}{" "}
                           {questionGroup[0]}{" "}
                           {favoriteTopics.has(questionGroup[0]) && "★"}
                         </h3>
-                        {questionGroup[1].map((question, i) => (
-                          <div key={i}>
-                            Question {question.questionNumber}:{" "}
-                            {question.points} points
-                            <br />
-                          </div>
-                        ))}
+                        <p className="copy">
+                          {questionGroup[1].filter((q) => q.points > 0).length}{" "}
+                          out of {questionGroup[1].length}
+                        </p>
                       </div>
-                    )
-                  )}
-                  <span className="has-text-weight-semibold">
-                    {" "}
-                    Total Score: {candidate.totalScore}/{totalPossiblePoints}
-                  </span>
-                </details>
-                <br />
+                    ))}
+                  </div>
 
-                <hr />
+                  <div className="buttons mt-4 ml-4">
+                    <Link to={kebabCase(candidate.candidateName)}>
+                      <button className="button">
+                        Learn more about {candidate.candidateName}
+                      </button>
+                    </Link>
+                  </div>
+                </details>
               </div>
             ))}
           </div>

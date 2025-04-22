@@ -36,7 +36,7 @@ export const formatCandidateContent = () => {
  * Converts string to kebab case (for generating a url slug).
  * NOTE: this implementation is copied with an implementation in gatsby-node.js (not ideal).
  */
-const kebabCase = (string: string) => {
+export const kebabCase = (string: string) => {
   return string
     .replace(/\d+/g, " ")
     .split(/ |\B(?=[A-Z])/)

@@ -10,20 +10,6 @@ import {
 import { SmoothScroll } from "./Links";
 import { StaticImage } from "gatsby-plugin-image";
 
-export const NumberLabel: FC<{ number: number }> = ({ number }) => (
-  <div
-    className="tag is-light"
-    style={{
-      position: "absolute",
-      marginLeft: "-35px",
-      marginTop: "2px",
-      borderRadius: "100%",
-    }}
-  >
-    {number}
-  </div>
-);
-
 type MatchingCandidate = {
   name: string;
   quote: string | null;
@@ -43,6 +29,7 @@ const MatchingCandidates: FC<{
     <div
       className={classnames(
         "is-flex",
+        "is-flex-wrap-wrap",
         isExpanded ? "is-flex-direction-column" : "is-flex-direction-row"
       )}
     >
@@ -298,6 +285,11 @@ const Quiz = () => {
                         skipped,
                       } = question;
 
+                      const optionSkipped = {
+                        text: "Skip this question",
+                        matchingCandidates: skipped.matchingCandidates,
+                      };
+
                       const isFirstQuestionInSection = i === 0;
 
                       const answerSelected = answers.find(
@@ -308,7 +300,6 @@ const Quiz = () => {
                         <div
                           key={number}
                           id={`question-${number}`}
-                          className="mb-5"
                           style={{
                             minHeight: "100vh",
                             margin: isFirstQuestionInSection
@@ -317,7 +308,9 @@ const Quiz = () => {
                           }}
                         >
                           <h3 className="deck has-text-left mb-2">
-                            <NumberLabel number={number} />
+                            <div className="tag is-light question-number-tag">
+                              {number}
+                            </div>
                             {title}
                           </h3>
 
@@ -330,105 +323,84 @@ const Quiz = () => {
                               {formatContent(tellMeMore)}
                             </div>
                           </details>
-                          {[option1, option2, option3, option4].map(
-                            (optionInfo, i) =>
-                              !!optionInfo.text ? (
-                                <div key={i}>
-                                  <div style={{ width: "100%" }}>
-                                    <button
-                                      className={classnames(
-                                        "quiz-selection-button",
-                                        "is-flex",
-                                        "is-flex-direction-row",
-                                        "is-align-items-start",
-                                        "has-text-left",
-                                        "my-4",
-                                        !!answerSelected
-                                          ? answerSelected == `${i + 1}`
-                                            ? "is-selected"
-                                            : "is-disabled"
-                                          : "is-active"
-                                      )}
-                                      onClick={() =>
-                                        recordAnswer(number, `${i + 1}`)
-                                      }
-                                      disabled={!!answerSelected}
-                                    >
-                                      <div className="quiz-selection-oval mr-4" />
-                                      <div className="copy">
-                                        {optionInfo.text}
-                                      </div>
-                                    </button>
-                                  </div>
-                                  {!!answerSelected && (
-                                    <div
-                                      className={classnames(
-                                        "matching-candidates mb-6",
-                                        answerSelected == `${i + 1}`
+                          {[
+                            option1,
+                            option2,
+                            option3,
+                            option4,
+                            optionSkipped,
+                          ].map((optionInfo, i) => {
+                            const optionNumber =
+                              optionInfo.text === optionSkipped.text
+                                ? "0"
+                                : `${i + 1}`;
+                            return !!optionInfo.text ? (
+                              <div key={i}>
+                                <div style={{ width: "100%" }}>
+                                  <button
+                                    className={classnames(
+                                      "quiz-selection-button",
+                                      "is-flex",
+                                      "is-flex-direction-row",
+                                      "is-align-items-start",
+                                      "has-text-left",
+                                      "my-4",
+                                      !!answerSelected
+                                        ? answerSelected == optionNumber
                                           ? "is-selected"
                                           : "is-disabled"
-                                      )}
-                                    >
-                                      <MatchingCandidates
-                                        candidates={
-                                          optionInfo.matchingCandidates
-                                        }
-                                      />
+                                        : "is-active"
+                                    )}
+                                    onClick={() =>
+                                      recordAnswer(number, optionNumber)
+                                    }
+                                    disabled={!!answerSelected}
+                                  >
+                                    <div className="quiz-selection-oval mr-4" />
+                                    <div className="copy">
+                                      {optionInfo.text}
                                     </div>
-                                  )}
-                                </div>
-                              ) : (
-                                <div key={i} />
-                              )
-                          )}
-
-                          {!!answerSelected ? (
-                            <>
-                              <div
-                                className={classnames(
-                                  "mt-6",
-                                  "matching-candidates",
-                                  answerSelected == "0"
-                                    ? "is-selected"
-                                    : "is-disabled"
-                                )}
-                              >
-                                <MatchingCandidates
-                                  candidates={skipped.matchingCandidates}
-                                  dontShowResponses
-                                />
-                                {skipped.matchingCandidates.length > 0 && (
-                                  <p className="copy is-inline-block mb-6">
-                                    didn't respond to this question
-                                  </p>
-                                )}
-                              </div>
-                              <div className="field is-grouped">
-                                <SmoothScroll
-                                  to={`question-${number + 1}`}
-                                  className="control"
-                                >
-                                  <button className="button is-link">
-                                    Next Question
                                   </button>
-                                </SmoothScroll>
-                                <SmoothScroll
-                                  to={`question-${number}`}
-                                  className="button is-link is-outlined"
-                                  onClick={() => clearAnswer(number)}
-                                >
-                                  Change answer
-                                </SmoothScroll>
+                                </div>
+                                {!!answerSelected && (
+                                  <div
+                                    className={classnames(
+                                      "matching-candidates mb-6",
+                                      answerSelected == optionNumber
+                                        ? "is-selected"
+                                        : "is-disabled"
+                                    )}
+                                  >
+                                    <MatchingCandidates
+                                      candidates={optionInfo.matchingCandidates}
+                                      dontShowResponses={optionNumber === "0"}
+                                    />
+                                  </div>
+                                )}
                               </div>
-                            </>
-                          ) : (
-                            <button
-                              className="quiz-selection-button is-active is-flex is-flex-direction-row is-align-items-start has-text-left my-4"
-                              onClick={() => recordAnswer(number, "0")}
-                            >
-                              <div className="quiz-selection-oval mr-4" />
-                              <div className="copy">Skip this question.</div>
-                            </button>
+                            ) : (
+                              <div key={i} />
+                            );
+                          })}
+
+                          {!!answerSelected && (
+                            <div className="field is-grouped">
+                              <SmoothScroll
+                                to={`question-${number + 1}`}
+                                className="control"
+                              >
+                                <button className="button is-link">
+                                  Next Question
+                                </button>
+                              </SmoothScroll>
+                              <SmoothScroll
+                                to={`question-${number}`}
+                                className="button is-link is-outlined"
+                                onClick={() => clearAnswer(number)}
+                              >
+                                Change answer
+                              </SmoothScroll>
+                            </div>
                           )}
                         </div>
                       );
