@@ -94,14 +94,17 @@ details {
   border: none;
   background-color: $city-light-grey;
   box-shadow: 2px 4px 0px darken($color: $city-light-grey, $amount: 30);
+  transform: translate(-2px, -4px);
 
 
   &:hover {
     box-shadow: 1px 2px 0px darken($color: $city-light-grey, $amount: 30);
+    transform: translate(-1px, -2px);
   }
 
   &:active, &.is-selected {
     box-shadow: inset 2px 1px 0px darken($color: $city-light-grey, $amount: 30);
+    transform: translate(-1px, -2px);
   }
 
   &:disabled {
