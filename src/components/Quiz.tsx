@@ -9,8 +9,6 @@ import {
 } from "./QuizContent";
 import { SmoothScroll } from "./Links";
 import { StaticImage } from "gatsby-plugin-image";
-import Checkbox from "../assets/images/checkbox-unchecked.svg";
-import CheckboxChecked from "../assets/images/checkbox-checked.svg";
 
 export const NumberLabel: FC<{ number: number }> = ({ number }) => (
   <div
@@ -474,9 +472,25 @@ const Quiz = () => {
                             }}
                           >
                             {!!questionAnswered ? (
-                              <CheckboxChecked />
+                              <div
+                                className="is-inline-block"
+                                style={{
+                                  width: "12px",
+                                  height: "12px",
+                                  borderRadius: "100%",
+                                  backgroundColor: "#111111",
+                                }}
+                              />
                             ) : (
-                              <Checkbox />
+                              <div
+                                className="is-inline-block"
+                                style={{
+                                  width: "12px",
+                                  height: "12px",
+                                  borderRadius: "100%",
+                                  border: "1px solid #111111",
+                                }}
+                              />
                             )}
                           </span>
                         );
