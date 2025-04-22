@@ -105,6 +105,10 @@ details {
   box-shadow: 2px 4px 0px darken($color: $city-light-grey, $amount: 30);
   transform: translate(-2px, -4px);
 
+  &.is-small {
+    font-size: 0.875rem;
+  }
+
   &:hover {
     box-shadow: 1px 2px 0px darken($color: $city-light-grey, $amount: 30);
     transform: translate(-1px, -2px);
