@@ -50,7 +50,7 @@ const MatchingCandidates: FC<{
         const { name, quote, source } = candidate;
         const firstName = name.split(" ")[0];
         return isExpanded ? (
-          <div key={i} className="is-flex is-flex-direction-row">
+          <div key={i} className="is-flex is-flex-direction-row mb-4">
             <div className="is-flex is-flex-direction-column is-align-items-center mr-3">
               <figure className="image is-48x48">
                 <StaticImage
@@ -63,8 +63,8 @@ const MatchingCandidates: FC<{
               <span className="label">{firstName}</span>
             </div>
 
-            <div className="mb-5">
-              <p className="label mt-3">
+            <div className="mb-5 mt-4">
+              <p className="label">
                 {quote ||
                   `${
                     // Candidate's First Name:
