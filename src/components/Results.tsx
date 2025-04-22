@@ -1,5 +1,4 @@
 import React from "react";
-import { NumberLabel } from "./Quiz";
 import { groupBy } from "../utils";
 import {
   formatQuestionContent,
@@ -136,48 +135,54 @@ const Results: React.FC<ResultsProps> = ({
 
   return (
     <>
-      <div
-        id={`question-${answers.length + 1}`}
-        className="container mb-5"
-        style={{ minHeight: "100vh", maxWidth: "600px" }}
-      >
-        <NumberLabel number={answers.length + 1} />
-        <h2 className="headline has-text-left">
-          Now, pick which topics matter most to you
-        </h2>
-        <h3 className="deck has-text-left">
-          Choose up to {MAX_FAVORITE_TOPICS}. These will impact your matching
-          score more
-        </h3>
-        <div className="buttons mt-5">
-          {Object.entries(formatQuestionContent()).map((questionGroup, i) => (
-            <div style={{ width: "100%" }} key={i}>
-              <button
-                className={classNames(
-                  "button",
-                  favoriteTopics.has(questionGroup[0]) && "is-selected"
-                )}
-                onClick={() => {
-                  changeFavoriteTopics(questionGroup[0]);
-                }}
-                disabled={
-                  !favoriteTopics.has(questionGroup[0]) &&
-                  favoriteTopics.size >= MAX_FAVORITE_TOPICS
-                }
-              >
-                {favoriteTopics.has(questionGroup[0]) && (
-                  <span className="icon is-small mr-1">✕</span>
-                )}
-                {questionGroup[0]}
-              </button>
+      <div className="columns" style={{ margin: "50vh 0" }}>
+        <div className="column is-one-quarter" />
+        <div className="column is-half" style={{ maxWidth: "600px" }}>
+          <div
+            id={`question-${answers.length + 1}`}
+            className="container p-0 mb-5"
+            style={{ minHeight: "100vh" }}
+          >
+            <h2 className="headline has-text-left">
+              Now, pick which topics matter most to you
+            </h2>
+            <h3 className="deck has-text-left">
+              Choose up to {MAX_FAVORITE_TOPICS}. These will impact your
+              matching score more
+            </h3>
+            <div className="buttons mt-5">
+              {Object.entries(formatQuestionContent()).map(
+                (questionGroup, i) => (
+                  <div style={{ width: "100%" }} key={i}>
+                    <button
+                      className={classNames(
+                        "button",
+                        favoriteTopics.has(questionGroup[0]) && "is-selected"
+                      )}
+                      onClick={() => {
+                        changeFavoriteTopics(questionGroup[0]);
+                      }}
+                      disabled={
+                        !favoriteTopics.has(questionGroup[0]) &&
+                        favoriteTopics.size >= MAX_FAVORITE_TOPICS
+                      }
+                    >
+                      {favoriteTopics.has(questionGroup[0]) && (
+                        <span className="icon is-small mr-1">✕</span>
+                      )}
+                      {questionGroup[0]}
+                    </button>
+                  </div>
+                )
+              )}
             </div>
-          ))}
+            {favoriteTopics.size > 0 && (
+              <SmoothScroll to="results" className="button is-large mt-6">
+                See my Results
+              </SmoothScroll>
+            )}
+          </div>
         </div>
-        {favoriteTopics.size > 0 && (
-          <SmoothScroll to="results" className="button is-large mt-6">
-            See my Results
-          </SmoothScroll>
-        )}
       </div>
       <div
         className="container has-background-light p-6"

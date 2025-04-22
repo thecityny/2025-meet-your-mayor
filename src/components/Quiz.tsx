@@ -10,20 +10,6 @@ import {
 import { SmoothScroll } from "./Links";
 import { StaticImage } from "gatsby-plugin-image";
 
-export const NumberLabel: FC<{ number: number }> = ({ number }) => (
-  <div
-    className="tag is-light"
-    style={{
-      position: "absolute",
-      marginLeft: "-35px",
-      marginTop: "2px",
-      borderRadius: "100%",
-    }}
-  >
-    {number}
-  </div>
-);
-
 type MatchingCandidate = {
   name: string;
   quote: string | null;
@@ -322,7 +308,9 @@ const Quiz = () => {
                           }}
                         >
                           <h3 className="deck has-text-left mb-2">
-                            <NumberLabel number={number} />
+                            <div className="tag is-light question-number-tag">
+                              {number}
+                            </div>
                             {title}
                           </h3>
 
