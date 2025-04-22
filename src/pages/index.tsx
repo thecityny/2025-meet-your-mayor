@@ -10,6 +10,21 @@ const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
   : ([] as any);
 
+const getDateUpdated = () => {
+  const timestamp = process.env.GATSBY_UPDATE_DATE;
+  if (!timestamp) {
+    throw new Error("No publication date defined in .env file!");
+  } else {
+    const date = new Date(timestamp.replace(/-/g, "/"));
+    const dateFormatted = date.toLocaleDateString("en-us", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    return dateFormatted;
+  }
+};
+
 const Homepage = () => (
   <PageLayout>
     <div className="hero is-fullheight-with-navbar">
@@ -17,7 +32,10 @@ const Homepage = () => (
         <div>
           <h1 className="headline has-text-left">Meet your Mayor: 2025</h1>
           <div className="attribution">
-            <p className="byline has-text-left mb-0">
+            <p className="eyebrow has-text-left mb-2">
+              Updated: {getDateUpdated()}
+            </p>
+            <p className="eyebrow has-text-left mb-0">
               By{" "}
               {byline.map((author: any, i: number) => (
                 <span key={i} className="author">
@@ -30,25 +48,42 @@ const Homepage = () => (
                 </span>
               ))}
             </p>
-            <p className="byline has-text-left mt-0 mb-4">
-              In partnership with WNYC
+            <p className="eyebrow has-text-left mt-0 mb-4">
+              In partnership with Gothamist
             </p>
-            <p className="copy has-text-left" style={{ maxWidth: "600px" }}>
+            <p className="deck has-text-left" style={{ maxWidth: "600px" }}>
               Candidates for NYC mayor told us where they stand on 15 big
               issues. Now you can pick your positions and see which contenders
               are the right ones for you.
             </p>
-            <SmoothScroll to="quiz" className="button is-primary">
-              TAKE THE QUIZ
-            </SmoothScroll>
-            <p className="byline has-text-left mt-4 mb-2">Share this tool</p>
-            <SocialShareButtons />
+            <div className="is-flex is-flex-direction-column my-6">
+              <SmoothScroll to="quiz">
+                <button
+                  className="button is-primary mb-4"
+                  style={{ width: "350px" }}
+                >
+                  Take the quiz
+                </button>
+              </SmoothScroll>
+              <a href="#learn">
+                <button
+                  className="button is-primary is-outlined"
+                  style={{ width: "350px" }}
+                >
+                  Learn on your own
+                </button>
+              </a>
+            </div>
+            <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
+              <div className="mr-3">Share this tool: </div>{" "}
+              <SocialShareButtons />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <Quiz />
-    <div className="hero is-fullheight-with-navbar pt-6">
+    <div className="hero is-fullheight-with-navbar pt-6" id="learn">
       <div className="container mt-6">
         <div className="columns">
           <div className="column is-two-thirds">
@@ -58,7 +93,7 @@ const Homepage = () => (
             >
               Learn more about the candidates...
             </h1>
-            <CandidateSelectorMenu isBig />
+            <CandidateSelectorMenu isOnHomepage />
           </div>
           <div className="column">
             <h1 className="headline has-text-left">

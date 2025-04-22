@@ -8,6 +8,9 @@ import {
   QuizInput,
 } from "./QuizContent";
 import { SmoothScroll } from "./Links";
+import { StaticImage } from "gatsby-plugin-image";
+import Checkbox from "../assets/images/checkbox-unchecked.svg";
+import CheckboxChecked from "../assets/images/checkbox-checked.svg";
 
 export const NumberLabel: FC<{ number: number }> = ({ number }) => (
   <div
@@ -38,57 +41,80 @@ const MatchingCandidates: FC<{
     setIsExpanded(!isExpanded);
   };
 
-  return isExpanded ? (
-    <>
+  return (
+    <div
+      className={classnames(
+        "is-flex",
+        isExpanded ? "is-flex-direction-column" : "is-flex-direction-row"
+      )}
+    >
       {candidates.map((candidate, i) => {
         const { name, quote, source } = candidate;
-        return (
-          <span key={i}>
-            <div className="tag mb-2">{name}</div>
-            {i === 0 && (
-              <div
-                className="is-inline-block is-underlined is-float-right"
-                onClick={handleClick}
-              >
-                Hide responses -
-              </div>
-            )}
-            <span></span>
-            <div className="mb-5">
-              <p>
+        const firstName = name.split(" ")[0];
+        return isExpanded ? (
+          <div key={i} className="is-flex is-flex-direction-row mb-4">
+            <div className="is-flex is-flex-direction-column is-align-items-center mr-3">
+              <figure className="image is-48x48">
+                <StaticImage
+                  src="../assets/images/sample-bobblehead.png"
+                  alt="CandidateBobblehead"
+                  placeholder="blurred"
+                  layout="constrained"
+                />
+              </figure>
+              <span className="label">{firstName}</span>
+            </div>
+
+            <div className="mb-5 mt-4">
+              <p className="label">
                 {quote ||
                   `${
-                    // Candidate's Last Name:
-                    name.split(" ")[name.split(" ").length - 1]
+                    // Candidate's First Name:
+                    name.split(" ")[0]
                   } selected this response in our survey to their team.`}
               </p>
               {source && (
-                <div className="mt-1">{formatContent(" - From " + source)}</div>
+                <div className="label mt-1">
+                  {formatContent(" - From " + source)}
+                </div>
               )}
             </div>
-          </span>
+            {i === 0 && (
+              <div
+                className="eyebrow is-link is-inline-block is-float-right mt-3 ml-3 no-wrap"
+                onClick={handleClick}
+              >
+                Hide -
+              </div>
+            )}
+          </div>
+        ) : (
+          <div key={i}>
+            <div
+              key={i}
+              className="is-flex is-flex-direction-column is-align-items-center mr-3"
+            >
+              <figure className="image is-48x48">
+                <StaticImage
+                  src="../assets/images/sample-bobblehead.png"
+                  alt="candidate bobblehead"
+                  placeholder="blurred"
+                  layout="constrained"
+                />
+              </figure>
+              <span className="label has-text-centered">{firstName}</span>
+            </div>
+          </div>
         );
       })}
-    </>
-  ) : (
-    <>
-      {candidates.map((candidate, i) => {
-        const { name } = candidate;
-
-        return (
-          <span key={i}>
-            <div className="tag mr-2">{name}</div>
-          </span>
-        );
-      })}
-      {candidates.length > 0 && !dontShowResponses && (
+      {!isExpanded && candidates.length > 0 && !dontShowResponses && (
         <span key="x" onClick={handleClick}>
-          <div className="mx-2 is-inline-block is-underlined">
-            See responses +
+          <div className="mx-2 eyebrow is-link is-inline-block mt-3">
+            See <span className="no-wrap">responses +</span>
           </div>
         </span>
       )}
-    </>
+    </div>
   );
 };
 
@@ -177,75 +203,73 @@ const Quiz = () => {
               five selections at the polls.
             </p>
 
-            {questionsLeftToAnswer().length === 0 ? (
-              <>
-                <h2 className="deck has-text-left">
-                  You completed the quiz already!
-                </h2>
-
-                <div className="field is-grouped">
-                  <SmoothScroll to="results" className="control">
-                    <button className="button is-link">See my Results</button>
-                  </SmoothScroll>
-                  <SmoothScroll
-                    to="quiz"
-                    className="button is-link is-outlined"
-                    onClick={() => resetAnswers()}
-                  >
-                    Reset Answers
-                  </SmoothScroll>
-                </div>
-              </>
-            ) : !!party ? (
-              <>
+            <div className="pt-5">
+              {questionsLeftToAnswer().length === 0 ? (
                 <>
                   <h2 className="deck has-text-left">
-                    You started the quiz already!
+                    You completed the quiz already!
+                  </h2>
+
+                  <div className="field is-grouped">
+                    <SmoothScroll to="results" className="control">
+                      <button className="button">See my Results</button>
+                    </SmoothScroll>
+                    <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                      <button className="button is-outlined">
+                        Reset Answers
+                      </button>
+                    </SmoothScroll>
+                  </div>
+                </>
+              ) : !!party ? (
+                <>
+                  <>
+                    <h2 className="deck has-text-left">
+                      You started the quiz already!
+                    </h2>
+
+                    <div className="field is-grouped">
+                      <SmoothScroll
+                        to={`question-${questionsLeftToAnswer()[0]}`}
+                        className="control"
+                      >
+                        <button className="button">Continue</button>
+                      </SmoothScroll>
+                      <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                        <button className="button is-outlined">
+                          Reset Answers
+                        </button>
+                      </SmoothScroll>
+                    </div>
+                  </>
+                </>
+              ) : (
+                <>
+                  <h2 className="deck has-text-left">
+                    To start, pick your party:
                   </h2>
 
                   <div className="field is-grouped">
                     <SmoothScroll
-                      to={`question-${questionsLeftToAnswer()[0]}`}
+                      to="questions"
                       className="control"
+                      onClick={() => saveParty("Democrat")}
+                      extraOffset={80}
                     >
-                      <button className="button is-link">Continue</button>
+                      <button className="button">Democrat</button>
                     </SmoothScroll>
                     <SmoothScroll
-                      to="quiz"
-                      className="button is-link is-outlined"
-                      onClick={() => resetAnswers()}
+                      to="questions"
+                      onClick={() => saveParty("Independent")}
+                      extraOffset={80}
+                      className="control"
                     >
-                      Reset Answers
+                      <button className="button">All Candidates</button>
                     </SmoothScroll>
                   </div>
                 </>
-              </>
-            ) : (
-              <>
-                <h2 className="deck has-text-left">
-                  To start, pick your party:
-                </h2>
-
-                <div className="field is-grouped">
-                  <SmoothScroll
-                    to="questions"
-                    className="control"
-                    onClick={() => saveParty("Democrat")}
-                    extraOffset={80}
-                  >
-                    <button className="button is-link">Democrat</button>
-                  </SmoothScroll>
-                  <SmoothScroll
-                    to="questions"
-                    onClick={() => saveParty("Independent")}
-                    extraOffset={80}
-                    className="control"
-                  >
-                    <button className="button is-link">All Candidates</button>
-                  </SmoothScroll>
-                </div>
-              </>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -300,8 +324,13 @@ const Quiz = () => {
                           </h3>
 
                           <details className="mb-5">
-                            <summary>Tell me more</summary>
-                            {formatContent(tellMeMore)}
+                            <summary className="eyebrow is-link">
+                              Tell me <span className="open-text">more +</span>
+                              <span className="close-text">less -</span>
+                            </summary>
+                            <div className="copy">
+                              {formatContent(tellMeMore)}
+                            </div>
                           </details>
                           {[option1, option2, option3, option4].map(
                             (optionInfo, i) =>
@@ -310,24 +339,38 @@ const Quiz = () => {
                                   <div style={{ width: "100%" }}>
                                     <button
                                       className={classnames(
-                                        "button",
-                                        "is-link",
-                                        "is-multiline",
+                                        "quiz-selection-button",
+                                        "is-flex",
+                                        "is-flex-direction-row",
+                                        "is-align-items-start",
+                                        "has-text-left",
                                         "my-4",
-                                        !!answerSelected &&
-                                          answerSelected !== `${i + 1}` &&
-                                          "is-dark"
+                                        !!answerSelected
+                                          ? answerSelected == `${i + 1}`
+                                            ? "is-selected"
+                                            : "is-disabled"
+                                          : "is-active"
                                       )}
                                       onClick={() =>
                                         recordAnswer(number, `${i + 1}`)
                                       }
                                       disabled={!!answerSelected}
                                     >
-                                      {optionInfo.text}
+                                      <div className="quiz-selection-oval mr-4" />
+                                      <div className="copy">
+                                        {optionInfo.text}
+                                      </div>
                                     </button>
                                   </div>
                                   {!!answerSelected && (
-                                    <div>
+                                    <div
+                                      className={classnames(
+                                        "matching-candidates mb-6",
+                                        answerSelected == `${i + 1}`
+                                          ? "is-selected"
+                                          : "is-disabled"
+                                      )}
+                                    >
                                       <MatchingCandidates
                                         candidates={
                                           optionInfo.matchingCandidates
@@ -343,13 +386,21 @@ const Quiz = () => {
 
                           {!!answerSelected ? (
                             <>
-                              <div className="mt-6">
+                              <div
+                                className={classnames(
+                                  "mt-6",
+                                  "matching-candidates",
+                                  answerSelected == "0"
+                                    ? "is-selected"
+                                    : "is-disabled"
+                                )}
+                              >
                                 <MatchingCandidates
                                   candidates={skipped.matchingCandidates}
                                   dontShowResponses
                                 />
                                 {skipped.matchingCandidates.length > 0 && (
-                                  <p className="is-inline-block mb-6">
+                                  <p className="copy is-inline-block mb-6">
                                     didn't respond to this question
                                   </p>
                                 )}
@@ -374,10 +425,11 @@ const Quiz = () => {
                             </>
                           ) : (
                             <button
-                              className="button is-link is-outlined my-5"
+                              className="quiz-selection-button is-active is-flex is-flex-direction-row is-align-items-start has-text-left my-4"
                               onClick={() => recordAnswer(number, "0")}
                             >
-                              Skip this question.
+                              <div className="quiz-selection-oval mr-4" />
+                              <div className="copy">Skip this question.</div>
                             </button>
                           )}
                         </div>
@@ -395,7 +447,7 @@ const Quiz = () => {
                   top: "6rem",
                   left: "100vw",
                   marginBottom: "60vh", // To avoid overlap with the next section
-                  maxWidth: "220px",
+                  maxWidth: "235px",
                 }}
               >
                 <p className="has-text-left eyebrow mb-2">SECTIONS:</p>
@@ -404,7 +456,8 @@ const Quiz = () => {
                     <div className="has-text-left" key={i}>
                       <SmoothScroll
                         key={i}
-                        className="m-0 mr-2"
+                        enableActiveClass
+                        className="button-link mr-1"
                         to={`section-${questionGroup[0].toLowerCase()}`}
                       >
                         {questionGroup[0]}
@@ -414,8 +467,17 @@ const Quiz = () => {
                           (answer) => answer.questionNumber === question.number
                         )?.answer;
                         return (
-                          <span key={i} className="has-text-weight-bold">
-                            {!!questionAnswered ? "☑" : "☐"}
+                          <span
+                            key={i}
+                            style={{
+                              marginRight: "1px",
+                            }}
+                          >
+                            {!!questionAnswered ? (
+                              <CheckboxChecked />
+                            ) : (
+                              <Checkbox />
+                            )}
                           </span>
                         );
                       })}

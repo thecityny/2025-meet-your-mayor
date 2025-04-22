@@ -74,7 +74,6 @@ export const formatQuestionContent = () => {
     number: i + 1,
     option1: {
       text: question.option1,
-
       matchingCandidates: findMatchingCandidates(i, "1"),
     },
     option2: {

@@ -1,28 +1,264 @@
 // RESET
 // Smooths out the rough edges across browsers
-@import './defaults/normalize';
+@import "./defaults/normalize";
 
 // VARIABLES
 // Reusable settings
-@import './_colors';
-@import './_fonts';
+@import "./_colors";
+@import "./_fonts";
 
 // OTHER DEFAULT STYLES
 // Smooths out the rough edges across browsers
-@import './defaults/article';
-@import './defaults/dataviz';
+@import "./defaults/article";
+@import "./defaults/dataviz";
 
 // BULMA
 // External CSS framework
 @import "../../node_modules/bulma/bulma.scss";
 
-// YOUR CODE
-// Starting writing your stuff below here
+// DESIGN OVERRIDES:
+
+// HEADER:
+
+.nav-container {
+  max-width: 100vw;
+  padding-left: 3rem;
+
+  @media screen and (max-width: 768px) {
+    padding-left: 1.5rem;
+  }
+}
+
+// TEXT:
+
+.deck {
+  font-family: $sans;
+  font-size: 1.5rem;
+}
+
+.copy {
+  font-family: $sans;
+  font-size: 1rem;
+}
+
+.eyebrow {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1.8px;
+}
+
+.label {
+  font-family: $sans;
+  font-size: 0.75rem;
+}
+
+.eyebrow,
+p,
+.label {
+  color: $city-grey;
+  a,
+  &.is-link {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+details {
+  summary {
+    list-style: none;
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+  .close-text {
+    display: none;
+  }
+
+  &[open] {
+    .open-text {
+      display: none;
+    }
+    .close-text {
+      display: inline;
+    }
+  }
+}
+
+// BUTTONS:
+
+.button {
+  font-family: $sans;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  padding: 0.15rem 2rem;
+  border-radius: 45px;
+  transition: all 0.2s ease-in-out;
+  color: $city-black;
+  border: none;
+  background-color: $city-light-grey;
+  box-shadow: 2px 4px 0px darken($color: $city-light-grey, $amount: 30);
+  transform: translate(-2px, -4px);
+
+  &:hover {
+    box-shadow: 1px 2px 0px darken($color: $city-light-grey, $amount: 30);
+    transform: translate(-1px, -2px);
+  }
+
+  &:active,
+  &.is-selected {
+    box-shadow: inset 2px 1px 0px darken($color: $city-light-grey, $amount: 30);
+    transform: translate(-1px, -2px);
+  }
+
+  &:disabled {
+    background-color: $city-light-grey;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.is-outlined {
+    background-color: transparent;
+    color: $city-black;
+    border: 1px solid $city-black;
+    box-shadow: 2px 4px 0px $city-black;
+
+    &:hover {
+      box-shadow: 1px 2px 0px $city-black;
+    }
+
+    &:active,
+    &.is-selected {
+      box-shadow: inset 2px 1px 0px $city-black;
+    }
+
+    &:disabled {
+      background-color: transparent;
+    }
+  }
+}
+
+.button-link {
+  font-family: $sans;
+  font-size: 1rem;
+  font-weight: 400;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:active,
+  .is-active {
+    font-weight: 700;
+  }
+}
 
 .button.is-multiline {
-    width: 100%;
-    min-height: 2.25em;
-    white-space: unset;
-    height: auto;
+  width: 100%;
+  min-height: 2.25em;
+  white-space: unset;
+  height: auto;
+  flex-direction: column;
+}
+
+.field.is-grouped {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
+    .button {
+      width: 100%;
+    }
   }
+}
+
+.buttons {
+  @media screen and (max-width: 768px) {
+    .button {
+      width: 100%;
+      white-space: normal; // Wrap text on mobile
+    }
+  }
+}
+
+// QUIZ ELEMENTS
+
+.quiz-selection-button {
+  .quiz-selection-oval {
+    background-color: transparent;
+    display: inline-block;
+    border: 2px solid $city-black;
+    border-radius: 50%;
+    width: 40px;
+    height: 25px;
+  }
+
+  &.is-active:hover .quiz-selection-oval {
+    background-color: #00000055;
+  }
+
+  &.is-selected {
+    font-weight: 600;
+    .quiz-selection-oval {
+      background-color: $city-black;
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.7;
+    .quiz-selection-oval {
+      opacity: 0.4;
+    }
+  }
+
+  .copy {
+    flex: 1;
+  }
+}
+
+.matching-candidates {
+  margin-left: 2rem;
+  &.is-selected {
+    font-weight: 600;
+  }
+  &.is-disabled {
+    .copy {
+      opacity: 0.7;
+    }
+
+    img {
+      filter: grayscale(1) opacity(0.7);
+    }
+  }
+}
+
+// CANDIDATE PAGES:
+
+.candidate-selector-menu {
+  a:not(.is-active) img {
+    filter: grayscale(1) opacity(0.7);
+  }
+  a.is-active {
+    border: 1px dashed $city-black;
+    border-radius: 5px;
+  }
+  a:hover img {
+    filter: opacity(1);
+  }
+}
+
+// HELPERS:
+
+.no-wrap {
+  white-space: nowrap;
+}

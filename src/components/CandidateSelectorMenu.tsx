@@ -2,34 +2,40 @@ import React from "react";
 import { generateListOfCandidates } from "./QuizContent";
 import { Link } from "gatsby";
 import classnames from "classnames";
+import { StaticImage } from "gatsby-plugin-image";
 
-export const CandidateSelectorMenu: React.FC<{ isBig?: boolean }> = ({
-  isBig,
-}) => {
+export const CandidateSelectorMenu: React.FC<{
+  isOnHomepage?: boolean;
+}> = ({ isOnHomepage }) => {
   const candidates = generateListOfCandidates();
   return (
-    <div className="columns is-multiline is-mobile">
+    <div className="candidate-selector-menu columns is-multiline is-mobile">
       {candidates.map((candidate, i) => (
         <Link
           key={i}
           to={`/${candidate.slug}`}
           className="column is-one-quarter"
-          activeClassName="has-background-light"
+          activeClassName="is-active"
         >
           <div className="is-flex is-flex-direction-column is-align-items-center">
-            <div
-              style={{
-                width: `${isBig ? "100" : "60"}px`,
-                height: `${isBig ? "100" : "60"}px`,
-                borderRadius: "100%",
-                backgroundColor: "#BBBBBB",
-              }}
-            ></div>
+            <figure
+              className={classnames(
+                "image",
+                isOnHomepage ? "is-128x128" : "is-96x96"
+              )}
+            >
+              <StaticImage
+                src="../assets/images/sample-bobblehead.png"
+                alt="CandidateBobblehead"
+                placeholder="blurred"
+                layout="constrained"
+              />
+            </figure>
             <div
               className={classnames(
                 "has-text-centered",
                 "mt-2",
-                !isBig && "is-size-7"
+                !isOnHomepage && "is-size-7"
               )}
             >
               {candidate.name}
