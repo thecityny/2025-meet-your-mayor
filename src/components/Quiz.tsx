@@ -363,7 +363,7 @@ const Quiz = () => {
                                       className={classnames(
                                         "matching-candidates",
                                         answerSelected == `${i + 1}`
-                                          ? "is-active"
+                                          ? "is-selected"
                                           : "is-disabled"
                                       )}
                                     >
@@ -387,7 +387,7 @@ const Quiz = () => {
                                   "mt-6",
                                   "matching-candidates",
                                   answerSelected == "0"
-                                    ? "is-active"
+                                    ? "is-selected"
                                     : "is-disabled"
                                 )}
                               >
