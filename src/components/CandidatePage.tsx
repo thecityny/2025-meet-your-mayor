@@ -28,9 +28,20 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   return (
     <PageLayout customMetadata={{ siteName: candidateName }}>
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
-        <Link to="/" className="eyebrow is-underlined">
-          Meet your mayor
-        </Link>
+        <div className="eyebrow">
+          <Link to="/">
+            <div
+              className="mr-2"
+              style={{
+                display: "inline-block",
+                transform: "rotate(-135deg)",
+              }}
+            >
+              ↗
+            </div>
+            Meet your mayor
+          </Link>
+        </div>
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
         <div className="columns">
           <div className="column">
