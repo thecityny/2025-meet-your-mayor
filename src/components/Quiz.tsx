@@ -64,7 +64,7 @@ const MatchingCandidates: FC<{
             </div>
 
             <div className="mb-5">
-              <p>
+              <p className="label mt-3">
                 {quote ||
                   `${
                     // Candidate's First Name:
@@ -72,12 +72,14 @@ const MatchingCandidates: FC<{
                   } selected this response in our survey to their team.`}
               </p>
               {source && (
-                <div className="mt-1">{formatContent(" - From " + source)}</div>
+                <div className="label mt-1">
+                  {formatContent(" - From " + source)}
+                </div>
               )}
             </div>
             {i === 0 && (
               <div
-                className="eyebrow is-link is-inline-block is-float-right"
+                className="eyebrow is-link is-inline-block is-float-right mt-3 ml-3 no-wrap"
                 onClick={handleClick}
               >
                 Hide -
@@ -105,8 +107,8 @@ const MatchingCandidates: FC<{
       })}
       {!isExpanded && candidates.length > 0 && !dontShowResponses && (
         <span key="x" onClick={handleClick}>
-          <div className="mx-2 eyebrow is-link is-inline-block">
-            See responses +
+          <div className="mx-2 eyebrow is-link is-inline-block mt-3">
+            See <span className="no-wrap">responses +</span>
           </div>
         </span>
       )}

@@ -54,7 +54,9 @@
 }
 
 .eyebrow,
-p {
+p,
+.label {
+  color: $city-grey;
   a,
   &.is-link {
     cursor: pointer;
@@ -189,10 +191,23 @@ details {
 }
 
 .matching-candidates {
+  margin-left: 2rem;
   &.is-selected {
     font-weight: 600;
   }
-  &.is-disabled img {
-    filter: grayscale(1) opacity(0.7);
+  &.is-disabled {
+    .copy {
+      opacity: 0.7;
+    }
+
+    img {
+      filter: grayscale(1) opacity(0.7);
+    }
   }
+}
+
+// HELPERS:
+
+.no-wrap {
+  white-space: nowrap;
 }
