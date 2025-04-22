@@ -299,7 +299,6 @@ const Quiz = () => {
                         <div
                           key={number}
                           id={`question-${number}`}
-                          className="mb-5"
                           style={{
                             minHeight: "100vh",
                             margin: isFirstQuestionInSection
