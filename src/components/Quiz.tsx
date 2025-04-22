@@ -80,7 +80,7 @@ const MatchingCandidates: FC<{
                 className="eyebrow is-link is-inline-block is-float-right"
                 onClick={handleClick}
               >
-                Hide responses -
+                Hide -
               </div>
             )}
           </div>
@@ -93,7 +93,7 @@ const MatchingCandidates: FC<{
               <figure className="image is-48x48">
                 <StaticImage
                   src="../assets/images/sample-bobblehead.png"
-                  alt="CandidateBobblehead"
+                  alt="candidate bobblehead"
                   placeholder="blurred"
                   layout="constrained"
                 />
@@ -359,7 +359,14 @@ const Quiz = () => {
                                     </button>
                                   </div>
                                   {!!answerSelected && (
-                                    <div>
+                                    <div
+                                      className={classnames(
+                                        "matching-candidates",
+                                        answerSelected == `${i + 1}`
+                                          ? "is-active"
+                                          : "is-disabled"
+                                      )}
+                                    >
                                       <MatchingCandidates
                                         candidates={
                                           optionInfo.matchingCandidates
@@ -375,7 +382,15 @@ const Quiz = () => {
 
                           {!!answerSelected ? (
                             <>
-                              <div className="mt-6">
+                              <div
+                                className={classnames(
+                                  "mt-6",
+                                  "matching-candidates",
+                                  answerSelected == "0"
+                                    ? "is-active"
+                                    : "is-disabled"
+                                )}
+                              >
                                 <MatchingCandidates
                                   candidates={skipped.matchingCandidates}
                                   dontShowResponses
