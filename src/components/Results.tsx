@@ -8,6 +8,7 @@ import {
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
 import classNames from "classnames";
+import { StaticImage } from "gatsby-plugin-image";
 
 type ResultsProps = {
   favoriteTopics: Set<string>;
@@ -220,18 +221,22 @@ const Results: React.FC<ResultsProps> = ({
         ) : (
           <div>
             <div className="level">
-              <h1 className="headline has-text-left is-inline-block">
+              <h1 className="headline has-text-left is-inline-block my-5">
                 Results
               </h1>
-              <div className="field is-grouped">
-                <SocialShareButtons
-                  results={{
-                    topCandidate: score[0].candidateName,
-                    matchScore: Math.round(
-                      (score[0].totalScore / totalPossiblePoints) * 100
-                    ),
-                  }}
-                />
+              <div className="field is-grouped is-flex is-align-items-center">
+                <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
+                  <div className="mr-3">Share this tool: </div>{" "}
+                  <SocialShareButtons
+                    results={{
+                      topCandidate: score[0].candidateName,
+                      matchScore: Math.round(
+                        (score[0].totalScore / totalPossiblePoints) * 100
+                      ),
+                    }}
+                  />
+                </div>
+
                 <SmoothScroll
                   to="quiz"
                   className="button is-link is-outlined"
@@ -241,22 +246,40 @@ const Results: React.FC<ResultsProps> = ({
                 </SmoothScroll>
               </div>
             </div>
-            <hr />
+            <div
+              className="copy has-text-left ml-0"
+              style={{ maxWidth: "600px" }}
+            >
+              Here are your top 5 matches. On election day, you are allowed to
+              rank up to 5 candidates, or however many you like.
+            </div>
+
             {score.slice(0, MATCHES_TO_SHOW).map((candidate, i) => (
               <div className="copy has-text-black-bis" key={i}>
+                <hr className="my-6" />
                 <details>
                   <summary
                     className="is-inline-flex is-justify-content-space-between"
                     style={{ width: "100%" }}
                   >
-                    <h2 className="headline has-text-left is-size-3-touch">
-                      {candidate.candidateName}
-                    </h2>
+                    <div className="is-flex is-align-items-center">
+                      <figure className="image is-96x96">
+                        <StaticImage
+                          src="../assets/images/sample-bobblehead.png"
+                          alt="CandidateBobblehead"
+                          placeholder="blurred"
+                          layout="constrained"
+                        />
+                      </figure>
+                      <h2 className="headline has-text-left is-size-3-touch">
+                        {candidate.candidateName}
+                      </h2>
+                    </div>
                     <h2 className="headline is-size-3-touch">
                       {Math.round(
                         (candidate.totalScore / totalPossiblePoints) * 100
                       )}
-                      % Match ▼
+                      % Match
                     </h2>
                   </summary>
                   {Object.entries(groupBy(candidate.scoreList, "subject")).map(
@@ -282,9 +305,6 @@ const Results: React.FC<ResultsProps> = ({
                     Total Score: {candidate.totalScore}/{totalPossiblePoints}
                   </span>
                 </details>
-                <br />
-
-                <hr />
               </div>
             ))}
           </div>
