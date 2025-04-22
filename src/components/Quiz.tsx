@@ -408,7 +408,7 @@ const Quiz = () => {
                               <div
                                 className={classnames(
                                   "matching-candidates mb-6",
-                                  answerSelected == `${i + 1}`
+                                  answerSelected == `0`
                                     ? "is-selected"
                                     : "is-disabled"
                                 )}
