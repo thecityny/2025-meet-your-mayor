@@ -298,6 +298,11 @@ const Quiz = () => {
                         skipped,
                       } = question;
 
+                      const optionSkipped = {
+                        text: "Skip this question",
+                        matchingCandidates: skipped.matchingCandidates,
+                      };
+
                       const isFirstQuestionInSection = i === 0;
 
                       const answerSelected = answers.find(
@@ -330,96 +335,65 @@ const Quiz = () => {
                               {formatContent(tellMeMore)}
                             </div>
                           </details>
-                          {[option1, option2, option3, option4].map(
-                            (optionInfo, i) =>
-                              !!optionInfo.text ? (
-                                <div key={i}>
-                                  <div style={{ width: "100%" }}>
-                                    <button
-                                      className={classnames(
-                                        "quiz-selection-button",
-                                        "is-flex",
-                                        "is-flex-direction-row",
-                                        "is-align-items-start",
-                                        "has-text-left",
-                                        "my-4",
-                                        !!answerSelected
-                                          ? answerSelected == `${i + 1}`
-                                            ? "is-selected"
-                                            : "is-disabled"
-                                          : "is-active"
-                                      )}
-                                      onClick={() =>
-                                        recordAnswer(number, `${i + 1}`)
-                                      }
-                                      disabled={!!answerSelected}
-                                    >
-                                      <div className="quiz-selection-oval mr-4" />
-                                      <div className="copy">
-                                        {optionInfo.text}
-                                      </div>
-                                    </button>
-                                  </div>
-                                  {!!answerSelected && (
-                                    <div
-                                      className={classnames(
-                                        "matching-candidates mb-6",
-                                        answerSelected == `${i + 1}`
+                          {[
+                            option1,
+                            option2,
+                            option3,
+                            option4,
+                            optionSkipped,
+                          ].map((optionInfo, i) => {
+                            const optionNumber =
+                              optionInfo.text === optionSkipped.text
+                                ? "0"
+                                : `${i + 1}`;
+                            return !!optionInfo.text ? (
+                              <div key={i}>
+                                <div style={{ width: "100%" }}>
+                                  <button
+                                    className={classnames(
+                                      "quiz-selection-button",
+                                      "is-flex",
+                                      "is-flex-direction-row",
+                                      "is-align-items-start",
+                                      "has-text-left",
+                                      "my-4",
+                                      !!answerSelected
+                                        ? answerSelected == optionNumber
                                           ? "is-selected"
                                           : "is-disabled"
-                                      )}
-                                    >
-                                      <MatchingCandidates
-                                        candidates={
-                                          optionInfo.matchingCandidates
-                                        }
-                                      />
+                                        : "is-active"
+                                    )}
+                                    onClick={() =>
+                                      recordAnswer(number, optionNumber)
+                                    }
+                                    disabled={!!answerSelected}
+                                  >
+                                    <div className="quiz-selection-oval mr-4" />
+                                    <div className="copy">
+                                      {optionInfo.text}
                                     </div>
-                                  )}
+                                  </button>
                                 </div>
-                              ) : (
-                                <div key={i} />
-                              )
-                          )}
-                          <div>
-                            <div style={{ width: "100%" }}>
-                              <button
-                                className={classnames(
-                                  "quiz-selection-button",
-                                  "is-flex",
-                                  "is-flex-direction-row",
-                                  "is-align-items-start",
-                                  "has-text-left",
-                                  "my-4",
-                                  !!answerSelected
-                                    ? answerSelected == `0`
-                                      ? "is-selected"
-                                      : "is-disabled"
-                                    : "is-active"
+                                {!!answerSelected && (
+                                  <div
+                                    className={classnames(
+                                      "matching-candidates mb-6",
+                                      answerSelected == optionNumber
+                                        ? "is-selected"
+                                        : "is-disabled"
+                                    )}
+                                  >
+                                    <MatchingCandidates
+                                      candidates={optionInfo.matchingCandidates}
+                                      dontShowResponses={optionNumber === "0"}
+                                    />
+                                  </div>
                                 )}
-                                onClick={() => recordAnswer(number, `0`)}
-                                disabled={!!answerSelected}
-                              >
-                                <div className="quiz-selection-oval mr-4" />
-                                <div className="copy">Skip this question.</div>
-                              </button>
-                            </div>
-                            {!!answerSelected && (
-                              <div
-                                className={classnames(
-                                  "matching-candidates mb-6",
-                                  answerSelected == `0`
-                                    ? "is-selected"
-                                    : "is-disabled"
-                                )}
-                              >
-                                <MatchingCandidates
-                                  candidates={skipped.matchingCandidates}
-                                  dontShowResponses
-                                />
                               </div>
-                            )}
-                          </div>
+                            ) : (
+                              <div key={i} />
+                            );
+                          })}
 
                           {!!answerSelected && (
                             <div className="field is-grouped">
