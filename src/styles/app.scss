@@ -16,8 +16,6 @@
 // External CSS framework
 @import "../../node_modules/bulma/bulma.scss";
 
-// DESIGN OVERRIDES:
-
 // HEADER:
 
 .nav-container {
@@ -283,6 +281,11 @@ details {
 }
 
 // HELPERS:
+
+hr {
+  background-color: unset;
+  border: 1px dashed #11111155;
+}
 
 .no-wrap {
   white-space: nowrap;
