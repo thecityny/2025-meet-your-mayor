@@ -9,6 +9,8 @@ import {
 } from "./QuizContent";
 import { SmoothScroll } from "./Links";
 import { StaticImage } from "gatsby-plugin-image";
+import Checkbox from "../assets/images/checkbox-unchecked.svg";
+import CheckboxChecked from "../assets/images/checkbox-checked.svg";
 
 export const NumberLabel: FC<{ number: number }> = ({ number }) => (
   <div
@@ -445,7 +447,7 @@ const Quiz = () => {
                   top: "6rem",
                   left: "100vw",
                   marginBottom: "60vh", // To avoid overlap with the next section
-                  maxWidth: "220px",
+                  maxWidth: "235px",
                 }}
               >
                 <p className="has-text-left eyebrow mb-2">SECTIONS:</p>
@@ -455,7 +457,7 @@ const Quiz = () => {
                       <SmoothScroll
                         key={i}
                         enableActiveClass
-                        className="m-0 mr-2"
+                        className="button-link mr-1"
                         to={`section-${questionGroup[0].toLowerCase()}`}
                       >
                         {questionGroup[0]}
@@ -465,8 +467,17 @@ const Quiz = () => {
                           (answer) => answer.questionNumber === question.number
                         )?.answer;
                         return (
-                          <span key={i} className="has-text-weight-bold">
-                            {!!questionAnswered ? "☑" : "☐"}
+                          <span
+                            key={i}
+                            style={{
+                              marginRight: "1px",
+                            }}
+                          >
+                            {!!questionAnswered ? (
+                              <CheckboxChecked />
+                            ) : (
+                              <Checkbox />
+                            )}
                           </span>
                         );
                       })}

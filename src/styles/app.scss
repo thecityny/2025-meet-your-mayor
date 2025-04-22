@@ -148,6 +148,21 @@ details {
   }
 }
 
+.button-link {
+  font-family: $sans;
+  font-size: 1rem;
+  font-weight: 400;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:active,
+  .is-active {
+    font-weight: 700;
+  }
+}
+
 .button.is-multiline {
   width: 100%;
   min-height: 2.25em;
