@@ -48,6 +48,11 @@
   letter-spacing: 1.8px;
 }
 
+.label {
+  font-family: $sans;
+  font-size: 0.75rem;
+}
+
 .eyebrow,
 p {
   a,
@@ -178,7 +183,7 @@ details {
     opacity: 0.7;
   }
 
-  .quiz-selection-text {
+  .copy {
     flex: 1;
   }
 }

@@ -8,6 +8,7 @@ import {
   QuizInput,
 } from "./QuizContent";
 import { SmoothScroll } from "./Links";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const NumberLabel: FC<{ number: number }> = ({ number }) => (
   <div
@@ -38,13 +39,42 @@ const MatchingCandidates: FC<{
     setIsExpanded(!isExpanded);
   };
 
-  return isExpanded ? (
-    <>
+  return (
+    <div
+      className={classnames(
+        "is-flex",
+        isExpanded ? "is-flex-direction-column" : "is-flex-direction-row"
+      )}
+    >
       {candidates.map((candidate, i) => {
         const { name, quote, source } = candidate;
-        return (
-          <span key={i}>
-            <div className="tag mb-2">{name}</div>
+        const firstName = name.split(" ")[0];
+        return isExpanded ? (
+          <div key={i} className="is-flex is-flex-direction-row">
+            <div className="is-flex is-flex-direction-column is-align-items-center mr-3">
+              <figure className="image is-48x48">
+                <StaticImage
+                  src="../assets/images/sample-bobblehead.png"
+                  alt="CandidateBobblehead"
+                  placeholder="blurred"
+                  layout="constrained"
+                />
+              </figure>
+              <span className="label">{firstName}</span>
+            </div>
+
+            <div className="mb-5">
+              <p>
+                {quote ||
+                  `${
+                    // Candidate's First Name:
+                    name.split(" ")[0]
+                  } selected this response in our survey to their team.`}
+              </p>
+              {source && (
+                <div className="mt-1">{formatContent(" - From " + source)}</div>
+              )}
+            </div>
             {i === 0 && (
               <div
                 className="eyebrow is-link is-inline-block is-float-right"
@@ -53,42 +83,34 @@ const MatchingCandidates: FC<{
                 Hide responses -
               </div>
             )}
-            <span></span>
-            <div className="mb-5">
-              <p>
-                {quote ||
-                  `${
-                    // Candidate's Last Name:
-                    name.split(" ")[name.split(" ").length - 1]
-                  } selected this response in our survey to their team.`}
-              </p>
-              {source && (
-                <div className="mt-1">{formatContent(" - From " + source)}</div>
-              )}
+          </div>
+        ) : (
+          <div key={i}>
+            <div
+              key={i}
+              className="is-flex is-flex-direction-column is-align-items-center mr-3"
+            >
+              <figure className="image is-48x48">
+                <StaticImage
+                  src="../assets/images/sample-bobblehead.png"
+                  alt="CandidateBobblehead"
+                  placeholder="blurred"
+                  layout="constrained"
+                />
+              </figure>
+              <span className="label has-text-centered">{firstName}</span>
             </div>
-          </span>
+          </div>
         );
       })}
-    </>
-  ) : (
-    <>
-      {candidates.map((candidate, i) => {
-        const { name } = candidate;
-
-        return (
-          <span key={i}>
-            <div className="tag mr-2">{name}</div>
-          </span>
-        );
-      })}
-      {candidates.length > 0 && !dontShowResponses && (
+      {!isExpanded && candidates.length > 0 && !dontShowResponses && (
         <span key="x" onClick={handleClick}>
           <div className="mx-2 eyebrow is-link is-inline-block">
             See responses +
           </div>
         </span>
       )}
-    </>
+    </div>
   );
 };
 
@@ -316,7 +338,7 @@ const Quiz = () => {
                                         "quiz-selection-button",
                                         "is-flex",
                                         "is-flex-direction-row",
-                                        "is-align-items-center",
+                                        "is-align-items-start",
                                         "has-text-left",
                                         "my-4",
                                         !!answerSelected
@@ -330,13 +352,8 @@ const Quiz = () => {
                                       }
                                       disabled={!!answerSelected}
                                     >
-                                      <div
-                                        className={classnames(
-                                          "quiz-selection-oval",
-                                          "mr-2"
-                                        )}
-                                      />
-                                      <div className="quiz-selection-text">
+                                      <div className="quiz-selection-oval mr-4" />
+                                      <div className="copy">
                                         {optionInfo.text}
                                       </div>
                                     </button>
@@ -364,7 +381,7 @@ const Quiz = () => {
                                   dontShowResponses
                                 />
                                 {skipped.matchingCandidates.length > 0 && (
-                                  <p className="is-inline-block mb-6">
+                                  <p className="copy is-inline-block mb-6">
                                     didn't respond to this question
                                   </p>
                                 )}
@@ -389,10 +406,11 @@ const Quiz = () => {
                             </>
                           ) : (
                             <button
-                              className="button is-link is-outlined my-5"
+                              className="quiz-selection-button is-active is-flex is-flex-direction-row is-align-items-start has-text-left my-4"
                               onClick={() => recordAnswer(number, "0")}
                             >
-                              Skip this question.
+                              <div className="quiz-selection-oval mr-4" />
+                              <div className="copy">Skip this question.</div>
                             </button>
                           )}
                         </div>
