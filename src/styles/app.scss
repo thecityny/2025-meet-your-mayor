@@ -1,28 +1,33 @@
 // RESET
 // Smooths out the rough edges across browsers
-@import './defaults/normalize';
+@import "./defaults/normalize";
 
 // VARIABLES
 // Reusable settings
-@import './_colors';
-@import './_fonts';
+@import "./_colors";
+@import "./_fonts";
 
 // OTHER DEFAULT STYLES
 // Smooths out the rough edges across browsers
-@import './defaults/article';
-@import './defaults/dataviz';
+@import "./defaults/article";
+@import "./defaults/dataviz";
 
 // BULMA
 // External CSS framework
 @import "../../node_modules/bulma/bulma.scss";
 
-
-
-
 // DESIGN OVERRIDES:
 
+// HEADER:
 
+.nav-container {
+  max-width: 100vw;
+  padding-left: 3rem;
 
+  @media screen and (max-width: 768px) {
+    padding-left: 1.5rem;
+  }
+}
 
 // TEXT:
 
@@ -41,12 +46,12 @@
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 1.8px;
-
- 
 }
 
-.eyebrow, p {
-  a, &.is-link {
+.eyebrow,
+p {
+  a,
+  &.is-link {
     cursor: pointer;
     color: inherit;
     text-decoration: underline;
@@ -54,7 +59,6 @@
       text-decoration: none;
     }
   }
-
 }
 
 details {
@@ -63,7 +67,6 @@ details {
     &::-webkit-details-marker {
       display: none;
     }
-  
   }
   .close-text {
     display: none;
@@ -79,7 +82,7 @@ details {
   }
 }
 
-// BUTTONS: 
+// BUTTONS:
 
 .button {
   font-family: $sans;
@@ -89,20 +92,20 @@ details {
   letter-spacing: 1.8px;
   padding: 0.15rem 2rem;
   border-radius: 45px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   color: $city-black;
   border: none;
   background-color: $city-light-grey;
   box-shadow: 2px 4px 0px darken($color: $city-light-grey, $amount: 30);
   transform: translate(-2px, -4px);
 
-
   &:hover {
     box-shadow: 1px 2px 0px darken($color: $city-light-grey, $amount: 30);
     transform: translate(-1px, -2px);
   }
 
-  &:active, &.is-selected {
+  &:active,
+  &.is-selected {
     box-shadow: inset 2px 1px 0px darken($color: $city-light-grey, $amount: 30);
     transform: translate(-1px, -2px);
   }
@@ -124,11 +127,12 @@ details {
     box-shadow: 2px 4px 0px $city-black;
 
     &:hover {
-      box-shadow: 1px 2px 0px $city-black;;
+      box-shadow: 1px 2px 0px $city-black;
     }
-  
-    &:active, &.is-selected {
-      box-shadow: inset 2px 1px 0px $city-black;;
+
+    &:active,
+    &.is-selected {
+      box-shadow: inset 2px 1px 0px $city-black;
     }
 
     &:disabled {
@@ -138,17 +142,16 @@ details {
 }
 
 .button.is-multiline {
-    width: 100%;
-    min-height: 2.25em;
-    white-space: unset;
-    height: auto;
-    flex-direction: column;
-  }
+  width: 100%;
+  min-height: 2.25em;
+  white-space: unset;
+  height: auto;
+  flex-direction: column;
+}
 
 // QUIZ ELEMENTS
 
 .quiz-selection-button {
-
   .quiz-selection-oval {
     background-color: transparent;
     display: inline-block;
@@ -156,17 +159,16 @@ details {
     border-radius: 50%;
     width: 40px;
     height: 25px;
-
   }
 
   &.is-active:hover .quiz-selection-oval {
     background-color: #00000055;
   }
 
-  &.is-selected { 
-      font-weight: 600;
-      .quiz-selection-oval {
-        background-color: $city-black;
+  &.is-selected {
+    font-weight: 600;
+    .quiz-selection-oval {
+      background-color: $city-black;
     }
   }
 
@@ -174,7 +176,6 @@ details {
     pointer-events: none;
     cursor: not-allowed;
     opacity: 0.7;
-
   }
 
   .quiz-selection-text {
