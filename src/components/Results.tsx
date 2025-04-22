@@ -289,7 +289,7 @@ const Results: React.FC<ResultsProps> = ({
                     {Object.entries(
                       groupBy(candidate.scoreList, "subject")
                     ).map((questionGroup, i) => (
-                      <div key={i}>
+                      <div key={i} className="mb-5">
                         {questionGroup[1].map((question, i) => (
                           <div
                             key={i}
