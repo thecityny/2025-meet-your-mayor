@@ -5,8 +5,8 @@ import classnames from "classnames";
 import { StaticImage } from "gatsby-plugin-image";
 
 export const CandidateSelectorMenu: React.FC<{
-  isOnCandidatePage?: boolean;
-}> = ({ isOnCandidatePage }) => {
+  isOnHomepage?: boolean;
+}> = ({ isOnHomepage }) => {
   const candidates = generateListOfCandidates();
   return (
     <div className="candidate-selector-menu columns is-multiline is-mobile">
@@ -21,7 +21,7 @@ export const CandidateSelectorMenu: React.FC<{
             <figure
               className={classnames(
                 "image",
-                isOnCandidatePage ? "is-128x128" : "is-96x96"
+                isOnHomepage ? "is-128x128" : "is-96x96"
               )}
             >
               <StaticImage
@@ -35,7 +35,7 @@ export const CandidateSelectorMenu: React.FC<{
               className={classnames(
                 "has-text-centered",
                 "mt-2",
-                !isOnCandidatePage && "is-size-7"
+                !isOnHomepage && "is-size-7"
               )}
             >
               {candidate.name}
