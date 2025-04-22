@@ -282,8 +282,10 @@ const Results: React.FC<ResultsProps> = ({
                       % Match
                     </h2>
                   </summary>
-                  <div className="copy">You agreed with them on...</div>
-                  <div className="results-scorecard is-flex is-flex-direction-row is-flex-wrap-wrap">
+                  <div className="copy mt-4 ml-4">
+                    You agreed with them on...
+                  </div>
+                  <div className="results-scorecard is-flex is-flex-direction-row is-flex-wrap-wrap ml-4">
                     {Object.entries(
                       groupBy(candidate.scoreList, "subject")
                     ).map((questionGroup, i) => (
@@ -309,11 +311,8 @@ const Results: React.FC<ResultsProps> = ({
                       </div>
                     ))}
                   </div>
-                  <span className="has-text-weight-semibold">
-                    {" "}
-                    Total Score: {candidate.totalScore}/{totalPossiblePoints}
-                  </span>
-                  <div className="buttons mt-4">
+
+                  <div className="buttons mt-4 ml-4">
                     <Link to={kebabCase(candidate.candidateName)}>
                       <button className="button">
                         Learn more about {candidate.candidateName}
