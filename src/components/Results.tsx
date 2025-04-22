@@ -3,12 +3,14 @@ import { groupBy } from "../utils";
 import {
   formatQuestionContent,
   generateBlankScorecard,
+  kebabCase,
   QuizInput,
 } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
 import classNames from "classnames";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 type ResultsProps = {
   favoriteTopics: Set<string>;
@@ -237,12 +239,10 @@ const Results: React.FC<ResultsProps> = ({
                   />
                 </div>
 
-                <SmoothScroll
-                  to="quiz"
-                  className="button is-link is-outlined"
-                  onClick={() => resetAnswers()}
-                >
-                  Take Quiz Again
+                <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                  <button className="button is-link is-outlined">
+                    Take Quiz Again
+                  </button>
                 </SmoothScroll>
               </div>
             </div>
@@ -304,6 +304,13 @@ const Results: React.FC<ResultsProps> = ({
                     {" "}
                     Total Score: {candidate.totalScore}/{totalPossiblePoints}
                   </span>
+                  <div className="buttons mt-4">
+                    <Link to={kebabCase(candidate.candidateName)}>
+                      <button className="button">
+                        Learn more about {candidate.candidateName}
+                      </button>
+                    </Link>
+                  </div>
                 </details>
               </div>
             ))}
