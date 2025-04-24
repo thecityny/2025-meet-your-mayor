@@ -2,11 +2,12 @@ import React from "react";
 import { PageLayout } from "./PageLayout";
 import { Link } from "gatsby";
 import { OutboundLink } from "./Links";
-import { formatCandidateContent } from "./QuizContent";
+import { formatCandidateContent, kebabCase } from "./QuizContent";
 import { convertToHtml, formatContent } from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { RecentCoverage } from "./RecentCoverage";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -45,14 +46,17 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
         <div className="columns">
           <div className="column">
-            <div
-              style={{
-                width: "350px",
-                height: "350px",
-                borderRadius: "100%",
-                backgroundColor: "#BBBBBB",
-              }}
-            ></div>{" "}
+            <figure className="image">
+              <LazyLoadImage
+                src={`../photos/${kebabCase(candidateName)}-photo.jpg`}
+                alt={candidateName}
+                style={{
+                  width: "350px",
+                  height: "350px",
+                  borderRadius: "100%",
+                }}
+              />
+            </figure>
           </div>
           <div className="column">
             <CandidateSelectorMenu />
