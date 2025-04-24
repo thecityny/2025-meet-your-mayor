@@ -1,10 +1,10 @@
 import React from "react";
 
-import TheCityLogo from "../assets/images/logo.svg";
-import GothamistLogo from "../assets/images/logo-gothamist.svg";
-import TwitterIcon from "../assets/images/social-icons/twitter.svg";
-import InstagramIcon from "../assets/images/social-icons/instagram.svg";
-import FacebookIcon from "../assets/images/social-icons/facebook.svg";
+import TheCityLogo from "../assets/logo.svg";
+import GothamistLogo from "../assets/logo-gothamist.svg";
+import TwitterIcon from "../assets/social-icons/twitter.svg";
+import InstagramIcon from "../assets/social-icons/instagram.svg";
+import FacebookIcon from "../assets/social-icons/facebook.svg";
 import { Helmet } from "react-helmet";
 import { OutboundLink } from "./Links";
 

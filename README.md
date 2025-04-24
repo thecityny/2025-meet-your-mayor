@@ -2,7 +2,7 @@
 
 [THE CITY](https://www.thecity.nyc/pages/about) is a nonprofit, nonpartisan, digital newsroom dedicated to hard-hitting reporting that serves the people of New York. We publish news apps and data graphics regularly, and we try and open source as much of our code as we can so that others can use it. You can check out a list of our recent projects on [THE CITY Projects Page](https://projects.thecity.nyc/all-projects/).
 
-This template is what we use to create multi-page interactive projects, and it is bootstrapped with [Gatsby](https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter). The deployment process is based in part on the [Baker Rig](https://github.com/datadesk/baker) project by the L.A. Times. 
+This template is what we use to create multi-page interactive projects, and it is bootstrapped with [Gatsby](https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter). The deployment process is based in part on the [Baker Rig](https://github.com/datadesk/baker) project by the L.A. Times.
 
 If you're looking to build a simple one-page app, you may want to check out our [Full-page React Template](https://github.com/thecityny/fullpage-react-template) instead.
 
@@ -41,7 +41,7 @@ Now go to `localhost:8000` in your browser. You should see a boilerplate page re
 This code is free and open source and you are permitted to use for your own projects under the [Apache 2.0 License](LICENSE) included in this repository. However, before deploying anything publicly using this codebase, you must:
 
 - Change [`_fonts/scss`](src/styles/_fonts.scss) — our fonts are proprietary and are not permitted for use outside of THE CITY's domain. Please change these fonts to ones you own publishing rights to, or use free, web-safe fonts instead.
-- Remove [`logo.svg`](src/assets/images/logo.svg) — our logo is trademarked and cannot be used without THE CITY's explicit permission. Please remove this logo [from the header](src/components/PageLayout.tsx), or swap in your own logo.
+- Remove [`logo.svg`](src/assets/logo.svg) — our logo is trademarked and cannot be used without THE CITY's explicit permission. Please remove this logo [from the header](src/components/PageLayout.tsx), or swap in your own logo.
 
 Also, as part of our license, we require that any online publication of work built using this software **include a credit and
 link to THE CITY**. The template includes the suggested sentence “Made with ♥ in NYC by THE CITY” in the page footer — feel free to leave that in.
