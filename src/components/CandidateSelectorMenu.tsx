@@ -2,7 +2,7 @@ import React from "react";
 import { generateListOfCandidates } from "./QuizContent";
 import { Link } from "gatsby";
 import classnames from "classnames";
-import { StaticImage } from "gatsby-plugin-image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 /**
  * A menu of buttons that link to each candidate page.
@@ -27,11 +27,9 @@ export const CandidateSelectorMenu: React.FC<{
                 isOnHomepage ? "is-128x128" : "is-96x96"
               )}
             >
-              <StaticImage
-                src="../assets/images/sample-bobblehead.png"
+              <LazyLoadImage
+                src="../illustrations/sample-bobblehead.png"
                 alt="CandidateBobblehead"
-                placeholder="blurred"
-                layout="constrained"
               />
             </figure>
             <div
