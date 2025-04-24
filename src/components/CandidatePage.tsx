@@ -2,11 +2,12 @@ import React from "react";
 import { PageLayout } from "./PageLayout";
 import { Link } from "gatsby";
 import { OutboundLink } from "./Links";
-import { formatCandidateContent } from "./QuizContent";
+import { formatCandidateContent, kebabCase } from "./QuizContent";
 import { convertToHtml, formatContent } from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { RecentCoverage } from "./RecentCoverage";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -45,14 +46,17 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
         <div className="columns">
           <div className="column">
-            <div
-              style={{
-                width: "350px",
-                height: "350px",
-                borderRadius: "100%",
-                backgroundColor: "#BBBBBB",
-              }}
-            ></div>{" "}
+            <figure className="image">
+              <LazyLoadImage
+                src={`../photos/${kebabCase(candidateName)}-photo.jpg`}
+                alt={candidateName}
+                style={{
+                  width: "350px",
+                  height: "350px",
+                  borderRadius: "100%",
+                }}
+              />
+            </figure>
           </div>
           <div className="column">
             <CandidateSelectorMenu />
@@ -68,33 +72,44 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
             See if you're a match
           </Link>
         </div>
-        <p className="eyebrow has-text-left mt-4 mb-2">Share this page</p>
-        <SocialShareButtons />
+        <div className="eyebrow has-text-left mt-5 mb-2 is-flex is-align-items-center">
+          <div className="mr-3">Share this tool: </div> <SocialShareButtons />
+        </div>
+
         <div className="copy my-5 py-5">{formatContent(bio)}</div>
       </div>
-      <div className="columns has-background-info has-text-black">
-        {quotes.map((quoteInfo, i) => {
-          const { subject, quote, source } = quoteInfo;
-          return (
-            <div className="column" key={i}>
-              <div className="container px-6 pt-6 pb-5">
-                <div className="mb-2">ON: {subject}</div>
-                <div className="mb-5">
-                  <div className="copy">{formatContent(quote)}</div>
-                  {source && (
-                    <span>
-                      {splitByFirstComma(source).map((text, i) => (
-                        <p key={i} className="copy mb-0">
-                          {text && convertToHtml(text)}
-                        </p>
-                      ))}
-                    </span>
-                  )}
+      <div className="container">
+        <div className="columns  has-text-black">
+          {quotes.map((quoteInfo, i) => {
+            const { subject, quote, source } = quoteInfo;
+            return (
+              <div className="column" key={i}>
+                <div
+                  className="container px-6 pt-6 pb-5 has-background-info"
+                  style={{
+                    height: "100%",
+                  }}
+                >
+                  <div className="tag is-light mb-4">
+                    <div className="eyebrow">ON: {subject}</div>
+                  </div>
+                  <div className="mb-5">
+                    <div className="copy">{formatContent(quote)}</div>
+                    {source && (
+                      <span>
+                        {splitByFirstComma(source).map((text, i) => (
+                          <p key={i} className="copy mb-0">
+                            {text && convertToHtml(text)}
+                          </p>
+                        ))}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
         <h1 className="headline has-text-left mt-1">Positions on Key Issues</h1>

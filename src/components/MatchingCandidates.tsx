@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import classnames from "classnames";
 import { formatContent } from "../utils";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 type MatchingCandidate = {
   name: string;
@@ -46,11 +46,9 @@ export const MatchingCandidates: FC<{
           <div key={i} className="is-flex is-flex-direction-row mb-4">
             <div className="is-flex is-flex-direction-column is-align-items-center mr-3">
               <figure className="image is-48x48">
-                <StaticImage
-                  src="../assets/images/sample-bobblehead.png"
+                <LazyLoadImage
+                  src="../illustrations/sample-bobblehead.png"
                   alt="CandidateBobblehead"
-                  placeholder="blurred"
-                  layout="constrained"
                 />
               </figure>
               <span className="label">{abbreviatedName}</span>
@@ -87,11 +85,9 @@ export const MatchingCandidates: FC<{
               className="is-flex is-flex-direction-column is-align-items-center mr-3"
             >
               <figure className="image is-48x48">
-                <StaticImage
-                  src="../assets/images/sample-bobblehead.png"
-                  alt="candidate bobblehead"
-                  placeholder="blurred"
-                  layout="constrained"
+                <LazyLoadImage
+                  src="../illustrations/sample-bobblehead.png"
+                  alt="CandidateBobblehead"
                 />
               </figure>
               <span className="label has-text-centered">{abbreviatedName}</span>

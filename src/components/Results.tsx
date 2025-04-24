@@ -9,9 +9,9 @@ import {
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
 import classnames from "classnames";
-import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { Party } from "./Quiz";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 type ResultsProps = {
   favoriteTopics: Set<string>;
@@ -275,11 +275,9 @@ const Results: React.FC<ResultsProps> = ({
                         <span className="close-text">-</span>
                       </span>
                       <figure className="image is-96x96">
-                        <StaticImage
-                          src="../assets/images/sample-bobblehead.png"
+                        <LazyLoadImage
+                          src="../illustrations/sample-bobblehead.png"
                           alt="CandidateBobblehead"
-                          placeholder="blurred"
-                          layout="constrained"
                         />
                       </figure>
                       <h2 className="headline has-text-left is-size-3-touch">
