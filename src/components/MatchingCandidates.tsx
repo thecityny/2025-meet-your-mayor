@@ -38,7 +38,10 @@ export const MatchingCandidates: FC<{
     >
       {candidates.map((candidate, i) => {
         const { name, quote, source } = candidate;
-        const firstName = name.split(" ")[0];
+        const lastName = name.split(" ")[name.split(" ").length - 1];
+        // Add first initial to each "Adams" candidate name label:
+        const abbreviatedName =
+          lastName === "Adams" ? `${name[0]}. ${lastName}` : lastName;
         return isExpanded ? (
           <div key={i} className="is-flex is-flex-direction-row mb-4">
             <div className="is-flex is-flex-direction-column is-align-items-center mr-3">
@@ -50,7 +53,7 @@ export const MatchingCandidates: FC<{
                   layout="constrained"
                 />
               </figure>
-              <span className="label">{firstName}</span>
+              <span className="label">{abbreviatedName}</span>
             </div>
 
             <div className="mb-5 mt-4">
@@ -90,7 +93,7 @@ export const MatchingCandidates: FC<{
                   layout="constrained"
                 />
               </figure>
-              <span className="label has-text-centered">{firstName}</span>
+              <span className="label has-text-centered">{abbreviatedName}</span>
             </div>
           </div>
         );
