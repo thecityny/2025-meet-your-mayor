@@ -28,7 +28,9 @@ export const CandidateSelectorMenu: React.FC<{
               )}
             >
               <LazyLoadImage
-                src="../illustrations/sample-bobblehead.png"
+                src={`${
+                  isOnHomepage ? "." : ".."
+                }/illustrations/sample-bobblehead.png`}
                 alt="CandidateBobblehead"
               />
             </figure>
