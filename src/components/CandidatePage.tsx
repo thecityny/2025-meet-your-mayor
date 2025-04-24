@@ -49,6 +49,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
             <figure className="image">
               <LazyLoadImage
                 src={`../photos/${kebabCase(candidateName)}-photo.jpg`}
+                effect="blur"
                 alt={candidateName}
                 style={{
                   width: "350px",
