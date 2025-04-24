@@ -2,25 +2,39 @@ import React from "react";
 
 import TheCityLogo from "../assets/logo.svg";
 import GothamistLogo from "../assets/logo-gothamist.svg";
-import TwitterIcon from "../assets/social-icons/twitter.svg";
-import InstagramIcon from "../assets/social-icons/instagram.svg";
-import FacebookIcon from "../assets/social-icons/facebook.svg";
 import { Helmet } from "react-helmet";
 import { OutboundLink } from "./Links";
 
 import "../styles/app.scss";
+import { SocialButton } from "./SocialShareButtons";
+
+const THE_CITY_SITE_LINKS = {
+  website: "https://thecity.nyc/",
+  twitter: "https://twitter.com/intent/follow?screen_name=TheCityNY",
+  instagram: "https://www.instagram.com/thecityny",
+  facebook: "https://www.facebook.com/thecityny",
+  bluesky: "https://bsky.app/profile/thecity.nyc",
+};
+
+const GOTHAMIST_SITE_LINKS = {
+  website: "https://gothamist.com/",
+  twitter: "https://twitter.com/gothamist",
+  instagram: "https://www.instagram.com/gothamist",
+  facebook: "https://www.facebook.com/gothamist",
+  bluesky: "https://bsky.app/profile/gothamist.com",
+};
 
 const Header = () => (
   <nav className="nav">
     <div className="nav-container">
       <div className="nav-logo">
-        <OutboundLink to="https://thecity.nyc/" aria-label="THE CITY">
+        <OutboundLink to={THE_CITY_SITE_LINKS.website} aria-label="THE CITY">
           <TheCityLogo />
         </OutboundLink>
       </div>
       <div className="ml-2 has-text-weight-bold is-size-4">×</div>
       <div className="nav-logo ml-2 mt-2">
-        <OutboundLink to="https://gothamist.com/" aria-label="Gothamist">
+        <OutboundLink to={GOTHAMIST_SITE_LINKS.website} aria-label="Gothamist">
           <GothamistLogo />
         </OutboundLink>
       </div>
@@ -35,66 +49,42 @@ const Footer = () => {
   return (
     <footer className="footer has-background-light">
       <div className="container is-flex is-flex-direction-column is-align-items-center">
-        <div className="footer-credit">
-          Made with ♥ in NYC by{" "}
-          <OutboundLink to="https://thecity.nyc/" aria-label="THE CITY">
+        <div className="eyebrow">Made with ♥ in NYC by</div>
+        <div className="eyebrow mb-5">
+          <OutboundLink to={THE_CITY_SITE_LINKS.website} aria-label="THE CITY">
             THE CITY
+          </OutboundLink>{" "}
+          <div className="has-text-weight-bold is-size-6 is-inline-block">
+            ×
+          </div>{" "}
+          <OutboundLink
+            to={GOTHAMIST_SITE_LINKS.website}
+            aria-label="GOTHAMIST"
+          >
+            Gothamist
           </OutboundLink>
         </div>
-        <div className="footer-icons">
-          <OutboundLink
-            className="twitter"
-            aria-label="Twitter"
-            to="https://twitter.com/intent/follow?screen_name=TheCityNY"
-          >
-            <TwitterIcon />
-          </OutboundLink>
-          <OutboundLink
-            className="instagram"
-            aria-label="Instagram"
-            to="https://www.instagram.com/thecityny"
-          >
-            <InstagramIcon />
-          </OutboundLink>
-          <OutboundLink
-            className="facebook"
-            aria-label="Facebook"
-            to="https://www.facebook.com/thecityny"
-          >
-            <FacebookIcon />
-          </OutboundLink>
+        <div className="eyebrow">
+          {Object.entries(THE_CITY_SITE_LINKS)
+            .filter((link) => link[0] !== "website")
+            .map((link, i) => (
+              <SocialButton url={link[1]} key={i} />
+            ))}
+          {"• "}
+          {Object.entries(GOTHAMIST_SITE_LINKS)
+            .filter((link) => link[0] !== "website")
+            .map((link, i) => (
+              <SocialButton url={link[1]} key={i} />
+            ))}
         </div>
+
         <div className="footer-credit" style={{ maxWidth: "750px" }}>
           Meet Your Mayor does not collect any personal data from users. We do
           collect quiz responses anonymously to improve this resource and track
           aggregate results.
         </div>
-        <ul className="footer-links">
-          <li>
-            <OutboundLink to="https://www.thecity.nyc/about-us/">
-              About
-            </OutboundLink>
-          </li>
 
-          <li>
-            <OutboundLink to="https://www.thecity.nyc/team/">Team</OutboundLink>
-          </li>
-          <li>
-            <OutboundLink to="https://www.thecity.nyc/funders/">
-              Funders
-            </OutboundLink>
-          </li>
-          <li>
-            <OutboundLink to="https://www.thecity.nyc/ethics/">
-              Ethics
-            </OutboundLink>
-          </li>
-          <li>
-            <OutboundLink to="https://www.thecity.nyc/republishing/">
-              Republish
-            </OutboundLink>
-          </li>
-          <br />
+        <ul className="footer-links">
           <li>
             <OutboundLink to="https://www.thecity.nyc/contact/">
               Contact
