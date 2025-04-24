@@ -58,11 +58,12 @@ export const MatchingCandidates: FC<{
 
             <div className="mb-5 mt-4">
               <p className="label">
-                {quote ||
-                  `${
-                    // Candidate's First Name:
-                    name.split(" ")[0]
-                  } selected this response in our survey to their team.`}
+                {quote || (
+                  <span>
+                    {abbreviatedName} selected this response <br />
+                    in our survey to their team.
+                  </span>
+                )}
               </p>
               {source && (
                 <div className="label mt-1">
@@ -72,7 +73,7 @@ export const MatchingCandidates: FC<{
             </div>
             {i === 0 && (
               <div
-                className="eyebrow is-link is-inline-block is-float-right mt-3 ml-3 no-wrap"
+                className="eyebrow is-link is-inline-block is-float-right mt-3 ml-5 no-wrap"
                 onClick={handleClick}
               >
                 Hide -
