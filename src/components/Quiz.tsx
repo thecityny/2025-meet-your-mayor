@@ -10,10 +10,9 @@ import {
 import { SmoothScroll } from "./Links";
 import { MatchingCandidates } from "./MatchingCandidates";
 
-type Party = "Democrat" | "Independent" | null;
+export type Party = "Democrat" | "Independent" | null;
 
 const Quiz = () => {
-  const questions = formatQuestionContent();
   const [party, setParty] = React.useState<Party>(null);
   const [answers, setAnswers] = React.useState(createBlankAnswersList());
   const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
@@ -74,6 +73,8 @@ const Quiz = () => {
 
   const questionsLeftToAnswer = () =>
     getQuestionsLeftToAnswer(answers, favoriteTopics.size > 0);
+
+  const questions = formatQuestionContent(party);
 
   return (
     <>
@@ -385,6 +386,7 @@ const Quiz = () => {
             changeFavoriteTopics={changeFavoriteTopics}
             answers={answers}
             resetAnswers={resetAnswers}
+            party={party}
           />
         </div>
       </div>

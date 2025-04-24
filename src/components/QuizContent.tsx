@@ -1,14 +1,26 @@
 import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
 import { groupBy } from "../utils";
+import { Party } from "./Quiz";
 
 /**
  * This function takes our raw JSON content from `candidate-content.js`
  * and formats it into a organized JS object that keeps track of all
  * candidates' responses to quiz questions, with explanations.
  */
-export const formatCandidateContent = () => {
-  const { candidateX, ...candidates } = candidateContent;
+export const formatCandidateContent = (party?: Party) => {
+  const { candidateX, ...candidatesAll } = candidateContent;
+
+  // Filter candidates by party (if selected):
+  const candidates =
+    party === "Democrat"
+      ? Object.fromEntries(
+          Object.entries(candidatesAll).filter(
+            (candidate) => candidate[1].party === "democrat"
+          )
+        )
+      : candidatesAll;
+
   const splitCandidateInfo = (text: string) => text.split(" | ");
 
   return Object.values(candidates).map((candidate) => {
@@ -58,8 +70,8 @@ export const generateListOfCandidates = () => {
  * questions and answers, joining on which candidates correspond to which
  * quiz question responses.
  */
-export const formatQuestionContent = () => {
-  const candidates = formatCandidateContent();
+export const formatQuestionContent = (party?: Party) => {
+  const candidates = formatCandidateContent(party);
   const { questionX, ...questions } = questionContent;
   const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
     candidates
