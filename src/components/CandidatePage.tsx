@@ -115,9 +115,9 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
         <h1 className="headline has-text-left mt-1">Positions on Key Issues</h1>
         <div className="copy my-5">
-          THE CITY sent three multiple-choice surveys to every Democratic and
-          Republican mayoral candidate on the ballot for the June 22 primary,
-          starting in March. See how Zohran Mamdani answered below.
+          THE CITY sent multiple-choice surveys to every mayoral candidate on
+          the ballot for the June 22 primary, starting in April. See how Zohran
+          Mamdani answered below.
         </div>
         <Link to="/" className="button is-link">
           Take our quiz

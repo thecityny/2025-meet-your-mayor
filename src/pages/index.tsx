@@ -52,9 +52,9 @@ const Homepage = () => (
               In partnership with Gothamist
             </p>
             <p className="deck has-text-left" style={{ maxWidth: "600px" }}>
-              Candidates for NYC mayor told us where they stand on 15 big
-              issues. Now you can pick your positions and see which contenders
-              are the right ones for you.
+              Candidates for NYC mayor told us where they stand on 8 big issues.
+              Now you can pick your positions and see which contenders are the
+              right ones for you.
             </p>
             <div className="is-flex is-flex-direction-column my-6">
               <SmoothScroll to="quiz">
