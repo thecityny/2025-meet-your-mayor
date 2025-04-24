@@ -240,7 +240,7 @@ const Quiz = () => {
                               Tell me <span className="open-text">more +</span>
                               <span className="close-text">less -</span>
                             </summary>
-                            <div className="copy">
+                            <div className="copy mt-2">
                               {formatContent(tellMeMore)}
                             </div>
                           </details>
