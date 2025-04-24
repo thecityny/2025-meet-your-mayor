@@ -11,17 +11,23 @@ import { SmoothScroll } from "./Links";
 import classnames from "classnames";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
+import { Party } from "./Quiz";
 
 type ResultsProps = {
   favoriteTopics: Set<string>;
   changeFavoriteTopics: (topic: string) => void;
   answers: QuizInput[];
   resetAnswers: () => void;
+  party?: Party;
 };
 
-const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
+const calculateScore = (
+  answers: QuizInput[],
+  favoriteTopics: Set<string>,
+  party?: Party
+) => {
   let scorecard = generateBlankScorecard();
-  const questionContent = formatQuestionContent();
+  const questionContent = formatQuestionContent(party);
   Object.entries(questionContent).forEach((questionGroup) => {
     const [subject, questions] = questionGroup;
     const pointValue = favoriteTopics.has(subject) ? 2 : 1;
@@ -128,8 +134,9 @@ const Results: React.FC<ResultsProps> = ({
   resetAnswers,
   favoriteTopics,
   changeFavoriteTopics,
+  party,
 }) => {
-  const score = calculateScore(answers, favoriteTopics);
+  const score = calculateScore(answers, favoriteTopics, party);
   const totalPossiblePoints = answers.length + favoriteTopics.size;
   let questionsLeftToAnswer = getQuestionsLeftToAnswer(
     answers,
