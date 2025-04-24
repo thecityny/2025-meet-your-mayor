@@ -235,7 +235,7 @@ const Results: React.FC<ResultsProps> = ({
               </h1>
               <div className="field is-grouped is-flex is-align-items-center">
                 <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
-                  <div className="mr-3">Share this tool: </div>{" "}
+                  <div className="mr-3">Share my results: </div>{" "}
                   <SocialShareButtons
                     results={{
                       topCandidate: score[0].candidateName,
