@@ -16,6 +16,12 @@
 // External CSS framework
 @import "../../node_modules/bulma/bulma.scss";
 
+// BULMA OVERRIDES:
+
+.columns {
+  max-width: 100vw;
+}
+
 // HEADER:
 
 .nav-container {
@@ -281,6 +287,12 @@ details {
   }
   a:hover img {
     filter: opacity(1);
+  }
+  @media screen and (max-width: 768px) {
+    .is-128x128 {
+      width: 100px;
+      height: 100px;
+    }
   }
 }
 
