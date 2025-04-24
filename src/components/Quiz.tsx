@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
@@ -11,6 +11,19 @@ import { SmoothScroll } from "./Links";
 import { MatchingCandidates } from "./MatchingCandidates";
 
 export type Party = "Democrat" | "Independent" | null;
+
+const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
+  <div
+    className="is-inline-block"
+    style={{
+      width: "12px",
+      height: "12px",
+      borderRadius: "100%",
+      backgroundColor: !!filledIn ? "#111111" : "transparent",
+      border: !!filledIn ? "none" : "1px solid #111111",
+    }}
+  />
+);
 
 const Quiz = () => {
   const [party, setParty] = React.useState<Party>(null);
@@ -166,12 +179,12 @@ const Quiz = () => {
           </div>
         </div>
       </div>
-      <div className="section" id="questions">
+      <div className="section p-0" id="questions">
         <div style={{ display: !!party ? "block" : "none" }}>
-          <div className="columns">
+          <div className="columns is-desktop">
             <div className="column is-one-quarter" />
             <div className="column is-half" style={{ maxWidth: "600px" }}>
-              <div>
+              <div className="container">
                 {Object.entries(questions).map((questionGroup, i) => (
                   <div
                     key={i}
@@ -317,9 +330,47 @@ const Quiz = () => {
                 ))}
               </div>
             </div>
+            <div
+              className="container is-hidden-desktop has-background-white-ter"
+              style={{
+                position: "sticky",
+                bottom: "0px",
+                left: "0px",
+                height: "30px",
+                width: "100%",
+              }}
+            >
+              <div className="is-flex is-justify-content-center pt-1">
+                {Object.entries(formatQuestionContent()).map(
+                  (questionGroup, i) => (
+                    <div key={i} className="is-inline-block">
+                      {questionGroup[1].map((question, i) => {
+                        const questionAnswered = answers.find(
+                          (answer) => answer.questionNumber === question.number
+                        )?.answer;
+                        return (
+                          <span
+                            key={i}
+                            style={{
+                              marginRight: "3px",
+                            }}
+                          >
+                            {!!questionAnswered ? (
+                              <CircleIcon filledIn />
+                            ) : (
+                              <CircleIcon />
+                            )}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
             <div className="column is-hidden-touch is-one-quarter">
               <div
-                className="is-hidden-touch has-background-white-ter is-flex is-flex-direction-column has-text-right p-3"
+                className="has-background-white-ter is-flex is-flex-direction-column has-text-right p-3"
                 style={{
                   position: "sticky",
                   top: "6rem",
@@ -352,25 +403,9 @@ const Quiz = () => {
                             }}
                           >
                             {!!questionAnswered ? (
-                              <div
-                                className="is-inline-block"
-                                style={{
-                                  width: "12px",
-                                  height: "12px",
-                                  borderRadius: "100%",
-                                  backgroundColor: "#111111",
-                                }}
-                              />
+                              <CircleIcon filledIn />
                             ) : (
-                              <div
-                                className="is-inline-block"
-                                style={{
-                                  width: "12px",
-                                  height: "12px",
-                                  borderRadius: "100%",
-                                  border: "1px solid #111111",
-                                }}
-                              />
+                              <CircleIcon />
                             )}
                           </span>
                         );
