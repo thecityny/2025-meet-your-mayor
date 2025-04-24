@@ -10,6 +10,20 @@ type ScoreShareDetails = {
   matchScore: number;
 };
 
+export const SocialButton: React.FC<{ url: string }> = ({ url }) => (
+  <SocialIcon
+    className="button is-icon mr-2 p-0"
+    target="_blank"
+    rel="noopener noreferrer"
+    bgColor="#111111" // THE CITY Black
+    style={{
+      width: "25px",
+      height: "25px",
+    }}
+    url={url}
+  />
+);
+
 export const SocialShareButtons: React.FC<{
   /**
    * Details on the matching score with the top candidate — only present if the user has completed the quiz.
@@ -23,37 +37,13 @@ export const SocialShareButtons: React.FC<{
 
   return (
     <>
-      <SocialIcon
-        className="button is-icon mr-2 p-0"
-        target="_blank"
-        rel="noopener noreferrer"
-        bgColor="#111111" // THE CITY Black
-        style={{
-          width: "25px",
-          height: "25px",
-        }}
+      <SocialButton
         url={`https://x.com/intent/post?text=${shareText}&url=${shareUrl}`}
       />
-      <SocialIcon
-        className="button is-icon mr-2 p-0"
-        target="_blank"
-        rel="noopener noreferrer"
-        bgColor="#111111" // THE CITY Black
-        style={{
-          width: "25px",
-          height: "25px",
-        }}
+      <SocialButton
         url={`https://bsky.app/intent/compose?text=${shareText} ${shareUrl}`}
       />
-      <SocialIcon
-        className="button is-icon mr-2 p-0"
-        target="_blank"
-        rel="noopener noreferrer"
-        bgColor="#111111" // THE CITY Black
-        style={{
-          width: "25px",
-          height: "25px",
-        }}
+      <SocialButton
         url={`mailto:?subject=Meet Your Mayor: 2025&body=${shareText} ${shareUrl}`}
       />
     </>
