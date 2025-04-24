@@ -9,6 +9,16 @@ type MatchingCandidate = {
   source: string | null;
 };
 
+/**
+ *
+ * This component shows the set of matching candidates
+ * that selected a particular response to a quiz question.
+ *
+ * It has two states, compact (where it just shows the candidates' icons
+ * in a list), or expanded, where it shows each candidate's specific
+ * reply to the quiz survey, explaining their response.
+ *
+ */
 export const MatchingCandidates: FC<{
   candidates: MatchingCandidate[];
   dontShowResponses?: boolean;

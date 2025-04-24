@@ -4,6 +4,9 @@ import { Link } from "gatsby";
 import classnames from "classnames";
 import { StaticImage } from "gatsby-plugin-image";
 
+/**
+ * A menu of buttons that link to each candidate page.
+ */
 export const CandidateSelectorMenu: React.FC<{
   isOnHomepage?: boolean;
 }> = ({ isOnHomepage }) => {
