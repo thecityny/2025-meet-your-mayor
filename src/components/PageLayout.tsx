@@ -25,15 +25,15 @@ const GOTHAMIST_SITE_LINKS = {
 };
 
 const Header = () => (
-  <nav className="nav">
+  <nav className="nav has-color-background">
     <div className="nav-container">
-      <div className="nav-logo">
+      <div className="nav-logo" style={{ width: "80px" }}>
         <OutboundLink to={THE_CITY_SITE_LINKS.website} aria-label="THE CITY">
           <TheCityLogo />
         </OutboundLink>
       </div>
-      <div className="ml-2 has-text-weight-bold is-size-4">×</div>
-      <div className="nav-logo ml-2 mt-2">
+      <div className="eyebrow ml-2 mt-1 is-size-4">×</div>
+      <div className="nav-logo ml-2 mt-1" style={{ width: "90px" }}>
         <OutboundLink to={GOTHAMIST_SITE_LINKS.website} aria-label="Gothamist">
           <GothamistLogo />
         </OutboundLink>
@@ -47,7 +47,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer has-background-light">
+    <footer className="footer has-color-background">
       <div className="container is-flex is-flex-direction-column is-align-items-center">
         <div className="eyebrow">Made with ♥ in NYC by</div>
         <div className="eyebrow mb-5">
@@ -78,7 +78,10 @@ const Footer = () => {
             ))}
         </div>
 
-        <div className="footer-credit" style={{ maxWidth: "750px" }}>
+        <div
+          className="eyebrow mt-5 has-text-centered"
+          style={{ maxWidth: "750px" }}
+        >
           Meet Your Mayor does not collect any personal data from users. We do
           collect quiz responses anonymously to improve this resource and track
           aggregate results.

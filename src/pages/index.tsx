@@ -27,7 +27,7 @@ const getDateUpdated = () => {
 
 const Homepage = () => (
   <PageLayout>
-    <div className="hero is-fullheight-with-navbar">
+    <div className="hero is-fullheight-with-navbar has-color-background">
       <div className="hero-body">
         <div>
           <h1 className="headline has-text-left">Meet your Mayor: 2025</h1>
@@ -59,7 +59,7 @@ const Homepage = () => (
             <div className="is-flex is-flex-direction-column my-6">
               <SmoothScroll to="quiz">
                 <button
-                  className="button is-primary mb-4"
+                  className="button is-extra-dark mb-4"
                   style={{ width: "350px" }}
                 >
                   Take the quiz
@@ -67,7 +67,7 @@ const Homepage = () => (
               </SmoothScroll>
               <a href="#learn">
                 <button
-                  className="button is-primary is-outlined"
+                  className="button is-outlined"
                   style={{ width: "350px" }}
                 >
                   Learn on your own
