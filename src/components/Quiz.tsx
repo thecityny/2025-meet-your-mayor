@@ -181,7 +181,9 @@ const Quiz = () => {
                         extraOffset={80}
                         className="control"
                       >
-                        <button className="button">All Candidates</button>
+                        <button className="button is-outlined">
+                          All Candidates
+                        </button>
                       </SmoothScroll>
                     </div>
                   </>
