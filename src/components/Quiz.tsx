@@ -241,7 +241,7 @@ const Quiz = () => {
                           }}
                         >
                           <h3 className="deck has-text-left mb-2">
-                            <div className="tag is-light question-number-tag">
+                            <div className="tag question-number-tag">
                               {number}
                             </div>
                             {title}

@@ -76,7 +76,7 @@ p,
   a,
   &.is-link {
     cursor: pointer;
-    color: inherit;
+    color: $city-black;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
@@ -283,6 +283,8 @@ details {
   position: absolute;
   transform: translate(-40px, 5px);
   border-radius: 100%;
+  background-color: $city-black;
+  color: $city-white;
   @media screen and (max-width: 768px) {
     position: relative;
     transform: translate(0px, -5px);
