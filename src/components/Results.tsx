@@ -187,8 +187,8 @@ const Results: React.FC<ResultsProps> = ({
               )}
             </div>
             {favoriteTopics.size > 0 && (
-              <SmoothScroll to="results" className="button is-large mt-6">
-                See my Results
+              <SmoothScroll to="results">
+                <button className="button is-large mt-6">See my Results</button>
               </SmoothScroll>
             )}
           </div>
@@ -220,11 +220,8 @@ const Results: React.FC<ResultsProps> = ({
               )}
               .
             </p>
-            <SmoothScroll
-              to={`question-${questionsLeftToAnswer[0]}`}
-              className="button is-dark mt-4"
-            >
-              Go back
+            <SmoothScroll to={`question-${questionsLeftToAnswer[0]}`}>
+              <button className="button is-outlined mt-4"> Go back</button>
             </SmoothScroll>
           </div>
         ) : (
