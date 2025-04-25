@@ -47,7 +47,7 @@ export const MatchingCandidates: FC<{
             <div className="is-flex is-flex-direction-column is-align-items-center mr-3">
               <figure className="image is-48x48">
                 <LazyLoadImage
-                  src="../illustrations/sample-bobblehead.png"
+                  src="./illustrations/sample-bobblehead.png"
                   alt="CandidateBobblehead"
                 />
               </figure>
@@ -86,7 +86,7 @@ export const MatchingCandidates: FC<{
             >
               <figure className="image is-48x48">
                 <LazyLoadImage
-                  src="../illustrations/sample-bobblehead.png"
+                  src="./illustrations/sample-bobblehead.png"
                   alt="CandidateBobblehead"
                 />
               </figure>

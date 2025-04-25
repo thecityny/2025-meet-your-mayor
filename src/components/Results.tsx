@@ -277,7 +277,7 @@ const Results: React.FC<ResultsProps> = ({
                       </span>
                       <figure className="image is-96x96">
                         <LazyLoadImage
-                          src="../illustrations/sample-bobblehead.png"
+                          src="./illustrations/sample-bobblehead.png"
                           alt="CandidateBobblehead"
                         />
                       </figure>
