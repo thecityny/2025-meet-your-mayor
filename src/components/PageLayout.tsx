@@ -89,12 +89,18 @@ const Footer = () => {
 
         <ul className="footer-links">
           <li>
-            <OutboundLink to="https://www.thecity.nyc/contact/">
+            <OutboundLink
+              to="https://www.thecity.nyc/contact/"
+              className="button-link"
+            >
               Contact
             </OutboundLink>
           </li>
           <li>
-            <OutboundLink to="https://www.thecity.nyc/privacy-policy/">
+            <OutboundLink
+              to="https://www.thecity.nyc/privacy-policy/"
+              className="button-link"
+            >
               Privacy Notice
             </OutboundLink>
           </li>

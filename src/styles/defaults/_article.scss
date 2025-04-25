@@ -331,21 +331,6 @@ body {
     letter-spacing: 4px;
     @include boldface();
   }
-
-  a,
-  a:hover,
-  a:active,
-  a:focus,
-  a:visited {
-    color: $city-blue;
-    text-decoration: none;
-  }
-
-  a:hover,
-  a:active,
-  a:focus {
-    border-bottom: 2px solid $city-blue;
-  }
 }
 
 .copyright {
@@ -356,10 +341,6 @@ body {
   letter-spacing: 3px;
   line-height: 20px;
   padding-bottom: 27px;
-  a {
-    color: $city-black;
-    text-decoration: none;
-  }
 }
 
 @media screen and (min-width: 740px) {
