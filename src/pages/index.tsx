@@ -3,7 +3,7 @@ import { PageLayout } from "../components/PageLayout";
 import Quiz from "../components/Quiz";
 import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 import { SocialShareButtons } from "../components/SocialShareButtons";
-import { SmoothScroll } from "../components/Links";
+import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "../components/Links";
 import { RecentCoverage } from "../components/RecentCoverage";
 
 const byline = process.env.GATSBY_AUTHOR
@@ -57,7 +57,10 @@ const Homepage = () => (
               right ones for you.
             </p>
             <div className="is-flex is-flex-direction-column my-6">
-              <SmoothScroll to="quiz">
+              <SmoothScroll
+                to="quiz"
+                extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
+              >
                 <button
                   className="button is-extra-dark mb-4"
                   style={{ width: "350px" }}

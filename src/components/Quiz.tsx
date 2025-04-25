@@ -91,55 +91,37 @@ const Quiz = () => {
 
   return (
     <>
-      <div className="hero is-fullheight-with-navbar" id="quiz">
-        <div className="container" style={{ maxWidth: "600px" }}>
-          <div>
-            <h1 className="headline has-text-left">The Ultimate Match Quiz</h1>
-            <p className="copy has-text-left mt-5">
-              Voters of New York City: It’s time to pick your nominee for mayor,
-              with primary day approaching on June 22. Since March, THE CITY has
-              been presenting the candidates’ positions, issue by issue. Meet
-              Your Mayor shows you how the contenders' stands fit with your take
-              on what matters most to New Yorkers.
-            </p>
-            <p className="copy has-text-left my-5">
-              Now we’ve pulled all 15 Meet Your Mayor editions into one final,
-              supersized superquiz that will show you your ultimate match.
-              Actually, your top matches, since voters will be ranking up to
-              five selections at the polls.
-            </p>
+      <div className="hero is-fullheight" id="quiz">
+        <div className="hero-body">
+          <div className="container" style={{ maxWidth: "600px" }}>
+            <div>
+              <h1 className="headline has-text-left">
+                The Ultimate Match Quiz
+              </h1>
+              <p className="copy has-text-left mt-5">
+                Voters of New York City: It’s time to pick your nominee for
+                mayor, with primary day approaching on June 22. Since March, THE
+                CITY has been presenting the candidates’ positions, issue by
+                issue. Meet Your Mayor shows you how the contenders' stands fit
+                with your take on what matters most to New Yorkers.
+              </p>
+              <p className="copy has-text-left my-5">
+                Now we’ve pulled all 15 Meet Your Mayor editions into one final,
+                supersized superquiz that will show you your ultimate match.
+                Actually, your top matches, since voters will be ranking up to
+                five selections at the polls.
+              </p>
 
-            <div className="pt-5">
-              {questionsLeftToAnswer().length === 0 ? (
-                <>
-                  <h2 className="deck has-text-left">
-                    You completed the quiz already!
-                  </h2>
-
-                  <div className="field is-grouped">
-                    <SmoothScroll to="results" className="control">
-                      <button className="button">See my Results</button>
-                    </SmoothScroll>
-                    <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
-                      <button className="button is-outlined">
-                        Reset Answers
-                      </button>
-                    </SmoothScroll>
-                  </div>
-                </>
-              ) : !!party ? (
-                <>
+              <div className="pt-5">
+                {questionsLeftToAnswer().length === 0 ? (
                   <>
                     <h2 className="deck has-text-left">
-                      You started the quiz already!
+                      You completed the quiz already!
                     </h2>
 
                     <div className="field is-grouped">
-                      <SmoothScroll
-                        to={`question-${questionsLeftToAnswer()[0]}`}
-                        className="control"
-                      >
-                        <button className="button">Continue</button>
+                      <SmoothScroll to="results" className="control">
+                        <button className="button">See my Results</button>
                       </SmoothScroll>
                       <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
                         <button className="button is-outlined">
@@ -148,33 +130,55 @@ const Quiz = () => {
                       </SmoothScroll>
                     </div>
                   </>
-                </>
-              ) : (
-                <>
-                  <h2 className="deck has-text-left">
-                    To start, pick your party:
-                  </h2>
+                ) : !!party ? (
+                  <>
+                    <>
+                      <h2 className="deck has-text-left">
+                        You started the quiz already!
+                      </h2>
 
-                  <div className="field is-grouped">
-                    <SmoothScroll
-                      to="questions"
-                      className="control"
-                      onClick={() => saveParty("Democrat")}
-                      extraOffset={80}
-                    >
-                      <button className="button">Democrat</button>
-                    </SmoothScroll>
-                    <SmoothScroll
-                      to="questions"
-                      onClick={() => saveParty("Independent")}
-                      extraOffset={80}
-                      className="control"
-                    >
-                      <button className="button">All Candidates</button>
-                    </SmoothScroll>
-                  </div>
-                </>
-              )}
+                      <div className="field is-grouped">
+                        <SmoothScroll
+                          to={`question-${questionsLeftToAnswer()[0]}`}
+                          className="control"
+                        >
+                          <button className="button">Continue</button>
+                        </SmoothScroll>
+                        <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                          <button className="button is-outlined">
+                            Reset Answers
+                          </button>
+                        </SmoothScroll>
+                      </div>
+                    </>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="deck has-text-left">
+                      To start, pick your party:
+                    </h2>
+
+                    <div className="field is-grouped">
+                      <SmoothScroll
+                        to="questions"
+                        className="control"
+                        onClick={() => saveParty("Democrat")}
+                        extraOffset={80}
+                      >
+                        <button className="button">Democrat</button>
+                      </SmoothScroll>
+                      <SmoothScroll
+                        to="questions"
+                        onClick={() => saveParty("Independent")}
+                        extraOffset={80}
+                        className="control"
+                      >
+                        <button className="button">All Candidates</button>
+                      </SmoothScroll>
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
