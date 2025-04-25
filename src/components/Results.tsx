@@ -195,7 +195,7 @@ const Results: React.FC<ResultsProps> = ({
         </div>
       </div>
       <div
-        className="container has-background-light p-6"
+        className="container has-light-grey-background p-6"
         id="results"
         style={{ maxWidth: "1100px" }}
       >
