@@ -33,15 +33,32 @@
   }
 }
 
+.article {
+  background-color: $city-white;
+}
+
 // TEXT:
 
-.deck {
+.headline,
+.deck,
+.copy,
+.eyebrow,
+.label,
+.copyright,
+.button-link {
+  color: $city-black;
   font-family: $sans;
+}
+
+.deck {
   font-size: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 }
 
 .copy {
-  font-family: $sans;
   font-size: 1rem;
 }
 
@@ -53,7 +70,6 @@
 }
 
 .label {
-  font-family: $sans;
   font-weight: 400;
   font-size: 0.75rem;
 }
@@ -61,11 +77,11 @@
 .eyebrow,
 p,
 .label {
-  color: $city-grey;
+  color: $city-black;
   a,
   &.is-link {
     cursor: pointer;
-    color: inherit;
+    color: $city-black;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
@@ -107,53 +123,74 @@ details {
   transition: all 0.2s ease-in-out;
   color: $city-black;
   border: none;
-  background-color: $city-light-grey;
-  box-shadow: 2px 4px 0px darken($color: $city-light-grey, $amount: 30);
+  background-color: $city-green;
+  box-shadow: 2px 4px 0px darken($color: $city-green, $amount: 60);
   transform: translate(-2px, -4px);
+
+  a {
+    color: $city-black;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
 
   &.is-small {
     font-size: 0.875rem;
   }
 
+  &.is-outlined {
+    background-color: $city-white;
+    color: $city-black;
+    border: 1px solid $city-black;
+    box-shadow: 2px 4px 0px $city-black;
+  }
+
+  &.is-icon {
+    box-shadow: 2px 4px 0px darken($color: $city-grey, $amount: 10);
+  }
+
+  &.is-extra-dark {
+    background-color: darken($color: $city-green, $amount: 25);
+  }
+
   &:hover {
-    box-shadow: 1px 2px 0px darken($color: $city-light-grey, $amount: 30);
+    box-shadow: 1px 2px 0px darken($color: $city-green, $amount: 60);
     transform: translate(-1px, -2px);
+    &.is-icon {
+      box-shadow: 1px 2px 0px darken($color: $city-grey, $amount: 10);
+    }
+    &.is-outlined {
+      box-shadow: 1px 2px 0px $city-black;
+    }
   }
 
   &:active,
   &.is-selected {
-    box-shadow: inset 2px 1px 0px darken($color: $city-light-grey, $amount: 30);
+    box-shadow: inset 2px 1px 0px darken($color: $city-green, $amount: 60);
     transform: translate(-1px, -2px);
+
+    &.is-icon {
+      box-shadow: inset 2px 1px 0px darken($color: $city-grey, $amount: 10);
+    }
+
+    &.is-outlined {
+      box-shadow: inset 2px 1px 0px $city-black;
+    }
   }
 
   &:disabled {
-    background-color: $city-light-grey;
+    background-color: $city-grey;
     box-shadow: none;
     pointer-events: none;
+
+    &.is-outlined {
+      background-color: transparent;
+    }
   }
 
   &:focus {
     outline: none;
-  }
-
-  &.is-outlined {
-    background-color: transparent;
-    color: $city-black;
-    border: 1px solid $city-black;
-    box-shadow: 2px 4px 0px $city-black;
-
-    &:hover {
-      box-shadow: 1px 2px 0px $city-black;
-    }
-
-    &:active,
-    &.is-selected {
-      box-shadow: inset 2px 1px 0px $city-black;
-    }
-
-    &:disabled {
-      background-color: transparent;
-    }
   }
 }
 
@@ -161,6 +198,7 @@ details {
   font-family: $sans;
   font-size: 1rem;
   font-weight: 400;
+  line-height: 1rem;
 
   &:hover {
     opacity: 0.5;
@@ -259,6 +297,8 @@ details {
   position: absolute;
   transform: translate(-40px, 5px);
   border-radius: 100%;
+  background-color: $city-black;
+  color: $city-white;
   @media screen and (max-width: 768px) {
     position: relative;
     transform: translate(0px, -5px);
@@ -305,4 +345,16 @@ hr {
 
 .no-wrap {
   white-space: nowrap;
+}
+
+.has-color-background {
+  background-color: $city-green;
+}
+
+.has-white-background {
+  background-color: $city-white;
+}
+
+.has-light-grey-background {
+  background-color: $city-light-grey;
 }

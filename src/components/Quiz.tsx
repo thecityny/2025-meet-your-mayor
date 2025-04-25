@@ -7,7 +7,7 @@ import {
   formatQuestionContent,
   QuizInput,
 } from "./QuizContent";
-import { SmoothScroll } from "./Links";
+import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "./Links";
 import { MatchingCandidates } from "./MatchingCandidates";
 
 export type Party = "Democrat" | "Independent" | null;
@@ -91,97 +91,111 @@ const Quiz = () => {
 
   return (
     <>
-      <div className="hero is-fullheight-with-navbar" id="quiz">
-        <div className="container" style={{ maxWidth: "600px" }}>
-          <div>
-            <h1 className="headline has-text-left">The Ultimate Match Quiz</h1>
-            <p className="copy has-text-left mt-5">
-              Voters of New York City: It’s time to pick your nominee for mayor,
-              with primary day approaching on June 22. Since March, THE CITY has
-              been presenting the candidates’ positions, issue by issue. Meet
-              Your Mayor shows you how the contenders' stands fit with your take
-              on what matters most to New Yorkers.
-            </p>
-            <p className="copy has-text-left my-5">
-              Now we’ve pulled all 15 Meet Your Mayor editions into one final,
-              supersized superquiz that will show you your ultimate match.
-              Actually, your top matches, since voters will be ranking up to
-              five selections at the polls.
-            </p>
+      <div className="hero is-fullheight mb-6" id="quiz">
+        <div className="hero-body">
+          <div className="container" style={{ maxWidth: "600px" }}>
+            <div>
+              <h1 className="headline has-text-left">
+                The Ultimate Match Quiz
+              </h1>
+              <p className="copy has-text-left mt-5">
+                Voters of New York City: It’s time to pick your nominee for
+                mayor, with primary day approaching on June 22. Since March, THE
+                CITY has been presenting the candidates’ positions, issue by
+                issue. Meet Your Mayor shows you how the contenders' stands fit
+                with your take on what matters most to New Yorkers.
+              </p>
+              <p className="copy has-text-left my-5">
+                Now we’ve pulled all 15 Meet Your Mayor editions into one final,
+                supersized superquiz that will show you your ultimate match.
+                Actually, your top matches, since voters will be ranking up to
+                five selections at the polls.
+              </p>
 
-            <div className="pt-5">
-              {questionsLeftToAnswer().length === 0 ? (
-                <>
-                  <h2 className="deck has-text-left">
-                    You completed the quiz already!
-                  </h2>
-
-                  <div className="field is-grouped">
-                    <SmoothScroll to="results" className="control">
-                      <button className="button">See my Results</button>
-                    </SmoothScroll>
-                    <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
-                      <button className="button is-outlined">
-                        Reset Answers
-                      </button>
-                    </SmoothScroll>
-                  </div>
-                </>
-              ) : !!party ? (
-                <>
+              <div className="pt-5">
+                {questionsLeftToAnswer().length === 0 ? (
                   <>
                     <h2 className="deck has-text-left">
-                      You started the quiz already!
+                      You completed the quiz already!
                     </h2>
 
                     <div className="field is-grouped">
-                      <SmoothScroll
-                        to={`question-${questionsLeftToAnswer()[0]}`}
-                        className="control"
-                      >
-                        <button className="button">Continue</button>
+                      <SmoothScroll to="results" className="control">
+                        <button className="button">See my Results</button>
                       </SmoothScroll>
-                      <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                      <SmoothScroll
+                        to="quiz"
+                        extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
+                        onClick={() => resetAnswers()}
+                      >
                         <button className="button is-outlined">
                           Reset Answers
                         </button>
                       </SmoothScroll>
                     </div>
                   </>
-                </>
-              ) : (
-                <>
-                  <h2 className="deck has-text-left">
-                    To start, pick your party:
-                  </h2>
+                ) : !!party ? (
+                  <>
+                    <>
+                      <h2 className="deck has-text-left">
+                        You started the quiz already!
+                      </h2>
 
-                  <div className="field is-grouped">
-                    <SmoothScroll
-                      to="questions"
-                      className="control"
-                      onClick={() => saveParty("Democrat")}
-                      extraOffset={80}
-                    >
-                      <button className="button">Democrat</button>
-                    </SmoothScroll>
-                    <SmoothScroll
-                      to="questions"
-                      onClick={() => saveParty("Independent")}
-                      extraOffset={80}
-                      className="control"
-                    >
-                      <button className="button">All Candidates</button>
-                    </SmoothScroll>
-                  </div>
-                </>
-              )}
+                      <div className="field is-grouped">
+                        <SmoothScroll
+                          to={`question-${questionsLeftToAnswer()[0]}`}
+                          className="control"
+                        >
+                          <button className="button">Continue</button>
+                        </SmoothScroll>
+                        <SmoothScroll
+                          to="quiz"
+                          extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
+                          onClick={() => resetAnswers()}
+                        >
+                          <button className="button is-outlined">
+                            Reset Answers
+                          </button>
+                        </SmoothScroll>
+                      </div>
+                    </>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="deck has-text-left">
+                      To start, pick your party:
+                    </h2>
+
+                    <div className="field is-grouped">
+                      <SmoothScroll
+                        to="questions"
+                        className="control"
+                        onClick={() => saveParty("Democrat")}
+                        extraOffset={80}
+                      >
+                        <button className="button">Democrat</button>
+                      </SmoothScroll>
+                      <SmoothScroll
+                        to="questions"
+                        onClick={() => saveParty("Independent")}
+                        extraOffset={80}
+                        className="control"
+                      >
+                        <button className="button is-outlined">
+                          All Candidates
+                        </button>
+                      </SmoothScroll>
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className="section p-0" id="questions">
         <div style={{ display: !!party ? "block" : "none" }}>
-          <div className="columns is-desktop">
+          <div className="columns is-desktop ml-0">
             <div className="column is-one-quarter" />
             <div className="column is-half" style={{ maxWidth: "600px" }}>
               <div className="container">
@@ -229,7 +243,7 @@ const Quiz = () => {
                           }}
                         >
                           <h3 className="deck has-text-left mb-2">
-                            <div className="tag is-light question-number-tag">
+                            <div className="tag question-number-tag">
                               {number}
                             </div>
                             {title}
@@ -316,10 +330,12 @@ const Quiz = () => {
                               </SmoothScroll>
                               <SmoothScroll
                                 to={`question-${number}`}
-                                className="button is-link is-outlined"
+                                className="control"
                                 onClick={() => clearAnswer(number)}
                               >
-                                Change answer
+                                <button className="button is-link is-outlined">
+                                  Change answer
+                                </button>
                               </SmoothScroll>
                             </div>
                           )}
@@ -331,13 +347,13 @@ const Quiz = () => {
               </div>
             </div>
             <div
-              className="container is-hidden-desktop has-background-white-ter"
+              className="container is-hidden-desktop has-light-grey-background"
               style={{
                 position: "sticky",
                 bottom: "0px",
                 left: "0px",
                 height: "30px",
-                width: "100%",
+                width: "100vw",
               }}
             >
               <div className="is-flex is-justify-content-center pt-1">
@@ -370,7 +386,7 @@ const Quiz = () => {
             </div>
             <div className="column is-hidden-touch is-one-quarter">
               <div
-                className="has-background-white-ter is-flex is-flex-direction-column has-text-right p-3"
+                className="has-light-grey-background is-flex is-flex-direction-column has-text-right p-3"
                 style={{
                   position: "sticky",
                   top: "6rem",
@@ -386,7 +402,7 @@ const Quiz = () => {
                       <SmoothScroll
                         key={i}
                         enableActiveClass
-                        className="button-link mr-1"
+                        className="button-link mr-1 copy"
                         to={`section-${questionGroup[0].toLowerCase()}`}
                       >
                         {questionGroup[0]}

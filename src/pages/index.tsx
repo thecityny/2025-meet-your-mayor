@@ -3,7 +3,7 @@ import { PageLayout } from "../components/PageLayout";
 import Quiz from "../components/Quiz";
 import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 import { SocialShareButtons } from "../components/SocialShareButtons";
-import { SmoothScroll } from "../components/Links";
+import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "../components/Links";
 import { RecentCoverage } from "../components/RecentCoverage";
 
 const byline = process.env.GATSBY_AUTHOR
@@ -27,7 +27,7 @@ const getDateUpdated = () => {
 
 const Homepage = () => (
   <PageLayout>
-    <div className="hero is-fullheight-with-navbar">
+    <div className="hero is-fullheight-with-navbar has-color-background">
       <div className="hero-body">
         <div>
           <h1 className="headline has-text-left">Meet your Mayor: 2025</h1>
@@ -57,18 +57,21 @@ const Homepage = () => (
               right ones for you.
             </p>
             <div className="is-flex is-flex-direction-column my-6">
-              <SmoothScroll to="quiz">
+              <SmoothScroll
+                to="quiz"
+                extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
+              >
                 <button
-                  className="button is-primary mb-4"
-                  style={{ width: "350px" }}
+                  className="button is-extra-dark mb-4"
+                  style={{ width: "100%", maxWidth: "350px" }}
                 >
                   Take the quiz
                 </button>
               </SmoothScroll>
               <a href="#learn">
                 <button
-                  className="button is-primary is-outlined"
-                  style={{ width: "350px" }}
+                  className="button is-outlined"
+                  style={{ width: "100%", maxWidth: "350px" }}
                 >
                   Learn on your own
                 </button>

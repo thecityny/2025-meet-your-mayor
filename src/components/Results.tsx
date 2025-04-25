@@ -7,7 +7,7 @@ import {
   QuizInput,
 } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
-import { SmoothScroll } from "./Links";
+import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "./Links";
 import classnames from "classnames";
 import { Link } from "gatsby";
 import { Party } from "./Quiz";
@@ -163,7 +163,7 @@ const Results: React.FC<ResultsProps> = ({
             <div className="buttons mt-5">
               {Object.entries(formatQuestionContent()).map(
                 (questionGroup, i) => (
-                  <div style={{ width: "100%" }} key={i}>
+                  <div style={{ width: "100%", maxWidth: "300px" }} key={i}>
                     <button
                       className={classnames(
                         "button",
@@ -187,15 +187,15 @@ const Results: React.FC<ResultsProps> = ({
               )}
             </div>
             {favoriteTopics.size > 0 && (
-              <SmoothScroll to="results" className="button is-large mt-6">
-                See my Results
+              <SmoothScroll to="results">
+                <button className="button is-large mt-6">See my Results</button>
               </SmoothScroll>
             )}
           </div>
         </div>
       </div>
       <div
-        className="container has-background-light p-6"
+        className="container has-light-grey-background p-6"
         id="results"
         style={{ maxWidth: "1100px" }}
       >
@@ -220,11 +220,8 @@ const Results: React.FC<ResultsProps> = ({
               )}
               .
             </p>
-            <SmoothScroll
-              to={`question-${questionsLeftToAnswer[0]}`}
-              className="button is-dark mt-4"
-            >
-              Go back
+            <SmoothScroll to={`question-${questionsLeftToAnswer[0]}`}>
+              <button className="button is-outlined mt-4"> Go back</button>
             </SmoothScroll>
           </div>
         ) : (
@@ -246,8 +243,12 @@ const Results: React.FC<ResultsProps> = ({
                   />
                 </div>
 
-                <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
-                  <button className="button is-link is-outlined">
+                <SmoothScroll
+                  to="quiz"
+                  extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
+                  onClick={() => resetAnswers()}
+                >
+                  <button className="button is-link is-outlined mb-5">
                     Take Quiz Again
                   </button>
                 </SmoothScroll>
@@ -322,11 +323,11 @@ const Results: React.FC<ResultsProps> = ({
                   </div>
 
                   <div className="buttons mt-4 ml-4">
-                    <Link to={kebabCase(candidate.candidateName)}>
-                      <button className="button">
+                    <button className="button">
+                      <Link to={kebabCase(candidate.candidateName)}>
                         Learn more about {candidate.candidateName}
-                      </button>
-                    </Link>
+                      </Link>{" "}
+                    </button>
                   </div>
                 </details>
               </div>

@@ -36,10 +36,13 @@ export const CandidateSelectorMenu: React.FC<{
             </figure>
             <div
               className={classnames(
+                isOnHomepage ? "copy" : "label",
                 "has-text-centered",
-                "mt-2",
-                !isOnHomepage && "is-size-7"
+                "mt-2"
               )}
+              style={{
+                lineHeight: "1rem",
+              }}
             >
               {candidate.name}
             </div>
