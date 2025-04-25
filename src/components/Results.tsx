@@ -248,7 +248,7 @@ const Results: React.FC<ResultsProps> = ({
                   extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
                   onClick={() => resetAnswers()}
                 >
-                  <button className="button is-link is-outlined">
+                  <button className="button is-link is-outlined mb-5">
                     Take Quiz Again
                   </button>
                 </SmoothScroll>
@@ -323,11 +323,11 @@ const Results: React.FC<ResultsProps> = ({
                   </div>
 
                   <div className="buttons mt-4 ml-4">
-                    <Link to={kebabCase(candidate.candidateName)}>
-                      <button className="button">
+                    <button className="button">
+                      <Link to={kebabCase(candidate.candidateName)}>
                         Learn more about {candidate.candidateName}
-                      </button>
-                    </Link>
+                      </Link>{" "}
+                    </button>
                   </div>
                 </details>
               </div>
