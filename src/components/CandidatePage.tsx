@@ -67,9 +67,9 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
         <div className="field is-grouped">
           <OutboundLink to={website} className="control">
-            <button className="button is-link">{firstName}'s Website</button>
+            <button className="button">{firstName}'s Website</button>
           </OutboundLink>
-          <Link to="/" className="button is-link is-outlined">
+          <Link to="/" className="button is-outlined">
             See if you're a match
           </Link>
         </div>
@@ -80,18 +80,18 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         <div className="copy my-5 py-5">{formatContent(bio)}</div>
       </div>
       <div className="container">
-        <div className="columns  has-text-black">
+        <div className="columns">
           {quotes.map((quoteInfo, i) => {
             const { subject, quote, source } = quoteInfo;
             return (
               <div className="column" key={i}>
                 <div
-                  className="container px-6 pt-6 pb-5 has-background-info"
+                  className="container px-6 pt-6 pb-5 has-color-background"
                   style={{
                     height: "100%",
                   }}
                 >
-                  <div className="tag is-light mb-4">
+                  <div className="tag has-white-background mb-4">
                     <div className="eyebrow">ON: {subject}</div>
                   </div>
                   <div className="mb-5">
