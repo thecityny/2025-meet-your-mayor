@@ -185,6 +185,7 @@ details {
   font-family: $sans;
   font-size: 1rem;
   font-weight: 400;
+  line-height: 1rem;
 
   &:hover {
     opacity: 0.5;
@@ -335,4 +336,12 @@ hr {
 
 .has-color-background {
   background-color: $city-green;
+}
+
+.has-white-background {
+  background-color: $city-white;
+}
+
+.has-light-grey-background {
+  background-color: $city-light-grey;
 }

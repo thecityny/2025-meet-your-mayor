@@ -343,7 +343,7 @@ const Quiz = () => {
               </div>
             </div>
             <div
-              className="container is-hidden-desktop has-background-white-ter"
+              className="container is-hidden-desktop has-light-grey-background"
               style={{
                 position: "sticky",
                 bottom: "0px",
@@ -382,7 +382,7 @@ const Quiz = () => {
             </div>
             <div className="column is-hidden-touch is-one-quarter">
               <div
-                className="has-background-white-ter is-flex is-flex-direction-column has-text-right p-3"
+                className="has-light-grey-background is-flex is-flex-direction-column has-text-right p-3"
                 style={{
                   position: "sticky",
                   top: "6rem",
@@ -398,7 +398,7 @@ const Quiz = () => {
                       <SmoothScroll
                         key={i}
                         enableActiveClass
-                        className="button-link mr-1"
+                        className="button-link mr-1 copy"
                         to={`section-${questionGroup[0].toLowerCase()}`}
                       >
                         {questionGroup[0]}
