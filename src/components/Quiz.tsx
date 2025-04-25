@@ -91,7 +91,7 @@ const Quiz = () => {
 
   return (
     <>
-      <div className="hero is-fullheight" id="quiz">
+      <div className="hero is-fullheight mb-6" id="quiz">
         <div className="hero-body">
           <div className="container" style={{ maxWidth: "600px" }}>
             <div>
@@ -195,7 +195,7 @@ const Quiz = () => {
       </div>
       <div className="section p-0" id="questions">
         <div style={{ display: !!party ? "block" : "none" }}>
-          <div className="columns is-desktop">
+          <div className="columns is-desktop ml-0">
             <div className="column is-one-quarter" />
             <div className="column is-half" style={{ maxWidth: "600px" }}>
               <div className="container">
@@ -353,7 +353,7 @@ const Quiz = () => {
                 bottom: "0px",
                 left: "0px",
                 height: "30px",
-                width: "100%",
+                width: "100vw",
               }}
             >
               <div className="is-flex is-justify-content-center pt-1">
