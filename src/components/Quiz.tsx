@@ -7,7 +7,7 @@ import {
   formatQuestionContent,
   QuizInput,
 } from "./QuizContent";
-import { SmoothScroll } from "./Links";
+import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "./Links";
 import { MatchingCandidates } from "./MatchingCandidates";
 
 export type Party = "Democrat" | "Independent" | null;
@@ -123,7 +123,11 @@ const Quiz = () => {
                       <SmoothScroll to="results" className="control">
                         <button className="button">See my Results</button>
                       </SmoothScroll>
-                      <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                      <SmoothScroll
+                        to="quiz"
+                        extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
+                        onClick={() => resetAnswers()}
+                      >
                         <button className="button is-outlined">
                           Reset Answers
                         </button>
@@ -144,7 +148,11 @@ const Quiz = () => {
                         >
                           <button className="button">Continue</button>
                         </SmoothScroll>
-                        <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                        <SmoothScroll
+                          to="quiz"
+                          extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
+                          onClick={() => resetAnswers()}
+                        >
                           <button className="button is-outlined">
                             Reset Answers
                           </button>

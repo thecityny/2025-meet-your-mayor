@@ -7,7 +7,7 @@ import {
   QuizInput,
 } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
-import { SmoothScroll } from "./Links";
+import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "./Links";
 import classnames from "classnames";
 import { Link } from "gatsby";
 import { Party } from "./Quiz";
@@ -246,7 +246,11 @@ const Results: React.FC<ResultsProps> = ({
                   />
                 </div>
 
-                <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
+                <SmoothScroll
+                  to="quiz"
+                  extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
+                  onClick={() => resetAnswers()}
+                >
                   <button className="button is-link is-outlined">
                     Take Quiz Again
                   </button>
