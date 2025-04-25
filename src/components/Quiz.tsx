@@ -195,6 +195,44 @@ const Quiz = () => {
       </div>
       <div className="section p-0" id="questions">
         <div style={{ display: !!party ? "block" : "none" }}>
+          <div
+            className="container is-hidden-desktop has-light-grey-background"
+            style={{
+              position: "sticky",
+              top: 0,
+              height: "30px",
+              width: "100vw",
+              zIndex: "100",
+            }}
+          >
+            <div className="is-flex is-justify-content-center pt-1">
+              {Object.entries(formatQuestionContent()).map(
+                (questionGroup, i) => (
+                  <div key={i} className="is-inline-block">
+                    {questionGroup[1].map((question, i) => {
+                      const questionAnswered = answers.find(
+                        (answer) => answer.questionNumber === question.number
+                      )?.answer;
+                      return (
+                        <span
+                          key={i}
+                          style={{
+                            marginRight: "3px",
+                          }}
+                        >
+                          {!!questionAnswered ? (
+                            <CircleIcon filledIn />
+                          ) : (
+                            <CircleIcon />
+                          )}
+                        </span>
+                      );
+                    })}
+                  </div>
+                )
+              )}
+            </div>
+          </div>
           <div className="columns is-desktop ml-0">
             <div className="column is-one-quarter" />
             <div className="column is-half" style={{ maxWidth: "600px" }}>
@@ -346,44 +384,7 @@ const Quiz = () => {
                 ))}
               </div>
             </div>
-            <div
-              className="container is-hidden-desktop has-light-grey-background"
-              style={{
-                position: "sticky",
-                bottom: "0px",
-                left: "0px",
-                height: "30px",
-                width: "100vw",
-              }}
-            >
-              <div className="is-flex is-justify-content-center pt-1">
-                {Object.entries(formatQuestionContent()).map(
-                  (questionGroup, i) => (
-                    <div key={i} className="is-inline-block">
-                      {questionGroup[1].map((question, i) => {
-                        const questionAnswered = answers.find(
-                          (answer) => answer.questionNumber === question.number
-                        )?.answer;
-                        return (
-                          <span
-                            key={i}
-                            style={{
-                              marginRight: "3px",
-                            }}
-                          >
-                            {!!questionAnswered ? (
-                              <CircleIcon filledIn />
-                            ) : (
-                              <CircleIcon />
-                            )}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
+
             <div className="column is-hidden-touch is-one-quarter">
               <div
                 className="has-light-grey-background is-flex is-flex-direction-column has-text-right p-3"
