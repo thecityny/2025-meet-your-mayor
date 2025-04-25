@@ -227,7 +227,7 @@ const Results: React.FC<ResultsProps> = ({
         ) : (
           <div>
             <div className="level">
-              <h1 className="headline has-text-left is-inline-block my-5">
+              <h1 className="headline has-text-left is-inline-block mt-5">
                 Results
               </h1>
               <div className="field is-grouped is-flex is-align-items-center">
@@ -248,14 +248,14 @@ const Results: React.FC<ResultsProps> = ({
                   extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
                   onClick={() => resetAnswers()}
                 >
-                  <button className="button is-link is-outlined mb-5">
+                  <button className="button is-link is-outlined">
                     Take Quiz Again
                   </button>
                 </SmoothScroll>
               </div>
             </div>
             <div
-              className="copy has-text-left ml-0"
+              className="copy has-text-left ml-0 mt-5"
               style={{ maxWidth: "600px" }}
             >
               Here are your top 5 matches. On election day, you are allowed to
