@@ -163,7 +163,7 @@ const Results: React.FC<ResultsProps> = ({
             <div className="buttons mt-5">
               {Object.entries(formatQuestionContent()).map(
                 (questionGroup, i) => (
-                  <div style={{ width: "100%" }} key={i}>
+                  <div style={{ width: "100%", maxWidth: "300px" }} key={i}>
                     <button
                       className={classnames(
                         "button",

@@ -63,7 +63,7 @@ const Homepage = () => (
               >
                 <button
                   className="button is-extra-dark mb-4"
-                  style={{ width: "350px" }}
+                  style={{ width: "100%", maxWidth: "350px" }}
                 >
                   Take the quiz
                 </button>
@@ -71,7 +71,7 @@ const Homepage = () => (
               <a href="#learn">
                 <button
                   className="button is-outlined"
-                  style={{ width: "350px" }}
+                  style={{ width: "100%", maxWidth: "350px" }}
                 >
                   Learn on your own
                 </button>

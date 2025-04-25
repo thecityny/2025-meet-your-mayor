@@ -52,6 +52,10 @@
 
 .deck {
   font-size: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 }
 
 .copy {
@@ -122,6 +126,10 @@ details {
   background-color: $city-green;
   box-shadow: 2px 4px 0px darken($color: $city-green, $amount: 60);
   transform: translate(-2px, -4px);
+
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
 
   &.is-small {
     font-size: 0.875rem;
