@@ -66,11 +66,13 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
       </div>
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
         <div className="field is-grouped">
-          <OutboundLink to={website} className="control">
-            <button className="button">{firstName}'s Website</button>
+          <OutboundLink to={website}>
+            <button className="control button">{firstName}'s Website</button>
           </OutboundLink>
-          <Link to="/" className="button is-outlined">
-            See if you're a match
+          <Link to="/">
+            <button className="button is-outlined">
+              See if you're a match
+            </button>
           </Link>
         </div>
         <div className="eyebrow has-text-left mt-5 mb-2 is-flex is-align-items-center">
@@ -119,8 +121,8 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           the ballot for the June 22 primary, starting in April. See how Zohran
           Mamdani answered below.
         </div>
-        <Link to="/" className="button is-link">
-          Take our quiz
+        <Link to="/">
+          <button className="button is-link">Take our quiz</button>
         </Link>
         <h1 className="headline has-text-left mt-6">Recent Coverage</h1>
         <RecentCoverage />
