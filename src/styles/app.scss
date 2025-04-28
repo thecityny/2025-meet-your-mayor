@@ -238,6 +238,9 @@ details {
 
 // QUIZ ELEMENTS
 
+$greyed-out-image-filter: grayscale(1) contrast(0.5) brightness(1.25);
+$full-color-image-filter: contrast(1);
+
 .quiz-selection-oval {
   background-color: transparent;
   display: inline-block;
@@ -288,7 +291,7 @@ details {
     }
 
     img {
-      filter: grayscale(1) opacity(0.7);
+      filter: $greyed-out-image-filter;
     }
   }
 }
@@ -320,24 +323,24 @@ details {
 .candidate-selector-menu {
   &.is-on-candidate-page {
     a:not(.is-active) img {
-      filter: grayscale(1) contrast(0.5);
+      filter: $greyed-out-image-filter;
     }
     a.is-active {
       border: 1px dashed $city-black;
       border-radius: 5px;
     }
     a:hover img {
-      filter: opacity(1) contrast(1);
+      filter: $full-color-image-filter;
     }
   }
 
   &.is-on-home-page {
     &:not(:hover) {
-      filter: opacity(1) contrast(1);
+      filter: $full-color-image-filter;
     }
     &:hover {
       a:not(:hover) {
-        filter: grayscale(1) contrast(0.5);
+        filter: $greyed-out-image-filter;
       }
     }
   }
