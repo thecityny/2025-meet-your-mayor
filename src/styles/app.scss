@@ -241,6 +241,24 @@ details {
 $greyed-out-image-filter: grayscale(1) contrast(0.5) brightness(1.25);
 $full-color-image-filter: contrast(1);
 
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    max-height: 0px;
+    transform: translateY(-20px);
+  }
+  90% {
+    opacity: 0.9;
+    max-height: 200px;
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    max-height: unset;
+    transform: translateY(0);
+  }
+}
+
 .quiz-selection-oval {
   background-color: transparent;
   display: inline-block;
@@ -282,6 +300,31 @@ $full-color-image-filter: contrast(1);
 
 .matching-candidates {
   margin-left: 2rem;
+  animation: slideIn 1s ease-out forwards;
+  opacity: 0;
+  max-height: 0px;
+
+  &.option-number-1 {
+    animation-delay: 0s;
+  }
+
+  &.option-number-2 {
+    animation-delay: 0.2s;
+  }
+
+  &.option-number-3 {
+    animation-delay: 0.4s;
+  }
+
+  &.option-number-4 {
+    animation-delay: 0.6s;
+  }
+
+  // "Skipped" option
+  &.option-number-0 {
+    animation-delay: 0.8s;
+  }
+
   &.is-selected {
     font-weight: 600;
   }
