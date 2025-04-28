@@ -322,8 +322,14 @@ $full-color-image-filter: contrast(1);
 
 .candidate-selector-menu {
   &.is-on-candidate-page {
-    a:not(.is-active) img {
-      filter: $greyed-out-image-filter;
+    a:not(.is-active) {
+      .illustration.top {
+        animation: none;
+      }
+
+      img {
+        filter: $greyed-out-image-filter;
+      }
     }
     a.is-active {
       border: 1px dashed $city-black;
@@ -337,10 +343,17 @@ $full-color-image-filter: contrast(1);
   &.is-on-home-page {
     &:not(:hover) {
       filter: $full-color-image-filter;
+
+      .illustration.top {
+        animation: none;
+      }
     }
     &:hover {
       a:not(:hover) {
         filter: $greyed-out-image-filter;
+        .illustration.top {
+          animation: none;
+        }
       }
     }
   }
@@ -392,6 +405,13 @@ $full-color-image-filter: contrast(1);
   // For the big illustration on the landing page, apply a more subtle bobble
   &.is-1by2 .illustration.top {
     animation: bobble-softly 0.6s infinite ease-in-out;
+  }
+}
+
+.is-static,
+.is-disabled {
+  .illustration.top {
+    animation: none;
   }
 }
 

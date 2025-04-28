@@ -33,6 +33,7 @@ export const CandidateSelectorMenu: React.FC = () => {
               candidateName={candidate.name}
               size={isCandidatePage ? "is-96x96" : "is-128x128"}
               showBustOnly={isCandidatePage}
+              startAnimationRightAway
             />
 
             <div
