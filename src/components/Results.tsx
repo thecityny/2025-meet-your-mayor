@@ -144,7 +144,7 @@ const Results: React.FC<ResultsProps> = ({
 
   return (
     <>
-      <div className="columns" style={{ margin: "50vh 0" }}>
+      <div className="columns container" style={{ margin: "50vh 0" }}>
         <div className="column is-one-quarter" />
         <div className="column is-half" style={{ maxWidth: "600px" }}>
           <div
