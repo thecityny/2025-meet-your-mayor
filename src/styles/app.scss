@@ -353,6 +353,7 @@ $full-color-image-filter: contrast(1);
 
 .candidate-selector-menu {
   &.is-on-candidate-page {
+    max-width: 400px;
     a:not(.is-active) {
       .illustration.top {
         animation: none;

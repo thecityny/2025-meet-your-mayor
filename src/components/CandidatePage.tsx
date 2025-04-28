@@ -45,7 +45,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         </div>
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
         <div className="columns">
-          <div className="column">
+          <div className="column is-two-fifths">
             <figure className="image">
               <LazyLoadImage
                 src={`../photos/${kebabCase(candidateName)}-photo.jpg`}
