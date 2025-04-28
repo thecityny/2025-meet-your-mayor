@@ -318,20 +318,27 @@ details {
 // CANDIDATE PAGES:
 
 .candidate-selector-menu {
-  a:not(.is-active) img {
-    filter: grayscale(1) opacity(0.7);
+  &.is-on-candidate-page {
+    a:not(.is-active) img {
+      filter: grayscale(1) contrast(0.5);
+    }
+    a.is-active {
+      border: 1px dashed $city-black;
+      border-radius: 5px;
+    }
+    a:hover img {
+      filter: opacity(1) contrast(1);
+    }
   }
-  a.is-active {
-    border: 1px dashed $city-black;
-    border-radius: 5px;
-  }
-  a:hover img {
-    filter: opacity(1);
-  }
-  @media screen and (max-width: 768px) {
-    .is-128x128 {
-      width: 100px;
-      height: 100px;
+
+  &.is-on-home-page {
+    &:not(:hover) {
+      filter: opacity(1) contrast(1);
+    }
+    &:hover {
+      a:not(:hover) {
+        filter: grayscale(1) contrast(0.5);
+      }
     }
   }
 }

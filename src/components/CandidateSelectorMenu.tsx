@@ -12,7 +12,15 @@ export const CandidateSelectorMenu: React.FC = () => {
   const candidates = generateListOfCandidates();
   const isCandidatePage = useIsCandidatePage();
   return (
-    <div className="candidate-selector-menu columns is-multiline is-mobile">
+    <div
+      className={classnames(
+        "candidate-selector-menu",
+        "columns",
+        "is-multiline",
+        "is-mobile",
+        isCandidatePage ? "is-on-candidate-page" : "is-on-home-page"
+      )}
+    >
       {candidates.map((candidate, i) => (
         <Link
           key={i}
