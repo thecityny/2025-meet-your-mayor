@@ -5,7 +5,7 @@ import { kebabCase, useIsCandidatePage } from "../utils";
 
 export const Bobblehead: React.FC<{
   candidateName: string;
-  size: "is-48x48" | "is-96x96" | "is-128x128";
+  size: "is-48x48" | "is-64x64" | "is-96x96" | "is-128x128";
   showBustOnly?: boolean;
 }> = ({ candidateName, size, showBustOnly }) => {
   const isCandidatePage = useIsCandidatePage();

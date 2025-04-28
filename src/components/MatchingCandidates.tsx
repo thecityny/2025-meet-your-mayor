@@ -45,7 +45,7 @@ export const MatchingCandidates: FC<{
         return isExpanded ? (
           <div key={i} className="is-flex is-flex-direction-row mb-4">
             <div className="is-flex is-flex-direction-column is-align-items-center mr-3">
-              <Bobblehead candidateName={name} size="is-48x48" showBustOnly />
+              <Bobblehead candidateName={name} size="is-64x64" showBustOnly />
               <span className="label">{abbreviatedName}</span>
             </div>
 
@@ -79,7 +79,7 @@ export const MatchingCandidates: FC<{
               key={i}
               className="is-flex is-flex-direction-column is-align-items-center mr-3"
             >
-              <Bobblehead candidateName={name} size="is-48x48" showBustOnly />
+              <Bobblehead candidateName={name} size="is-64x64" showBustOnly />
               <span className="label has-text-centered">{abbreviatedName}</span>
             </div>
           </div>
