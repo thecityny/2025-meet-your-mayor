@@ -1,8 +1,7 @@
 import React from "react";
-import { kebabCase } from "./QuizContent";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import classnames from "classnames";
-import { useIsCandidatePage } from "../utils";
+import { kebabCase, useIsCandidatePage } from "../utils";
 
 export const Bobblehead: React.FC<{
   candidateName: string;

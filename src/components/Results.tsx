@@ -1,9 +1,8 @@
 import React from "react";
-import { groupBy } from "../utils";
+import { groupBy, kebabCase } from "../utils";
 import {
   formatQuestionContent,
   generateBlankScorecard,
-  kebabCase,
   QuizInput,
 } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";

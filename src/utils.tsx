@@ -2,10 +2,21 @@ import React from "react";
 import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
 import candidateList from "./candidate-list.json";
-import { kebabCase } from "./components/QuizContent";
 
 type CandidateName = {
   name: string;
+};
+
+/**
+ * Converts string to kebab case (for generating a url slug).
+ * NOTE: this implementation is copied with an implementation in gatsby-node.js (not ideal).
+ */
+export const kebabCase = (string: string) => {
+  return string
+    .replace(/\d+/g, " ")
+    .split(/ |\B(?=[A-Z])/)
+    .map((word) => word.toLowerCase())
+    .join("-");
 };
 
 export function useIsCandidatePage() {

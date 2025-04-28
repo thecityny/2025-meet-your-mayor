@@ -1,6 +1,6 @@
 import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
-import { groupBy } from "../utils";
+import { groupBy, kebabCase } from "../utils";
 import { Party } from "./Quiz";
 
 /**
@@ -42,18 +42,6 @@ export const formatCandidateContent = (party?: Party) => {
 
     return { responses: quizResponses, quotes, ...candidate };
   });
-};
-
-/**
- * Converts string to kebab case (for generating a url slug).
- * NOTE: this implementation is copied with an implementation in gatsby-node.js (not ideal).
- */
-export const kebabCase = (string: string) => {
-  return string
-    .replace(/\d+/g, " ")
-    .split(/ |\B(?=[A-Z])/)
-    .map((word) => word.toLowerCase())
-    .join("-");
 };
 
 export const generateListOfCandidates = () => {
