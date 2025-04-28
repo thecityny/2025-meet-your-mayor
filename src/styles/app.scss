@@ -338,20 +338,28 @@ details {
 
 // ILLUSTRATIONS:
 
-.illustration.top,
-.illustration.bottom {
+.image .illustration {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   object-position: 50% 0%;
+  object-fit: contain;
   padding: 0 5px;
+
+  &.top {
+    z-index: 10;
+  }
 
   &.eric-adams {
     object-position: 50% 15%;
   }
+}
+
+.bust-only .illustration {
+  object-position: 50% 0%;
+  object-fit: cover;
 }
 
 // HELPERS:

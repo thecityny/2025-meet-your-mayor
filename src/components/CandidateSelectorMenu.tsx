@@ -2,7 +2,7 @@ import React from "react";
 import { generateListOfCandidates } from "./QuizContent";
 import { Link } from "gatsby";
 import classnames from "classnames";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Bobblehead } from "./Illustration";
 
 /**
  * A menu of buttons that link to each candidate page.
@@ -21,19 +21,11 @@ export const CandidateSelectorMenu: React.FC<{
           activeClassName="is-active"
         >
           <div className="is-flex is-flex-direction-column is-align-items-center">
-            <figure
-              className={classnames(
-                "image",
-                isOnHomepage ? "is-128x128" : "is-96x96"
-              )}
-            >
-              <LazyLoadImage
-                src={`${
-                  isOnHomepage ? "." : ".."
-                }/illustrations/sample-bobblehead.png`}
-                alt="CandidateBobblehead"
-              />
-            </figure>
+            <Bobblehead
+              candidateName={candidate.name}
+              size={isOnHomepage ? "is-128x128" : "is-96x96"}
+            />
+
             <div
               className={classnames(
                 isOnHomepage ? "copy" : "label",

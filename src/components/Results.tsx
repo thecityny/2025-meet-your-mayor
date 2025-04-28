@@ -11,7 +11,7 @@ import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "./Links";
 import classnames from "classnames";
 import { Link } from "gatsby";
 import { Party } from "./Quiz";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Bobblehead } from "./Illustration";
 
 type ResultsProps = {
   favoriteTopics: Set<string>;
@@ -275,12 +275,11 @@ const Results: React.FC<ResultsProps> = ({
                         <span className="open-text">+</span>
                         <span className="close-text">-</span>
                       </span>
-                      <figure className="image is-96x96">
-                        <LazyLoadImage
-                          src="./illustrations/sample-bobblehead.png"
-                          alt="CandidateBobblehead"
-                        />
-                      </figure>
+                      <Bobblehead
+                        candidateName={candidate.candidateName}
+                        size="is-96x96"
+                        showBustOnly
+                      />
                       <h2 className="headline has-text-left is-size-3-touch">
                         {candidate.candidateName}
                       </h2>
