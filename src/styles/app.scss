@@ -100,7 +100,7 @@ details {
     display: none;
   }
 
-  &[open] div {
+  &[open] .details-content {
     animation: fadeIn 1s ease forwards;
 
     .open-text {
