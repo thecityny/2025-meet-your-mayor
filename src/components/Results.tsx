@@ -277,6 +277,7 @@ const Results: React.FC<ResultsProps> = ({
                       <Bobblehead
                         candidateName={candidate.candidateName}
                         size="is-96x96"
+                        customClassNames="py-4 mr-4"
                         showBustOnly
                       />
                       <h2 className="headline has-text-left is-size-3-touch">
