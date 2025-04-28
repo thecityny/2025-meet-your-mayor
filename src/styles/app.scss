@@ -247,10 +247,10 @@ $full-color-image-filter: contrast(1);
     max-height: 0px;
     transform: translateY(-20px);
   }
-  90% {
-    opacity: 0.9;
-    max-height: 200px;
-    transform: translateY(-2px);
+  99% {
+    opacity: 0.99;
+    max-height: 250px;
+    transform: translateY(0);
   }
   100% {
     opacity: 1;
