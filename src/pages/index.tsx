@@ -96,7 +96,7 @@ const Homepage = () => (
             >
               Learn more about the candidates...
             </h1>
-            <CandidateSelectorMenu isOnHomepage />
+            <CandidateSelectorMenu />
           </div>
           <div className="column">
             <h1 className="headline has-text-left">
