@@ -15,7 +15,7 @@ export const Bobblehead: React.FC<{
   // TODO: once we have all illustraitons, remove this randomizaiton of illustration paths:
   const imagePrefix = ["Eric Adams", "Jessica Ramos"].includes(candidateName)
     ? kebabCase(candidateName)
-    : Math.random() > 0.5
+    : candidateName > "M"
     ? "eric-adams"
     : "jessica-ramos";
 
@@ -24,12 +24,12 @@ export const Bobblehead: React.FC<{
     <figure className={classnames("image", size)}>
       <LazyLoadImage
         src={`./illustrations/${imagePrefix}-head.png`}
-        className="illustration top"
+        className={classnames("illustration", "top", imagePrefix)}
         alt={candidateName}
       />
       <LazyLoadImage
         src={`./illustrations/${imagePrefix}-bust.png`}
-        className="illustration top"
+        className={classnames("illustration", "bottom", imagePrefix)}
         alt={candidateName}
       />
     </figure>

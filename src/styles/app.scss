@@ -348,6 +348,10 @@ details {
   object-fit: cover;
   object-position: 50% 0%;
   padding: 0 5px;
+
+  &.eric-adams {
+    object-position: 50% 15%;
+  }
 }
 
 // HELPERS:
