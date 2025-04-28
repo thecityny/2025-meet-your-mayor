@@ -43,7 +43,10 @@ export const MatchingCandidates: FC<{
         const abbreviatedName =
           lastName === "Adams" ? `${name[0]}. ${lastName}` : lastName;
         return isExpanded ? (
-          <div key={i} className="is-flex is-flex-direction-row mb-4">
+          <div
+            key={i}
+            className="expanded-candidate-responses is-flex is-flex-direction-row mb-4"
+          >
             <div className="is-flex is-flex-direction-column is-align-items-center mr-3">
               <Bobblehead candidateName={name} size="is-64x64" showBustOnly />
               <span className="label">{abbreviatedName}</span>

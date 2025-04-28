@@ -144,7 +144,7 @@ const Results: React.FC<ResultsProps> = ({
 
   return (
     <>
-      <div className="columns" style={{ margin: "50vh 0" }}>
+      <div className="columns container" style={{ margin: "50vh 0" }}>
         <div className="column is-one-quarter" />
         <div className="column is-half" style={{ maxWidth: "600px" }}>
           <div
@@ -277,6 +277,7 @@ const Results: React.FC<ResultsProps> = ({
                       <Bobblehead
                         candidateName={candidate.candidateName}
                         size="is-96x96"
+                        customClassNames="py-4 mr-4"
                         showBustOnly
                       />
                       <h2 className="headline has-text-left is-size-3-touch">
@@ -290,42 +291,47 @@ const Results: React.FC<ResultsProps> = ({
                       % Match
                     </h2>
                   </summary>
-                  <div className="copy mt-4 ml-4">
-                    You agreed with them on...
-                  </div>
-                  <div className="results-scorecard is-flex is-flex-direction-row is-flex-wrap-wrap ml-4">
-                    {Object.entries(
-                      groupBy(candidate.scoreList, "subject")
-                    ).map((questionGroup, i) => (
-                      <div key={i} className="mb-5">
-                        {questionGroup[1].map((question, i) => (
-                          <div
-                            key={i}
-                            className={classnames(
-                              "quiz-selection-oval",
-                              question.points > 0 && "is-filled"
-                            )}
-                          />
-                        ))}
-                        <h3 className="has-text-weight-semibold">
-                          {favoriteTopics.has(questionGroup[0]) && "★"}{" "}
-                          {questionGroup[0]}{" "}
-                          {favoriteTopics.has(questionGroup[0]) && "★"}
-                        </h3>
-                        <p className="copy">
-                          {questionGroup[1].filter((q) => q.points > 0).length}{" "}
-                          out of {questionGroup[1].length}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
+                  <div className="details-content">
+                    <div className="copy mt-4 ml-4">
+                      You agreed with them on...
+                    </div>
+                    <div className="results-scorecard is-flex is-flex-direction-row is-flex-wrap-wrap ml-4">
+                      {Object.entries(
+                        groupBy(candidate.scoreList, "subject")
+                      ).map((questionGroup, i) => (
+                        <div key={i} className="mb-5">
+                          {questionGroup[1].map((question, i) => (
+                            <div
+                              key={i}
+                              className={classnames(
+                                "quiz-selection-oval",
+                                question.points > 0 && "is-filled"
+                              )}
+                            />
+                          ))}
+                          <h3 className="has-text-weight-semibold">
+                            {favoriteTopics.has(questionGroup[0]) && "★"}{" "}
+                            {questionGroup[0]}{" "}
+                            {favoriteTopics.has(questionGroup[0]) && "★"}
+                          </h3>
+                          <p className="copy">
+                            {
+                              questionGroup[1].filter((q) => q.points > 0)
+                                .length
+                            }{" "}
+                            out of {questionGroup[1].length}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
 
-                  <div className="buttons mt-4 ml-4">
-                    <button className="button">
-                      <Link to={kebabCase(candidate.candidateName)}>
-                        Learn more about {candidate.candidateName}
-                      </Link>{" "}
-                    </button>
+                    <div className="buttons mt-4 ml-4">
+                      <button className="button">
+                        <Link to={kebabCase(candidate.candidateName)}>
+                          Learn more about {candidate.candidateName}
+                        </Link>{" "}
+                      </button>
+                    </div>
                   </div>
                 </details>
               </div>
