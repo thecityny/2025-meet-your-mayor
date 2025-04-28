@@ -357,6 +357,16 @@ $full-color-image-filter: contrast(1);
       }
     }
   }
+
+  @media screen and (max-width: 768px) {
+    .column {
+      max-width: 25%;
+      overflow: hidden;
+      .copy {
+        font-size: 0.75rem;
+      }
+    }
+  }
 }
 
 // ILLUSTRATIONS:
