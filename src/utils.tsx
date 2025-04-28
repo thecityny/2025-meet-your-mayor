@@ -1,5 +1,24 @@
 import React from "react";
 import parse from "html-react-parser";
+import { useLocation } from "@reach/router";
+import candidateList from "./candidate-list.json";
+import { kebabCase } from "./components/QuizContent";
+
+type CandidateName = {
+  name: string;
+};
+
+export function useIsCandidatePage() {
+  const location = useLocation();
+  const lastPathSegment = location.pathname
+    .split("/")
+    .filter((path) => path !== "")
+    .pop();
+  const candidateSlugs = JSON.parse(JSON.stringify(candidateList)).map(
+    (c: CandidateName) => kebabCase(c.name)
+  );
+  return candidateSlugs.includes(lastPathSegment);
+}
 
 /**
  * Groups an array of objects by a specified key.
