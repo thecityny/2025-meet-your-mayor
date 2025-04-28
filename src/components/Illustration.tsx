@@ -5,9 +5,10 @@ import { kebabCase, useIsCandidatePage } from "../utils";
 
 export const Bobblehead: React.FC<{
   candidateName: string;
-  size: "is-48x48" | "is-64x64" | "is-96x96" | "is-128x128";
+  size: "is-48x48" | "is-64x64" | "is-96x96" | "is-128x128" | "is-1by2";
+  customClassNames?: string;
   showBustOnly?: boolean;
-}> = ({ candidateName, size, showBustOnly }) => {
+}> = ({ candidateName, size, customClassNames, showBustOnly }) => {
   const isCandidatePage = useIsCandidatePage();
 
   // TODO: once we have all illustraitons, remove this randomizaiton of illustration paths:
@@ -21,7 +22,14 @@ export const Bobblehead: React.FC<{
     isCandidatePage ? ".." : "."
   }/illustrations/${candidatePath}`;
   return (
-    <figure className={classnames("image", size, showBustOnly && "bust-only")}>
+    <figure
+      className={classnames(
+        "image",
+        size,
+        showBustOnly && "bust-only",
+        customClassNames
+      )}
+    >
       <LazyLoadImage
         src={`${imgPathPrefix}-head.png`}
         className={classnames("illustration", "top", candidatePath)}
