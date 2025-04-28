@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import classnames from "classnames";
 import { formatContent } from "../utils";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Bobblehead } from "./Illustration";
 
 type MatchingCandidate = {
   name: string;
@@ -45,12 +45,7 @@ export const MatchingCandidates: FC<{
         return isExpanded ? (
           <div key={i} className="is-flex is-flex-direction-row mb-4">
             <div className="is-flex is-flex-direction-column is-align-items-center mr-3">
-              <figure className="image is-48x48">
-                <LazyLoadImage
-                  src="./illustrations/sample-bobblehead.png"
-                  alt="CandidateBobblehead"
-                />
-              </figure>
+              <Bobblehead candidateName={name} size="is-48x48" />
               <span className="label">{abbreviatedName}</span>
             </div>
 
@@ -84,12 +79,7 @@ export const MatchingCandidates: FC<{
               key={i}
               className="is-flex is-flex-direction-column is-align-items-center mr-3"
             >
-              <figure className="image is-48x48">
-                <LazyLoadImage
-                  src="./illustrations/sample-bobblehead.png"
-                  alt="CandidateBobblehead"
-                />
-              </figure>
+              <Bobblehead candidateName={name} size="is-48x48" />
               <span className="label has-text-centered">{abbreviatedName}</span>
             </div>
           </div>
