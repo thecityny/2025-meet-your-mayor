@@ -5,7 +5,7 @@ const candidateList = require("./src/candidate-list.json");
 
 /**
  * Converts string to kebab case (for generating a url slug).
- * NOTE: this implementation is copied with an implementation in QuizContent.tsx (not ideal).
+ * NOTE: this implementation is copied with an implementation in utils.tsx (not ideal).
  */
 const kebabCase = (string) => {
   return string

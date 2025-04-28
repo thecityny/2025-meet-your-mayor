@@ -54,7 +54,7 @@
   font-size: 1.5rem;
 
   @media screen and (max-width: 768px) {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
 
@@ -238,6 +238,9 @@ details {
 
 // QUIZ ELEMENTS
 
+$greyed-out-image-filter: grayscale(1) contrast(0.5) brightness(1.25);
+$full-color-image-filter: contrast(1);
+
 .quiz-selection-oval {
   background-color: transparent;
   display: inline-block;
@@ -288,7 +291,7 @@ details {
     }
 
     img {
-      filter: grayscale(1) opacity(0.7);
+      filter: $greyed-out-image-filter;
     }
   }
 }
@@ -318,22 +321,113 @@ details {
 // CANDIDATE PAGES:
 
 .candidate-selector-menu {
-  a:not(.is-active) img {
-    filter: grayscale(1) opacity(0.7);
-  }
-  a.is-active {
-    border: 1px dashed $city-black;
-    border-radius: 5px;
-  }
-  a:hover img {
-    filter: opacity(1);
-  }
-  @media screen and (max-width: 768px) {
-    .is-128x128 {
-      width: 100px;
-      height: 100px;
+  &.is-on-candidate-page {
+    a:not(.is-active) {
+      .illustration.top {
+        animation: none;
+      }
+
+      img {
+        filter: $greyed-out-image-filter;
+      }
+    }
+    a.is-active {
+      border: 1px dashed $city-black;
+      border-radius: 5px;
+    }
+    a:hover img {
+      filter: $full-color-image-filter;
     }
   }
+
+  &.is-on-home-page {
+    &:not(:hover) {
+      filter: $full-color-image-filter;
+
+      .illustration.top {
+        animation: none;
+      }
+    }
+    &:hover {
+      a:not(:hover) {
+        filter: $greyed-out-image-filter;
+        .illustration.top {
+          animation: none;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .column {
+      max-width: 25%;
+      overflow: hidden;
+      .copy {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+// ILLUSTRATIONS:
+
+@keyframes bobble {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4%);
+  }
+}
+
+@keyframes bobble-softly {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1.5%);
+  }
+}
+
+.image {
+  .illustration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-position: 50% 0%;
+    object-fit: contain;
+    padding: 0 5px;
+
+    &.top {
+      animation: bobble 0.6s infinite ease-in-out;
+      z-index: 10;
+    }
+
+    &.eric-adams {
+      object-position: 50% 15%;
+    }
+  }
+
+  // For the big illustration on the landing page, apply a more subtle bobble
+  &.is-1by2 .illustration.top {
+    animation: bobble-softly 0.6s infinite ease-in-out;
+  }
+}
+
+.is-static,
+.is-disabled {
+  .illustration.top {
+    animation: none;
+  }
+}
+
+.bust-only .illustration {
+  object-position: 50% 0%;
+  object-fit: cover;
 }
 
 // HELPERS:

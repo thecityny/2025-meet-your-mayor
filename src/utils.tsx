@@ -1,5 +1,35 @@
 import React from "react";
 import parse from "html-react-parser";
+import { useLocation } from "@reach/router";
+import candidateList from "./candidate-list.json";
+
+type CandidateName = {
+  name: string;
+};
+
+/**
+ * Converts string to kebab case (for generating a url slug).
+ * NOTE: this implementation is copied with an implementation in gatsby-node.js (not ideal).
+ */
+export const kebabCase = (string: string) => {
+  return string
+    .replace(/\d+/g, " ")
+    .split(/ |\B(?=[A-Z])/)
+    .map((word) => word.toLowerCase())
+    .join("-");
+};
+
+export function useIsCandidatePage() {
+  const location = useLocation();
+  const lastPathSegment = location.pathname
+    .split("/")
+    .filter((path) => path !== "")
+    .pop();
+  const candidateSlugs = JSON.parse(JSON.stringify(candidateList)).map(
+    (c: CandidateName) => kebabCase(c.name)
+  );
+  return candidateSlugs.includes(lastPathSegment);
+}
 
 /**
  * Groups an array of objects by a specified key.
