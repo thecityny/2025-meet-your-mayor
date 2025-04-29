@@ -154,7 +154,10 @@ const Results: React.FC<ResultsProps> = ({
 
   return (
     <>
-      <div className="columns container" style={{ margin: "50vh 0" }}>
+      <div
+        className="columns container favorite-topics"
+        style={{ margin: "50vh 0" }}
+      >
         <div className="column is-one-quarter" />
         <div className="column is-half" style={{ maxWidth: "600px" }}>
           <div
@@ -172,7 +175,7 @@ const Results: React.FC<ResultsProps> = ({
             <div className="buttons mt-5">
               {Object.entries(formatQuestionContent()).map(
                 (questionGroup, i) => (
-                  <div style={{ width: "100%", maxWidth: "300px" }} key={i}>
+                  <div key={i}>
                     <button
                       className={classnames(
                         "button",

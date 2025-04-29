@@ -340,8 +340,19 @@ $full-color-image-filter: contrast(1);
   }
 }
 
+.favorite-topics {
+  .buttons > div,
+  .button.see-my-results {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
 .button.see-my-results {
-  min-width: 250px;
+  animation: fadeIn 1s ease forwards;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   span {
     animation: wave 0.8s ease-in-out infinite;
     &:nth-child(1) {
