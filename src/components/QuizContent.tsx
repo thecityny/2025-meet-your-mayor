@@ -123,6 +123,7 @@ export type ScoreCard = {
   candidateName: string;
   scoreList: { questionNumber: number; subject: string; points: number }[];
   totalScore: number;
+  totalPossibleScore: number;
 }[];
 
 /**
@@ -136,6 +137,7 @@ export const generateBlankScorecard = (): ScoreCard => {
       candidateName: candidate[1].name,
       scoreList: [],
       totalScore: 0,
+      totalPossibleScore: 0,
     };
   });
 };
