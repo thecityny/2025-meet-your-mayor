@@ -95,6 +95,9 @@ export const MatchingCandidates: FC<{
           </div>
         </span>
       )}
+      {candidates.length === 0 && (
+        <div className="label has-text-left mt-3">No matching candidates</div>
+      )}
     </div>
   );
 };
