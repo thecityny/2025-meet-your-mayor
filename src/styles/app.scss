@@ -100,14 +100,15 @@ details {
     display: none;
   }
 
-  &[open] .details-content {
-    animation: fadeIn 1s ease forwards;
-
+  &[open] {
+    .close-text {
+      display: inline;
+    }
     .open-text {
       display: none;
     }
-    .close-text {
-      display: inline;
+    .details-content {
+      animation: fadeIn 1s ease forwards;
     }
   }
 }
