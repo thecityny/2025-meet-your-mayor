@@ -154,7 +154,10 @@ const Results: React.FC<ResultsProps> = ({
 
   return (
     <>
-      <div className="columns container" style={{ margin: "50vh 0" }}>
+      <div
+        className="columns container favorite-topics"
+        style={{ margin: "50vh 0" }}
+      >
         <div className="column is-one-quarter" />
         <div className="column is-half" style={{ maxWidth: "600px" }}>
           <div
@@ -172,7 +175,7 @@ const Results: React.FC<ResultsProps> = ({
             <div className="buttons mt-5">
               {Object.entries(formatQuestionContent()).map(
                 (questionGroup, i) => (
-                  <div style={{ width: "100%", maxWidth: "300px" }} key={i}>
+                  <div key={i}>
                     <button
                       className={classnames(
                         "button",
@@ -197,7 +200,22 @@ const Results: React.FC<ResultsProps> = ({
             </div>
             {favoriteTopics.size > 0 && (
               <SmoothScroll to="results">
-                <button className="button is-large mt-6">See my Results</button>
+                <button className="button py-5 is-extra-dark see-my-results mt-6">
+                  <span className="mr-1">★</span>
+                  <span>S</span>
+                  <span>E</span>
+                  <span className="mr-1">E</span>
+                  <span>M</span>
+                  <span className="mr-1">Y</span>
+                  <span>R</span>
+                  <span>E</span>
+                  <span>S</span>
+                  <span>U</span>
+                  <span>L</span>
+                  <span>T</span>
+                  <span className="mr-1">S</span>
+                  <span>★</span>
+                </button>
               </SmoothScroll>
             )}
           </div>
