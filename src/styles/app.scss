@@ -1,20 +1,21 @@
 // RESET
 // Smooths out the rough edges across browsers
-@import "./defaults/normalize";
+@use "sass:color";
+@use "defaults/normalize";
 
 // VARIABLES
 // Reusable settings
-@import "./_colors";
-@import "./_fonts";
+@use "_colors";
+@use "_fonts";
 
 // OTHER DEFAULT STYLES
 // Smooths out the rough edges across browsers
-@import "./defaults/article";
-@import "./defaults/dataviz";
+@use "defaults/article";
+@use "defaults/dataviz";
 
 // BULMA
 // External CSS framework
-@import "../../node_modules/bulma/bulma.scss";
+@use "../../node_modules/bulma/bulma.scss";
 
 // BULMA OVERRIDES:
 
@@ -34,7 +35,7 @@
 }
 
 .article {
-  background-color: $city-white;
+  background-color: colors.$city-white;
 }
 
 // TEXT:
@@ -46,8 +47,8 @@
 .label,
 .copyright,
 .button-link {
-  color: $city-black;
-  font-family: $sans;
+  color: colors.$city-black;
+  font-family: fonts.$sans;
 }
 
 .deck {
@@ -77,11 +78,11 @@
 .eyebrow,
 p,
 .label {
-  color: $city-black;
+  color: colors.$city-black;
   a,
   &.is-link {
     cursor: pointer;
-    color: $city-black;
+    color: colors.$city-black;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
@@ -116,7 +117,7 @@ details {
 // BUTTONS:
 
 .button {
-  font-family: $sans;
+  font-family: fonts.$sans;
   font-size: 1.5rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -124,14 +125,15 @@ details {
   padding: 0.15rem 2rem;
   border-radius: 45px;
   transition: all 0.2s ease-in-out;
-  color: $city-black;
+  color: colors.$city-black;
   border: none;
-  background-color: $city-green;
-  box-shadow: 2px 4px 0px darken($color: $city-green, $amount: 60);
+  background-color: colors.$city-green;
+  box-shadow: 2px 4px 0px
+    color.adjust($color: colors.$city-green, $lightness: -60%);
   transform: translate(-2px, -4px);
 
   a {
-    color: $city-black;
+    color: colors.$city-black;
   }
 
   @media screen and (max-width: 768px) {
@@ -143,47 +145,55 @@ details {
   }
 
   &.is-outlined {
-    background-color: $city-white;
-    color: $city-black;
-    border: 1px solid $city-black;
-    box-shadow: 2px 4px 0px $city-black;
+    background-color: colors.$city-white;
+    color: colors.$city-black;
+    border: 1px solid colors.$city-black;
+    box-shadow: 2px 4px 0px colors.$city-black;
   }
 
   &.is-icon {
-    box-shadow: 2px 4px 0px darken($color: $city-grey, $amount: 10);
+    box-shadow: 2px 4px 0px
+      color.adjust($color: colors.$city-grey, $lightness: -10%);
   }
 
   &.is-extra-dark {
-    background-color: darken($color: $city-green, $amount: 25);
+    background-color: color.adjust(
+      $color: colors.$city-green,
+      $lightness: -25%
+    );
   }
 
   &:hover {
-    box-shadow: 1px 2px 0px darken($color: $city-green, $amount: 60);
+    box-shadow: 1px 2px 0px
+      color.adjust($color: colors.$city-green, $lightness: -60%);
     transform: translate(-1px, -2px);
     &.is-icon {
-      box-shadow: 1px 2px 0px darken($color: $city-grey, $amount: 10);
+      box-shadow: 1px 2px 0px
+        color.adjust($color: colors.$city-grey, $lightness: -10%);
     }
     &.is-outlined {
-      box-shadow: 1px 2px 0px $city-black;
+      box-shadow: 1px 2px 0px colors.$city-black;
     }
   }
 
   &:active,
   &.is-selected {
-    box-shadow: inset 2px 1px 0px darken($color: $city-green, $amount: 60);
+    box-shadow: inset 2px 1px 0px
+      color.adjust($color: colors.$city-green, $lightness: -60%);
     transform: translate(-1px, -2px);
 
     &.is-icon {
-      box-shadow: inset 2px 1px 0px darken($color: $city-grey, $amount: 10);
+      box-shadow: inset 2px 1px 0px
+        color.adjust($color: colors.$city-grey, $lightness: -10%);
     }
 
     &.is-outlined {
-      box-shadow: inset 2px 1px 0px $city-black;
+      box-shadow: inset 2px 1px 0px colors.$city-black;
     }
   }
 
   &:disabled {
-    background-color: $city-grey;
+    background-color: colors.$city-grey;
     box-shadow: none;
     pointer-events: none;
 
@@ -198,7 +208,7 @@ details {
 }
 
 .button-link {
-  font-family: $sans;
+  font-family: fonts.$sans;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1rem;
@@ -247,13 +257,13 @@ $full-color-image-filter: contrast(1);
 .quiz-selection-oval {
   background-color: transparent;
   display: inline-block;
-  border: 2px solid $city-black;
+  border: 2px solid colors.$city-black;
   border-radius: 50%;
   width: 40px;
   height: 25px;
 
   &.is-filled {
-    background-color: $city-black;
+    background-color: colors.$city-black;
   }
 }
 
@@ -265,7 +275,7 @@ $full-color-image-filter: contrast(1);
   &.is-selected {
     font-weight: 600;
     .quiz-selection-oval {
-      background-color: $city-black;
+      background-color: colors.$city-black;
     }
   }
 
@@ -332,8 +342,8 @@ $full-color-image-filter: contrast(1);
   position: absolute;
   transform: translate(-40px, 5px);
   border-radius: 100%;
-  background-color: $city-black;
-  color: $city-white;
+  background-color: colors.$city-black;
+  color: colors.$city-white;
   @media screen and (max-width: 768px) {
     position: relative;
     transform: translate(0px, -5px);
@@ -425,7 +435,7 @@ $full-color-image-filter: contrast(1);
       }
     }
     a.is-active {
-      border: 1px dashed $city-black;
+      border: 1px dashed colors.$city-black;
       border-radius: 5px;
     }
     a:hover img {
@@ -515,15 +525,15 @@ hr {
 }
 
 .has-color-background {
-  background-color: $city-green;
+  background-color: colors.$city-green;
 }
 
 .has-white-background {
-  background-color: $city-white;
+  background-color: colors.$city-white;
 }
 
 .has-light-grey-background {
-  background-color: $city-light-grey;
+  background-color: colors.$city-light-grey;
 }
 
 // ANIMATIONS:
