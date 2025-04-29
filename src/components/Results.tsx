@@ -26,10 +26,19 @@ const calculateScore = (
   party?: Party
 ) => {
   let scorecard = generateBlankScorecard();
+  let totalPossibleScore = answers.length;
   const questionContent = formatQuestionContent(party);
   Object.entries(questionContent).forEach((questionGroup) => {
     const [subject, questions] = questionGroup;
-    const pointValue = favoriteTopics.has(subject) ? 2 : 1;
+
+    // If the user has selected this topic as a favorite, set the point value to 2
+    // and increase the total possible score by 1 for each question in this group:
+    let pointValue = 1;
+    if (favoriteTopics.has(subject)) {
+      pointValue = 2;
+      totalPossibleScore += questions.length;
+    }
+
     questions.forEach((question) => {
       const { number, option1, option2, option3, option4 } = question;
       const userAnswer = answers.find(
@@ -95,6 +104,7 @@ const calculateScore = (
       (total, current) => total + current.points,
       0
     );
+    candidate.totalPossibleScore = totalPossibleScore;
   });
   return scorecard.sort((a, b) => {
     return b.totalScore - a.totalScore;
@@ -136,7 +146,7 @@ const Results: React.FC<ResultsProps> = ({
   party,
 }) => {
   const score = calculateScore(answers, favoriteTopics, party);
-  const totalPossiblePoints = answers.length + favoriteTopics.size;
+  const totalPossiblePoints = score[0].totalPossibleScore;
   let questionsLeftToAnswer = getQuestionsLeftToAnswer(
     answers,
     favoriteTopics.size > 0
