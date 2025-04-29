@@ -123,8 +123,8 @@ const Homepage = () => (
       </div>
     </div>
     <Quiz />
-    <div className="hero is-fullheight-with-navbar pt-6" id="learn">
-      <div className="container mt-6">
+    <div className="hero is-fullheight-with-navbar pt-6">
+      <div className="container mt-6" id="learn">
         <div className="columns">
           <div className="column is-two-thirds">
             <h1
