@@ -1,3 +1,6 @@
+@use "../colors";
+@use "../fonts";
+
 //defensive / accessible coding
 *,
 *::before,
@@ -19,18 +22,18 @@
 }
 
 img:not([alt]) {
-  outline: 3px solid $city-orange;
+  outline: 3px solid colors.$city-orange;
 }
 
 a,
 a:visited {
-  color: $city-blue;
+  color: colors.$city-blue;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: $city-grey;
+  color: colors.$city-grey;
 }
 
 // prettier-ignore
@@ -50,9 +53,9 @@ body {
   margin: 0;
   //remove 300ms click delay in Safari, AKA still the worst
   touch-action: manipulation;
-  font-family: $sans;
+  font-family: fonts.$sans;
   line-height: 1.3;
-  background-color: $city-white;
+  background-color: colors.$city-white;
 }
 
 // https://medium.com/$matuzo/writing-css-with-accessibility-in-mind-8514a0007939
@@ -112,7 +115,7 @@ body {
 }
 
 .headline {
-  @include boldface();
+  @include fonts.boldface();
   text-align: center;
   font-size: 50px;
   margin: 40px 0 20px 0;
@@ -124,14 +127,14 @@ body {
 }
 
 .deck {
-  @include bookface();
+  @include fonts.bookface();
   text-align: center;
   font-size: 20px;
   margin: 20px 0 20px;
 }
 
 .byline {
-  @include medface();
+  @include fonts.medface();
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;
@@ -151,7 +154,7 @@ body {
 }
 
 .article-date {
-  font-family: $sans;
+  font-family: fonts.$sans;
   font-size: 14px;
   color: #404040;
   text-align: center;
@@ -172,14 +175,14 @@ body {
 }
 
 .copy {
-  font-family: $serif;
+  font-family: fonts.$serif;
   font-size: 18px;
   line-height: 26px;
   margin: 0 auto 0.78em auto;
 
   pre {
     font-size: 16px;
-    font-family: $mono;
+    font-family: fonts.$mono;
     width: 100%;
     overflow: scroll;
     background-color: #ddd;
@@ -207,7 +210,7 @@ body {
   }
 
   figcaption {
-    font-family: $serif;
+    font-family: fonts.$serif;
     font-weight: bold;
     font-size: 10.5px;
     line-height: 14px;
@@ -231,10 +234,10 @@ body {
 
 .footer {
   margin-top: 77px;
-  background-color: $city-light-grey;
+  background-color: colors.$city-light-grey;
 
   .donation-box-container {
-    background-color: $city-gold;
+    background-color: colors.$city-gold;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -255,7 +258,7 @@ body {
   a {
     display: inline-block;
     font-weight: 900;
-    color: $city-black;
+    color: colors.$city-black;
     font-size: 15px;
     line-height: 1.5rem;
     text-decoration: none;
@@ -286,8 +289,8 @@ body {
   a:hover,
   a:focus,
   a:active {
-    background-color: $city-blue;
-    border-color: $city-blue;
+    background-color: colors.$city-blue;
+    border-color: colors.$city-blue;
     color: #fff;
 
     svg path {
@@ -329,12 +332,12 @@ body {
     font-size: 14px;
     line-height: 39px;
     letter-spacing: 4px;
-    @include boldface();
+    @include fonts.boldface();
   }
 }
 
 .copyright {
-  @include medface();
+  @include fonts.medface();
   text-align: center;
   text-transform: uppercase;
   font-size: 9px;
