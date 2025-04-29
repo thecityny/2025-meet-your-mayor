@@ -48,7 +48,10 @@ const Footer = () => {
 
   return (
     <footer className="footer has-color-background">
-      <div className="container is-flex is-flex-direction-column is-align-items-center">
+      <div
+        className="container is-flex is-flex-direction-column is-align-items-center"
+        style={{ maxWidth: "750px" }}
+      >
         <div className="eyebrow">Made with ♥ in NYC by</div>
         <div className="eyebrow mb-5">
           <OutboundLink to={THE_CITY_SITE_LINKS.website} aria-label="THE CITY">
@@ -77,11 +80,24 @@ const Footer = () => {
               <SocialButton url={link[1]} key={i} />
             ))}
         </div>
+        <div className="eyebrow mt-6 mb-2 has-text-centered">
+          Illustrations by{" "}
+          <OutboundLink to="https://patrick-leger.com/">
+            Patrick Léger
+          </OutboundLink>
+          . Photos by{" "}
+          <OutboundLink to="https://www.thecity.nyc/author/ben-fractenberg/">
+            Ben Fractenberg
+          </OutboundLink>{" "}
+          and courtesy of the Tim Walden campaign. Design support from{" "}
+          <OutboundLink to="https://temberdesign.com/about">
+            Tember Hopkins
+          </OutboundLink>
+          . Development support from{" "}
+          <OutboundLink to="https://samguzik.com/">Sam Guzik</OutboundLink>.
+        </div>
 
-        <div
-          className="eyebrow mt-5 has-text-centered"
-          style={{ maxWidth: "750px" }}
-        >
+        <div className="eyebrow mt-5 has-text-centered">
           Meet Your Mayor does not collect any personal data from users. We do
           collect quiz responses anonymously to improve this resource and track
           aggregate results.
