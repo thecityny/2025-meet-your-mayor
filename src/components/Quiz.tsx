@@ -12,7 +12,7 @@ import { MatchingCandidates } from "./MatchingCandidates";
 
 export type Party = "Democrat" | "Independent" | null;
 
-const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
+export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
     className="is-inline-block"
     style={{
@@ -20,7 +20,7 @@ const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
       height: "12px",
       borderRadius: "100%",
       backgroundColor: !!filledIn ? "#111111" : "transparent",
-      border: !!filledIn ? "none" : "1px solid #111111",
+      boxShadow: !!filledIn ? "none" : "0px 0px 0px 1px #111111 inset",
     }}
   />
 );
