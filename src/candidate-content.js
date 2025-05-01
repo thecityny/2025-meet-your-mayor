@@ -42,8 +42,10 @@ export const candidateContent = {
       'Public Safety | “Public safety is created by dignified work, economic stability and well-resourced neighborhoods, but for decades all that\'s been offered to communities facing violence is more policing and incarceration.” | <a href="https://www.cityandstateny.com/personality/2024/10/could-pro-palestinian-socialist-really-be-nycs-next-mayor/400487/">City & State Interview</a>, Oct 23, 2024',
     quote3:
       "Feds | “What we saw under Donald Trump's first presidency is there's far more respect for someone who fights back than someone who simply relents.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">New York Editorial Board Interview</a>, Feb 2, 2025",
-    quizResponse1: "1",
-    quizResponse2: "2",
+    quizResponse1:
+      '1 | Mamdani says he would “eliminate the unnecessary and cumbersome design restrictions placed on restaurants.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> | Mar 18, 2025',
+    quizResponse2:
+      '1 | "We have an opportunity here to do immense amounts of pedestrianization for the entire congestion pricing zone.... We have an opportunity to make one-way bike lanes into two-way bike lanes." | <a href="https://www.youtube.com/live/lqQIiczm7Kc">Transit Riders Mayoral Forum</a> | Feb 21, 2025',
     quizResponse3:
       "4 | “With the current administration’s recent containerization plan, the City missed an opportunity to require residents to put recycling in containers. We should not have any more bags on the sidewalk – instead, small and midsize buildings should use shared on-street containers for all streams of waste, clearing the sidewalks of wheelie bins. On-street containers make our city cleaner, give rats fewer opportunities to infiltrate trash, and reduce the smells that waft down our streets.” | Campaign’s response to questionnaire. | Apr 18, 2025",
     quizResponse4:
@@ -54,15 +56,18 @@ export const candidateContent = {
       "4 | “What we have selected represents one portion of our housing vision. To achieve our goal of housing every New Yorker, we must reform our disjointed planning and zoning processes to create a holistic vision for affordability, equity, and growth. I will create a comprehensive, citywide planning process to allow NYC to both address the legacy of racially discriminatory zoning and proactively plan for the health and needs of the city—in housing, transit, education, and other areas. That planning will include eliminating parking minimums, increasing density around transit hubs, and upzoning neighborhoods that have historically not contributed to citywide housing goals—including those cut out of City of Yes. | Campaign’s response to questionnaire.” | Apr 18, 2025",
     quizResponse7:
       "1 | “For decades, the city, state, and federal government neglected and underfunded NYCHA. As NYCHA has pursued PACT, the Trust and Comprehensive Modernization, more than half of its $78 billion 20-year capital need still remains unmet. There is currently no plan for the remaining $40 billion needed, however, and this lack of funding poses a major threat to NYCHA. Without adequate resources, NYCHA residents will face a continuation and exacerbation of the problems of past years, pushing the system back into crisis. My goal as Mayor would be to prioritize resident-led processes to address NYCHA’s ongoing capital needs, while finding new solutions. Resident support for RAD/PACT and the Trust varies, and it is important that residents are fully engaged in planning around these capital needs every step of the way. I also vow to fight for Albany to overturn its decades of investment and at a bare minimum start to match City funding. In other words, I would work to create more options for us to be able to truly recommit to, and reinvest in, public housing.” | Campaign’s response to questionnaire. | Apr 18, 2025",
-    quizResponse8: "1",
+    quizResponse8:
+      '1 | “Yes, I will freeze the rent every single year that I am the mayor of New York City.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> | Dec 7, 2024',
     quizResponse9:
       "| “As a Bronx Science alum and a former standardized test tutor, I’ve seen firsthand the promise and the failure of our specialized high schools and their admissions process. They are one example of systemic issues across our school system—the most segregated in the nation. My administration will focus on addressing the root educational causes of this segregation by implementing recommendations from the 2019 School Diversity Advisory Group’s at elementary and middle schools across our city.” | Campaign’s response to questionnaire. | Apr 18, 2025",
     quizResponse10:
       "1 | “NYC Reads is an important step in the right direction; we need to continue our citywide commitment to wide-scale literacy efforts, while honing our programming—including providing educators with support to differentiate existing materials for students struggling to access the curriculum.” | Campaign’s response to questionnaire. | Apr 18, 2025",
-    quizResponse11: "1",
+    quizResponse11:
+      '1 | Mamdani committed to closing Rikers at a mayoral forum jointly hosted by multiple LGBTQ+ political groups. He pointed to a need to invest in alternatives for incarceration. | <a href="https://gaycitynews.com/nyc-mayoral-hopefuls-2025-lgbtq-forum/">Gay City News</a> | Mar 28, 2025',
     quizResponse12:
       "4 | “The Trump administration is waging war on the first amendment and our constitutional rights as it continues to abduct New Yorkers from across our city. Any effort to cooperate with these efforts is a moral stain on our city. We should strengthen our sanctuary city laws through greater oversight, enforcement and compliance.” | Campaign’s response to questionnaire. | Apr 18, 2025",
-    quizResponse13: "2",
+    quizResponse13:
+      "2 | “What we saw under Donald Trump's first presidency is there's far more respect for someone who fights back than someone who simply relents.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">The New York Editorial Board</a> | Feb 2, 2025",
     quizResponse14:
       "1 | “The opioid crisis does not have a single panacea, which is why in addition to making sure every New Yorker has access to supportive housing, I will expand access to long-term substance use treatment and safe injection facilities, ensuring they are equitably located across the city.” | Campaign’s response to questionnaire. | Apr 18, 2025",
     quizResponse15:
@@ -71,7 +76,8 @@ export const candidateContent = {
       "2 | “Current city vacancies are partially driven by a lack of flexibility in many government jobs, which make positions untenable for working parents and caregivers. We should expand remote work when the position allows for its effective implementation to reduce hiring gaps.” | Campaign’s response to questionnaire.” | Apr 18, 2025",
     quizResponse17:
       "3 | “I will build a team of the best to run our city, hiring individuals who have served in prior mayoral administrations, whose work showcases an excellence we have clearly missed in city government, and who will be empowered to fulfill the mandate of New Yorkers with regards to their respective agency.” | Campaign’s response to questionnaire. | Apr 18, 2025",
-    quizResponse18: "1",
+    quizResponse18:
+      "1 | “If you ask working-class New Yorkers, many of whom have been failed by a bureaucracy, to jump through many more hoops to get relief from that bureaucracy, you will lose about half, or in this case even more than 80% of your target population. Versus, if you make it universal, the benefits are not just fiscal. They're also public safety. They're also peace of mind.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">The New York Editorial Board</a> | Feb 2, 2025",
     quizResponse19: "2",
     quizResponse20: "1",
     quizResponse21: "3",
@@ -85,7 +91,8 @@ export const candidateContent = {
       'Sanctuary Laws | “I want to go back to the standards of the previous mayors who I believe subscribe to my belief that people who are suspected of committing serious crimes in this city should be held accountable.” | <a href="https://www.politico.com/news/2024/02/27/adams-sanctuary-city-laws-new-york-00143705">POLITICO</a>, Feb 27, 2025',
     quote2:
       'Mental Health | “We can no longer deny the reality that untreated psychosis can be a cruel and all-consuming condition that often requires involuntary intervention.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/870-22/mayor-adams-plan-provide-care-individuals-suffering-untreated-severe-mental#/0">Press conference</a>, Nov 29, 2022',
-    quote3: "TKTK | TKTK | TKTK",
+    quote3:
+      'Housing | “Going forward, we are going to turn New York into a city of yes. Yes in my backyard. Yes on my block. Yes in my borough.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/354-22/transcript-mayor-eric-adams-outlines-vision-city-yes-plan-citywide-zoning">City of Yes announcement</a>, Jun 1, 2022',
     quizResponse1: "",
     quizResponse2: "",
     quizResponse3: "",
@@ -117,7 +124,8 @@ export const candidateContent = {
       'Sanctuary Laws | “..Our sanctuary city laws are enough. The fact of the matter is some folks want to make our city agencies become agents of the federal government – this just simply should not be the case.” | <a href="https://youtu.be/Kssi4cZKLvI?feature=shared">PIX 11 News</a>, Dec 13, 2024',
     quote2:
       'Housing | “... Our city can ensure every area helps contribute to confronting the housing crisis by creating more housing, while respecting the differences of neighborhoods across the five boroughs and investing in New Yorkers.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/882-24/mayor-adams-governor-hochul-speaker-adams-celebrates-passage-most-pro-housing-proposal-in?">City Hall Press Release</a>, Nov 29, 2022',
-    quote3: "TKTK | TKTK | TKTK",
+    quote3:
+      'Law Enforcement | “If you break the law there are consequences to that, but low-level crimes should never be penalized under the threat of death in Rikers Island.” | <a href="https://www.youtube.com/watch?v=7nh3KBOrRrg">Vital City/CUNY Mayoral Forum</a>, Apr 7, 2025',
     quizResponse1: "",
     quizResponse2: "",
     quizResponse3: "",
@@ -178,9 +186,12 @@ export const candidateContent = {
     party: "democrat",
     website: "https://www.andrewcuomo.com/",
     bio: "Veteran politician Andrew Cuomo entered the mayoral race just months before the primary election, yet he’s continued to lead in polls — a testament to his and his family’s political legacy in New York.{newParagraph}In his run for mayor, Cuomo has made housing affordability and public safety — specifically safety on the subways — core themes of his campaign.{newParagraph}He began his career leading the gubernatorial campaign of his late father Mario Cuomo. He then served as assistant district attorney in Manhattan and founded the homeless shelter organization HELP USA before becoming Secretary of Housing and Urban Development under former President Bill Clinton. He became New York’s attorney general before being elected governor in 2011.{newParagraph}Cuomo’s prominence grew in 2020 when he began airing daily briefings during the height of COVID. But he later came under fire for understating death counts while deploying state employees to help him write a self-promotional book. He has also been accused of sexual harassment by over a dozen women, claims substantiated in an investigation by the state attorney general. Cuomo has denied the allegations.",
-    quote1: "TKTK | TKTK | TKTK",
-    quote2: "TKTK | TKTK | TKTK",
-    quote3: "TKTK | TKTK | TKTK",
+    quote1:
+      'Sanctuary Laws | “We do not harbor criminals, but we believe in lawful, intelligent immigration because we are a city of immigrants.” | <a href="https://www.youtube.com/watch?v=KAoPAwlvrHM">New York Post</a>, Mar 1, 2025',
+    quote2:
+      'Mental Health | “Allowing dangerously mentally ill people to remain on the streets makes no sense for anyone.” | <a href="https://www.youtube.com/watch?v=y2jD9dZ6ov0">Diario AS</a>, Mar 2, 2025',
+    quote3:
+      'Feds | “It is his hometown. I think that he wants New York City to appreciate him. I think he thinks there\'s an opportunity for him to do good things in New York City. And really, we have to see what he does, what posture President Trump takes.” | <a href="https://www.youtube.com/watch?v=YTVx47qbOtY">The Stephen A. Smith Show</a>, Mar 3, 2025',
     quizResponse1: "",
     quizResponse2: "",
     quizResponse3: "",
@@ -246,7 +257,7 @@ export const candidateContent = {
     quote2:
       'Schools | “Every single kid should have access to an after school program, because it should not be dependent on what zip code you are in or how much money your PTA has.” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Dems Mayoral Forum</a>, Jan 31, 2025',
     quote3:
-      'Housing | “We need permanent homes, not just shelters, and a plan to do that. We need revenue for our public housing so people can live with dignity, not just rhetoric. We need laws that will go after bad landlords, that will protect our tenants, that will actually fund right to counsel, that will actually do the things to bring our costs down, and yes, we need to build more homes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice For All Mayoral Forum</a>, Dec 7, 2025',
+      'Housing | “We need permanent homes, not just shelters, and a plan to do that. We need revenue for our public housing so people can live with dignity, not just rhetoric. We need laws that will go after bad landlords, that will protect our tenants, that will actually fund right to counsel, that will actually do the things to bring our costs down, and yes, we need to build more homes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice For All Mayoral Forum</a>, Dec 7, 2024',
     quizResponse1: "1",
     quizResponse2: "1",
     quizResponse3: "4",
@@ -283,8 +294,10 @@ export const candidateContent = {
     bio: "State Sen. Jessica Ramos’ vision for NYC includes expanded child care programs and embedding mental health support into every aspect of city life.{newParagraph}Ramos, who has represented Corona, East Elmhurst and Jackson Heights since 2019, is a big proponent of organized labor: she used to negotiate contracts for SSEU Local 371 and 32BJ SEIU and currently chairs the Senate’s labor committee. She weaves job training programs into her broader policies supporting immigration and mental health.{newParagraph}Where most other candidates prioritize tenants in their housing agendas Ramos also promotes homeownership. The daughter of Colombian immigrants, she is committed to making city-provided resources accessible in languages that people can understand.",
     quote1:
       "Law Enforcement | “There's policing of the streets, but also there's just an education of the population in terms of conflict resolution and other things…” | <a href=\"https://nyeditorialboard.substack.com/p/jessica-ramos-interview-transcript\">New York Editorial Board Interview</a>, Jan 12, 2025",
-    quote2: "TKTK | TKTK | TKTK",
-    quote3: "TKTK | TKTK | TKTK",
+    quote2:
+      'Public Housing | “No private management of our NYCHA buildings, no developers, no land for sale, no infills, no any of that. We have to keep public housing, public housing.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a>, Dec 2, 2024',
+    quote3:
+      'Schools | “I think there should be year round opportunities after school where possible, on weekends where possible, so that kids have an earlier opportunity to figure out how to fulfill their potential and perhaps even enjoy greater job satisfaction as they enter adulthood.” | <a href="https://www.thecity.nyc/2025/03/15/jessca-ramos-mayor-interview-faqnyc-podcast/">FAQ NYC</a>, Mar 15, 2025',
     quizResponse1: "3",
     quizResponse2: "2",
     quizResponse3: "4",
@@ -310,7 +323,7 @@ export const candidateContent = {
   candidateScott: {
     name: "Scott Stringer",
     party: "democrat",
-    website: "",
+    website: "https://scottstringernyc.com/",
     bio: "Scott Stringer, who previously ran for mayor in 2021, wants to leverage his decades of political experience to expand and reorganize the police department, flip empty lots into new housing units and improve sanitation.{newParagraph}Hailing from Manhattan’s Washington Heights, Stringer often credits his time organizing to keep Mitchell-Lama housing units out of the hands of profiteering owners as a stepping stone to his political career. He served as a state Assembly member for 13 years before becoming Manhattan Borough President in 2006. He then served as the city’s comptroller.{newParagraph}When he ran for mayor in 2021, a former campaign volunteer alleged sexual misconduct, prompting some allies to withdraw their endorsements. Stringer has strongly denied those allegations.",
     quote1:
       "Law Enforcement | “What I'm going to do is we're going to hire 3,000 more cops – because we've been at the lowest level of policing in many years – and we're also going to, for the first time, align policing with the greatest mental health initiative this city will ever see. | <a href=\"https://www.youtube.com/watch?v=dx8-BNCoZ_A\">Bronx Dems Mayoral Forum</a>, Jan 31, 2025",
@@ -362,9 +375,11 @@ export const candidateContent = {
     website: "https://www.whitneyformayor.com/",
     bio: "Whitney Tilson offers himself as a “change candidate,” bringing in his business experience as a former hedge fund leader to a city government that he says is plagued by career politicians and corruption.{newParagraph}Tilson, who ran the hedge fund Kase Capital Management for 18 years, vows to cut crime by half and crack down on hate crimes. He has noted on his campaign website that Eric Adams’ City of Yes development program covers “only 10% of what’s necessary,” and that he will fight to build more housing by dialing down zoning restrictions. He also wants to forbid street homelessness, effectively mandating the city to house some 4,000 unsheltered people.{newParagraph}The son of parents who worked in the Peace Corps, Wilson began his career at Teach for America. He has served on the board of KIPP NYC charter schools for over two decades.",
     quote1:
-      'Sanctuary Laws | “I strongly believe in New York\'s status as a sanctuary city. The only area where I think there should be limited cooperation is in the area of people who are here, who are not U.S. citizens, who are committing serious crimes.” | <a href="https://podcasts.apple.com/us/podcast/faq-nyc/id1422065980?i=1000696038602">FAQ NYC</a>, Feb 25, 2025',
-    quote2: "Jails | TKTK | TKTK",
-    quote3: "TKTK | TKTK | TKTK",
+      'Sanctuary Laws | “I strongly believe in New York\'s status as a sanctuary city. The only area where I think there should be limited cooperation is in the area of people who are here, who are not U.S. citizens, who are committing serious crimes.” | <a href="https://www.thecity.nyc/2025/02/25/whitney-tilson-mayoral-interview-faqnyc-podcast/">FAQ NYC</a>, Feb 25, 2025',
+    quote2:
+      'Jails | “The question is, will the city at that point just extend and pretend and delay and continue the myth that we should entirely close Rikers Island or fix it and realize, okay, well, let\'s have Rikers as one of our five jails in this city.” | <a href="https://www.thecity.nyc/2025/02/25/whitney-tilson-mayoral-interview-faqnyc-podcast/">FAQ NYC</a>, Feb 25, 2025',
+    quote3:
+      'Schools | “With mayoral control, I mentioned earlier, the percentage of fourth graders reading below basic. That dropped from 53% to 38% under Mayor Bloomberg. Since he left – and we still have mayoral control, but not a mayor willing to use it to shape, to continue to reform the system – it\'s gone back up to 48%.” | <a href="https://www.thecity.nyc/2025/02/25/whitney-tilson-mayoral-interview-faqnyc-podcast/">FAQ NYC</a>, Feb 25, 2025',
     quizResponse1: "3",
     quizResponse2: "1",
     quizResponse3: "4",
@@ -392,9 +407,12 @@ export const candidateContent = {
     party: "independent",
     website: "https://jimfornyc.com/",
     bio: "Jim Walden, a former prosecutor, is running for mayor on a platform that calls for better government efficiency and spending. He is running as an independent, seeking a spot on the general election ballot in November.{newParagraph}Walden began his career at the Brooklyn U.S. Attorney’s Office, where he mostly focused on organized crime. As mayor, he wants to create a culture of zero tolerance towards corruption and create new measures to keep city agencies accountable.{newParagraph}His views on major issues reflect his centrist approach to the mayoralty: he wants more uniformed officers in the NYPD and supports collaboration with the federal government to remove migrants convicted of crimes. Yet he also supports limiting rents and expanding NYC’s green economy.",
-    quote1: "TKTK | TKTK | TKTK",
-    quote2: "TKTK | TKTK | TKTK",
-    quote3: "TKTK | TKTK | TKTK",
+    quote1:
+      'Law Enforcement | “I\'ll tell you one thing, that I never was — and not even when it was fashionable — was someone who wanted to defund the police.” | <a href="https://www.youtube.com/watch?v=lWNPusGmqyw">NYC Public Service Retirees</a>, Jan 17, 2025',
+    quote2:
+      'Sanctuary Laws | “Sanctuary City’ is a wonderful ideal for a different time. It needs SERIOUS reform. Now. Starting with cooperating fully with ICE on migrant criminals.” | <a href="https://x.com/jimfornyc/status/1875669206777340115">X</a>, Jan 4, 2025',
+    quote3:
+      "Fare Enforcement | “I don't believe that every single person that jumps a turnstile is a bad actor, and I also don't believe that the juice is worth the squeeze. If we go after all of those people, how much money are we spending on enforcement that we could have for other programs?” | <a href=\"https://www.youtube.com/live/lqQIiczm7Kc\">Transit Riders Mayoral Forum</a>, Dec 2, 2024",
     quizResponse1: "",
     quizResponse2: "",
     quizResponse3: "",

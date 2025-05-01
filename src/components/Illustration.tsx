@@ -18,20 +18,7 @@ export const Bobblehead: React.FC<{
 }) => {
   const isCandidatePage = useIsCandidatePage();
 
-  // TODO: once we have all illustraitons, remove this randomizaiton of illustration paths:
-  const candidatePath = [
-    "Adrienne Adams",
-    "Andrew Cuomo",
-    "Brad Lander",
-    "Curtis Sliwa",
-    "Eric Adams",
-    "Jessica Ramos",
-    "Michael Blake",
-    "Scott Stringer",
-    "Whitney Tilson",
-  ].includes(candidateName)
-    ? kebabCase(candidateName)
-    : "eric-adams";
+  const candidatePath = kebabCase(candidateName);
 
   const imgPathPrefix = `${
     isCandidatePage ? ".." : "."
