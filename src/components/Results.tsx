@@ -179,6 +179,8 @@ const Results: React.FC<ResultsProps> = ({
                     <button
                       className={classnames(
                         "button",
+                        "is-white",
+                        "mb-2",
                         favoriteTopics.has(questionGroup[0]) && "is-selected"
                       )}
                       onClick={() => {
@@ -222,7 +224,7 @@ const Results: React.FC<ResultsProps> = ({
         </div>
       </div>
       <div
-        className="container has-light-grey-background p-6"
+        className="container has-color-background p-6"
         id="results"
         style={{ maxWidth: "1100px" }}
       >
@@ -248,7 +250,7 @@ const Results: React.FC<ResultsProps> = ({
               .
             </p>
             <SmoothScroll to={`question-${questionsLeftToAnswer[0]}`}>
-              <button className="button is-outlined mt-4"> Go back</button>
+              <button className="button is-white mt-4"> Go back</button>
             </SmoothScroll>
           </div>
         ) : (
@@ -275,7 +277,7 @@ const Results: React.FC<ResultsProps> = ({
                   extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
                   onClick={() => resetAnswers()}
                 >
-                  <button className="button is-link is-outlined">
+                  <button className="button is-link is-white">
                     Take Quiz Again
                   </button>
                 </SmoothScroll>
@@ -298,7 +300,7 @@ const Results: React.FC<ResultsProps> = ({
                     style={{ width: "100%", cursor: "pointer" }}
                   >
                     <div className="is-flex is-align-items-center">
-                      <span className="headline">
+                      <span className="headline" style={{ minWidth: "3rem" }}>
                         <span className="open-text">+</span>
                         <span className="close-text">-</span>
                       </span>

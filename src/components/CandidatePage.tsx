@@ -33,10 +33,10 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         <div className="eyebrow">
           <Link to="/">
             <div
-              className="mr-2"
+              className="mr-1"
               style={{
                 display: "inline-block",
-                transform: "rotate(-135deg)",
+                transform: "translateY(-2px) rotate(-135deg)",
               }}
             >
               ↗
@@ -71,9 +71,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
             <button className="control button">{lastName}'s Website</button>
           </OutboundLink>
           <Link to="/">
-            <button className="button is-outlined">
-              See if you're a match
-            </button>
+            <button className="button is-white">See if you're a match</button>
           </Link>
         </div>
         <div className="eyebrow has-text-left mt-5 mb-2 is-flex is-align-items-center">

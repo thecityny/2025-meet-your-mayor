@@ -10,11 +10,11 @@ const THE_CITY_DONATION_URL =
 
 export const RecentCoverage: React.FC = () => (
   <>
-    <div className="eyebrow mt-3">THE CITY</div>
+    <div className="eyebrow mb-2 mt-3">THE CITY</div>
     <ul>
       {coverageLinksTheCity.map((link, i) => (
-        <li key={i} className="label is-inline-block mb-2">
-          ●{" "}
+        <li key={i} className="label is-flex mb-0">
+          <div className="mr-2 mt-1">●</div>{" "}
           <OutboundLink
             to={link.href}
             className="copy has-text-left"
@@ -26,15 +26,15 @@ export const RecentCoverage: React.FC = () => (
       ))}
     </ul>
     <OutboundLink to={THE_CITY_DONATION_URL}>
-      <div className="button is-outlined is-small mt-3">Donate</div>
+      <div className="button is-white is-small mt-3">Donate</div>
     </OutboundLink>
-    <div className="eyebrow mt-6 pt-3">GOTHAMIST</div>
+    <div className="eyebrow mt-6 mb-2 pt-3">GOTHAMIST</div>
     <ul>
       {
         // TODO: Replace with actual Gothamist links
         coverageLinksTheCity.map((link, i) => (
-          <li key={i} className="label is-inline-block mb-2">
-            ●{" "}
+          <li key={i} className="label is-flex mb-0">
+            <div className="mr-2 mt-1">●</div>{" "}
             <OutboundLink
               to={link.href}
               className="copy has-text-left"
@@ -47,7 +47,7 @@ export const RecentCoverage: React.FC = () => (
       }
     </ul>
     <OutboundLink to={GOTHAMIST_DONATION_URL}>
-      <div className="button is-outlined is-small mt-3">Donate</div>
+      <div className="button is-white is-small mt-3">Donate</div>
     </OutboundLink>
   </>
 );

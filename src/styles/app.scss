@@ -93,8 +93,20 @@ p,
 details {
   summary {
     list-style: none;
+    outline: none;
+
     &::-webkit-details-marker {
       display: none;
+    }
+
+    // Only apply focus outline when element receives focus via keyboard navigation
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid colors.$city-blue;
+      outline-offset: 2px;
     }
   }
   .close-text {
@@ -127,9 +139,10 @@ details {
   transition: all 0.2s ease-in-out;
   color: colors.$city-black;
   border: none;
-  background-color: colors.$city-green;
+  background-color: colors.$city-green-dark;
+  border: 1px solid colors.$city-black;
   box-shadow: 2px 4px 0px
-    color.adjust($color: colors.$city-green, $lightness: -60%);
+    color.adjust($color: colors.$city-green-dark, $lightness: -60%);
   transform: translate(-2px, -4px);
 
   a {
@@ -144,10 +157,9 @@ details {
     font-size: 0.875rem;
   }
 
-  &.is-outlined {
+  &.is-white {
     background-color: colors.$city-white;
     color: colors.$city-black;
-    border: 1px solid colors.$city-black;
     box-shadow: 2px 4px 0px colors.$city-black;
   }
 
@@ -157,38 +169,47 @@ details {
   }
 
   &.is-extra-dark {
-    background-color: color.adjust(
-      $color: colors.$city-green,
-      $lightness: -25%
-    );
+    background-color: colors.$city-green-dark;
   }
 
   &:hover {
     box-shadow: 1px 2px 0px
-      color.adjust($color: colors.$city-green, $lightness: -60%);
+      color.adjust($color: colors.$city-green-dark, $lightness: -60%);
     transform: translate(-1px, -2px);
     &.is-icon {
       box-shadow: 1px 2px 0px
         color.adjust($color: colors.$city-grey, $lightness: -10%);
     }
-    &.is-outlined {
+    &.is-white {
       box-shadow: 1px 2px 0px colors.$city-black;
     }
   }
 
   &:active,
   &.is-selected {
-    box-shadow: inset 2px 1px 0px
-      color.adjust($color: colors.$city-green, $lightness: -60%);
     transform: translate(-1px, -2px);
 
     &.is-icon {
       box-shadow: inset 2px 1px 0px
         color.adjust($color: colors.$city-grey, $lightness: -10%);
     }
+  }
 
-    &.is-outlined {
+  &:active {
+    box-shadow: inset 2px 1px 0px
+      color.adjust($color: colors.$city-green, $lightness: -60%);
+    &.is-white {
       box-shadow: inset 2px 1px 0px colors.$city-black;
+    }
+  }
+
+  &.is-selected {
+    background-color: colors.$city-green;
+    box-shadow: inset 2px 1px 0px
+      color.adjust($color: colors.$city-green-dark, $lightness: -10%);
+    &.is-white {
+      box-shadow: inset 2px 1px 0px
+        color.adjust($color: colors.$city-green-dark, $lightness: -10%);
     }
   }
 
@@ -197,7 +218,7 @@ details {
     box-shadow: none;
     pointer-events: none;
 
-    &.is-outlined {
+    &.is-white {
       background-color: transparent;
     }
   }
@@ -537,7 +558,7 @@ hr {
 }
 
 .has-color-background {
-  background-color: colors.$city-green;
+  background-color: colors.$city-green-light;
 }
 
 .has-white-background {

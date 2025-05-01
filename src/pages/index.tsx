@@ -79,11 +79,12 @@ const Homepage = () => (
               </p>
               <div className="is-flex is-flex-direction-column my-6">
                 <SmoothScroll
+                  className="mb-5"
                   to="quiz"
                   extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
                 >
                   <button
-                    className="button is-extra-dark mb-4"
+                    className="button is-extra-dark"
                     style={{ width: "100%", maxWidth: "350px" }}
                   >
                     Take the quiz
@@ -91,7 +92,7 @@ const Homepage = () => (
                 </SmoothScroll>
                 <a href="#learn">
                   <button
-                    className="button is-outlined"
+                    className="button is-white"
                     style={{ width: "100%", maxWidth: "350px" }}
                   >
                     Learn on your own
@@ -121,11 +122,25 @@ const Homepage = () => (
     </div>
     <Quiz />
     <div className="hero is-fullheight-with-navbar pt-6">
-      <div className="container mt-6" id="learn">
+      <div className="container mt-6 pt-5" id="learn">
         <div className="columns">
           <div className="column is-two-thirds">
+            <div className="eyebrow">
+              <a href="#quiz">
+                <div
+                  className="mr-1"
+                  style={{
+                    display: "inline-block",
+                    transform: "translateY(-2px) rotate(-90deg)",
+                  }}
+                >
+                  ↗
+                </div>
+                Take our quiz
+              </a>
+            </div>
             <h1
-              className="headline has-text-left"
+              className="headline has-text-left mt-2"
               style={{ maxWidth: "500px" }}
             >
               Learn more about the candidates...
@@ -133,7 +148,7 @@ const Homepage = () => (
             <CandidateSelectorMenu />
           </div>
           <div className="column">
-            <h1 className="headline has-text-left">
+            <h1 className="headline has-text-left mt-2">
               ...or read recent news coverage
             </h1>
             <RecentCoverage />
