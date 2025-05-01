@@ -33,10 +33,10 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         <div className="eyebrow">
           <Link to="/">
             <div
-              className="mr-2"
+              className="mr-1"
               style={{
                 display: "inline-block",
-                transform: "rotate(-135deg)",
+                transform: "translateY(-2px) rotate(-135deg)",
               }}
             >
               ↗
