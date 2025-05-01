@@ -162,7 +162,7 @@ details {
 
   &:hover {
     box-shadow: 1px 2px 0px
-      color.adjust($color: colors.$city-green, $lightness: -60%);
+      color.adjust($color: colors.$city-green-dark, $lightness: -60%);
     transform: translate(-1px, -2px);
     &.is-icon {
       box-shadow: 1px 2px 0px
@@ -175,17 +175,29 @@ details {
 
   &:active,
   &.is-selected {
-    box-shadow: inset 2px 1px 0px
-      color.adjust($color: colors.$city-green, $lightness: -60%);
     transform: translate(-1px, -2px);
 
     &.is-icon {
       box-shadow: inset 2px 1px 0px
         color.adjust($color: colors.$city-grey, $lightness: -10%);
     }
+  }
 
+  &:active {
+    box-shadow: inset 2px 1px 0px
+      color.adjust($color: colors.$city-green, $lightness: -60%);
     &.is-white {
       box-shadow: inset 2px 1px 0px colors.$city-black;
+    }
+  }
+
+  &.is-selected {
+    background-color: colors.$city-green;
+    box-shadow: inset 2px 1px 0px
+      color.adjust($color: colors.$city-green-dark, $lightness: -10%);
+    &.is-white {
+      box-shadow: inset 2px 1px 0px
+        color.adjust($color: colors.$city-green-dark, $lightness: -10%);
     }
   }
 

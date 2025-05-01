@@ -179,6 +179,8 @@ const Results: React.FC<ResultsProps> = ({
                     <button
                       className={classnames(
                         "button",
+                        "is-white",
+                        "mb-2",
                         favoriteTopics.has(questionGroup[0]) && "is-selected"
                       )}
                       onClick={() => {
