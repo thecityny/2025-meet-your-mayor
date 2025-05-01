@@ -474,6 +474,8 @@ $full-color-image-filter: contrast(1);
 
 // ILLUSTRATIONS:
 
+$bust-only-cropping-factor: -15%;
+
 .image {
   .illustration {
     position: absolute;
@@ -482,16 +484,17 @@ $full-color-image-filter: contrast(1);
     width: 100%;
     height: 100%;
     object-position: 50% 0%;
-    object-fit: contain;
+    object-fit: cover;
     padding: 0 5px;
+    z-index: 5;
 
     &.top {
       animation: bobble 0.6s infinite ease-in-out;
       z-index: 10;
-    }
 
-    &.eric-adams {
-      object-position: 50% 15%;
+      &.background {
+        z-index: 1;
+      }
     }
   }
 
@@ -503,14 +506,23 @@ $full-color-image-filter: contrast(1);
 
 .is-static,
 .is-disabled {
-  .illustration.top {
+  .image img.illustration.top {
     animation: none;
   }
 }
 
-.bust-only .illustration {
-  object-position: 50% 0%;
-  object-fit: cover;
+.bust-only {
+  overflow: hidden;
+  .illustration {
+    transform: scale(2) translateY($bust-only-cropping-factor);
+    transform-origin: top;
+    object-position: 50% 0%;
+    object-fit: cover;
+
+    &.top {
+      animation: bobble-bust-only 0.6s infinite ease-in-out;
+    }
+  }
 }
 
 // HELPERS:
@@ -572,6 +584,16 @@ hr {
   }
   50% {
     transform: translateY(4%);
+  }
+}
+
+@keyframes bobble-bust-only {
+  0%,
+  100% {
+    transform: scale(2) translateY($bust-only-cropping-factor);
+  }
+  50% {
+    transform: scale(2) translateY($bust-only-cropping-factor + 2%);
   }
 }
 

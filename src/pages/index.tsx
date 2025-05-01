@@ -40,7 +40,6 @@ const Homepage = () => (
             <Bobblehead
               candidateName="Jessica Ramos"
               size="is-128x128"
-              customClassNames="mt-1"
               showBustOnly={false}
             />
             <Bobblehead
@@ -109,12 +108,10 @@ const Homepage = () => (
             <Bobblehead
               candidateName="Eric Adams"
               size="is-1by2"
-              customClassNames="mb-5"
               showBustOnly={false}
             />
             <Bobblehead
               candidateName="Jessica Ramos"
-              customClassNames="mt-5"
               size="is-1by2"
               showBustOnly={false}
             />

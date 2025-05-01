@@ -19,15 +19,28 @@ export const Bobblehead: React.FC<{
   const isCandidatePage = useIsCandidatePage();
 
   // TODO: once we have all illustraitons, remove this randomizaiton of illustration paths:
-  const candidatePath = ["Eric Adams", "Jessica Ramos"].includes(candidateName)
+  const candidatePath = [
+    "Adrienne Adams",
+    "Andrew Cuomo",
+    "Brad Lander",
+    "Curtis Sliwa",
+    "Eric Adams",
+    "Jessica Ramos",
+    "Michael Blake",
+    "Scott Stringer",
+    "Whitney Tilson",
+  ].includes(candidateName)
     ? kebabCase(candidateName)
-    : candidateName >= "Eric Adams"
-    ? "eric-adams"
-    : "jessica-ramos";
+    : "eric-adams";
 
   const imgPathPrefix = `${
     isCandidatePage ? ".." : "."
   }/illustrations/${candidatePath}`;
+
+  const animationDelay = startAnimationRightAway
+    ? "0s"
+    : `${Math.random() * 0.5}s`;
+
   return (
     <figure
       className={classnames(
@@ -38,20 +51,33 @@ export const Bobblehead: React.FC<{
       )}
     >
       <LazyLoadImage
-        src={`${imgPathPrefix}-head.png`}
+        src={`${imgPathPrefix}-head.svg`}
         className={classnames("illustration", "top", candidatePath)}
         style={{
-          animationDelay: startAnimationRightAway
-            ? "0s"
-            : `${Math.random() * 0.5}s`,
+          animationDelay: animationDelay,
         }}
         alt={candidateName}
       />
       <LazyLoadImage
-        src={`${imgPathPrefix}-${showBustOnly ? "bust" : "body"}.png`}
+        src={`${imgPathPrefix}-${showBustOnly ? "body" : "body"}.svg`}
         className={classnames("illustration", "bottom", candidatePath)}
         alt={candidateName}
       />
+      {candidateName === "Jessica Ramos" && (
+        <LazyLoadImage
+          src={`${imgPathPrefix}-head-back.svg`}
+          className={classnames(
+            "illustration",
+            "top",
+            "background",
+            candidatePath
+          )}
+          style={{
+            animationDelay: animationDelay,
+          }}
+          alt={candidateName}
+        />
+      )}
     </figure>
   );
 };
