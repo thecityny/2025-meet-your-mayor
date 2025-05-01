@@ -59,7 +59,7 @@ export const Bobblehead: React.FC<{
         alt={candidateName}
       />
       <LazyLoadImage
-        src={`${imgPathPrefix}-${showBustOnly ? "body" : "body"}.svg`}
+        src={`${imgPathPrefix}-body.svg`}
         className={classnames("illustration", "bottom", candidatePath)}
         alt={candidateName}
       />
