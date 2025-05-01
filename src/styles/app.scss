@@ -93,8 +93,20 @@ p,
 details {
   summary {
     list-style: none;
+    outline: none;
+
     &::-webkit-details-marker {
       display: none;
+    }
+
+    // Only apply focus outline when element receives focus via keyboard navigation
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid colors.$city-blue;
+      outline-offset: 2px;
     }
   }
   .close-text {
