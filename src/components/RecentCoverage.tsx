@@ -13,8 +13,8 @@ export const RecentCoverage: React.FC = () => (
     <div className="eyebrow mb-2 mt-3">THE CITY</div>
     <ul>
       {coverageLinksTheCity.map((link, i) => (
-        <li key={i} className="label is-inline-block mb-2">
-          ●{" "}
+        <li key={i} className="label is-flex mb-0">
+          <div className="mr-2 mt-1">●</div>{" "}
           <OutboundLink
             to={link.href}
             className="copy has-text-left"
@@ -33,8 +33,8 @@ export const RecentCoverage: React.FC = () => (
       {
         // TODO: Replace with actual Gothamist links
         coverageLinksTheCity.map((link, i) => (
-          <li key={i} className="label is-inline-block mb-2">
-            ●{" "}
+          <li key={i} className="label is-flex mb-0">
+            <div className="mr-2 mt-1">●</div>{" "}
             <OutboundLink
               to={link.href}
               className="copy has-text-left"
