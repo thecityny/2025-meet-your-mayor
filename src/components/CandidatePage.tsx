@@ -8,6 +8,7 @@ import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { RecentCoverage } from "./RecentCoverage";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useLocation } from "@reach/router";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -15,8 +16,17 @@ const splitByFirstComma = (text: string) => {
   return [firstBit, textSplit.join(",")];
 };
 
+type LocationState = {
+  origin?: string;
+};
+
 const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { candidateName } = pageContext;
+
+  const location = useLocation();
+  const state = location.state as LocationState | undefined;
+  const cameFromResults = state && state.origin === "results";
+
   const lastName =
     candidateName.split(" ")[candidateName.split(" ").length - 1];
   const candidateInfo = formatCandidateContent().find(
@@ -31,7 +41,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
     <PageLayout customMetadata={{ siteName: candidateName }}>
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
         <div className="eyebrow">
-          <Link to="/">
+          <Link to={`/${cameFromResults ? "#results" : ""}`}>
             <div
               className="mr-1"
               style={{
@@ -41,7 +51,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
             >
               ↗
             </div>
-            Meet your mayor
+            {cameFromResults ? "Back to results" : "Meet your mayor"}
           </Link>
         </div>
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
