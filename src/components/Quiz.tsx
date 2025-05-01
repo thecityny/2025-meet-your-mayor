@@ -128,7 +128,7 @@ const Quiz = () => {
                         extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
                         onClick={() => resetAnswers()}
                       >
-                        <button className="button is-outlined">
+                        <button className="button is-white">
                           Reset Answers
                         </button>
                       </SmoothScroll>
@@ -153,7 +153,7 @@ const Quiz = () => {
                           extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
                           onClick={() => resetAnswers()}
                         >
-                          <button className="button is-outlined">
+                          <button className="button is-white">
                             Reset Answers
                           </button>
                         </SmoothScroll>
@@ -181,7 +181,7 @@ const Quiz = () => {
                         extraOffset={80}
                         className="control"
                       >
-                        <button className="button is-outlined">
+                        <button className="button is-white">
                           All Candidates
                         </button>
                       </SmoothScroll>
@@ -197,7 +197,7 @@ const Quiz = () => {
         <div style={{ display: !!party ? "block" : "none" }}>
           <div>
             <div
-              className="container is-hidden-desktop has-light-grey-background"
+              className="container is-hidden-desktop has-color-background"
               style={{
                 position: "sticky",
                 top: 0,
@@ -376,7 +376,7 @@ const Quiz = () => {
                                   className="control"
                                   onClick={() => clearAnswer(number)}
                                 >
-                                  <button className="button is-link is-outlined">
+                                  <button className="button is-link is-white">
                                     Change answer
                                   </button>
                                 </SmoothScroll>
@@ -392,7 +392,7 @@ const Quiz = () => {
 
               <div className="column is-hidden-touch is-one-quarter">
                 <div
-                  className="has-light-grey-background is-flex is-flex-direction-column has-text-right p-3"
+                  className="has-color-background is-flex is-flex-direction-column has-text-right p-3"
                   style={{
                     position: "sticky",
                     top: "6rem",

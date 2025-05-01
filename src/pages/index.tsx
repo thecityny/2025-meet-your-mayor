@@ -91,7 +91,7 @@ const Homepage = () => (
                 </SmoothScroll>
                 <a href="#learn">
                   <button
-                    className="button is-outlined"
+                    className="button is-white"
                     style={{ width: "100%", maxWidth: "350px" }}
                   >
                     Learn on your own

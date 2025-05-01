@@ -26,7 +26,7 @@ export const RecentCoverage: React.FC = () => (
       ))}
     </ul>
     <OutboundLink to={THE_CITY_DONATION_URL}>
-      <div className="button is-outlined is-small mt-3">Donate</div>
+      <div className="button is-white is-small mt-3">Donate</div>
     </OutboundLink>
     <div className="eyebrow mt-6 pt-3">GOTHAMIST</div>
     <ul>
@@ -47,7 +47,7 @@ export const RecentCoverage: React.FC = () => (
       }
     </ul>
     <OutboundLink to={GOTHAMIST_DONATION_URL}>
-      <div className="button is-outlined is-small mt-3">Donate</div>
+      <div className="button is-white is-small mt-3">Donate</div>
     </OutboundLink>
   </>
 );
