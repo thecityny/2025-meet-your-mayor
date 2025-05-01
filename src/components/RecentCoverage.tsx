@@ -10,7 +10,7 @@ const THE_CITY_DONATION_URL =
 
 export const RecentCoverage: React.FC = () => (
   <>
-    <div className="eyebrow mt-3">THE CITY</div>
+    <div className="eyebrow mb-2 mt-3">THE CITY</div>
     <ul>
       {coverageLinksTheCity.map((link, i) => (
         <li key={i} className="label is-inline-block mb-2">
@@ -28,7 +28,7 @@ export const RecentCoverage: React.FC = () => (
     <OutboundLink to={THE_CITY_DONATION_URL}>
       <div className="button is-white is-small mt-3">Donate</div>
     </OutboundLink>
-    <div className="eyebrow mt-6 pt-3">GOTHAMIST</div>
+    <div className="eyebrow mt-6 mb-2 pt-3">GOTHAMIST</div>
     <ul>
       {
         // TODO: Replace with actual Gothamist links
