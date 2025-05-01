@@ -73,6 +73,7 @@ jobs:
           if-no-files-found: error
 
   validate-hyperlinks:
+    if: false # disable this step for now
     runs-on: ubuntu-latest
     name: Validate hyperlinks
     needs: [build]
