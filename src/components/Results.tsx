@@ -28,6 +28,7 @@ const calculateScore = (
   let scorecard = generateBlankScorecard();
   let totalPossibleScore = answers.length;
   const questionContent = formatQuestionContent(party);
+
   Object.entries(questionContent).forEach((questionGroup) => {
     const [subject, questions] = questionGroup;
 
@@ -397,7 +398,7 @@ const Results: React.FC<ResultsProps> = ({
                                         "★"}{" "}
                                       {questionGroup[0]}{" "}
                                     </h3>
-                                    <p className="copy">
+                                    <div className="copy">
                                       {questionGroup[1].map((question, i) => (
                                         <span className="mr-2" key={i}>
                                           <CircleIcon
@@ -411,7 +412,7 @@ const Results: React.FC<ResultsProps> = ({
                                         ).length
                                       }
                                       /{questionGroup[1].length}
-                                    </p>
+                                    </div>
                                   </div>
                                 )
                               )}
@@ -421,7 +422,10 @@ const Results: React.FC<ResultsProps> = ({
 
                       <div className="buttons mt-5 ml-4">
                         <button className="button">
-                          <Link to={kebabCase(candidate.candidateName)}>
+                          <Link
+                            to={kebabCase(candidate.candidateName)}
+                            state={{ origin: "results" }}
+                          >
                             Learn more about {candidate.candidateName}
                           </Link>{" "}
                         </button>
