@@ -300,7 +300,7 @@ const Results: React.FC<ResultsProps> = ({
                     style={{ width: "100%", cursor: "pointer" }}
                   >
                     <div className="is-flex is-align-items-center">
-                      <span className="headline">
+                      <span className="headline" style={{ minWidth: "3rem" }}>
                         <span className="open-text">+</span>
                         <span className="close-text">-</span>
                       </span>
