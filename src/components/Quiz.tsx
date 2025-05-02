@@ -308,7 +308,7 @@ const Quiz = () => {
                   )}
                 </div>
               </div>
-              <div className="columns is-desktop ml-0">
+              <div className="columns ml-0">
                 <div className="column is-one-quarter" />
                 <div className="column is-half" style={{ maxWidth: "600px" }}>
                   <div className="container">

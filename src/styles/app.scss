@@ -270,6 +270,13 @@ details {
   }
 }
 
+// Override Bulma's default button group breakpoint:
+@media screen and (max-width: 1023px) {
+  .field.is-grouped {
+    flex-direction: column;
+  }
+}
+
 // INTRO GRAPHICS:
 
 .intro-animation {
@@ -411,7 +418,7 @@ $full-color-image-filter: contrast(1);
 }
 
 .question-controls {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1023px) {
     position: sticky;
     bottom: 0;
     padding: 0.5rem 0;
@@ -427,7 +434,7 @@ $full-color-image-filter: contrast(1);
   }
   .question-controls {
     margin-top: 3rem;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1023px) {
       margin: 0px -1rem;
       padding: 1rem;
     }
