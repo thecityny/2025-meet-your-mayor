@@ -3,7 +3,7 @@ import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
 import candidateList from "./candidate-list.json";
 
-type CandidateName = {
+export type CandidateName = {
   name: string;
 };
 
