@@ -1,13 +1,15 @@
 import React, { FC } from "react";
 import { Bobblehead } from "./Illustration";
 import candidateList from "../candidate-list.json";
-import { CandidateName } from "../utils";
+import { CandidateName, shuffleArray } from "../utils";
 import classnames from "classnames";
 
 export const IntroAnimation: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
   const candidateNames: string[] = JSON.parse(
     JSON.stringify(candidateList)
   ).map((c: CandidateName) => c.name);
+
+  const candidateNamesShuffled = shuffleArray(candidateNames);
 
   return (
     <div
@@ -17,7 +19,7 @@ export const IntroAnimation: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
       )}
     >
       <div className="slider">
-        {candidateNames.map((name, i) => (
+        {candidateNamesShuffled.map((name, i) => (
           <Bobblehead
             key={i}
             candidateName={name}

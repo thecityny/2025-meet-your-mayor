@@ -55,6 +55,19 @@ export const groupBy = <T, K extends keyof any>(
 };
 
 /**
+ *
+ * @param array - The array to shuffle.
+ * @returns A new array with the elements shuffled randomly.
+ */
+export const shuffleArray = (array: any[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+    [array[i], array[j]] = [array[j], array[i]]; // swap elements
+  }
+  return array;
+};
+
+/**
  * Converts a string containing HTML to a React component.
  *
  * @param text - The string containing HTML to convert.
