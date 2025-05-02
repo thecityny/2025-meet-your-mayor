@@ -43,11 +43,13 @@ export const Bobblehead: React.FC<{
         style={{
           animationDelay: animationDelay,
         }}
+        effect="blur"
         alt={candidateName}
       />
       <LazyLoadImage
         src={`${imgPathPrefix}-body.svg`}
         className={classnames("illustration", "bottom", candidatePath)}
+        effect="blur"
         alt={candidateName}
       />
       {candidateName === "Jessica Ramos" && (
@@ -62,6 +64,7 @@ export const Bobblehead: React.FC<{
           style={{
             animationDelay: animationDelay,
           }}
+          effect="blur"
           alt={candidateName}
         />
       )}
