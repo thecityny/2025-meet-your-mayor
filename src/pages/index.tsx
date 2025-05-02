@@ -6,6 +6,7 @@ import { SocialShareButtons } from "../components/SocialShareButtons";
 import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "../components/Links";
 import { RecentCoverage } from "../components/RecentCoverage";
 import { Bobblehead } from "../components/Illustration";
+import { IntroAnimation } from "../components/IntroAnimation";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -31,23 +32,7 @@ const Homepage = () => (
     <div className="hero is-fullheight-with-navbar has-color-background">
       <div className="hero-body">
         <div className="columns" style={{ width: "100%" }}>
-          <div className="column is-flex is-flex-direction-row is-half is-hidden-tablet">
-            <Bobblehead
-              candidateName="Eric Adams"
-              size="is-128x128"
-              showBustOnly={false}
-            />
-            <Bobblehead
-              candidateName="Jessica Ramos"
-              size="is-128x128"
-              showBustOnly={false}
-            />
-            <Bobblehead
-              candidateName="Eric Adams"
-              size="is-128x128"
-              showBustOnly={false}
-            />
-          </div>
+          <IntroAnimation isMobile />
           <div className="column is-half">
             <h1 className="headline has-text-left mt-0">
               Meet your Mayor: 2025
@@ -105,18 +90,7 @@ const Homepage = () => (
               </div>
             </div>
           </div>
-          <div className="column is-flex is-flex-direction-row is-half is-hidden-touch">
-            <Bobblehead
-              candidateName="Eric Adams"
-              size="is-1by2"
-              showBustOnly={false}
-            />
-            <Bobblehead
-              candidateName="Jessica Ramos"
-              size="is-1by2"
-              showBustOnly={false}
-            />
-          </div>
+          <IntroAnimation />
         </div>
       </div>
     </div>
