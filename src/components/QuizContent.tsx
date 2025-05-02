@@ -46,10 +46,12 @@ export const formatCandidateContent = (party?: Party) => {
 
 export const generateListOfCandidates = () => {
   const { candidateX, ...candidates } = candidateContent;
-  return Object.values(candidates).map((candidate) => ({
-    name: candidate.name,
-    slug: kebabCase(candidate.name),
-  }));
+  return Object.values(candidates)
+    .sort((a, b) => (a.name > b.name ? 1 : -1)) // Sort alphabetically by name
+    .map((candidate) => ({
+      name: candidate.name,
+      slug: kebabCase(candidate.name),
+    }));
 };
 
 /**
