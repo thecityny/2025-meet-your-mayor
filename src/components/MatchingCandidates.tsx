@@ -9,6 +9,27 @@ type MatchingCandidate = {
   source: string | null;
 };
 
+const abbreviateName = (name: string) => {
+  const lastName = name.split(" ")[name.split(" ").length - 1];
+  // Add first initial to each "Adams" candidate name label:
+  return lastName === "Adams" ? `${name[0]}. ${lastName}` : lastName;
+};
+
+const ListOfCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
+  candidates,
+}) => {
+  const names = candidates.map((candidate) => abbreviateName(candidate.name));
+  if (names.length === 1) {
+    return <span>{names[0]}</span>;
+  } else if (names.length > 1) {
+    return (
+      <span>
+        {names.slice(0, -1).join(", ")} and {names.slice(-1)}
+      </span>
+    );
+  } else return <></>;
+};
+
 /**
  *
  * This component shows the set of matching candidates
@@ -46,10 +67,8 @@ export const MatchingCandidates: FC<{
     >
       {candidates.map((candidate, i) => {
         const { name, quote, source } = candidate;
-        const lastName = name.split(" ")[name.split(" ").length - 1];
-        // Add first initial to each "Adams" candidate name label:
-        const abbreviatedName =
-          lastName === "Adams" ? `${name[0]}. ${lastName}` : lastName;
+        const abbreviatedName = abbreviateName(name);
+
         return isExpanded ? (
           <div
             key={i}
@@ -95,27 +114,27 @@ export const MatchingCandidates: FC<{
             </div>
           </div>
         ) : (
-          <span key={i} className={classnames("label", i === 0 && "ml-4")}>
-            {i === 0 ? (
-              <></>
-            ) : i === candidates.length - 1 ? (
-              <span className="mx-1">and</span>
-            ) : (
-              <span className="mr-1">,</span>
-            )}
-            {abbreviatedName}
-          </span>
+          <div key={i}></div>
         );
       })}
 
       {!isExpanded && candidates.length > 0 && !isSkipped && (
         <div
           className={classnames(
-            "mx-2 eyebrow is-inline-block ",
+            "mx-2 is-inline-block ",
             isUserSelection ? "mt-3" : "ml-4"
           )}
         >
-          <span key="x" className="eyebrow is-link" onClick={handleClick}>
+          {!isUserSelection && (
+            <span className="label">
+              <ListOfCandidates candidates={candidates} />
+            </span>
+          )}
+          <span
+            key="x"
+            className="eyebrow is-link is-inline-block"
+            onClick={handleClick}
+          >
             See <span className="no-wrap">responses +</span>
           </span>
         </div>
