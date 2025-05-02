@@ -165,14 +165,8 @@ const Quiz = () => {
                 issue. Meet Your Mayor shows you how the contenders' stands fit
                 with your take on what matters most to New Yorkers.
               </p>
-              <p className="copy has-text-left my-5">
-                Now we’ve pulled all 15 Meet Your Mayor editions into one final,
-                supersized superquiz that will show you your ultimate match.
-                Actually, your top matches, since voters will be ranking up to
-                five selections at the polls.
-              </p>
 
-              <div className="pt-5">
+              <div className="pt-3">
                 {questionsLeftToAnswer().length === 0 ? (
                   <>
                     <h2 className="deck has-text-left">
