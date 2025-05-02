@@ -229,33 +229,33 @@ const Quiz = () => {
                           extraOffset={150}
                         >
                           <button className="button">{button.label}</button>
-                        </SmoothScroll>
-                        <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center my-3">
-                          {button.party === "other" && (
-                            <span className="copy is-inline-block m-0 mr-2">
-                              Add
-                            </span>
-                          )}
-                          {generateListOfCandidates(button.party).map(
-                            (candidate, i) => (
-                              <div key={i}>
-                                <div
-                                  key={i}
-                                  className="is-flex is-flex-direction-column is-align-items-center mr-1"
-                                >
-                                  <Bobblehead
-                                    candidateName={candidate.name}
-                                    size="is-48x48"
-                                    showBustOnly
-                                  />
-                                  <span className="label has-text-centered">
-                                    {abbreviateName(candidate.name)}
-                                  </span>
+                          <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center my-3">
+                            {button.party === "other" && (
+                              <span className="copy is-inline-block m-0 mr-2">
+                                Add
+                              </span>
+                            )}
+                            {generateListOfCandidates(button.party).map(
+                              (candidate, i) => (
+                                <div key={i}>
+                                  <div
+                                    key={i}
+                                    className="is-flex is-flex-direction-column is-align-items-center mr-1"
+                                  >
+                                    <Bobblehead
+                                      candidateName={candidate.name}
+                                      size="is-48x48"
+                                      showBustOnly
+                                    />
+                                    <span className="label has-text-centered">
+                                      {abbreviateName(candidate.name)}
+                                    </span>
+                                  </div>
                                 </div>
-                              </div>
-                            )
-                          )}
-                        </div>
+                              )
+                            )}
+                          </div>{" "}
+                        </SmoothScroll>
                       </div>
                     ))}
                   </>
