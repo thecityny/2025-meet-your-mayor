@@ -143,7 +143,14 @@ export const MatchingCandidates: FC<{
       )}
 
       {candidates.length === 0 && (
-        <div className="label has-text-left ml-4">No matching candidates</div>
+        <div
+          className={classnames(
+            "label has-text-left ml-4",
+            isUserSelection && "has-text-weight-semibold"
+          )}
+        >
+          No matching candidates
+        </div>
       )}
     </div>
   );
