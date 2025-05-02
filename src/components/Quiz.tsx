@@ -82,21 +82,15 @@ const Quiz = () => {
     },
   ];
 
-  const saveParty = (party: Party) => {
+  const saveParty = (party: Party, delay?: number) => {
     if (highestVisibleQuestion === 0) {
       setHighestVisibleQuestion(1);
     }
 
-    // If the user is selecting a party, we want to scroll to the first question
-    // after a short delay, so that the user doesn't see the content change
-    // inside the quiz intro section
-    setTimeout(
-      () => {
-        setParty(party);
-        localStorage.setItem(`party`, party || "");
-      },
-      !!party ? ANCHOR_LINK_DURATION : 0
-    );
+    setTimeout(() => {
+      setParty(party);
+      localStorage.setItem(`party`, party || "");
+    }, delay || 0);
   };
 
   const recordAnswer = (questionNumber: number, answer: string | null) => {
@@ -225,7 +219,12 @@ const Quiz = () => {
                         <SmoothScroll
                           to="questions"
                           className="control"
-                          onClick={() => saveParty(button.party)}
+                          onClick={() =>
+                            // If the user is selecting a party, we want to scroll to the first question
+                            // after a short delay, so that the user doesn't see the content change
+                            // inside the quiz intro section
+                            saveParty(button.party, ANCHOR_LINK_DURATION)
+                          }
                           extraOffset={150}
                         >
                           <button className="button">{button.label}</button>
