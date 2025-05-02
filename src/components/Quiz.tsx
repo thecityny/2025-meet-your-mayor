@@ -474,6 +474,7 @@ const Quiz = () => {
           <Results
             favoriteTopics={favoriteTopics}
             changeFavoriteTopics={changeFavoriteTopics}
+            showTopicsSelector={highestVisibleQuestion > answers.length}
             answers={answers}
             resetAnswers={resetAnswers}
             party={party}

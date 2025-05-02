@@ -15,6 +15,7 @@ import { Bobblehead } from "./Illustration";
 type ResultsProps = {
   favoriteTopics: Set<string>;
   changeFavoriteTopics: (topic: string) => void;
+  showTopicsSelector: boolean;
   answers: QuizInput[];
   resetAnswers: () => void;
   party?: Party;
@@ -144,6 +145,7 @@ const Results: React.FC<ResultsProps> = ({
   resetAnswers,
   favoriteTopics,
   changeFavoriteTopics,
+  showTopicsSelector,
   party,
 }) => {
   const score = calculateScore(answers, favoriteTopics, party);
@@ -157,7 +159,10 @@ const Results: React.FC<ResultsProps> = ({
     <>
       <div
         className="columns container favorite-topics"
-        style={{ margin: "50vh 0" }}
+        style={{
+          display: showTopicsSelector ? "flex" : "none",
+          margin: "50vh 0",
+        }}
       >
         <div className="column is-one-quarter" />
         <div className="column is-half" style={{ maxWidth: "600px" }}>
@@ -170,6 +175,9 @@ const Results: React.FC<ResultsProps> = ({
               Now, pick which topics matter most to you
             </h2>
             <h3 className="deck has-text-left">
+              <div className="tag question-number-tag">
+                {answers.length + 1}
+              </div>
               Choose up to {MAX_FAVORITE_TOPICS}. These will impact your
               matching score more
             </h3>
