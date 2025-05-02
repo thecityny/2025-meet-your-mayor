@@ -26,6 +26,13 @@ $tablet-breakpoint: 1025px;
   max-width: 100vw;
 }
 
+// Override Bulma's default button group breakpoint:
+@media screen and (max-width: $tablet-breakpoint) {
+  .field.is-grouped {
+    flex-direction: column;
+  }
+}
+
 // HEADER:
 
 .nav-container {
@@ -270,13 +277,6 @@ details {
       width: 100%;
       white-space: normal; // Wrap text on mobile
     }
-  }
-}
-
-// Override Bulma's default button group breakpoint:
-@media screen and (max-width: $tablet-breakpoint) {
-  .field.is-grouped {
-    flex-direction: column;
   }
 }
 
