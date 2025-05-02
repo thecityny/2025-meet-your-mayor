@@ -432,14 +432,17 @@ const Quiz = () => {
                     maxWidth: "235px",
                   }}
                 >
-                  <p className="has-text-left eyebrow mb-2">SECTIONS:</p>
+                  <p className="has-text-left eyebrow mb-2">PROGRESS:</p>
                   {Object.entries(formatQuestionContent()).map(
                     (questionGroup, i) => (
                       <div className="has-text-left" key={i}>
                         <SmoothScroll
                           key={i}
                           enableActiveClass
-                          className="button-link mr-1 copy"
+                          className="mr-1 copy"
+                          style={{
+                            pointerEvents: "none",
+                          }}
                           to={`section-${questionGroup[0].toLowerCase()}`}
                         >
                           {questionGroup[0]}
