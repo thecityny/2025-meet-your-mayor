@@ -210,24 +210,26 @@ const Results: React.FC<ResultsProps> = ({
                 )}
               </div>
               {favoriteTopics.size > 0 && (
-                <SmoothScroll to="results">
-                  <button className="button py-5 is-extra-dark see-my-results mt-6">
-                    <span className="mr-1">★</span>
-                    <span>S</span>
-                    <span>E</span>
-                    <span className="mr-1">E</span>
-                    <span>M</span>
-                    <span className="mr-1">Y</span>
-                    <span>R</span>
-                    <span>E</span>
-                    <span>S</span>
-                    <span>U</span>
-                    <span>L</span>
-                    <span>T</span>
-                    <span className="mr-1">S</span>
-                    <span>★</span>
-                  </button>
-                </SmoothScroll>
+                <div className="question-controls">
+                  <SmoothScroll to="results">
+                    <button className="button py-5 is-extra-dark see-my-results">
+                      <span className="mr-1">★</span>
+                      <span>S</span>
+                      <span>E</span>
+                      <span className="mr-1">E</span>
+                      <span>M</span>
+                      <span className="mr-1">Y</span>
+                      <span>R</span>
+                      <span>E</span>
+                      <span>S</span>
+                      <span>U</span>
+                      <span>L</span>
+                      <span>T</span>
+                      <span className="mr-1">S</span>
+                      <span>★</span>
+                    </button>
+                  </SmoothScroll>
+                </div>
               )}
             </div>
           </div>

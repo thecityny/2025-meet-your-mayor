@@ -425,6 +425,13 @@ $full-color-image-filter: contrast(1);
     width: 100%;
     max-width: 300px;
   }
+  .question-controls {
+    margin-top: 3rem;
+    @media screen and (max-width: 768px) {
+      margin: 0px -1rem;
+      padding: 1rem;
+    }
+  }
 }
 
 .button.see-my-results {
