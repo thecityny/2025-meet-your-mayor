@@ -28,6 +28,12 @@ export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
 const Quiz = () => {
   const [party, setParty] = React.useState<Party>(null);
   const [answers, setAnswers] = React.useState(createBlankAnswersList());
+  /**
+   * This state is used to keep track of the number of the last question
+   * that was visible to the user.
+   */
+  const [highestVisibleQuestion, setHighestVisibleQuestion] =
+    React.useState<number>(0);
   const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
     new Set()
   );
@@ -40,6 +46,14 @@ const Quiz = () => {
     if (!!userAnswers) {
       const recordedAnswers = JSON.parse(userAnswers) as QuizInput[];
       setAnswers(recordedAnswers);
+
+      const lastQuestion = recordedAnswers.reduce((acc, curr) => {
+        if (!!curr.answer) {
+          return Math.max(acc, curr.questionNumber);
+        }
+        return acc;
+      }, 0);
+      setHighestVisibleQuestion(lastQuestion + 1);
     }
 
     const savedFavoriteTopics = localStorage.getItem(`favoriteTopics`);
@@ -48,6 +62,9 @@ const Quiz = () => {
 
   const saveParty = (party: Party) => {
     setParty(party);
+    if (highestVisibleQuestion === 0) {
+      setHighestVisibleQuestion(1);
+    }
     localStorage.setItem(`party`, party || "");
   };
 
@@ -60,6 +77,10 @@ const Quiz = () => {
     });
     setAnswers(updatedAnswers);
     localStorage.setItem(`userAnswers`, `${JSON.stringify(updatedAnswers)}`);
+
+    if (highestVisibleQuestion === questionNumber) {
+      setHighestVisibleQuestion((prev) => prev + 1);
+    }
   };
 
   const clearAnswer = (questionNumber: number) =>
@@ -81,6 +102,7 @@ const Quiz = () => {
     localStorage.setItem(`userAnswers`, "");
     setFavoriteTopics(new Set());
     localStorage.setItem(`favoriteTopics`, "");
+    setHighestVisibleQuestion(0);
     saveParty(null);
   };
 
@@ -267,10 +289,7 @@ const Quiz = () => {
                         )?.answer;
 
                         const isQuestionVisible =
-                          number === 1 ||
-                          answers.find(
-                            (answer) => answer.questionNumber === number - 1
-                          )?.answer;
+                          highestVisibleQuestion >= number;
 
                         return (
                           <>
