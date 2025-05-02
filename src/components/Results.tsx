@@ -6,7 +6,7 @@ import {
   QuizInput,
 } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
-import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "./Links";
+import { SmoothScroll } from "./Links";
 import classnames from "classnames";
 import { Link } from "gatsby";
 import { CircleIcon, Party } from "./Quiz";
@@ -284,15 +284,11 @@ const Results: React.FC<ResultsProps> = ({
                   />
                 </div>
 
-                <SmoothScroll
-                  to="quiz"
-                  extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
-                  onClick={() => resetAnswers()}
-                >
+                <a href="#main" onClick={() => resetAnswers()}>
                   <button className="button is-link is-white">
                     Take Quiz Again
                   </button>
-                </SmoothScroll>
+                </a>
               </div>
             </div>
             <div

@@ -172,7 +172,7 @@ export const PageLayout: React.FC<{
   const author = customMetadata?.author || process.env.GATSBY_AUTHOR;
 
   return (
-    <article>
+    <article id="main">
       <Header />
       <Helmet>
         <title>{`${siteName} - THE CITY`}</title>
