@@ -95,9 +95,19 @@ export const MatchingCandidates: FC<{
             </div>
           </div>
         ) : (
-          <div key={i} />
+          <span key={i} className="label">
+            {i === 0 ? (
+              <></>
+            ) : i === candidates.length - 1 ? (
+              <span className="mx-1">and</span>
+            ) : (
+              <span className="mr-1">,</span>
+            )}
+            {abbreviatedName}
+          </span>
         );
       })}
+
       {!isExpanded && candidates.length > 0 && isUserSelection && !isSkipped && (
         <span key="x" onClick={handleClick}>
           <div className="mx-2 eyebrow is-link is-inline-block mt-3">
@@ -107,8 +117,7 @@ export const MatchingCandidates: FC<{
       )}
 
       {!isExpanded && candidates.length > 0 && !isUserSelection && !isSkipped && (
-        <div className="mx-2 eyebrow is-inline-block">
-          {candidates.length} matching candidates.{" "}
+        <div className="mx-2 ml-4 eyebrow is-inline-block">
           <span key="x" className="eyebrow is-link" onClick={handleClick}>
             See <span className="no-wrap">responses +</span>
           </span>
@@ -116,7 +125,7 @@ export const MatchingCandidates: FC<{
       )}
 
       {candidates.length === 0 && (
-        <div className="label has-text-left mt-3">No matching candidates</div>
+        <div className="label has-text-left">No matching candidates</div>
       )}
     </div>
   );

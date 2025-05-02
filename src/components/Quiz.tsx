@@ -347,7 +347,7 @@ const Quiz = () => {
                                           "is-flex-direction-row",
                                           "is-align-items-start",
                                           "has-text-left",
-                                          "my-4",
+                                          "mt-4",
                                           !!answerSelected
                                             ? answerSelected == optionNumber
                                               ? "is-selected"
@@ -368,7 +368,7 @@ const Quiz = () => {
                                     {!!answerSelected && (
                                       <div
                                         className={classnames(
-                                          "matching-candidates mb-6",
+                                          "matching-candidates",
                                           `option-number-${optionNumber}`,
                                           answerSelected == optionNumber
                                             ? "is-selected"
@@ -393,7 +393,7 @@ const Quiz = () => {
                               })}
 
                               {!!answerSelected && (
-                                <div className="field is-grouped">
+                                <div className="field is-grouped mt-6">
                                   <SmoothScroll
                                     to={`question-${number + 1}`}
                                     className="control"
