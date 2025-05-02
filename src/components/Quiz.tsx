@@ -379,9 +379,10 @@ const Quiz = () => {
                                           candidates={
                                             optionInfo.matchingCandidates
                                           }
-                                          dontShowResponses={
-                                            optionNumber === "0"
+                                          isUserSelection={
+                                            answerSelected == optionNumber
                                           }
+                                          isSkipped={optionNumber === "0"}
                                         />
                                       </div>
                                     )}

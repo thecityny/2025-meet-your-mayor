@@ -21,8 +21,16 @@ type MatchingCandidate = {
  */
 export const MatchingCandidates: FC<{
   candidates: MatchingCandidate[];
-  dontShowResponses?: boolean;
-}> = ({ candidates, dontShowResponses }) => {
+  /**
+   * Are these the candidates that match with the user's selected response,
+   * or another quiz option?
+   */
+  isUserSelection: boolean;
+  /**
+   * Is this the "Skip" question option?
+   */
+  isSkipped: boolean;
+}> = ({ candidates, isUserSelection, isSkipped }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const handleClick = () => {
     setIsExpanded(!isExpanded);
@@ -76,7 +84,7 @@ export const MatchingCandidates: FC<{
               </div>
             )}
           </div>
-        ) : (
+        ) : isUserSelection ? (
           <div key={i}>
             <div
               key={i}
@@ -86,15 +94,27 @@ export const MatchingCandidates: FC<{
               <span className="label has-text-centered">{abbreviatedName}</span>
             </div>
           </div>
+        ) : (
+          <div key={i} />
         );
       })}
-      {!isExpanded && candidates.length > 0 && !dontShowResponses && (
+      {!isExpanded && candidates.length > 0 && isUserSelection && !isSkipped && (
         <span key="x" onClick={handleClick}>
           <div className="mx-2 eyebrow is-link is-inline-block mt-3">
             See <span className="no-wrap">responses +</span>
           </div>
         </span>
       )}
+
+      {!isExpanded && candidates.length > 0 && !isUserSelection && !isSkipped && (
+        <div className="mx-2 eyebrow is-inline-block">
+          {candidates.length} matching candidates.{" "}
+          <span key="x" className="eyebrow is-link" onClick={handleClick}>
+            See <span className="no-wrap">responses +</span>
+          </span>
+        </div>
+      )}
+
       {candidates.length === 0 && (
         <div className="label has-text-left mt-3">No matching candidates</div>
       )}
