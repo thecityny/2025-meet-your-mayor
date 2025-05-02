@@ -46,7 +46,6 @@ export const formatCandidateContent = (party?: Party) => {
 
 export const generateListOfCandidates = (party?: Party) => {
   const { candidateX, ...candidates } = candidateContent;
-  console.log(Object.values(candidates));
   return Object.values(candidates)
     .sort((a, b) => (a.name > b.name ? 1 : -1)) // Sort alphabetically by name
     .filter((candidate) =>
