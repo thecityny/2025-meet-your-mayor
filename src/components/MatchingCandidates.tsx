@@ -126,7 +126,7 @@ export const MatchingCandidates: FC<{
           )}
         >
           {!isUserSelection && (
-            <span className="label">
+            <span className="label is-inline-block mr-3">
               <ListOfCandidates candidates={candidates} />
             </span>
           )}
