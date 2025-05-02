@@ -320,27 +320,6 @@ $full-color-image-filter: contrast(1);
   opacity: 0;
   max-height: 0px;
 
-  &.option-number-1 {
-    animation-delay: 0s;
-  }
-
-  &.option-number-2 {
-    animation-delay: 0.2s;
-  }
-
-  &.option-number-3 {
-    animation-delay: 0.4s;
-  }
-
-  &.option-number-4 {
-    animation-delay: 0.6s;
-  }
-
-  // "Skipped" option
-  &.option-number-0 {
-    animation-delay: 0.8s;
-  }
-
   &.is-selected {
     font-weight: 600;
   }
@@ -369,6 +348,15 @@ $full-color-image-filter: contrast(1);
     position: relative;
     transform: translate(0px, -5px);
     margin-right: 0.5rem;
+  }
+}
+
+.question-controls {
+  @media screen and (max-width: 768px) {
+    position: sticky;
+    bottom: 0;
+    padding: 0.5rem 0;
+    background-color: colors.$city-white;
   }
 }
 
