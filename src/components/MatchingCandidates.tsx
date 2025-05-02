@@ -95,7 +95,7 @@ export const MatchingCandidates: FC<{
             </div>
           </div>
         ) : (
-          <span key={i} className="label">
+          <span key={i} className={classnames("label", i === 0 && "ml-4")}>
             {i === 0 ? (
               <></>
             ) : i === candidates.length - 1 ? (
@@ -108,16 +108,13 @@ export const MatchingCandidates: FC<{
         );
       })}
 
-      {!isExpanded && candidates.length > 0 && isUserSelection && !isSkipped && (
-        <span key="x" onClick={handleClick}>
-          <div className="mx-2 eyebrow is-link is-inline-block mt-3">
-            See <span className="no-wrap">responses +</span>
-          </div>
-        </span>
-      )}
-
-      {!isExpanded && candidates.length > 0 && !isUserSelection && !isSkipped && (
-        <div className="mx-2 ml-4 eyebrow is-inline-block">
+      {!isExpanded && candidates.length > 0 && !isSkipped && (
+        <div
+          className={classnames(
+            "mx-2 eyebrow is-inline-block ",
+            isUserSelection ? "mt-3" : "ml-4"
+          )}
+        >
           <span key="x" className="eyebrow is-link" onClick={handleClick}>
             See <span className="no-wrap">responses +</span>
           </span>
@@ -125,7 +122,7 @@ export const MatchingCandidates: FC<{
       )}
 
       {candidates.length === 0 && (
-        <div className="label has-text-left">No matching candidates</div>
+        <div className="label has-text-left ml-4">No matching candidates</div>
       )}
     </div>
   );

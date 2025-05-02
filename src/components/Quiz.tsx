@@ -369,6 +369,7 @@ const Quiz = () => {
                                       <div
                                         className={classnames(
                                           "matching-candidates",
+                                          "mb-5",
                                           `option-number-${optionNumber}`,
                                           answerSelected == optionNumber
                                             ? "is-selected"
