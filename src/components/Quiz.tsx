@@ -219,13 +219,14 @@ const Quiz = () => {
         <div style={{ display: !!party ? "block" : "none" }}>
           <div>
             <div
-              className="container is-hidden-desktop has-color-background"
+              className="container is-hidden-desktop has-color-background p-0"
               style={{
                 position: "sticky",
                 top: 0,
                 height: "30px",
                 width: "100vw",
                 zIndex: "100",
+                overflowX: "hidden",
               }}
             >
               <div className="is-flex is-justify-content-center pt-1">

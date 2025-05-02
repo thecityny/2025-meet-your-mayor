@@ -157,81 +157,82 @@ const Results: React.FC<ResultsProps> = ({
 
   return (
     <>
-      <div
-        className="columns container favorite-topics"
-        style={{
-          display: showTopicsSelector ? "flex" : "none",
-          margin: "50vh 0",
-        }}
-      >
-        <div className="column is-one-quarter" />
-        <div className="column is-half" style={{ maxWidth: "600px" }}>
-          <div
-            id={`question-${answers.length + 1}`}
-            className="container p-0 mb-5"
-            style={{ minHeight: "100vh" }}
-          >
-            <h2 className="headline has-text-left">
-              Now, pick which topics matter most to you
-            </h2>
-            <h3 className="deck has-text-left">
-              <div className="tag question-number-tag">
-                {answers.length + 1}
+      {showTopicsSelector && (
+        <div
+          className="columns container favorite-topics"
+          style={{
+            margin: "50vh 0",
+          }}
+        >
+          <div className="column is-one-quarter" />
+          <div className="column is-half" style={{ maxWidth: "600px" }}>
+            <div
+              id={`question-${answers.length + 1}`}
+              className="container p-0 mb-5"
+              style={{ minHeight: "100vh" }}
+            >
+              <h2 className="headline has-text-left">
+                Now, pick which topics matter most to you
+              </h2>
+              <h3 className="deck has-text-left">
+                <div className="tag question-number-tag">
+                  {answers.length + 1}
+                </div>
+                Choose up to {MAX_FAVORITE_TOPICS}. These will impact your
+                matching score more
+              </h3>
+              <div className="buttons mt-5">
+                {Object.entries(formatQuestionContent()).map(
+                  (questionGroup, i) => (
+                    <div key={i}>
+                      <button
+                        className={classnames(
+                          "button",
+                          "is-white",
+                          "mb-2",
+                          favoriteTopics.has(questionGroup[0]) && "is-selected"
+                        )}
+                        onClick={() => {
+                          changeFavoriteTopics(questionGroup[0]);
+                        }}
+                        disabled={
+                          !favoriteTopics.has(questionGroup[0]) &&
+                          favoriteTopics.size >= MAX_FAVORITE_TOPICS
+                        }
+                      >
+                        {favoriteTopics.has(questionGroup[0]) && (
+                          <span className="icon is-small mr-1">✕</span>
+                        )}
+                        {questionGroup[0]}
+                      </button>
+                    </div>
+                  )
+                )}
               </div>
-              Choose up to {MAX_FAVORITE_TOPICS}. These will impact your
-              matching score more
-            </h3>
-            <div className="buttons mt-5">
-              {Object.entries(formatQuestionContent()).map(
-                (questionGroup, i) => (
-                  <div key={i}>
-                    <button
-                      className={classnames(
-                        "button",
-                        "is-white",
-                        "mb-2",
-                        favoriteTopics.has(questionGroup[0]) && "is-selected"
-                      )}
-                      onClick={() => {
-                        changeFavoriteTopics(questionGroup[0]);
-                      }}
-                      disabled={
-                        !favoriteTopics.has(questionGroup[0]) &&
-                        favoriteTopics.size >= MAX_FAVORITE_TOPICS
-                      }
-                    >
-                      {favoriteTopics.has(questionGroup[0]) && (
-                        <span className="icon is-small mr-1">✕</span>
-                      )}
-                      {questionGroup[0]}
-                    </button>
-                  </div>
-                )
+              {favoriteTopics.size > 0 && (
+                <SmoothScroll to="results">
+                  <button className="button py-5 is-extra-dark see-my-results mt-6">
+                    <span className="mr-1">★</span>
+                    <span>S</span>
+                    <span>E</span>
+                    <span className="mr-1">E</span>
+                    <span>M</span>
+                    <span className="mr-1">Y</span>
+                    <span>R</span>
+                    <span>E</span>
+                    <span>S</span>
+                    <span>U</span>
+                    <span>L</span>
+                    <span>T</span>
+                    <span className="mr-1">S</span>
+                    <span>★</span>
+                  </button>
+                </SmoothScroll>
               )}
             </div>
-            {favoriteTopics.size > 0 && (
-              <SmoothScroll to="results">
-                <button className="button py-5 is-extra-dark see-my-results mt-6">
-                  <span className="mr-1">★</span>
-                  <span>S</span>
-                  <span>E</span>
-                  <span className="mr-1">E</span>
-                  <span>M</span>
-                  <span className="mr-1">Y</span>
-                  <span>R</span>
-                  <span>E</span>
-                  <span>S</span>
-                  <span>U</span>
-                  <span>L</span>
-                  <span>T</span>
-                  <span className="mr-1">S</span>
-                  <span>★</span>
-                </button>
-              </SmoothScroll>
-            )}
           </div>
         </div>
-      </div>
+      )}
       <div
         className="container has-color-background p-6"
         id="results"
