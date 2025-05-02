@@ -5,7 +5,6 @@ import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 import { SocialShareButtons } from "../components/SocialShareButtons";
 import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "../components/Links";
 import { RecentCoverage } from "../components/RecentCoverage";
-import { Bobblehead } from "../components/Illustration";
 import { IntroAnimation } from "../components/IntroAnimation";
 
 const byline = process.env.GATSBY_AUTHOR

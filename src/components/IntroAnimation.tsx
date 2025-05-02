@@ -3,14 +3,74 @@ import { Bobblehead } from "./Illustration";
 
 export const IntroAnimation: FC<{ isMobile?: boolean }> = ({ isMobile }) =>
   isMobile ? (
-    <div className="column is-flex is-flex-direction-row is-half is-hidden-tablet">
+    <div className="intro-animation column is-flex is-flex-direction-row is-half is-hidden-tablet">
       <Bobblehead candidateName="Eric Adams" size="is-128x128" />
       <Bobblehead candidateName="Jessica Ramos" size="is-128x128" />
       <Bobblehead candidateName="Zohran Mamdani" size="is-128x128" />
     </div>
   ) : (
-    <div className="column is-half is-hidden-touch is-flex is-flex-direction-row">
-      <Bobblehead candidateName="Eric Adams" size="is-1by2" />
-      <Bobblehead candidateName="Jessica Ramos" size="is-1by2" />
+    <div className="intro-animation column is-half is-hidden-touch is-flex is-flex-direction-row">
+      <div className="slider">
+        <Bobblehead
+          candidateName="Eric Adams"
+          customClassNames="slide"
+          size="is-1by2"
+        />
+        <Bobblehead
+          candidateName="Jessica Ramos"
+          size="is-1by2"
+          customClassNames="slide"
+        />
+        <Bobblehead
+          candidateName="Zohran Mamdani"
+          size="is-1by2"
+          customClassNames="slide"
+        />
+        <Bobblehead
+          candidateName="Eric Adams"
+          customClassNames="slide"
+          size="is-1by2"
+        />
+        <Bobblehead
+          candidateName="Jessica Ramos"
+          size="is-1by2"
+          customClassNames="slide"
+        />
+        <Bobblehead
+          candidateName="Zohran Mamdani"
+          size="is-1by2"
+          customClassNames="slide"
+        />
+        <Bobblehead
+          candidateName="Eric Adams"
+          customClassNames="slide"
+          size="is-1by2"
+        />
+        <Bobblehead
+          candidateName="Jessica Ramos"
+          size="is-1by2"
+          customClassNames="slide"
+        />
+        <Bobblehead
+          candidateName="Zohran Mamdani"
+          size="is-1by2"
+          customClassNames="slide"
+        />
+        <Bobblehead
+          candidateName="Eric Adams"
+          customClassNames="slide"
+          size="is-1by2"
+        />
+        <Bobblehead
+          candidateName="Jessica Ramos"
+          size="is-1by2"
+          customClassNames="slide"
+        />
+        <Bobblehead
+          candidateName="Zohran Mamdani"
+          size="is-1by2"
+          customClassNames="slide"
+        />
+      </div>
     </div>
   );
