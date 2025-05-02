@@ -394,7 +394,7 @@ const Quiz = () => {
                               })}
 
                               {!!answerSelected && (
-                                <div className="field is-grouped mt-6">
+                                <div className="field is-grouped mt-6 question-controls">
                                   <SmoothScroll
                                     to={`question-${number + 1}`}
                                     className="control"

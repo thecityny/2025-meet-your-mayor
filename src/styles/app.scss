@@ -351,6 +351,15 @@ $full-color-image-filter: contrast(1);
   }
 }
 
+.question-controls {
+  @media screen and (max-width: 768px) {
+    position: sticky;
+    bottom: 0;
+    padding: 0.5rem 0;
+    background-color: colors.$city-white;
+  }
+}
+
 .favorite-topics {
   .buttons > div,
   .button.see-my-results {
