@@ -55,8 +55,8 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           </Link>
         </div>
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
-        <div className="columns">
-          <div className="column is-two-fifths">
+        <div className="columns candidate-page-intro">
+          <div className="column is-two-fifths-desktop is-half-tablet">
             <figure className="image">
               <LazyLoadImage
                 src={`../photos/${kebabCase(candidateName)}-photo.jpg`}

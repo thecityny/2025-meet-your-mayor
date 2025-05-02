@@ -504,6 +504,15 @@ $full-color-image-filter: contrast(1);
 
 // CANDIDATE PAGES:
 
+.candidate-page-intro {
+  @media screen and (max-width: 768px) {
+    .column {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
 .candidate-selector-menu {
   &.is-on-candidate-page {
     max-width: 400px;
