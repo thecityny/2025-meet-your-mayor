@@ -90,7 +90,7 @@ export const questionContent = {
     title: "How will you manage decaying public housing?",
     subject: "Housing",
     tellMeMore:
-      "The New York City Housing Authority operates under a federal monitor who is overseeing repairs. With resident approval, dozens of developments are now operating under private management under programs that promote investment in upgrades.",
+      "The New York City Housing Authority operates under a federal monitor who is overseeing repairs. Dozens of developments now operate under private management via programs that invest in upgrades, including Rental Assistance Demonstration, or “RAD.”",
     option1:
       "Public housing is public. Stop bringing in private management to take over",
     option2: "Consider private management for existing public housing",
