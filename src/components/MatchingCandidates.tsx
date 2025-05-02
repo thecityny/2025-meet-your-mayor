@@ -118,7 +118,7 @@ export const MatchingCandidates: FC<{
         );
       })}
 
-      {!isExpanded && candidates.length > 0 && !isSkipped && (
+      {!isExpanded && candidates.length > 0 && (
         <div
           className={classnames(
             "mx-2 is-inline-block ",
@@ -130,13 +130,15 @@ export const MatchingCandidates: FC<{
               <ListOfCandidates candidates={candidates} />
             </span>
           )}
-          <span
-            key="x"
-            className="eyebrow is-link is-inline-block"
-            onClick={handleClick}
-          >
-            See <span className="no-wrap">responses +</span>
-          </span>
+          {!isSkipped && (
+            <span
+              key="x"
+              className="eyebrow is-link is-inline-block"
+              onClick={handleClick}
+            >
+              See <span className="no-wrap">responses +</span>
+            </span>
+          )}
         </div>
       )}
 
