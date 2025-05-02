@@ -25,6 +25,8 @@ export const OutboundLink: React.FC<{
  */
 export const QUESTION_ANCHOR_LINK_OFFSET = -150;
 
+export const ANCHOR_LINK_DURATION = 800;
+
 export const SmoothScroll: React.FC<{
   to: string;
   children: React.ReactNode;
@@ -49,7 +51,7 @@ export const SmoothScroll: React.FC<{
       activeClass={enableActiveClass ? "has-text-weight-bold" : ""}
       spy={true}
       smooth={true}
-      duration={800}
+      duration={ANCHOR_LINK_DURATION}
       offset={QUESTION_ANCHOR_LINK_OFFSET + (extraOffset || 0)}
       to={to}
       onClick={onClick}

@@ -79,10 +79,11 @@ const Quiz = () => {
   ];
 
   const saveParty = (party: Party) => {
-    setParty(party);
     if (highestVisibleQuestion === 0) {
       setHighestVisibleQuestion(1);
     }
+
+    setParty(party);
     localStorage.setItem(`party`, party || "");
   };
 
@@ -252,240 +253,24 @@ const Quiz = () => {
         </div>
       </div>
       <div className="section p-0" id="questions">
-        <div style={{ display: !!party ? "block" : "none" }}>
+        {highestVisibleQuestion > 0 && (
           <div>
-            <div
-              className="container is-hidden-desktop has-color-background p-0"
-              style={{
-                position: "sticky",
-                top: 0,
-                height: "30px",
-                width: "100vw",
-                zIndex: "100",
-                overflowX: "hidden",
-              }}
-            >
-              <div className="is-flex is-justify-content-center pt-1">
-                {Object.entries(formatQuestionContent()).map(
-                  (questionGroup, i) => (
-                    <div key={i} className="is-inline-block">
-                      {questionGroup[1].map((question, i) => {
-                        const questionAnswered = answers.find(
-                          (answer) => answer.questionNumber === question.number
-                        )?.answer;
-                        return (
-                          <span
-                            key={i}
-                            style={{
-                              marginRight: "3px",
-                            }}
-                          >
-                            {!!questionAnswered ? (
-                              <CircleIcon filledIn />
-                            ) : (
-                              <CircleIcon />
-                            )}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
-            <div className="columns is-desktop ml-0">
-              <div className="column is-one-quarter" />
-              <div className="column is-half" style={{ maxWidth: "600px" }}>
-                <div className="container">
-                  {Object.entries(questions).map((questionGroup, i) => (
-                    <div
-                      key={i}
-                      id={`section-${questionGroup[0].toLowerCase()}`}
-                    >
-                      {questionGroup[1].map((question, i) => {
-                        const {
-                          number,
-                          title,
-                          tellMeMore,
-                          option1,
-                          option2,
-                          option3,
-                          option4,
-                          skipped,
-                        } = question;
-
-                        const optionSkipped = {
-                          text: "Skip this question",
-                          matchingCandidates: skipped.matchingCandidates,
-                        };
-
-                        const isFirstQuestionInSection = i === 0;
-
-                        const answerSelected = answers.find(
-                          (answer) => answer.questionNumber === number
-                        )?.answer;
-
-                        const isQuestionVisible =
-                          highestVisibleQuestion >= number;
-
-                        return (
-                          <div key={i}>
-                            {isFirstQuestionInSection && isQuestionVisible && (
-                              <h2 className="headline has-text-left pt-5">
-                                {questionGroup[0]}
-                              </h2>
-                            )}
-                            <div
-                              key={number}
-                              id={`question-${number}`}
-                              style={{
-                                display: isQuestionVisible ? "block" : "none",
-                                minHeight: "100vh",
-                                margin: isFirstQuestionInSection
-                                  ? "0 0 50vh 0"
-                                  : "50vh 0",
-                              }}
-                            >
-                              <h3 className="deck has-text-left mb-2">
-                                <div className="tag question-number-tag">
-                                  {number}
-                                </div>
-                                {title}
-                              </h3>
-
-                              <details className="mb-5">
-                                <summary className="eyebrow is-link">
-                                  Tell me{" "}
-                                  <span className="open-text">more +</span>
-                                  <span className="close-text">less -</span>
-                                </summary>
-                                <div className="details-content copy mt-2">
-                                  {formatContent(tellMeMore)}
-                                </div>
-                              </details>
-                              {[
-                                option1,
-                                option2,
-                                option3,
-                                option4,
-                                optionSkipped,
-                              ].map((optionInfo, i) => {
-                                const optionNumber =
-                                  optionInfo.text === optionSkipped.text
-                                    ? "0"
-                                    : `${i + 1}`;
-                                return !!optionInfo.text ? (
-                                  <div key={i}>
-                                    <div style={{ width: "100%" }}>
-                                      <button
-                                        className={classnames(
-                                          "quiz-selection-button",
-                                          "is-flex",
-                                          "is-flex-direction-row",
-                                          "is-align-items-start",
-                                          "has-text-left",
-                                          "mt-4",
-                                          !!answerSelected
-                                            ? answerSelected == optionNumber
-                                              ? "is-selected"
-                                              : "is-disabled"
-                                            : "is-active"
-                                        )}
-                                        onClick={() =>
-                                          recordAnswer(number, optionNumber)
-                                        }
-                                        disabled={!!answerSelected}
-                                      >
-                                        <div className="quiz-selection-oval mr-4" />
-                                        <div className="copy">
-                                          {optionInfo.text}
-                                        </div>
-                                      </button>
-                                    </div>
-                                    {!!answerSelected && (
-                                      <div
-                                        className={classnames(
-                                          "matching-candidates",
-                                          "mb-5",
-                                          `option-number-${optionNumber}`,
-                                          answerSelected == optionNumber
-                                            ? "is-selected"
-                                            : "is-disabled"
-                                        )}
-                                      >
-                                        <MatchingCandidates
-                                          candidates={
-                                            optionInfo.matchingCandidates
-                                          }
-                                          isUserSelection={
-                                            answerSelected == optionNumber
-                                          }
-                                          isSkipped={optionNumber === "0"}
-                                        />
-                                      </div>
-                                    )}
-                                  </div>
-                                ) : (
-                                  <div key={i} />
-                                );
-                              })}
-
-                              {!!answerSelected && (
-                                <div className="field is-grouped mt-6 question-controls">
-                                  <SmoothScroll
-                                    to={`question-${number + 1}`}
-                                    className="control"
-                                  >
-                                    <button className="button is-link">
-                                      Next Question
-                                    </button>
-                                  </SmoothScroll>
-                                  <SmoothScroll
-                                    to={`question-${number}`}
-                                    className="control"
-                                    onClick={() => clearAnswer(number)}
-                                  >
-                                    <button className="button is-link is-white">
-                                      Change answer
-                                    </button>
-                                  </SmoothScroll>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="column is-hidden-touch is-one-quarter">
-                <div
-                  className="has-color-background is-flex is-flex-direction-column has-text-right p-3"
-                  style={{
-                    position: "sticky",
-                    top: "6rem",
-                    left: "100vw",
-                    marginBottom: "60vh", // To avoid overlap with the next section
-                    maxWidth: "235px",
-                  }}
-                >
-                  <p className="has-text-left eyebrow mb-2">PROGRESS:</p>
+            <div>
+              <div
+                className="container is-hidden-desktop has-color-background p-0"
+                style={{
+                  position: "sticky",
+                  top: 0,
+                  height: "30px",
+                  width: "100vw",
+                  zIndex: "100",
+                  overflowX: "hidden",
+                }}
+              >
+                <div className="is-flex is-justify-content-center pt-1">
                   {Object.entries(formatQuestionContent()).map(
                     (questionGroup, i) => (
-                      <div className="has-text-left" key={i}>
-                        <SmoothScroll
-                          key={i}
-                          enableActiveClass
-                          className="mr-1 copy"
-                          style={{
-                            pointerEvents: "none",
-                          }}
-                          to={`section-${questionGroup[0].toLowerCase()}`}
-                        >
-                          {questionGroup[0]}
-                        </SmoothScroll>
+                      <div key={i} className="is-inline-block">
                         {questionGroup[1].map((question, i) => {
                           const questionAnswered = answers.find(
                             (answer) =>
@@ -495,7 +280,7 @@ const Quiz = () => {
                             <span
                               key={i}
                               style={{
-                                marginRight: "1px",
+                                marginRight: "3px",
                               }}
                             >
                               {!!questionAnswered ? (
@@ -511,17 +296,237 @@ const Quiz = () => {
                   )}
                 </div>
               </div>
+              <div className="columns is-desktop ml-0">
+                <div className="column is-one-quarter" />
+                <div className="column is-half" style={{ maxWidth: "600px" }}>
+                  <div className="container">
+                    {Object.entries(questions).map((questionGroup, i) => (
+                      <div
+                        key={i}
+                        id={`section-${questionGroup[0].toLowerCase()}`}
+                      >
+                        {questionGroup[1].map((question, i) => {
+                          const {
+                            number,
+                            title,
+                            tellMeMore,
+                            option1,
+                            option2,
+                            option3,
+                            option4,
+                            skipped,
+                          } = question;
+
+                          const optionSkipped = {
+                            text: "Skip this question",
+                            matchingCandidates: skipped.matchingCandidates,
+                          };
+
+                          const isFirstQuestionInSection = i === 0;
+
+                          const answerSelected = answers.find(
+                            (answer) => answer.questionNumber === number
+                          )?.answer;
+
+                          const isQuestionVisible =
+                            highestVisibleQuestion >= number;
+
+                          return (
+                            <div key={i}>
+                              {isFirstQuestionInSection &&
+                                isQuestionVisible && (
+                                  <h2 className="headline has-text-left pt-5">
+                                    {questionGroup[0]}
+                                  </h2>
+                                )}
+                              <div
+                                key={number}
+                                id={`question-${number}`}
+                                style={{
+                                  display: isQuestionVisible ? "block" : "none",
+                                  minHeight: "100vh",
+                                  margin: isFirstQuestionInSection
+                                    ? "0 0 50vh 0"
+                                    : "50vh 0",
+                                }}
+                              >
+                                <h3 className="deck has-text-left mb-2">
+                                  <div className="tag question-number-tag">
+                                    {number}
+                                  </div>
+                                  {title}
+                                </h3>
+
+                                <details className="mb-5">
+                                  <summary className="eyebrow is-link">
+                                    Tell me{" "}
+                                    <span className="open-text">more +</span>
+                                    <span className="close-text">less -</span>
+                                  </summary>
+                                  <div className="details-content copy mt-2">
+                                    {formatContent(tellMeMore)}
+                                  </div>
+                                </details>
+                                {[
+                                  option1,
+                                  option2,
+                                  option3,
+                                  option4,
+                                  optionSkipped,
+                                ].map((optionInfo, i) => {
+                                  const optionNumber =
+                                    optionInfo.text === optionSkipped.text
+                                      ? "0"
+                                      : `${i + 1}`;
+                                  return !!optionInfo.text ? (
+                                    <div key={i}>
+                                      <div style={{ width: "100%" }}>
+                                        <button
+                                          className={classnames(
+                                            "quiz-selection-button",
+                                            "is-flex",
+                                            "is-flex-direction-row",
+                                            "is-align-items-start",
+                                            "has-text-left",
+                                            "mt-4",
+                                            !!answerSelected
+                                              ? answerSelected == optionNumber
+                                                ? "is-selected"
+                                                : "is-disabled"
+                                              : "is-active"
+                                          )}
+                                          onClick={() =>
+                                            recordAnswer(number, optionNumber)
+                                          }
+                                          disabled={!!answerSelected}
+                                        >
+                                          <div className="quiz-selection-oval mr-4" />
+                                          <div className="copy">
+                                            {optionInfo.text}
+                                          </div>
+                                        </button>
+                                      </div>
+                                      {!!answerSelected && (
+                                        <div
+                                          className={classnames(
+                                            "matching-candidates",
+                                            "mb-5",
+                                            `option-number-${optionNumber}`,
+                                            answerSelected == optionNumber
+                                              ? "is-selected"
+                                              : "is-disabled"
+                                          )}
+                                        >
+                                          <MatchingCandidates
+                                            candidates={
+                                              optionInfo.matchingCandidates
+                                            }
+                                            isUserSelection={
+                                              answerSelected == optionNumber
+                                            }
+                                            isSkipped={optionNumber === "0"}
+                                          />
+                                        </div>
+                                      )}
+                                    </div>
+                                  ) : (
+                                    <div key={i} />
+                                  );
+                                })}
+
+                                {!!answerSelected && (
+                                  <div className="field is-grouped mt-6 question-controls">
+                                    <SmoothScroll
+                                      to={`question-${number + 1}`}
+                                      className="control"
+                                    >
+                                      <button className="button is-link">
+                                        Next Question
+                                      </button>
+                                    </SmoothScroll>
+                                    <SmoothScroll
+                                      to={`question-${number}`}
+                                      className="control"
+                                      onClick={() => clearAnswer(number)}
+                                    >
+                                      <button className="button is-link is-white">
+                                        Change answer
+                                      </button>
+                                    </SmoothScroll>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="column is-hidden-touch is-one-quarter">
+                  <div
+                    className="has-color-background is-flex is-flex-direction-column has-text-right p-3"
+                    style={{
+                      position: "sticky",
+                      top: "6rem",
+                      left: "100vw",
+                      marginBottom: "60vh", // To avoid overlap with the next section
+                      maxWidth: "235px",
+                    }}
+                  >
+                    <p className="has-text-left eyebrow mb-2">PROGRESS:</p>
+                    {Object.entries(formatQuestionContent()).map(
+                      (questionGroup, i) => (
+                        <div className="has-text-left" key={i}>
+                          <SmoothScroll
+                            key={i}
+                            enableActiveClass
+                            className="mr-1 copy"
+                            style={{
+                              pointerEvents: "none",
+                            }}
+                            to={`section-${questionGroup[0].toLowerCase()}`}
+                          >
+                            {questionGroup[0]}
+                          </SmoothScroll>
+                          {questionGroup[1].map((question, i) => {
+                            const questionAnswered = answers.find(
+                              (answer) =>
+                                answer.questionNumber === question.number
+                            )?.answer;
+                            return (
+                              <span
+                                key={i}
+                                style={{
+                                  marginRight: "1px",
+                                }}
+                              >
+                                {!!questionAnswered ? (
+                                  <CircleIcon filledIn />
+                                ) : (
+                                  <CircleIcon />
+                                )}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
+            <Results
+              favoriteTopics={favoriteTopics}
+              changeFavoriteTopics={changeFavoriteTopics}
+              showTopicsSelector={highestVisibleQuestion > answers.length}
+              answers={answers}
+              resetAnswers={resetAnswers}
+              party={party}
+            />
           </div>
-          <Results
-            favoriteTopics={favoriteTopics}
-            changeFavoriteTopics={changeFavoriteTopics}
-            showTopicsSelector={highestVisibleQuestion > answers.length}
-            answers={answers}
-            resetAnswers={resetAnswers}
-            party={party}
-          />
-        </div>
+        )}
       </div>
     </>
   );
