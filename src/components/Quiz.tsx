@@ -292,7 +292,7 @@ const Quiz = () => {
                           highestVisibleQuestion >= number;
 
                         return (
-                          <>
+                          <div key={i}>
                             {isFirstQuestionInSection && isQuestionVisible && (
                               <h2 className="headline has-text-left pt-5">
                                 {questionGroup[0]}
@@ -413,7 +413,7 @@ const Quiz = () => {
                                 </div>
                               )}
                             </div>
-                          </>
+                          </div>
                         );
                       })}
                     </div>
