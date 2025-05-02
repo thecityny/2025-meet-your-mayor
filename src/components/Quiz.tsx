@@ -8,7 +8,11 @@ import {
   generateListOfCandidates,
   QuizInput,
 } from "./QuizContent";
-import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "./Links";
+import {
+  ANCHOR_LINK_DURATION,
+  QUESTION_ANCHOR_LINK_OFFSET,
+  SmoothScroll,
+} from "./Links";
 import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
 import { Bobblehead } from "./Illustration";
 
@@ -83,8 +87,16 @@ const Quiz = () => {
       setHighestVisibleQuestion(1);
     }
 
-    setParty(party);
-    localStorage.setItem(`party`, party || "");
+    // If the user is selecting a party, we want to scroll to the first question
+    // after a short delay, so that the user doesn't see the content change
+    // inside the quiz intro section
+    setTimeout(
+      () => {
+        setParty(party);
+        localStorage.setItem(`party`, party || "");
+      },
+      !!party ? ANCHOR_LINK_DURATION : 0
+    );
   };
 
   const recordAnswer = (questionNumber: number, answer: string | null) => {
@@ -132,7 +144,14 @@ const Quiz = () => {
 
   return (
     <>
-      <div className="hero is-fullheight mb-6" id="quiz">
+      <div
+        className="hero mb-6"
+        id="quiz"
+        style={{
+          minHeight: "150vh", // Make sure this section stays a consistent height
+          // even when the content changes
+        }}
+      >
         <div className="hero-body">
           <div className="container" style={{ maxWidth: "600px" }}>
             <div>
