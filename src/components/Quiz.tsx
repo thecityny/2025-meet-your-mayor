@@ -226,7 +226,7 @@ const Quiz = () => {
                           to="questions"
                           className="control"
                           onClick={() => saveParty(button.party)}
-                          extraOffset={80}
+                          extraOffset={150}
                         >
                           <button className="button">{button.label}</button>
                         </SmoothScroll>
