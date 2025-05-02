@@ -13,7 +13,7 @@ export const formatCandidateContent = (party?: Party) => {
 
   // Filter candidates by party (if selected):
   const candidates =
-    party === "Democrat"
+    party === "democrat"
       ? Object.fromEntries(
           Object.entries(candidatesAll).filter(
             (candidate) => candidate[1].party === "democrat"
@@ -44,10 +44,18 @@ export const formatCandidateContent = (party?: Party) => {
   });
 };
 
-export const generateListOfCandidates = () => {
+export const generateListOfCandidates = (party?: Party) => {
   const { candidateX, ...candidates } = candidateContent;
+  console.log(Object.values(candidates));
   return Object.values(candidates)
     .sort((a, b) => (a.name > b.name ? 1 : -1)) // Sort alphabetically by name
+    .filter((candidate) =>
+      party === "democrat"
+        ? candidate.party === "democrat"
+        : party === "other"
+        ? candidate.party !== "democrat"
+        : true
+    ) // Filter by party, if specified
     .map((candidate) => ({
       name: candidate.name,
       slug: kebabCase(candidate.name),

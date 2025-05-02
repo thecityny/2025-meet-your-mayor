@@ -9,7 +9,7 @@ type MatchingCandidate = {
   source: string | null;
 };
 
-const abbreviateName = (name: string) => {
+export const abbreviateName = (name: string) => {
   const lastName = name.split(" ")[name.split(" ").length - 1];
   // Add first initial to each "Adams" candidate name label:
   return lastName === "Adams" ? `${name[0]}. ${lastName}` : lastName;
