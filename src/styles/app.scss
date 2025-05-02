@@ -19,6 +19,9 @@
 
 // BULMA OVERRIDES:
 
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1025px;
+
 .columns {
   max-width: 100vw;
 }
@@ -29,7 +32,7 @@
   max-width: 100vw;
   padding-left: 3rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-breakpoint) {
     padding-left: 1.5rem;
   }
 }
@@ -54,7 +57,7 @@
 .deck {
   font-size: 1.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-breakpoint) {
     font-size: 1rem;
   }
 }
@@ -149,7 +152,7 @@ details {
     color: colors.$city-black;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-breakpoint) {
     font-size: 1rem;
   }
 
@@ -253,7 +256,7 @@ details {
 }
 
 .field.is-grouped {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-breakpoint) {
     flex-direction: column;
     .button {
       width: 100%;
@@ -262,7 +265,7 @@ details {
 }
 
 .buttons {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-breakpoint) {
     .button {
       width: 100%;
       white-space: normal; // Wrap text on mobile
@@ -271,7 +274,7 @@ details {
 }
 
 // Override Bulma's default button group breakpoint:
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: $tablet-breakpoint) {
   .field.is-grouped {
     flex-direction: column;
   }
@@ -410,7 +413,7 @@ $full-color-image-filter: contrast(1);
   border-radius: 100%;
   background-color: colors.$city-black;
   color: colors.$city-white;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-breakpoint) {
     position: relative;
     transform: translate(0px, -5px);
     margin-right: 0.5rem;
@@ -418,7 +421,7 @@ $full-color-image-filter: contrast(1);
 }
 
 .question-controls {
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: $tablet-breakpoint) {
     position: sticky;
     bottom: 0;
     padding: 0.5rem 0;
@@ -434,7 +437,7 @@ $full-color-image-filter: contrast(1);
   }
   .question-controls {
     margin-top: 3rem;
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: $tablet-breakpoint) {
       margin: 0px -1rem;
       padding: 1rem;
     }
@@ -443,7 +446,7 @@ $full-color-image-filter: contrast(1);
 
 .button.see-my-results {
   animation: fadeIn 1s ease forwards;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-breakpoint) {
     width: 100%;
   }
   span {
@@ -496,7 +499,7 @@ $full-color-image-filter: contrast(1);
 .results-scorecard {
   .quiz-selection-oval {
     margin-right: 4rem;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $mobile-breakpoint) {
       margin-right: 1rem;
     }
   }
@@ -505,7 +508,7 @@ $full-color-image-filter: contrast(1);
 // CANDIDATE PAGES:
 
 .candidate-page-intro {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-breakpoint) {
     .column {
       display: flex;
       justify-content: center;
@@ -552,7 +555,7 @@ $full-color-image-filter: contrast(1);
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-breakpoint) {
     .column {
       max-width: 25%;
       overflow: hidden;
