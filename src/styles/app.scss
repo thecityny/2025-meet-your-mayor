@@ -505,7 +505,7 @@ $bust-only-cropping-factor: -15%;
     width: 100%;
     height: 100%;
     object-position: 50% 0%;
-    object-fit: cover;
+    object-fit: contain;
     padding: 0 5px;
     z-index: 5;
 
@@ -535,14 +535,7 @@ $bust-only-cropping-factor: -15%;
 .bust-only {
   overflow: hidden;
   .illustration {
-    transform: scale(2) translateY($bust-only-cropping-factor);
-    transform-origin: top;
-    object-position: 50% 0%;
     object-fit: cover;
-
-    &.top {
-      animation: bobble-bust-only 0.6s infinite ease-in-out;
-    }
   }
 }
 
@@ -605,16 +598,6 @@ hr {
   }
   50% {
     transform: translateY(4%);
-  }
-}
-
-@keyframes bobble-bust-only {
-  0%,
-  100% {
-    transform: scale(2) translateY($bust-only-cropping-factor);
-  }
-  50% {
-    transform: scale(2) translateY($bust-only-cropping-factor + 2%);
   }
 }
 
