@@ -329,30 +329,6 @@ details {
   }
 }
 
-/* Left side animation: from left to center to left */
-@keyframes slideInOutLeft {
-  0%,
-  14.66% {
-    transform: translateX(-100%);
-  }
-  2%,
-  12.66% {
-    transform: translateX(0);
-  }
-}
-
-/* Right side animation: from right to center to right */
-@keyframes slideInOutRight {
-  2%,
-  16.66% {
-    transform: translateX(100%);
-  }
-  4%,
-  14.66% {
-    transform: translateX(0);
-  }
-}
-
 // QUIZ ELEMENTS
 
 $greyed-out-image-filter: grayscale(1) contrast(0.5) brightness(1.25);
@@ -690,5 +666,29 @@ hr {
   }
   25% {
     transform: translateY(1px);
+  }
+}
+
+/* Left side animation: from left to center to left */
+@keyframes slideInOutLeft {
+  0%,
+  14.66% {
+    transform: translateX(-100%);
+  }
+  2%,
+  12.66% {
+    transform: translateX(0);
+  }
+}
+
+/* Right side animation: from right to center to right */
+@keyframes slideInOutRight {
+  2%,
+  16.66% {
+    transform: translateX(100%);
+  }
+  4%,
+  14.66% {
+    transform: translateX(0);
   }
 }
