@@ -241,12 +241,8 @@ const Quiz = () => {
                   {Object.entries(questions).map((questionGroup, i) => (
                     <div
                       key={i}
-                      className="py-5"
                       id={`section-${questionGroup[0].toLowerCase()}`}
                     >
-                      <h2 className="headline has-text-left">
-                        {questionGroup[0]}
-                      </h2>
                       {questionGroup[1].map((question, i) => {
                         const {
                           number,
@@ -270,119 +266,135 @@ const Quiz = () => {
                           (answer) => answer.questionNumber === number
                         )?.answer;
 
-                        return (
-                          <div
-                            key={number}
-                            id={`question-${number}`}
-                            style={{
-                              minHeight: "100vh",
-                              margin: isFirstQuestionInSection
-                                ? "0 0 50vh 0"
-                                : "50vh 0",
-                            }}
-                          >
-                            <h3 className="deck has-text-left mb-2">
-                              <div className="tag question-number-tag">
-                                {number}
-                              </div>
-                              {title}
-                            </h3>
+                        const isQuestionVisible =
+                          number === 1 ||
+                          answers.find(
+                            (answer) => answer.questionNumber === number - 1
+                          )?.answer;
 
-                            <details className="mb-5">
-                              <summary className="eyebrow is-link">
-                                Tell me{" "}
-                                <span className="open-text">more +</span>
-                                <span className="close-text">less -</span>
-                              </summary>
-                              <div className="details-content copy mt-2">
-                                {formatContent(tellMeMore)}
-                              </div>
-                            </details>
-                            {[
-                              option1,
-                              option2,
-                              option3,
-                              option4,
-                              optionSkipped,
-                            ].map((optionInfo, i) => {
-                              const optionNumber =
-                                optionInfo.text === optionSkipped.text
-                                  ? "0"
-                                  : `${i + 1}`;
-                              return !!optionInfo.text ? (
-                                <div key={i}>
-                                  <div style={{ width: "100%" }}>
-                                    <button
-                                      className={classnames(
-                                        "quiz-selection-button",
-                                        "is-flex",
-                                        "is-flex-direction-row",
-                                        "is-align-items-start",
-                                        "has-text-left",
-                                        "my-4",
-                                        !!answerSelected
-                                          ? answerSelected == optionNumber
+                        return (
+                          <>
+                            {isFirstQuestionInSection && isQuestionVisible && (
+                              <h2 className="headline has-text-left pt-5">
+                                {questionGroup[0]}
+                              </h2>
+                            )}
+                            <div
+                              key={number}
+                              id={`question-${number}`}
+                              style={{
+                                display: isQuestionVisible ? "block" : "none",
+                                minHeight: "100vh",
+                                margin: isFirstQuestionInSection
+                                  ? "0 0 50vh 0"
+                                  : "50vh 0",
+                              }}
+                            >
+                              <h3 className="deck has-text-left mb-2">
+                                <div className="tag question-number-tag">
+                                  {number}
+                                </div>
+                                {title}
+                              </h3>
+
+                              <details className="mb-5">
+                                <summary className="eyebrow is-link">
+                                  Tell me{" "}
+                                  <span className="open-text">more +</span>
+                                  <span className="close-text">less -</span>
+                                </summary>
+                                <div className="details-content copy mt-2">
+                                  {formatContent(tellMeMore)}
+                                </div>
+                              </details>
+                              {[
+                                option1,
+                                option2,
+                                option3,
+                                option4,
+                                optionSkipped,
+                              ].map((optionInfo, i) => {
+                                const optionNumber =
+                                  optionInfo.text === optionSkipped.text
+                                    ? "0"
+                                    : `${i + 1}`;
+                                return !!optionInfo.text ? (
+                                  <div key={i}>
+                                    <div style={{ width: "100%" }}>
+                                      <button
+                                        className={classnames(
+                                          "quiz-selection-button",
+                                          "is-flex",
+                                          "is-flex-direction-row",
+                                          "is-align-items-start",
+                                          "has-text-left",
+                                          "my-4",
+                                          !!answerSelected
+                                            ? answerSelected == optionNumber
+                                              ? "is-selected"
+                                              : "is-disabled"
+                                            : "is-active"
+                                        )}
+                                        onClick={() =>
+                                          recordAnswer(number, optionNumber)
+                                        }
+                                        disabled={!!answerSelected}
+                                      >
+                                        <div className="quiz-selection-oval mr-4" />
+                                        <div className="copy">
+                                          {optionInfo.text}
+                                        </div>
+                                      </button>
+                                    </div>
+                                    {!!answerSelected && (
+                                      <div
+                                        className={classnames(
+                                          "matching-candidates mb-6",
+                                          `option-number-${optionNumber}`,
+                                          answerSelected == optionNumber
                                             ? "is-selected"
                                             : "is-disabled"
-                                          : "is-active"
-                                      )}
-                                      onClick={() =>
-                                        recordAnswer(number, optionNumber)
-                                      }
-                                      disabled={!!answerSelected}
-                                    >
-                                      <div className="quiz-selection-oval mr-4" />
-                                      <div className="copy">
-                                        {optionInfo.text}
+                                        )}
+                                      >
+                                        <MatchingCandidates
+                                          candidates={
+                                            optionInfo.matchingCandidates
+                                          }
+                                          dontShowResponses={
+                                            optionNumber === "0"
+                                          }
+                                        />
                                       </div>
-                                    </button>
+                                    )}
                                   </div>
-                                  {!!answerSelected && (
-                                    <div
-                                      className={classnames(
-                                        "matching-candidates mb-6",
-                                        `option-number-${optionNumber}`,
-                                        answerSelected == optionNumber
-                                          ? "is-selected"
-                                          : "is-disabled"
-                                      )}
-                                    >
-                                      <MatchingCandidates
-                                        candidates={
-                                          optionInfo.matchingCandidates
-                                        }
-                                        dontShowResponses={optionNumber === "0"}
-                                      />
-                                    </div>
-                                  )}
-                                </div>
-                              ) : (
-                                <div key={i} />
-                              );
-                            })}
+                                ) : (
+                                  <div key={i} />
+                                );
+                              })}
 
-                            {!!answerSelected && (
-                              <div className="field is-grouped">
-                                <SmoothScroll
-                                  to={`question-${number + 1}`}
-                                  className="control"
-                                >
-                                  <button className="button is-link">
-                                    Next Question
-                                  </button>
-                                </SmoothScroll>
-                                <SmoothScroll
-                                  to={`question-${number}`}
-                                  className="control"
-                                  onClick={() => clearAnswer(number)}
-                                >
-                                  <button className="button is-link is-white">
-                                    Change answer
-                                  </button>
-                                </SmoothScroll>
-                              </div>
-                            )}
-                          </div>
+                              {!!answerSelected && (
+                                <div className="field is-grouped">
+                                  <SmoothScroll
+                                    to={`question-${number + 1}`}
+                                    className="control"
+                                  >
+                                    <button className="button is-link">
+                                      Next Question
+                                    </button>
+                                  </SmoothScroll>
+                                  <SmoothScroll
+                                    to={`question-${number}`}
+                                    className="control"
+                                    onClick={() => clearAnswer(number)}
+                                  >
+                                    <button className="button is-link is-white">
+                                      Change answer
+                                    </button>
+                                  </SmoothScroll>
+                                </div>
+                              )}
+                            </div>
+                          </>
                         );
                       })}
                     </div>
