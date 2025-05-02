@@ -330,22 +330,22 @@ details {
 /* Left side animation: from left to center to left */
 @keyframes slideInOutLeft {
   0%,
-  13.66% {
+  14.66% {
     transform: translateX(-100%);
   }
   2%,
-  11.66% {
+  12.66% {
     transform: translateX(0);
   }
 }
 
 /* Right side animation: from right to center to right */
 @keyframes slideInOutRight {
-  3%,
+  2%,
   16.66% {
     transform: translateX(100%);
   }
-  5%,
+  4%,
   14.66% {
     transform: translateX(0);
   }
