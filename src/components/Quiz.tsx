@@ -5,12 +5,14 @@ import { formatContent } from "../utils";
 import {
   createBlankAnswersList,
   formatQuestionContent,
+  generateListOfCandidates,
   QuizInput,
 } from "./QuizContent";
 import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "./Links";
-import { MatchingCandidates } from "./MatchingCandidates";
+import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
+import { Bobblehead } from "./Illustration";
 
-export type Party = "Democrat" | "Independent" | null;
+export type Party = "democrat" | "other" | null;
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -59,6 +61,22 @@ const Quiz = () => {
     const savedFavoriteTopics = localStorage.getItem(`favoriteTopics`);
     setFavoriteTopics(new Set(JSON.parse(savedFavoriteTopics || "[]")));
   }, []);
+
+  type PartySelectorButton = {
+    label: string;
+    party: Party;
+  };
+
+  const partySelectorButtons: PartySelectorButton[] = [
+    {
+      label: "Democrat",
+      party: "democrat",
+    },
+    {
+      label: "All Candidates",
+      party: "other",
+    },
+  ];
 
   const saveParty = (party: Party) => {
     setParty(party);
@@ -188,26 +206,39 @@ const Quiz = () => {
                       To start, pick your party:
                     </h2>
 
-                    <div className="field is-grouped">
-                      <SmoothScroll
-                        to="questions"
-                        className="control"
-                        onClick={() => saveParty("Democrat")}
-                        extraOffset={80}
-                      >
-                        <button className="button">Democrat</button>
-                      </SmoothScroll>
-                      <SmoothScroll
-                        to="questions"
-                        onClick={() => saveParty("Independent")}
-                        extraOffset={80}
-                        className="control"
-                      >
-                        <button className="button is-white">
-                          All Candidates
-                        </button>
-                      </SmoothScroll>
-                    </div>
+                    {partySelectorButtons.map((button, i) => (
+                      <div key={i}>
+                        <SmoothScroll
+                          to="questions"
+                          className="control"
+                          onClick={() => saveParty(button.party)}
+                          extraOffset={80}
+                        >
+                          <button className="button">{button.label}</button>
+                        </SmoothScroll>
+                        <div className="is-flex is-flex-wrap-wrap is-flex-direction-row my-3">
+                          {generateListOfCandidates(button.party).map(
+                            (candidate, i) => (
+                              <div key={i}>
+                                <div
+                                  key={i}
+                                  className="is-flex is-flex-direction-column is-align-items-center mr-1"
+                                >
+                                  <Bobblehead
+                                    candidateName={candidate.name}
+                                    size="is-48x48"
+                                    showBustOnly
+                                  />
+                                  <span className="label has-text-centered">
+                                    {abbreviateName(candidate.name)}
+                                  </span>
+                                </div>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    ))}
                   </>
                 )}
               </div>
