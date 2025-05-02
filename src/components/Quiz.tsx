@@ -207,7 +207,7 @@ const Quiz = () => {
                     </h2>
 
                     {partySelectorButtons.map((button, i) => (
-                      <div key={i}>
+                      <div key={i} className="my-5">
                         <SmoothScroll
                           to="questions"
                           className="control"
@@ -216,7 +216,12 @@ const Quiz = () => {
                         >
                           <button className="button">{button.label}</button>
                         </SmoothScroll>
-                        <div className="is-flex is-flex-wrap-wrap is-flex-direction-row my-3">
+                        <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center my-3">
+                          {button.party === "other" && (
+                            <span className="copy is-inline-block m-0 mr-2">
+                              Add
+                            </span>
+                          )}
                           {generateListOfCandidates(button.party).map(
                             (candidate, i) => (
                               <div key={i}>
