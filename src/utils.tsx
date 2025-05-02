@@ -3,7 +3,7 @@ import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
 import candidateList from "./candidate-list.json";
 
-type CandidateName = {
+export type CandidateName = {
   name: string;
 };
 
@@ -52,6 +52,19 @@ export const groupBy = <T, K extends keyof any>(
     acc[groupKey].push(item);
     return acc;
   }, {} as Record<K, T[]>);
+};
+
+/**
+ *
+ * @param array - The array to shuffle.
+ * @returns A new array with the elements shuffled randomly.
+ */
+export const shuffleArray = (array: any[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+    [array[i], array[j]] = [array[j], array[i]]; // swap elements
+  }
+  return array;
 };
 
 /**
