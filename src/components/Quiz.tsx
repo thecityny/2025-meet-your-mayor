@@ -46,11 +46,12 @@ const Quiz = () => {
 
   useEffect(() => {
     const savedParty = localStorage.getItem(`party`);
-    saveParty(savedParty as Party);
+    setParty(savedParty as Party);
 
     const userAnswers = localStorage.getItem(`userAnswers`);
     if (!!userAnswers) {
       const recordedAnswers = JSON.parse(userAnswers) as QuizInput[];
+
       setAnswers(recordedAnswers);
 
       const lastQuestion = recordedAnswers.reduce((acc, curr) => {
