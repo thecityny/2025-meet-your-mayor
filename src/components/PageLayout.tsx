@@ -71,13 +71,21 @@ const Footer = () => {
           {Object.entries(THE_CITY_SITE_LINKS)
             .filter((link) => link[0] !== "website")
             .map((link, i) => (
-              <SocialButton url={link[1]} key={i} />
+              <SocialButton
+                url={link[1]}
+                key={i}
+                ariaLabel={`Share on ${link[0]}`}
+              />
             ))}
           {"• "}
           {Object.entries(GOTHAMIST_SITE_LINKS)
             .filter((link) => link[0] !== "website")
             .map((link, i) => (
-              <SocialButton url={link[1]} key={i} />
+              <SocialButton
+                url={link[1]}
+                key={i}
+                ariaLabel={`Share on ${link[0]}`}
+              />
             ))}
         </div>
         <div className="eyebrow mt-6 mb-2 has-text-centered">

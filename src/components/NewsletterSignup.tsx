@@ -66,6 +66,7 @@ export const NewsletterSignupBanner: React.FC = () => {
                 <input
                   className="input is-small"
                   type="email"
+                  aria-label="Input your email for election updates"
                   placeholder="e.g. mayor@nyc.gov"
                   value={email}
                   onChange={handleChange}

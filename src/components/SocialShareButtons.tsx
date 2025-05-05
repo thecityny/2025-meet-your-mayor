@@ -10,11 +10,15 @@ type ScoreShareDetails = {
   matchScore: number;
 };
 
-export const SocialButton: React.FC<{ url: string }> = ({ url }) => (
+export const SocialButton: React.FC<{ url: string; ariaLabel?: string }> = ({
+  url,
+  ariaLabel,
+}) => (
   <SocialIcon
     className="button is-icon mr-2 p-0"
     target="_blank"
     rel="noopener noreferrer"
+    aria-label={ariaLabel || "Share this link"}
     bgColor="#111111" // THE CITY Black
     style={{
       width: "25px",
@@ -39,12 +43,15 @@ export const SocialShareButtons: React.FC<{
     <>
       <SocialButton
         url={`https://x.com/intent/post?text=${shareText}&url=${shareUrl}`}
+        ariaLabel="Share on X"
       />
       <SocialButton
         url={`https://bsky.app/intent/compose?text=${shareText} ${shareUrl}`}
+        ariaLabel="Share on Bluesky"
       />
       <SocialButton
         url={`mailto:?subject=Meet Your Mayor: 2025&body=${shareText} ${shareUrl}`}
+        ariaLabel="Share via Email"
       />
     </>
   );
