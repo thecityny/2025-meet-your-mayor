@@ -11,6 +11,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Ensure src directory exists
+        run: mkdir -p src
+
       - name: Fetch Gothamist articles and format as JS export
         run: |
           curl -s "https://api-prod.gothamist.com/api/v2/pages/?type=news.ArticlePage&fields=listing_title,url&order=-publication_date&show_on_index_listing=true&limit=3&tag_slug=politics" \
@@ -18,22 +21,22 @@ jobs:
               "export const coverageLinksGothamist = [" +
               (.items[] | "  { text: \"" + (.listing_title | gsub("\""; "\\\"")) + "\", href: \"" + .url + "\" },") +
               "\n];"
-            ' > gothamistLinks.js
+            ' > src/gothamist-links.js
 
       - name: Test output file
         run: |
-          echo "Running validation on gothamistLinks.js..."
+          echo "Running validation on src/gothamist-links.js..."
           node <<'EOF'
           import { readFileSync } from 'fs';
 
-          const contents = readFileSync('gothamistLinks.js', 'utf8');
+          const contents = readFileSync('src/gothamist-links.js', 'utf8');
           const arrayMatch = contents.match(/export const coverageLinksGothamist = (\[.*\]);/s);
 
           if (!arrayMatch) {
             throw new Error("Could not parse coverageLinksGothamist array from JS file.");
           }
 
-          const links = eval(arrayMatch[1]); // safe because we control the file format
+          const links = eval(arrayMatch[1]); // Safe in this controlled context
 
           if (!Array.isArray(links)) {
             throw new Error("Parsed value is not an array.");
@@ -56,10 +59,10 @@ jobs:
           EOF
 
       - name: Commit and push formatted JS file
-        if: success() # only commit if all prior steps succeed
+        if: success()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add gothamistLinks.js
-          git commit -m "Update gothamistLinks.js with latest articles"
+          git add src/gothamist-links.js
+          git commit -m "Update gothamist-links.js with latest articles"
           git push
