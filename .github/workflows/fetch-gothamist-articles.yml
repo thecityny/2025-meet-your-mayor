@@ -17,7 +17,7 @@ jobs:
           node-version: 20
 
       - name: Run fetch script
-        run: node -e 'require(\"./src/scripts\").getGothamistLinks()
+        run: node -e 'require("./src/scripts").getGothamistLinks()'
 
       - name: Test output file
         run: |
