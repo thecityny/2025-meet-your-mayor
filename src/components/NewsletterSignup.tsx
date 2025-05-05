@@ -84,7 +84,9 @@ export const NewsletterSignup: React.FC = () => {
             </div>
           </div>
         </form>
-        {status === "success" && <p className="mt-2">You're signed up!</p>}
+        {status === "success" && (
+          <p className="label mt-2 has-text-centered">You're signed up!</p>
+        )}
         {status === "error" && (
           <p className="label mt-2 has-text-centered">
             Something went wrong. Sign up manually via{" "}
