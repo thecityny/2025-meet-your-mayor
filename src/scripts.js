@@ -4,10 +4,10 @@ const https = require("https");
 const fetch = require("node-fetch");
 const cheerio = require("cheerio");
 
-const THE_CITY_COVERAGE_URL = "https://www.thecity.nyc/category/campaign-2025/";
-
 const GOTHAMIST_API_URL =
   "https://api-prod.gothamist.com/api/v2/pages/?type=news.ArticlePage&fields=listing_title,url&order=-publication_date&show_on_index_listing=true&limit=3&tag_slug=politics";
+
+const THE_CITY_COVERAGE_URL = "https://www.thecity.nyc/category/campaign-2025/";
 
 function fetchJson(url) {
   return new Promise((resolve, reject) => {
@@ -54,7 +54,7 @@ async function getGothamistLinks(outputPath = "src/gothamist-links.js") {
   console.log(`✅ Successfully wrote ${links.length} links to ${outputPath}`);
 }
 
-const scrapeLinksToCoverage = async () => {
+const getTheCityLinks = async () => {
   try {
     const response = await fetch(THE_CITY_COVERAGE_URL);
     const body = await response.text();
@@ -172,8 +172,8 @@ function generateSitemapXML() {
 }
 
 module.exports = {
-  scrapeLinksToCoverage,
+  getTheCityLinks,
+  getGothamistLinks,
   downloadGoogleDocContent,
   generateSitemapXML,
-  getGothamistLinks,
 };

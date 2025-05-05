@@ -9,7 +9,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "validate": "node validate.mjs",
-    "scrape-coverage": "node -e 'require(\"./src/scripts\").getGothamistLinks()'",
+    "scrape-coverage": "node -e 'require(\"./src/scripts\").getGothamistLinks()' && node -e 'require(\"./src/scripts\").getTheCityLinks()'",
     "download-content": "node -e 'require(\"./src/scripts\").downloadGoogleDocContent()'",
     "generate-sitemap": "node -e 'require(\"./src/scripts\").generateSitemapXML()'"
   },

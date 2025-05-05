@@ -1,14 +1,1 @@
-export const coverageLinksTheCity = [
-  {
-    text: "Newly ‘Independent’ Mayor Eric Adams Rails Against Democrats in Forum Debut",
-    href: "https://www.thecity.nyc/2025/04/03/adams-cuomo-appearance-national-action-network-sharpton-mayoral-race/",
-  },
-  {
-    text: "What the Eric Adams Party Switch-Up Means for the Mayor’s Race",
-    href: "https://www.thecity.nyc/2025/04/03/eric-adams-mayoral-race-working-families-party-general-election/",
-  },
-  {
-    text: "Working Families Party Takes Steps to Run Mayoral Candidate in General Election",
-    href: "https://www.thecity.nyc/2025/04/03/working-families-party-general-election-candidate-mayor/",
-  },
-];
+export const coverageLinksTheCity = [{"text":"11 City Council Races to Watch in NYC’s June Election","href":"https://www.thecity.nyc/2025/05/05/11-city-council-races-election-june/"},{"text":"Can Voters Game Out Their Ranked Choice Ballot?","href":"https://www.thecity.nyc/2025/05/01/ranked-choice-voting-strategy-mayoral-primary-cuomo-working-families/"},{"text":"Following THE CITY’s Trail, Campaign Board Escalates Eric Adams Fraud Probe","href":"https://www.thecity.nyc/2025/04/30/eric-adams-campaign-finance-funds/"}]
