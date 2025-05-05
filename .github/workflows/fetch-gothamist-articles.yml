@@ -16,6 +16,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install dotenv
+        run: npm install dotenv
+
       - name: Run fetch script
         run: node -e 'require("./src/scripts").getGothamistLinks()'
 
