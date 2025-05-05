@@ -21,7 +21,7 @@ export const NewsletterSignup: React.FC = () => {
 
     try {
       const response = await fetch(
-        "https://api.demo.nypr.digital/email-proxy/subscri",
+        "https://api.demo.nypr.digital/email-proxy/subscribe",
         {
           method: "POST",
           headers: {
