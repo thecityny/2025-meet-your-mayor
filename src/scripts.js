@@ -27,7 +27,28 @@ function fetchJson(url) {
   });
 }
 
-async function getGothamistLinks(outputPath = "src/gothamist-links.js") {
+function testValidCoverageLinks(links, source) {
+  if (links.length < 3) {
+    throw new Error(
+      `Less than 3 links found on ${source}'s Election Coverage page`
+    );
+  }
+
+  for (let i = 0; i < links.length; i++) {
+    if (!links[i].text || links[i].text.length < 5) {
+      throw new Error(
+        `Link ${i + 1} on ${source}'s Election Coverage page is missing text`
+      );
+    }
+    if (!links[i].href || links[i].href.length < 6) {
+      throw new Error(
+        `Link ${i + 1} on ${source}'s Election Coverage page is missing href`
+      );
+    }
+  }
+}
+
+const getGothamistLinks = async (outputPath = "src/gothamist-links.js") => {
   const response = await fetchJson(GOTHAMIST_API_URL);
 
   if (!Array.isArray(response.items)) {
@@ -39,28 +60,32 @@ async function getGothamistLinks(outputPath = "src/gothamist-links.js") {
     href: item.url,
   }));
 
-  const output = `export const coverageLinksGothamist = [\n${links
-    .map(
-      (link) =>
-        `  { text: "${link.text.replace(/"/g, '\\"')}", href: "${link.href}" },`
-    )
-    .join("\n")}\n];\n`;
+  testValidCoverageLinks(links, "Gothamist");
 
   fs.mkdirSync(outputPath.split("/").slice(0, -1).join("/"), {
     recursive: true,
   });
-  fs.writeFileSync(outputPath, output, "utf-8");
+
+  fs.writeFileSync(
+    outputPath,
+    `export const coverageLinksGothamist = ${JSON.stringify(links)}`,
+    "utf-8",
+    (err) => {
+      // In case of a error throw err.
+      if (err) throw err;
+    }
+  );
 
   console.log(`✅ Successfully wrote ${links.length} links to ${outputPath}`);
-}
+};
 
-const getTheCityLinks = async () => {
+const getTheCityLinks = async (outputPath = "src/the-city-links.js") => {
   try {
     const response = await fetch(THE_CITY_COVERAGE_URL);
     const body = await response.text();
     const $ = cheerio.load(body);
 
-    const links = [];
+    let links = [];
     $(".entry-title a").each((i, elem) => {
       if (i < 3) {
         const text = $(elem).text().trim();
@@ -69,33 +94,22 @@ const getTheCityLinks = async () => {
       }
     });
 
-    if (links.length < 3) {
-      throw new Error(
-        "Less than 3 links found on THE CITY's Election Coverage page"
-      );
-    }
+    testValidCoverageLinks(links, "THE CITY");
 
-    for (let i = 0; i < links.length; i++) {
-      if (!links[i].text || links[i].text.length === 0) {
-        throw new Error(
-          `Link ${i + 1} on THE CITY's Election Coverage page is missing text`
-        );
-      }
-      if (!links[i].href || links[i].href.length < 6) {
-        throw new Error(
-          `Link ${i + 1} on THE CITY's Election Coverage page is missing href`
-        );
-      }
-    }
+    fs.mkdirSync(outputPath.split("/").slice(0, -1).join("/"), {
+      recursive: true,
+    });
 
     fs.writeFile(
-      "src/the-city-links.js",
+      outputPath,
       `export const coverageLinksTheCity = ${JSON.stringify(links)}`,
       (err) => {
         // In case of a error throw err.
         if (err) throw err;
       }
     );
+
+    console.log(`✅ Successfully wrote ${links.length} links to ${outputPath}`);
   } catch (err) {
     console.error("Scraping failed:", err);
     process.exit(1);
