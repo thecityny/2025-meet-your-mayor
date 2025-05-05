@@ -45,44 +45,46 @@ export const NewsletterSignup: React.FC = () => {
   };
 
   return (
-    <div className="container py-3">
-      <form
-        onSubmit={handleSubmit}
-        className="is-flex is-justify-content-center"
-      >
-        <div className="field">
-          <div className="eyebrow mb-2 has-text-centered">
-            SEND ME ELECTION UPDATES FROM THE CITY AND GOTHAMIST:
-          </div>
-          <div className="is-flex is-align-items-center">
-            <div className="control mr-3 is-flex-grow-1">
-              <input
-                className="input is-small"
-                type="email"
-                placeholder="e.g. name@example.com"
-                value={email}
-                onChange={handleChange}
-                required
-              />
+    <div className="newsletter-signup">
+      <div className="container py-4">
+        <form
+          onSubmit={handleSubmit}
+          className="is-flex is-justify-content-center"
+        >
+          <div className="field ">
+            <div className="eyebrow mb-2 has-text-centered">
+              SEND ME ELECTION UPDATES FROM THE CITY AND GOTHAMIST:
             </div>
-            <div className="control">
-              <button
-                className="button is-small mt-1"
-                type="submit"
-                disabled={status === "loading"}
-              >
-                {status === "loading" ? "Submitting..." : "Sign Up"}
-              </button>
+            <div className="is-flex is-align-items-center">
+              <div className="control mr-3 is-flex-grow-1">
+                <input
+                  className="input is-small"
+                  type="email"
+                  placeholder="e.g. mayor@nyc.gov"
+                  value={email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="control">
+                <button
+                  className="button is-small is-white mt-1"
+                  type="submit"
+                  disabled={status === "loading"}
+                >
+                  {status === "loading" ? "Submitting..." : "Sign Up"}
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-      {status === "success" && <p className="mt-2">You're signed up!</p>}
-      {status === "error" && (
-        <p className="label mt-2 has-text-centered">
-          Something went wrong. Please try again.
-        </p>
-      )}
+        </form>
+        {status === "success" && <p className="mt-2">You're signed up!</p>}
+        {status === "error" && (
+          <p className="label mt-2 has-text-centered">
+            Something went wrong. Please try again.
+          </p>
+        )}
+      </div>
     </div>
   );
 };

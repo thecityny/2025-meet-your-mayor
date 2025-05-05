@@ -100,6 +100,19 @@ p,
   }
 }
 
+input.input {
+  background-color: colors.$city-white;
+  color: colors.$city-black;
+
+  &.is-small {
+    font-size: 0.85rem;
+  }
+
+  &::placeholder {
+    color: colors.$city-grey;
+  }
+}
+
 details {
   summary {
     list-style: none;
@@ -134,6 +147,12 @@ details {
       animation: fadeIn 1s ease forwards;
     }
   }
+}
+
+// FORMS:
+
+.newsletter-signup {
+  background-color: colors.$city-green-dark;
 }
 
 // BUTTONS:
