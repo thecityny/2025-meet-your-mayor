@@ -9,6 +9,7 @@ import { SocialShareButtons } from "./SocialShareButtons";
 import { RecentCoverage } from "./RecentCoverage";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useLocation } from "@reach/router";
+import { NewsletterSignupBanner } from "./NewsletterSignup";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -123,18 +124,21 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           })}
         </div>
       </div>
-      <div className="container pt-6" style={{ maxWidth: "600px" }}>
+      <div className="container pt-6 mb-6" style={{ maxWidth: "600px" }}>
         <h1 className="headline has-text-left mt-1">Positions on Key Issues</h1>
         <div className="copy my-5">
           THE CITY sent multiple-choice surveys to every mayoral candidate on
           the ballot for the June 22 primary, starting in April. See how Zohran
           Mamdani answered below.
         </div>
-        <Link to="/">
+        <Link to="/" className="mb-5">
           <button className="button is-link">Take our quiz</button>
         </Link>
         <h1 className="headline has-text-left mt-6">Recent Coverage</h1>
         <RecentCoverage />
+        <div className="mt-6">
+          <NewsletterSignupBanner />
+        </div>
       </div>
     </PageLayout>
   );

@@ -111,7 +111,7 @@ export const RecentCoverage: React.FC = () => {
             <div className="mr-2 mt-1">●</div>{" "}
             <OutboundLink
               to={link.href + THE_CITY_UTM_PARAMS}
-              className="copy has-text-left"
+              className="copy has-text-left ml-0"
               style={{ lineHeight: "1.4rem" }}
             >
               {link.text}
@@ -129,7 +129,7 @@ export const RecentCoverage: React.FC = () => {
             <div className="mr-2 mt-1">●</div>{" "}
             <OutboundLink
               to={link.href + GOTHAMIST_UTM_PARAMS}
-              className="copy has-text-left"
+              className="copy has-text-left ml-0"
               style={{ lineHeight: "1.4rem" }}
             >
               {link.text}
