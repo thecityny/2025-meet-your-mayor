@@ -1,7 +1,13 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
+import { OutboundLink } from "./Links";
 
 const GOTHAMIST_EMAIL_LIST_NAME =
   "Gothamist Membership++Politics Brief Newsletter";
+
+const THE_CITY_FALLBACK_NEWSLETTER_LINK =
+  "https://www.thecity.nyc/newsletter-mayoral-election-2025-eric-adams/";
+
+const GOTHAMIST_FALLBACK_NEWSLETTER_LINK = "https://gothamist.com/newsletters";
 
 export const NewsletterSignup: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -81,7 +87,15 @@ export const NewsletterSignup: React.FC = () => {
         {status === "success" && <p className="mt-2">You're signed up!</p>}
         {status === "error" && (
           <p className="label mt-2 has-text-centered">
-            Something went wrong. Please try again.
+            Something went wrong. Sign up manually via{" "}
+            <OutboundLink to={THE_CITY_FALLBACK_NEWSLETTER_LINK}>
+              THE CITY
+            </OutboundLink>{" "}
+            and{" "}
+            <OutboundLink to={GOTHAMIST_FALLBACK_NEWSLETTER_LINK}>
+              Gothamist
+            </OutboundLink>
+            .
           </p>
         )}
       </div>
