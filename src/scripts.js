@@ -68,7 +68,7 @@ const getGothamistLinks = async (outputPath = "src/gothamist-links.js") => {
 
   fs.writeFileSync(
     outputPath,
-    `export const coverageLinksGothamist = ${JSON.stringify(links)}`,
+    `export const coverageLinksGothamist = ${JSON.stringify(links)};`,
     "utf-8",
     (err) => {
       // In case of a error throw err.
@@ -102,7 +102,7 @@ const getTheCityLinks = async (outputPath = "src/the-city-links.js") => {
 
     fs.writeFile(
       outputPath,
-      `export const coverageLinksTheCity = ${JSON.stringify(links)}`,
+      `export const coverageLinksTheCity = ${JSON.stringify(links)};`,
       (err) => {
         // In case of a error throw err.
         if (err) throw err;
