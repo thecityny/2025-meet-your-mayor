@@ -120,7 +120,12 @@ export const RecentCoverage: React.FC = () => {
         ))}
       </ul>
       <OutboundLink to={THE_CITY_DONATION_URL + THE_CITY_UTM_PARAMS}>
-        <div className="button is-white is-small mt-3">Donate</div>
+        <div
+          className="button is-white is-small mt-3"
+          aria-label="Donate to THE CITY"
+        >
+          Donate
+        </div>
       </OutboundLink>
       <div className="eyebrow mt-6 mb-2 pt-3">GOTHAMIST</div>
       <ul>
@@ -138,7 +143,12 @@ export const RecentCoverage: React.FC = () => {
         ))}
       </ul>
       <OutboundLink to={GOTHAMIST_DONATION_URL + GOTHAMIST_UTM_PARAMS}>
-        <div className="button is-white is-small mt-3">Donate</div>
+        <div
+          className="button is-white is-small mt-3"
+          aria-label="Donate to Gothamist"
+        >
+          Donate
+        </div>
       </OutboundLink>
     </>
   );

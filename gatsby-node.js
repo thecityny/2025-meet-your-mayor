@@ -24,9 +24,6 @@ let dynamicPageContent = Object.entries(candidateList).map(
   (candidate) => candidate[1]
 );
 
-// Remove first example entry:
-dynamicPageContent.shift();
-
 exports.createPages = async function ({ actions }) {
   dynamicPageContent.forEach(({ name }) => {
     const slug = kebabCase(name);

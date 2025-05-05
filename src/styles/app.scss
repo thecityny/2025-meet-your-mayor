@@ -195,6 +195,11 @@ details {
   &.is-icon {
     box-shadow: 2px 4px 0px
       color.adjust($color: colors.$city-grey, $lightness: -10%);
+
+    &:focus-visible {
+      // Make focus border more visible for accessibility purposes:
+      border-width: 2px;
+    }
   }
 
   &.is-extra-dark {
@@ -334,27 +339,27 @@ details {
   /* Delay each pair by 2s to show sequentially */
   .slide:nth-child(1),
   .slide:nth-child(2) {
-    animation-delay: 0s;
+    animation-delay: -1s;
   }
   .slide:nth-child(3),
   .slide:nth-child(4) {
-    animation-delay: 3s;
+    animation-delay: 2s;
   }
   .slide:nth-child(5),
   .slide:nth-child(6) {
-    animation-delay: 6s;
+    animation-delay: 5s;
   }
   .slide:nth-child(7),
   .slide:nth-child(8) {
-    animation-delay: 9s;
+    animation-delay: 8s;
   }
   .slide:nth-child(9),
   .slide:nth-child(10) {
-    animation-delay: 12s;
+    animation-delay: 11s;
   }
   .slide:nth-child(11),
   .slide:nth-child(12) {
-    animation-delay: 15s;
+    animation-delay: 14s;
   }
 }
 
