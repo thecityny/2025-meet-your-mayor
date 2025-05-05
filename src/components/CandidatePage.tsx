@@ -79,7 +79,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
         <div className="field is-grouped">
           <OutboundLink to={website}>
-            <button className="control button">{lastName}'s Website</button>
+            <button className="button">{lastName}'s Website</button>
           </OutboundLink>
           <Link to="/">
             <button className="button is-white">See if you're a match</button>
