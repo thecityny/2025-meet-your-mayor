@@ -83,7 +83,7 @@ const Quiz = () => {
   ];
 
   const saveParty = (party: Party, delay?: number) => {
-    if (highestVisibleQuestion === 0) {
+    if (highestVisibleQuestion === 0 && !!party) {
       setHighestVisibleQuestion(1);
     }
 
