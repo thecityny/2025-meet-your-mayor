@@ -1,6 +1,10 @@
 name: Fetch and Format THE CITY Articles
 
 on:
+  schedule:
+    - cron: "0 11 * * *" # 7:00 AM NY time
+    - cron: "0 17 * * *" # 1:00 PM NY time
+    - cron: "0 23 * * *" # 7:00 PM NY time
   workflow_dispatch:
 
 jobs:
