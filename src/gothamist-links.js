@@ -1,0 +1,14 @@
+export const coverageLinksGothamist = [
+  {
+    text: "'They’re coming for everyone': Fearful NY immigrant families weigh voluntary departures",
+    href: "https://gothamist.com/news/theyre-coming-for-everyone-fearful-ny-immigrant-families-weigh-voluntary-departures",
+  },
+  {
+    text: "Housing could be on the ballot in NYC. Here’s what New Yorkers may be voting on.",
+    href: "https://gothamist.com/news/housing-could-be-on-the-ballot-in-nyc-heres-what-new-yorkers-may-be-voting-on",
+  },
+  {
+    text: "NY AG James says she’s suing Trump administration over cuts to health and social programs",
+    href: "https://gothamist.com/news/ny-ag-james-says-shes-suing-trump-administration-over-cuts-to-health-and-social-programs",
+  },
+];

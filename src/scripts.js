@@ -1,9 +1,58 @@
 require("dotenv").config();
 const fs = require("fs");
+const https = require("https");
 const fetch = require("node-fetch");
 const cheerio = require("cheerio");
 
 const THE_CITY_COVERAGE_URL = "https://www.thecity.nyc/category/campaign-2025/";
+
+const GOTHAMIST_API_URL =
+  "https://api-prod.gothamist.com/api/v2/pages/?type=news.ArticlePage&fields=listing_title,url&order=-publication_date&show_on_index_listing=true&limit=3&tag_slug=politics";
+
+function fetchJson(url) {
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, (res) => {
+        let data = "";
+        res.on("data", (chunk) => (data += chunk));
+        res.on("end", () => {
+          try {
+            resolve(JSON.parse(data));
+          } catch (err) {
+            reject(`Error parsing JSON: ${err.message}`);
+          }
+        });
+      })
+      .on("error", reject);
+  });
+}
+
+async function getGothamistLinks(outputPath = "src/gothamist-links.js") {
+  const response = await fetchJson(GOTHAMIST_API_URL);
+
+  if (!Array.isArray(response.items)) {
+    throw new Error("API response does not contain an items array.");
+  }
+
+  const links = response.items.map((item) => ({
+    text: item.title,
+    href: item.url,
+  }));
+
+  const output = `export const coverageLinksGothamist = [\n${links
+    .map(
+      (link) =>
+        `  { text: "${link.text.replace(/"/g, '\\"')}", href: "${link.href}" },`
+    )
+    .join("\n")}\n];\n`;
+
+  fs.mkdirSync(outputPath.split("/").slice(0, -1).join("/"), {
+    recursive: true,
+  });
+  fs.writeFileSync(outputPath, output, "utf-8");
+
+  console.log(`✅ Successfully wrote ${links.length} links to ${outputPath}`);
+}
 
 const scrapeLinksToCoverage = async () => {
   try {
@@ -126,4 +175,5 @@ module.exports = {
   scrapeLinksToCoverage,
   downloadGoogleDocContent,
   generateSitemapXML,
+  getGothamistLinks,
 };
