@@ -9,7 +9,7 @@ const THE_CITY_FALLBACK_NEWSLETTER_LINK =
 
 const GOTHAMIST_FALLBACK_NEWSLETTER_LINK = "https://gothamist.com/newsletters";
 
-export const NewsletterSignup: React.FC = () => {
+export const NewsletterSignupBanner: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"

@@ -6,7 +6,7 @@ import { SocialShareButtons } from "../components/SocialShareButtons";
 import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "../components/Links";
 import { RecentCoverage } from "../components/RecentCoverage";
 import { IntroAnimation } from "../components/IntroAnimation";
-import { NewsletterSignup } from "../components/NewsletterSignup";
+import { NewsletterSignupBanner } from "../components/NewsletterSignup";
 
 const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
@@ -94,7 +94,7 @@ const Homepage = () => (
         </div>
       </div>
     </div>
-    <NewsletterSignup />
+    <NewsletterSignupBanner />
     <Quiz />
     <div className="hero is-fullheight-with-navbar pt-6">
       <div className="container mt-6 pt-5" id="learn">
