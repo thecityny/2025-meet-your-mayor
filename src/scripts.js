@@ -1,17 +1,91 @@
 require("dotenv").config();
 const fs = require("fs");
+const https = require("https");
 const fetch = require("node-fetch");
 const cheerio = require("cheerio");
 
+const GOTHAMIST_API_URL =
+  "https://api-prod.gothamist.com/api/v2/pages/?type=news.ArticlePage&fields=listing_title,url&order=-publication_date&show_on_index_listing=true&limit=3&tag_slug=politics";
+
 const THE_CITY_COVERAGE_URL = "https://www.thecity.nyc/category/campaign-2025/";
 
-const scrapeLinksToCoverage = async () => {
+function fetchJson(url) {
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, (res) => {
+        let data = "";
+        res.on("data", (chunk) => (data += chunk));
+        res.on("end", () => {
+          try {
+            resolve(JSON.parse(data));
+          } catch (err) {
+            reject(`Error parsing JSON: ${err.message}`);
+          }
+        });
+      })
+      .on("error", reject);
+  });
+}
+
+function testValidCoverageLinks(links, source) {
+  if (links.length < 3) {
+    throw new Error(
+      `Less than 3 links found on ${source}'s Election Coverage page`
+    );
+  }
+
+  for (let i = 0; i < links.length; i++) {
+    if (!links[i].text || links[i].text.length < 5) {
+      throw new Error(
+        `Link ${i + 1} on ${source}'s Election Coverage page is missing text`
+      );
+    }
+    if (!links[i].href || links[i].href.length < 6) {
+      throw new Error(
+        `Link ${i + 1} on ${source}'s Election Coverage page is missing href`
+      );
+    }
+  }
+}
+
+const getGothamistLinks = async (outputPath = "src/gothamist-links.js") => {
+  const response = await fetchJson(GOTHAMIST_API_URL);
+
+  if (!Array.isArray(response.items)) {
+    throw new Error("API response does not contain an items array.");
+  }
+
+  const links = response.items.map((item) => ({
+    text: item.title,
+    href: item.url,
+  }));
+
+  testValidCoverageLinks(links, "Gothamist");
+
+  fs.mkdirSync(outputPath.split("/").slice(0, -1).join("/"), {
+    recursive: true,
+  });
+
+  fs.writeFileSync(
+    outputPath,
+    `export const coverageLinksGothamist = ${JSON.stringify(links)}`,
+    "utf-8",
+    (err) => {
+      // In case of a error throw err.
+      if (err) throw err;
+    }
+  );
+
+  console.log(`✅ Successfully wrote ${links.length} links to ${outputPath}`);
+};
+
+const getTheCityLinks = async (outputPath = "src/the-city-links.js") => {
   try {
     const response = await fetch(THE_CITY_COVERAGE_URL);
     const body = await response.text();
     const $ = cheerio.load(body);
 
-    const links = [];
+    let links = [];
     $(".entry-title a").each((i, elem) => {
       if (i < 3) {
         const text = $(elem).text().trim();
@@ -20,33 +94,22 @@ const scrapeLinksToCoverage = async () => {
       }
     });
 
-    if (links.length < 3) {
-      throw new Error(
-        "Less than 3 links found on THE CITY's Election Coverage page"
-      );
-    }
+    testValidCoverageLinks(links, "THE CITY");
 
-    for (let i = 0; i < links.length; i++) {
-      if (!links[i].text || links[i].text.length === 0) {
-        throw new Error(
-          `Link ${i + 1} on THE CITY's Election Coverage page is missing text`
-        );
-      }
-      if (!links[i].href || links[i].href.length < 6) {
-        throw new Error(
-          `Link ${i + 1} on THE CITY's Election Coverage page is missing href`
-        );
-      }
-    }
+    fs.mkdirSync(outputPath.split("/").slice(0, -1).join("/"), {
+      recursive: true,
+    });
 
     fs.writeFile(
-      "src/coverage-links.js",
+      outputPath,
       `export const coverageLinksTheCity = ${JSON.stringify(links)}`,
       (err) => {
         // In case of a error throw err.
         if (err) throw err;
       }
     );
+
+    console.log(`✅ Successfully wrote ${links.length} links to ${outputPath}`);
   } catch (err) {
     console.error("Scraping failed:", err);
     process.exit(1);
@@ -123,7 +186,8 @@ function generateSitemapXML() {
 }
 
 module.exports = {
-  scrapeLinksToCoverage,
+  getTheCityLinks,
+  getGothamistLinks,
   downloadGoogleDocContent,
   generateSitemapXML,
 };
