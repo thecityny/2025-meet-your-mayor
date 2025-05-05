@@ -89,7 +89,7 @@ const getTheCityLinks = async () => {
     }
 
     fs.writeFile(
-      "src/coverage-links.js",
+      "src/the-city-links.js",
       `export const coverageLinksTheCity = ${JSON.stringify(links)}`,
       (err) => {
         // In case of a error throw err.
