@@ -16,7 +16,7 @@ const THE_CITY_DONATION_URL = "https://donorbox.org/nycdonate";
 
 const GOTHAMIST_DEFAULT_LINKS = [
   {
-    text: "'They’re coming for everyone': Fearful NY immigrant families weigh voluntary departures",
+    text: "'12 They’re coming for everyone': Fearful NY immigrant families weigh voluntary departures",
     href: "https://gothamist.com/news/theyre-coming-for-everyone-fearful-ny-immigrant-families-weigh-voluntary-departures",
   },
   {
@@ -31,7 +31,7 @@ const GOTHAMIST_DEFAULT_LINKS = [
 
 const THE_CITY_DEFAULT_LINKS = [
   {
-    text: "11 City Council Races to Watch in NYC’s June Election",
+    text: "12 City Council Races to Watch in NYC’s June Election",
     href: "https://www.thecity.nyc/2025/05/05/11-city-council-races-election-june/",
   },
   {
@@ -43,6 +43,23 @@ const THE_CITY_DEFAULT_LINKS = [
     href: "https://www.thecity.nyc/2025/04/30/eric-adams-campaign-finance-funds/",
   },
 ];
+
+const testValidSetOfLinks = (links: any[]) => {
+  if (!Array.isArray(links)) {
+    throw new Error("Links is not an array");
+  }
+  if (links.length !== 3) {
+    throw new Error("Links array is not the correct length");
+  }
+  links.forEach((link) => {
+    if (typeof link.text !== "string" && link.text.length > 5) {
+      throw new Error("Link text is not a string");
+    }
+    if (typeof link.href !== "string" && link.href.length > 5) {
+      throw new Error("Link href is not a string");
+    }
+  });
+};
 
 export const RecentCoverage: React.FC = () => {
   const [gothamistLinks, setGothamistLinks] = React.useState(
@@ -60,6 +77,10 @@ export const RecentCoverage: React.FC = () => {
         }
         return response.json();
       })
+      .then((json) => {
+        testValidSetOfLinks(json);
+        return json;
+      })
       .then((json) => setGothamistLinks(json))
       .catch((error) =>
         console.error("Error loading Gothamist Links JSON:", error)
@@ -70,6 +91,10 @@ export const RecentCoverage: React.FC = () => {
           throw new Error("Failed to fetch JSON");
         }
         return response.json();
+      })
+      .then((json) => {
+        testValidSetOfLinks(json);
+        return json;
       })
       .then((json) => setTheCityLinks(json))
       .catch((error) =>
