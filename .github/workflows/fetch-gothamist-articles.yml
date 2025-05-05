@@ -25,7 +25,7 @@ jobs:
           node <<'EOF'
           import { readFileSync } from 'fs';
 
-          const contents = readFileSync('src/gothamistLinks.js', 'utf8');
+          const contents = readFileSync('src/gothamist-links.js', 'utf8');
           const arrayMatch = contents.match(/export const coverageLinksGothamist = (\[.*\]);/s);
 
           if (!arrayMatch) {
@@ -41,7 +41,7 @@ jobs:
             if (typeof link.text !== 'string' || link.text.length < 5) {
               throw new Error(`Link ${i + 1} has an invalid 'text' field: ${link.text}`);
             }
-            if (typeof link.href !== 'string' || link.href.length < 5) {
+            if (typeof link.href !== 'string' || link.href.length < 6) {
               throw new Error(`Link ${i + 1} has an invalid 'href' field: ${link.href}`);
             }
           }
@@ -49,11 +49,15 @@ jobs:
           console.log("✅ All tests passed.");
           EOF
 
-      - name: Commit and push formatted JS file
+      - name: Commit and push formatted JS file if changed
         if: success()
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/gothamistLinks.js
-          git commit -m "Update coverageLinksGothamist export"
-          git push
+          if git diff --quiet src/gothamist-links.js; then
+            echo "No changes to commit.";
+          else
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add src/gothamist-links.js
+            git commit -m "Update Gothamist's list of recent coverage articles"
+            git push
+          fi
