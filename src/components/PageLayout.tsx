@@ -10,7 +10,7 @@ import { SocialButton } from "./SocialShareButtons";
 
 const THE_CITY_SITE_LINKS = {
   website: "https://thecity.nyc/",
-  twitter: "https://twitter.com/intent/follow?screen_name=TheCityNY",
+  x: "https://x.com/intent/follow?screen_name=TheCityNY",
   instagram: "https://www.instagram.com/thecityny",
   facebook: "https://www.facebook.com/thecityny",
   bluesky: "https://bsky.app/profile/thecity.nyc",
@@ -18,7 +18,7 @@ const THE_CITY_SITE_LINKS = {
 
 const GOTHAMIST_SITE_LINKS = {
   website: "https://gothamist.com/",
-  twitter: "https://twitter.com/gothamist",
+  x: "https://x.com/gothamist",
   instagram: "https://www.instagram.com/gothamist",
   facebook: "https://www.facebook.com/gothamist",
   bluesky: "https://bsky.app/profile/gothamist.com",
