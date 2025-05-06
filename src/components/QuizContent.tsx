@@ -118,18 +118,6 @@ export type QuizInput = {
   answer: string | null;
 };
 
-/**
- * This function creates a blank template to keep track of user's
- * responses to quiz questions.
- */
-export const createBlankAnswersList = (): QuizInput[] => {
-  const { questionX, ...questions } = questionContent;
-  return Object.entries(questions).map((question, i) => ({
-    questionNumber: i + 1,
-    answer: null,
-  }));
-};
-
 export type ScoreCard = {
   candidateName: string;
   scoreList: { questionNumber: number; subject: string; points: number }[];

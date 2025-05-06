@@ -1,8 +1,20 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { QuizInput, ScoreCard } from './components/QuizContent';
+import { questionContent } from './question-content';
 
 export type Party = "democrat" | "other" | null;
+
+/**
+ * A blank template to keep track of user's
+ * responses to quiz questions.
+ */
+export const blankAnswersList = Object.entries(questionContent)
+  .filter((question) => question[0] !== "questionX")
+  .map((question, i) => ({
+    questionNumber: i + 1,
+    answer: null,
+  }));
 
 type AppState = {
   party: Party;
@@ -27,7 +39,7 @@ export const useAppStore = create<AppState>()(persist((set) => ({
   setParty: (party) => set({ party }),
   favoriteTopics: [],
   setFavoriteTopics: (favoriteTopics) => set({favoriteTopics}),
-  answers: [],
+  answers: blankAnswersList,
   setAnswers: (answers) => set({answers}),
   score: null,
   setScore: (score) => set({score}),

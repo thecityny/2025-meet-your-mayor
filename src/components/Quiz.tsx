@@ -3,7 +3,6 @@ import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
 import {
-  createBlankAnswersList,
   formatQuestionContent,
   generateListOfCandidatesByParty,
 } from "./QuizContent";
@@ -14,7 +13,7 @@ import {
 } from "./Links";
 import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
 import { Bobblehead } from "./Illustration";
-import { Party, useAppStore } from "../useAppStore";
+import { blankAnswersList, Party, useAppStore } from "../useAppStore";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -98,7 +97,7 @@ const Quiz = () => {
     recordAnswer(questionNumber, null);
 
   const resetAnswers = () => {
-    setAnswers(createBlankAnswersList());
+    setAnswers(blankAnswersList);
     setFavoriteTopics([]);
     setHighestVisibleQuestion(0);
     saveParty(null);
