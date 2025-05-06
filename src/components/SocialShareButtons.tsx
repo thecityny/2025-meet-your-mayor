@@ -28,6 +28,27 @@ export const SocialButton: React.FC<{ url: string; ariaLabel?: string }> = ({
   />
 );
 
+const getShareText = (
+  platform: "x" | "bluesky" | "email",
+  results?: ScoreShareDetails
+) => {
+  const theCityHandle =
+    platform === "x"
+      ? "@THECITYNY"
+      : platform === "bluesky"
+      ? "@thecity.nyc"
+      : "THE CITY";
+  const gothamistHandle =
+    platform === "x"
+      ? "@Gothamist"
+      : platform === "bluesky"
+      ? "@gothamist.com"
+      : "Gothamist";
+  return !!results
+    ? `I'm a ${results.matchScore}%25 match with ${results.topCandidate} on the Meet Your Mayor quiz! Find your own match, powered by ${theCityHandle} and ${gothamistHandle}:`
+    : `Check out the Meet Your Mayor quiz from ${theCityHandle} and ${gothamistHandle}!`;
+};
+
 export const SocialShareButtons: React.FC<{
   /**
    * Details on the matching score with the top candidate — only present if the user has completed the quiz.
@@ -35,22 +56,27 @@ export const SocialShareButtons: React.FC<{
   results?: ScoreShareDetails;
 }> = ({ results }) => {
   const shareUrl = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}`;
-  const shareText = !!results
-    ? `I'm a ${results.matchScore}%25 match with ${results.topCandidate} on THE CITY's Meet Your Mayor quiz:`
-    : `Check out THE CITY's Meet Your Mayor quiz!`;
-
   return (
     <>
       <SocialButton
-        url={`https://x.com/intent/post?text=${shareText}&url=${shareUrl}`}
+        url={`https://x.com/intent/post?text=${getShareText(
+          "x",
+          results
+        )}&url=${shareUrl}`}
         ariaLabel="Share on X"
       />
       <SocialButton
-        url={`https://bsky.app/intent/compose?text=${shareText} ${shareUrl}`}
+        url={`https://bsky.app/intent/compose?text=${getShareText(
+          "bluesky",
+          results
+        )} ${shareUrl}`}
         ariaLabel="Share on Bluesky"
       />
       <SocialButton
-        url={`mailto:?subject=Meet Your Mayor: 2025&body=${shareText} ${shareUrl}`}
+        url={`mailto:?subject=Meet Your Mayor: 2025&body=${getShareText(
+          "email",
+          results
+        )} ${shareUrl}`}
         ariaLabel="Share via Email"
       />
     </>
