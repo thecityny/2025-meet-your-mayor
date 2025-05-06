@@ -8,9 +8,7 @@ import { Party, useAppStore } from "../useAppStore";
  * and formats it into a organized JS object that keeps track of all
  * candidates' responses to quiz questions, with explanations.
  */
-export const formatCandidateContent = () => {
-  const party = useAppStore((state) => state.party);
-
+export const formatCandidateContent = (party?: Party) => {
   // Filter candidates by party (if selected):
   const candidates =
     party === "democrat"
@@ -67,7 +65,8 @@ export const generateListOfCandidatesByParty = (party?: Party) => {
  * quiz question responses.
  */
 export const formatQuestionContent = () => {
-  const candidates = formatCandidateContent();
+  const party = useAppStore((state) => state.party);
+  const candidates = formatCandidateContent(party);
   const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
     candidates
       .filter((c) => c.responses[questionIndex].optionNumber === quizOption)
