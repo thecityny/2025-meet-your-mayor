@@ -45,6 +45,7 @@ export const Bobblehead: React.FC<{
         }}
         wrapperClassName={classnames("image-wrapper", "top")}
         effect="blur"
+        visibleByDefault
         alt={candidateName}
       />
       <LazyLoadImage
@@ -52,6 +53,7 @@ export const Bobblehead: React.FC<{
         className={classnames("illustration", candidatePath)}
         wrapperClassName={classnames("image-wrapper", "bottom")}
         effect="blur"
+        visibleByDefault
         alt={candidateName}
       />
       {candidateName === "Jessica Ramos" && (
@@ -67,6 +69,7 @@ export const Bobblehead: React.FC<{
             animationDelay: animationDelay,
           }}
           effect="blur"
+          visibleByDefault
           alt={candidateName}
         />
       )}
