@@ -68,14 +68,11 @@ const Quiz = () => {
     },
   ];
 
-  const saveParty = (party: Party, delay?: number) => {
-    if (highestVisibleQuestion === 0 && !!party) {
-      setHighestVisibleQuestion(1);
-    }
-
-    setTimeout(() => {
-      setParty(party);
-    }, delay || 0);
+  const resetAnswers = () => {
+    setAnswers(blankAnswersList);
+    setFavoriteTopics([]);
+    setHighestVisibleQuestion(0);
+    setParty(null);
   };
 
   const recordAnswer = (questionNumber: number, answer: string | null) => {
@@ -95,13 +92,6 @@ const Quiz = () => {
 
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
-
-  const resetAnswers = () => {
-    setAnswers(blankAnswersList);
-    setFavoriteTopics([]);
-    setHighestVisibleQuestion(0);
-    saveParty(null);
-  };
 
   const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
@@ -192,7 +182,7 @@ const Quiz = () => {
                             // If the user is selecting a party, we want to scroll to the first question
                             // after a short delay, so that the user doesn't see the content change
                             // inside the quiz intro section
-                            saveParty(button.party, ANCHOR_LINK_DURATION)
+                            setParty(button.party, ANCHOR_LINK_DURATION)
                           }
                           extraOffset={150}
                         >
