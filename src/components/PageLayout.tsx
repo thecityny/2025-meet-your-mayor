@@ -184,7 +184,7 @@ export const PageLayout: React.FC<{
     <article id="main">
       <Header />
       <Helmet>
-        <title>{`${siteName} - THE CITY`}</title>
+        <title>{`${siteName}`}</title>
         <meta name="theme-color" content="#000000" />
         <meta name="description" content={seoDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
