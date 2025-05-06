@@ -178,7 +178,7 @@ export const PageLayout: React.FC<{
     customMetadata?.socialHeadline || process.env.GATSBY_SOCIAL_HEADLINE;
   const socialDescription =
     customMetadata?.socialDescription || process.env.GATSBY_SOCIAL_DESCRIPTION;
-  const author = customMetadata?.author || process.env.GATSBY_AUTHOR;
+  const author = ["THE CITY", "Gothamist"];
 
   return (
     <article id="main">
