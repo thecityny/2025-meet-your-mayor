@@ -10,6 +10,8 @@ import { RecentCoverage } from "./RecentCoverage";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useLocation } from "@reach/router";
 import { NewsletterSignupBanner } from "./NewsletterSignup";
+import { useAppStore } from "../useAppStore";
+import { getQuestionsLeftToAnswer } from "./Results";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -23,6 +25,7 @@ type LocationState = {
 
 const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { candidateName } = pageContext;
+  const score = useAppStore((state) => state.score);
 
   const location = useLocation();
   const state = location.state as LocationState | undefined;
@@ -33,6 +36,17 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const candidateInfo = formatCandidateContent().find(
     (candidate) => candidate.name === candidateName
   );
+
+  const candidateStats =
+    score &&
+    score.find((candidate) => candidate.candidateName === candidateName);
+
+  const candidateScore =
+    !!candidateStats && getQuestionsLeftToAnswer().length === 0
+      ? Math.round(
+          (candidateStats.totalScore / candidateStats.totalPossibleScore) * 100
+        )
+      : null;
 
   if (!candidateInfo) return <></>;
 
@@ -81,8 +95,12 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           <OutboundLink to={website}>
             <button className="button">{lastName}'s Website</button>
           </OutboundLink>
-          <Link to="/">
-            <button className="button is-white">See if you're a match</button>
+          <Link to={`/${!!candidateScore ? "#results" : ""}`}>
+            <button className="button is-white">
+              {!!candidateScore
+                ? `You're a ${candidateScore}% match`
+                : "See if you're a match"}
+            </button>
           </Link>
         </div>
         <div className="eyebrow has-text-left mt-5 mb-2 is-flex is-align-items-center">

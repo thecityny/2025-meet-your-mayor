@@ -1,34 +1,27 @@
 import React from "react";
 import { groupBy, kebabCase } from "../utils";
-import {
-  formatQuestionContent,
-  generateBlankScorecard,
-  QuizInput,
-} from "./QuizContent";
+import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
 import classnames from "classnames";
 import { Link } from "gatsby";
-import { CircleIcon, Party } from "./Quiz";
+import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
+import { useAppStore } from "../useAppStore";
 
 type ResultsProps = {
-  favoriteTopics: Set<string>;
-  changeFavoriteTopics: (topic: string) => void;
   showTopicsSelector: boolean;
-  answers: QuizInput[];
   resetAnswers: () => void;
-  party?: Party;
 };
 
-const calculateScore = (
-  answers: QuizInput[],
-  favoriteTopics: Set<string>,
-  party?: Party
-) => {
+const calculateScore = () => {
+  const favoriteTopics = useAppStore((state) => state.favoriteTopics);
+  const answers = useAppStore((state) => state.answers);
+  const setScore = useAppStore((state) => state.setScore);
+
   let scorecard = generateBlankScorecard();
   let totalPossibleScore = answers.length;
-  const questionContent = formatQuestionContent(party);
+  const questionContent = formatQuestionContent();
 
   Object.entries(questionContent).forEach((questionGroup) => {
     const [subject, questions] = questionGroup;
@@ -36,7 +29,7 @@ const calculateScore = (
     // If the user has selected this topic as a favorite, set the point value to 2
     // and increase the total possible score by 1 for each question in this group:
     let pointValue = 1;
-    if (favoriteTopics.has(subject)) {
+    if (favoriteTopics.includes(subject)) {
       pointValue = 2;
       totalPossibleScore += questions.length;
     }
@@ -108,15 +101,20 @@ const calculateScore = (
     );
     candidate.totalPossibleScore = totalPossibleScore;
   });
-  return scorecard.sort((a, b) => {
+  const scorecardSorted = scorecard.sort((a, b) => {
     return b.totalScore - a.totalScore;
   });
+
+  setScore(scorecardSorted);
+  return scorecardSorted;
 };
 
-export const getQuestionsLeftToAnswer = (
-  answers: QuizInput[],
-  pickedFavoriteTopics: boolean
-) => {
+export const getQuestionsLeftToAnswer = () => {
+  const favoriteTopics = useAppStore((state) => state.favoriteTopics);
+  const answers = useAppStore((state) => state.answers);
+
+  const pickedFavoriteTopics = favoriteTopics.length > 0;
+
   let remainingQuestions = answers
     .filter((question) => question.answer === null)
     .map((question) => question.questionNumber);
@@ -141,19 +139,28 @@ const MAX_FAVORITE_TOPICS = 3;
 const MATCHES_TO_SHOW = 5;
 
 const Results: React.FC<ResultsProps> = ({
-  answers,
   resetAnswers,
-  favoriteTopics,
-  changeFavoriteTopics,
   showTopicsSelector,
-  party,
 }) => {
-  const score = calculateScore(answers, favoriteTopics, party);
+  const favoriteTopics = useAppStore((state) => state.favoriteTopics);
+  const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
+  const answers = useAppStore((state) => state.answers);
+
+  const questionContent = formatQuestionContent();
+  const score = calculateScore();
   const totalPossiblePoints = score[0].totalPossibleScore;
-  let questionsLeftToAnswer = getQuestionsLeftToAnswer(
-    answers,
-    favoriteTopics.size > 0
-  );
+
+  const changeFavoriteTopics = (topic: string) => {
+    let newArray = favoriteTopics; // Create a copy of the previous Set
+    favoriteTopics.includes(topic)
+      ? (newArray = favoriteTopics.filter(
+          (favoriteTopic) => favoriteTopic !== topic
+        ))
+      : (newArray = favoriteTopics.concat(topic)); // Add or remove the new element
+    setFavoriteTopics(newArray);
+  };
+
+  let questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   return (
     <>
@@ -182,34 +189,33 @@ const Results: React.FC<ResultsProps> = ({
                 matching score more
               </h3>
               <div className="buttons mt-5">
-                {Object.entries(formatQuestionContent()).map(
-                  (questionGroup, i) => (
-                    <div key={i}>
-                      <button
-                        className={classnames(
-                          "button",
-                          "is-white",
-                          "mb-2",
-                          favoriteTopics.has(questionGroup[0]) && "is-selected"
-                        )}
-                        onClick={() => {
-                          changeFavoriteTopics(questionGroup[0]);
-                        }}
-                        disabled={
-                          !favoriteTopics.has(questionGroup[0]) &&
-                          favoriteTopics.size >= MAX_FAVORITE_TOPICS
-                        }
-                      >
-                        {favoriteTopics.has(questionGroup[0]) && (
-                          <span className="icon is-small mr-1">✕</span>
-                        )}
-                        {questionGroup[0]}
-                      </button>
-                    </div>
-                  )
-                )}
+                {Object.entries(questionContent).map((questionGroup, i) => (
+                  <div key={i}>
+                    <button
+                      className={classnames(
+                        "button",
+                        "is-white",
+                        "mb-2",
+                        favoriteTopics.includes(questionGroup[0]) &&
+                          "is-selected"
+                      )}
+                      onClick={() => {
+                        changeFavoriteTopics(questionGroup[0]);
+                      }}
+                      disabled={
+                        !favoriteTopics.includes(questionGroup[0]) &&
+                        favoriteTopics.length >= MAX_FAVORITE_TOPICS
+                      }
+                    >
+                      {favoriteTopics.includes(questionGroup[0]) && (
+                        <span className="icon is-small mr-1">✕</span>
+                      )}
+                      {questionGroup[0]}
+                    </button>
+                  </div>
+                ))}
               </div>
-              {favoriteTopics.size > 0 && (
+              {favoriteTopics.length > 0 && (
                 <div className="question-controls">
                   <SmoothScroll to="results">
                     <button className="button py-5 is-extra-dark see-my-results">
@@ -406,12 +412,14 @@ const Results: React.FC<ResultsProps> = ({
                                   <div key={i} className="mr-6">
                                     <h3
                                       className={classnames(
-                                        favoriteTopics.has(questionGroup[0]) &&
-                                          "has-text-weight-semibold"
+                                        favoriteTopics.includes(
+                                          questionGroup[0]
+                                        ) && "has-text-weight-semibold"
                                       )}
                                     >
-                                      {favoriteTopics.has(questionGroup[0]) &&
-                                        "★"}{" "}
+                                      {favoriteTopics.includes(
+                                        questionGroup[0]
+                                      ) && "★"}{" "}
                                       {questionGroup[0]}{" "}
                                     </h3>
                                     <div className="copy">

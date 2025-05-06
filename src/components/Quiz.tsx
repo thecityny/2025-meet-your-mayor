@@ -1,12 +1,11 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
 import {
   createBlankAnswersList,
   formatQuestionContent,
-  generateListOfCandidates,
-  QuizInput,
+  generateListOfCandidatesByParty,
 } from "./QuizContent";
 import {
   ANCHOR_LINK_DURATION,
@@ -15,8 +14,7 @@ import {
 } from "./Links";
 import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
 import { Bobblehead } from "./Illustration";
-
-export type Party = "democrat" | "other" | null;
+import { Party, useAppStore } from "../useAppStore";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -32,53 +30,42 @@ export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
 );
 
 const Quiz = () => {
-  const [party, setParty] = React.useState<Party>(null);
-  const [answers, setAnswers] = React.useState(createBlankAnswersList());
-  /**
-   * This state is used to keep track of the number of the last question
-   * that was visible to the user.
-   */
-  const [highestVisibleQuestion, setHighestVisibleQuestion] =
-    React.useState<number>(0);
-  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
-    new Set()
+  const party = useAppStore((state) => state.party);
+  const setParty = useAppStore((state) => state.setParty);
+
+  const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
+
+  const answers = useAppStore((state) => state.answers);
+  const setAnswers = useAppStore((state) => state.setAnswers);
+
+  const highestVisibleQuestion = useAppStore(
+    (state) => state.highestVisibleQuestion
+  );
+  const setHighestVisibleQuestion = useAppStore(
+    (state) => state.setHighestVisibleQuestion
   );
 
-  useEffect(() => {
-    const savedParty = localStorage.getItem(`party`);
-    saveParty(savedParty as Party);
+  const questions = formatQuestionContent();
 
-    const userAnswers = localStorage.getItem(`userAnswers`);
-    if (!!userAnswers) {
-      const recordedAnswers = JSON.parse(userAnswers) as QuizInput[];
-      setAnswers(recordedAnswers);
-
-      const lastQuestion = recordedAnswers.reduce((acc, curr) => {
-        if (!!curr.answer) {
-          return Math.max(acc, curr.questionNumber);
-        }
-        return acc;
-      }, 0);
-      setHighestVisibleQuestion(lastQuestion + 1);
-    }
-
-    const savedFavoriteTopics = localStorage.getItem(`favoriteTopics`);
-    setFavoriteTopics(new Set(JSON.parse(savedFavoriteTopics || "[]")));
-  }, []);
+  const democraticCandidates = generateListOfCandidatesByParty("democrat");
+  const otherCandidates = generateListOfCandidatesByParty("other");
 
   type PartySelectorButton = {
     label: string;
     party: Party;
+    candidates: { name: string; slug: string }[];
   };
 
   const partySelectorButtons: PartySelectorButton[] = [
     {
       label: "Democrat",
       party: "democrat",
+      candidates: democraticCandidates,
     },
     {
       label: "All Candidates",
       party: "other",
+      candidates: otherCandidates,
     },
   ];
 
@@ -89,7 +76,6 @@ const Quiz = () => {
 
     setTimeout(() => {
       setParty(party);
-      localStorage.setItem(`party`, party || "");
     }, delay || 0);
   };
 
@@ -101,40 +87,24 @@ const Quiz = () => {
       return answerObj;
     });
     setAnswers(updatedAnswers);
-    localStorage.setItem(`userAnswers`, `${JSON.stringify(updatedAnswers)}`);
 
     if (highestVisibleQuestion === questionNumber) {
-      setHighestVisibleQuestion((prev) => prev + 1);
+      const prev = highestVisibleQuestion;
+      setHighestVisibleQuestion(prev + 1);
     }
   };
 
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
 
-  const changeFavoriteTopics = (topic: string) =>
-    setFavoriteTopics((prevSet) => {
-      let newSet = new Set(prevSet); // Create a copy of the previous Set
-      prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
-      localStorage.setItem(
-        `favoriteTopics`,
-        JSON.stringify(Array.from(newSet))
-      );
-      return newSet; // Return the updated Set
-    });
-
   const resetAnswers = () => {
     setAnswers(createBlankAnswersList());
-    localStorage.setItem(`userAnswers`, "");
-    setFavoriteTopics(new Set());
-    localStorage.setItem(`favoriteTopics`, "");
+    setFavoriteTopics([]);
     setHighestVisibleQuestion(0);
     saveParty(null);
   };
 
-  const questionsLeftToAnswer = () =>
-    getQuestionsLeftToAnswer(answers, favoriteTopics.size > 0);
-
-  const questions = formatQuestionContent(party);
+  const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   return (
     <>
@@ -161,7 +131,7 @@ const Quiz = () => {
               </p>
 
               <div className="pt-3">
-                {questionsLeftToAnswer().length === 0 ? (
+                {questionsLeftToAnswer.length === 0 ? (
                   <>
                     <h2 className="deck has-text-left">
                       You completed the quiz already!
@@ -191,7 +161,7 @@ const Quiz = () => {
 
                       <div className="field is-grouped">
                         <SmoothScroll
-                          to={`question-${questionsLeftToAnswer()[0]}`}
+                          to={`question-${questionsLeftToAnswer[0]}`}
                           className="control"
                         >
                           <button className="button">Continue</button>
@@ -234,25 +204,23 @@ const Quiz = () => {
                                 Add
                               </span>
                             )}
-                            {generateListOfCandidates(button.party).map(
-                              (candidate, i) => (
-                                <div key={i}>
-                                  <div
-                                    key={i}
-                                    className="is-flex is-flex-direction-column is-align-items-center mr-1"
-                                  >
-                                    <Bobblehead
-                                      candidateName={candidate.name}
-                                      size="is-48x48"
-                                      showBustOnly
-                                    />
-                                    <span className="label has-text-centered">
-                                      {abbreviateName(candidate.name)}
-                                    </span>
-                                  </div>
+                            {button.candidates.map((candidate, i) => (
+                              <div key={i}>
+                                <div
+                                  key={i}
+                                  className="is-flex is-flex-direction-column is-align-items-center mr-1"
+                                >
+                                  <Bobblehead
+                                    candidateName={candidate.name}
+                                    size="is-48x48"
+                                    showBustOnly
+                                  />
+                                  <span className="label has-text-centered">
+                                    {abbreviateName(candidate.name)}
+                                  </span>
                                 </div>
-                              )
-                            )}
+                              </div>
+                            ))}
                           </div>{" "}
                         </SmoothScroll>
                       </div>
@@ -280,32 +248,29 @@ const Quiz = () => {
                 }}
               >
                 <div className="is-flex is-justify-content-center pt-1">
-                  {Object.entries(formatQuestionContent()).map(
-                    (questionGroup, i) => (
-                      <div key={i} className="is-inline-block">
-                        {questionGroup[1].map((question, i) => {
-                          const questionAnswered = answers.find(
-                            (answer) =>
-                              answer.questionNumber === question.number
-                          )?.answer;
-                          return (
-                            <span
-                              key={i}
-                              style={{
-                                marginRight: "3px",
-                              }}
-                            >
-                              {!!questionAnswered ? (
-                                <CircleIcon filledIn />
-                              ) : (
-                                <CircleIcon />
-                              )}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    )
-                  )}
+                  {Object.entries(questions).map((questionGroup, i) => (
+                    <div key={i} className="is-inline-block">
+                      {questionGroup[1].map((question, i) => {
+                        const questionAnswered = answers.find(
+                          (answer) => answer.questionNumber === question.number
+                        )?.answer;
+                        return (
+                          <span
+                            key={i}
+                            style={{
+                              marginRight: "3px",
+                            }}
+                          >
+                            {!!questionAnswered ? (
+                              <CircleIcon filledIn />
+                            ) : (
+                              <CircleIcon />
+                            )}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="columns ml-0">
@@ -488,54 +453,48 @@ const Quiz = () => {
                     }}
                   >
                     <p className="has-text-left eyebrow mb-2">PROGRESS:</p>
-                    {Object.entries(formatQuestionContent()).map(
-                      (questionGroup, i) => (
-                        <div className="has-text-left" key={i}>
-                          <SmoothScroll
-                            key={i}
-                            enableActiveClass
-                            className="mr-1 copy"
-                            style={{
-                              pointerEvents: "none",
-                            }}
-                            to={`section-${questionGroup[0].toLowerCase()}`}
-                          >
-                            {questionGroup[0]}
-                          </SmoothScroll>
-                          {questionGroup[1].map((question, i) => {
-                            const questionAnswered = answers.find(
-                              (answer) =>
-                                answer.questionNumber === question.number
-                            )?.answer;
-                            return (
-                              <span
-                                key={i}
-                                style={{
-                                  marginRight: "1px",
-                                }}
-                              >
-                                {!!questionAnswered ? (
-                                  <CircleIcon filledIn />
-                                ) : (
-                                  <CircleIcon />
-                                )}
-                              </span>
-                            );
-                          })}
-                        </div>
-                      )
-                    )}
+                    {Object.entries(questions).map((questionGroup, i) => (
+                      <div className="has-text-left" key={i}>
+                        <SmoothScroll
+                          key={i}
+                          enableActiveClass
+                          className="mr-1 copy"
+                          style={{
+                            pointerEvents: "none",
+                          }}
+                          to={`section-${questionGroup[0].toLowerCase()}`}
+                        >
+                          {questionGroup[0]}
+                        </SmoothScroll>
+                        {questionGroup[1].map((question, i) => {
+                          const questionAnswered = answers.find(
+                            (answer) =>
+                              answer.questionNumber === question.number
+                          )?.answer;
+                          return (
+                            <span
+                              key={i}
+                              style={{
+                                marginRight: "1px",
+                              }}
+                            >
+                              {!!questionAnswered ? (
+                                <CircleIcon filledIn />
+                              ) : (
+                                <CircleIcon />
+                              )}
+                            </span>
+                          );
+                        })}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
             <Results
-              favoriteTopics={favoriteTopics}
-              changeFavoriteTopics={changeFavoriteTopics}
               showTopicsSelector={highestVisibleQuestion > answers.length}
-              answers={answers}
               resetAnswers={resetAnswers}
-              party={party}
             />
           </div>
         )}
