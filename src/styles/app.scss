@@ -313,6 +313,11 @@ details {
     height: 100%;
     overflow: hidden;
     min-height: 200px;
+
+    // For the big illustration on the landing page, apply a more subtle bobble
+    .image .image-wrapper.top .illustration {
+      animation: bobble-softly 0.6s infinite ease-in-out;
+    }
   }
 
   .slide {
@@ -618,11 +623,6 @@ $bust-only-cropping-factor: -15%;
       &.background {
         z-index: 1;
       }
-    }
-
-    // For the big illustration on the landing page, apply a more subtle bobble
-    &.is-1by2 .top .illustration {
-      animation: bobble-softly 0.6s infinite ease-in-out;
     }
   }
   &:not(.bust-only) {
