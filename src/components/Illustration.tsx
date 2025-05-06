@@ -8,12 +8,14 @@ export const Bobblehead: React.FC<{
   size: "is-48x48" | "is-64x64" | "is-96x96" | "is-128x128" | "is-1by2";
   customClassNames?: string;
   showBustOnly?: boolean;
+  loadWithBlurEffect?: boolean;
   startAnimationRightAway?: boolean;
 }> = ({
   candidateName,
   size,
   customClassNames,
   showBustOnly,
+  loadWithBlurEffect,
   startAnimationRightAway,
 }) => {
   const isCandidatePage = useIsCandidatePage();
@@ -44,7 +46,7 @@ export const Bobblehead: React.FC<{
           animationDelay: animationDelay,
         }}
         wrapperClassName={classnames("image-wrapper", "top")}
-        effect="blur"
+        effect={loadWithBlurEffect ? "blur" : undefined}
         visibleByDefault
         alt={candidateName}
       />
@@ -52,23 +54,19 @@ export const Bobblehead: React.FC<{
         src={`${imgPathPrefix}-body.png`}
         className={classnames("illustration", candidatePath)}
         wrapperClassName={classnames("image-wrapper", "bottom")}
-        effect="blur"
+        effect={loadWithBlurEffect ? "blur" : undefined}
         visibleByDefault
         alt={candidateName}
       />
       {candidateName === "Jessica Ramos" && (
         <LazyLoadImage
           src={`${imgPathPrefix}-head-back.png`}
-          className={classnames(
-            "illustration",
-
-            candidatePath
-          )}
+          className={classnames("illustration", candidatePath)}
           wrapperClassName={classnames("image-wrapper", "top", "background")}
           style={{
             animationDelay: animationDelay,
           }}
-          effect="blur"
+          effect={loadWithBlurEffect ? "blur" : undefined}
           visibleByDefault
           alt={candidateName}
         />
