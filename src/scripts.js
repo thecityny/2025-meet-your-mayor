@@ -19,7 +19,12 @@ const downloadGoogleDocContent = () => {
       } else {
         fs.writeFile(
           `src/${fileName}-content.js`,
-          `export const ${fileName}Content = ${JSON.stringify(json)}`,
+          `export const ${fileName}Content = ${JSON.stringify(
+            Object.fromEntries(
+              // Remove first element (which is always example)
+              Object.entries(json).filter((element, i) => i > 0)
+            )
+          )}`,
           (err) => {
             // In case of a error throw err.
             if (err) throw err;

@@ -1,16 +1,4 @@
 export const questionContent = {
-  questionX: {
-    title: "The full text for the question.",
-    subject:
-      "The subject or topic that the question belongs to (such as Streets, Schools, Housing…)",
-    tellMeMore:
-      "A short explanation of the question or topic to give some more context. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
-    option1: "Text for the first quiz option.",
-    option2: "Text for the second quiz option.",
-    option3: "Text for the third quiz option.",
-    option4:
-      "Text for the fourth quiz option, if there is one. If not, leave this blank.",
-  },
   question1: {
     title: "What is your preferred model for outdoor dining?",
     subject: "Streets",
