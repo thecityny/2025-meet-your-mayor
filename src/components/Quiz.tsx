@@ -13,7 +13,7 @@ import {
 } from "./Links";
 import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
 import { Bobblehead } from "./Illustration";
-import { blankAnswersList, Party, useAppStore } from "../useAppStore";
+import { Party, useAppStore } from "../useAppStore";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -32,10 +32,10 @@ const Quiz = () => {
   const party = useAppStore((state) => state.party);
   const setParty = useAppStore((state) => state.setParty);
 
-  const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
-
   const answers = useAppStore((state) => state.answers);
   const setAnswers = useAppStore((state) => state.setAnswers);
+
+  const resetAnswers = useAppStore((state) => state.resetAnswers);
 
   const highestVisibleQuestion = useAppStore(
     (state) => state.highestVisibleQuestion
@@ -67,13 +67,6 @@ const Quiz = () => {
       candidates: otherCandidates,
     },
   ];
-
-  const resetAnswers = () => {
-    setAnswers(blankAnswersList);
-    setFavoriteTopics([]);
-    setHighestVisibleQuestion(0);
-    setParty(null);
-  };
 
   const recordAnswer = (questionNumber: number, answer: string | null) => {
     const updatedAnswers = answers.map((answerObj) => {
@@ -481,10 +474,7 @@ const Quiz = () => {
                 </div>
               </div>
             </div>
-            <Results
-              showTopicsSelector={highestVisibleQuestion > answers.length}
-              resetAnswers={resetAnswers}
-            />
+            <Results />
           </div>
         )}
       </div>

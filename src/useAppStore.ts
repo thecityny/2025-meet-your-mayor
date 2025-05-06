@@ -31,6 +31,7 @@ type AppState = {
    */
   highestVisibleQuestion: number;
   setHighestVisibleQuestion: (highestVisibleQuestion: number) => void;
+  resetAnswers: () => void;
 };
 
 export const useAppStore = create<AppState>()(
@@ -56,6 +57,13 @@ export const useAppStore = create<AppState>()(
       highestVisibleQuestion: 0,
       setHighestVisibleQuestion: (highestVisibleQuestion) =>
         set({ highestVisibleQuestion }),
+      resetAnswers: () =>
+        set({
+          answers: blankAnswersList,
+          favoriteTopics: [],
+          highestVisibleQuestion: 0,
+          party: null,
+        }),
     }),
     {
       name: "app-store",
