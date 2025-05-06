@@ -11,10 +11,9 @@ import classnames from "classnames";
 import { Link } from "gatsby";
 import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
+import { useAppStore } from "../useAppStore";
 
 type ResultsProps = {
-  favoriteTopics: Set<string>;
-  changeFavoriteTopics: (topic: string) => void;
   showTopicsSelector: boolean;
   answers: QuizInput[];
   resetAnswers: () => void;
@@ -138,13 +137,20 @@ const MATCHES_TO_SHOW = 5;
 const Results: React.FC<ResultsProps> = ({
   answers,
   resetAnswers,
-  favoriteTopics,
-  changeFavoriteTopics,
   showTopicsSelector,
 }) => {
+  const favoriteTopics = useAppStore((state) => state.favoriteTopics);
+  const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
   const questionContent = formatQuestionContent();
   const score = calculateScore(answers, favoriteTopics);
   const totalPossiblePoints = score[0].totalPossibleScore;
+
+  const changeFavoriteTopics = (topic: string) => {
+    let newSet = new Set(favoriteTopics); // Create a copy of the previous Set
+    favoriteTopics.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
+    localStorage.setItem(`favoriteTopics`, JSON.stringify(Array.from(newSet)));
+    setFavoriteTopics(newSet);
+  };
 
   let questionsLeftToAnswer = getQuestionsLeftToAnswer(
     answers,

@@ -33,6 +33,8 @@ export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
 const Quiz = () => {
   const party = useAppStore((state) => state.party);
   const setParty = useAppStore((state) => state.setParty);
+  const favoriteTopics = useAppStore((state) => state.favoriteTopics);
+  const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
   const [answers, setAnswers] = React.useState(createBlankAnswersList());
   /**
    * This state is used to keep track of the number of the last question
@@ -40,9 +42,6 @@ const Quiz = () => {
    */
   const [highestVisibleQuestion, setHighestVisibleQuestion] =
     React.useState<number>(0);
-  const [favoriteTopics, setFavoriteTopics] = React.useState<Set<string>>(
-    new Set()
-  );
 
   useEffect(() => {
     const savedParty = localStorage.getItem(`party`);
@@ -118,17 +117,6 @@ const Quiz = () => {
 
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
-
-  const changeFavoriteTopics = (topic: string) =>
-    setFavoriteTopics((prevSet) => {
-      let newSet = new Set(prevSet); // Create a copy of the previous Set
-      prevSet.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
-      localStorage.setItem(
-        `favoriteTopics`,
-        JSON.stringify(Array.from(newSet))
-      );
-      return newSet; // Return the updated Set
-    });
 
   const resetAnswers = () => {
     setAnswers(createBlankAnswersList());
@@ -529,8 +517,6 @@ const Quiz = () => {
               </div>
             </div>
             <Results
-              favoriteTopics={favoriteTopics}
-              changeFavoriteTopics={changeFavoriteTopics}
               showTopicsSelector={highestVisibleQuestion > answers.length}
               answers={answers}
               resetAnswers={resetAnswers}
