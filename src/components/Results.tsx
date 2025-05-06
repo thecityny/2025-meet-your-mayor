@@ -15,11 +15,14 @@ import { useAppStore } from "../useAppStore";
 
 type ResultsProps = {
   showTopicsSelector: boolean;
-  answers: QuizInput[];
   resetAnswers: () => void;
 };
 
-const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
+const calculateScore = () => {
+  const favoriteTopics = useAppStore((state) => state.favoriteTopics);
+  const answers = useAppStore((state) => state.answers);
+  const setScore = useAppStore((state) => state.setScore);
+
   let scorecard = generateBlankScorecard();
   let totalPossibleScore = answers.length;
   const questionContent = formatQuestionContent();
@@ -102,9 +105,12 @@ const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
     );
     candidate.totalPossibleScore = totalPossibleScore;
   });
-  return scorecard.sort((a, b) => {
+  const scorecardSorted = scorecard.sort((a, b) => {
     return b.totalScore - a.totalScore;
   });
+
+  setScore(scorecardSorted);
+  return scorecardSorted;
 };
 
 export const getQuestionsLeftToAnswer = (
@@ -135,14 +141,15 @@ const MAX_FAVORITE_TOPICS = 3;
 const MATCHES_TO_SHOW = 5;
 
 const Results: React.FC<ResultsProps> = ({
-  answers,
   resetAnswers,
   showTopicsSelector,
 }) => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
   const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
+  const answers = useAppStore((state) => state.answers);
+
   const questionContent = formatQuestionContent();
-  const score = calculateScore(answers, favoriteTopics);
+  const score = calculateScore();
   const totalPossiblePoints = score[0].totalPossibleScore;
 
   const changeFavoriteTopics = (topic: string) => {

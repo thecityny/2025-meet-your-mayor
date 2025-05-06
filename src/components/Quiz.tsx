@@ -35,7 +35,8 @@ const Quiz = () => {
   const setParty = useAppStore((state) => state.setParty);
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
   const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
-  const [answers, setAnswers] = React.useState(createBlankAnswersList());
+  const answers = useAppStore((state) => state.answers);
+  const setAnswers = useAppStore((state) => state.setAnswers);
   /**
    * This state is used to keep track of the number of the last question
    * that was visible to the user.
@@ -59,6 +60,9 @@ const Quiz = () => {
         return acc;
       }, 0);
       setHighestVisibleQuestion(lastQuestion + 1);
+    } else {
+      setHighestVisibleQuestion(!!savedParty ? 1 : 0);
+      setAnswers(createBlankAnswersList());
     }
 
     const savedFavoriteTopics = localStorage.getItem(`favoriteTopics`);
@@ -518,7 +522,6 @@ const Quiz = () => {
             </div>
             <Results
               showTopicsSelector={highestVisibleQuestion > answers.length}
-              answers={answers}
               resetAnswers={resetAnswers}
             />
           </div>
