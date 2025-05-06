@@ -11,7 +11,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useLocation } from "@reach/router";
 import { NewsletterSignupBanner } from "./NewsletterSignup";
 import { useAppStore } from "../useAppStore";
-import { getQuestionsLeftToAnswer } from "./Results";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
