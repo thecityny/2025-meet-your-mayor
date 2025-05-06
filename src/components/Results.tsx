@@ -9,7 +9,7 @@ import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
 import classnames from "classnames";
 import { Link } from "gatsby";
-import { CircleIcon, Party } from "./Quiz";
+import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
 
 type ResultsProps = {
@@ -18,17 +18,12 @@ type ResultsProps = {
   showTopicsSelector: boolean;
   answers: QuizInput[];
   resetAnswers: () => void;
-  party?: Party;
 };
 
-const calculateScore = (
-  answers: QuizInput[],
-  favoriteTopics: Set<string>,
-  party?: Party
-) => {
+const calculateScore = (answers: QuizInput[], favoriteTopics: Set<string>) => {
   let scorecard = generateBlankScorecard();
   let totalPossibleScore = answers.length;
-  const questionContent = formatQuestionContent(party);
+  const questionContent = formatQuestionContent();
 
   Object.entries(questionContent).forEach((questionGroup) => {
     const [subject, questions] = questionGroup;
@@ -146,10 +141,11 @@ const Results: React.FC<ResultsProps> = ({
   favoriteTopics,
   changeFavoriteTopics,
   showTopicsSelector,
-  party,
 }) => {
-  const score = calculateScore(answers, favoriteTopics, party);
+  const questionContent = formatQuestionContent();
+  const score = calculateScore(answers, favoriteTopics);
   const totalPossiblePoints = score[0].totalPossibleScore;
+
   let questionsLeftToAnswer = getQuestionsLeftToAnswer(
     answers,
     favoriteTopics.size > 0
@@ -182,32 +178,30 @@ const Results: React.FC<ResultsProps> = ({
                 matching score more
               </h3>
               <div className="buttons mt-5">
-                {Object.entries(formatQuestionContent()).map(
-                  (questionGroup, i) => (
-                    <div key={i}>
-                      <button
-                        className={classnames(
-                          "button",
-                          "is-white",
-                          "mb-2",
-                          favoriteTopics.has(questionGroup[0]) && "is-selected"
-                        )}
-                        onClick={() => {
-                          changeFavoriteTopics(questionGroup[0]);
-                        }}
-                        disabled={
-                          !favoriteTopics.has(questionGroup[0]) &&
-                          favoriteTopics.size >= MAX_FAVORITE_TOPICS
-                        }
-                      >
-                        {favoriteTopics.has(questionGroup[0]) && (
-                          <span className="icon is-small mr-1">✕</span>
-                        )}
-                        {questionGroup[0]}
-                      </button>
-                    </div>
-                  )
-                )}
+                {Object.entries(questionContent).map((questionGroup, i) => (
+                  <div key={i}>
+                    <button
+                      className={classnames(
+                        "button",
+                        "is-white",
+                        "mb-2",
+                        favoriteTopics.has(questionGroup[0]) && "is-selected"
+                      )}
+                      onClick={() => {
+                        changeFavoriteTopics(questionGroup[0]);
+                      }}
+                      disabled={
+                        !favoriteTopics.has(questionGroup[0]) &&
+                        favoriteTopics.size >= MAX_FAVORITE_TOPICS
+                      }
+                    >
+                      {favoriteTopics.has(questionGroup[0]) && (
+                        <span className="icon is-small mr-1">✕</span>
+                      )}
+                      {questionGroup[0]}
+                    </button>
+                  </div>
+                ))}
               </div>
               {favoriteTopics.size > 0 && (
                 <div className="question-controls">

@@ -1,15 +1,16 @@
 import { questionContent } from "../question-content";
 import { candidateContent } from "../candidate-content";
 import { groupBy, kebabCase } from "../utils";
-import { Party } from "./Quiz";
+import { Party, useAppStore } from "../useAppStore";
 
 /**
  * This function takes our raw JSON content from `candidate-content.js`
  * and formats it into a organized JS object that keeps track of all
  * candidates' responses to quiz questions, with explanations.
  */
-export const formatCandidateContent = (party?: Party) => {
+export const formatCandidateContent = () => {
   const { candidateX, ...candidatesAll } = candidateContent;
+  const party = useAppStore((state) => state.party);
 
   // Filter candidates by party (if selected):
   const candidates =
@@ -44,7 +45,7 @@ export const formatCandidateContent = (party?: Party) => {
   });
 };
 
-export const generateListOfCandidates = (party?: Party) => {
+export const generateListOfCandidatesByParty = (party?: Party) => {
   const { candidateX, ...candidates } = candidateContent;
   return Object.values(candidates)
     .sort((a, b) => (a.name > b.name ? 1 : -1)) // Sort alphabetically by name
@@ -67,8 +68,8 @@ export const generateListOfCandidates = (party?: Party) => {
  * questions and answers, joining on which candidates correspond to which
  * quiz question responses.
  */
-export const formatQuestionContent = (party?: Party) => {
-  const candidates = formatCandidateContent(party);
+export const formatQuestionContent = () => {
+  const candidates = formatCandidateContent();
   const { questionX, ...questions } = questionContent;
   const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
     candidates
