@@ -3,7 +3,6 @@ import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
 import {
-  createBlankAnswersList,
   formatQuestionContent,
   generateListOfCandidatesByParty,
 } from "./QuizContent";
@@ -33,10 +32,10 @@ const Quiz = () => {
   const party = useAppStore((state) => state.party);
   const setParty = useAppStore((state) => state.setParty);
 
-  const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
-
   const answers = useAppStore((state) => state.answers);
   const setAnswers = useAppStore((state) => state.setAnswers);
+
+  const resetAnswers = useAppStore((state) => state.resetAnswers);
 
   const highestVisibleQuestion = useAppStore(
     (state) => state.highestVisibleQuestion
@@ -69,16 +68,6 @@ const Quiz = () => {
     },
   ];
 
-  const saveParty = (party: Party, delay?: number) => {
-    if (highestVisibleQuestion === 0 && !!party) {
-      setHighestVisibleQuestion(1);
-    }
-
-    setTimeout(() => {
-      setParty(party);
-    }, delay || 0);
-  };
-
   const recordAnswer = (questionNumber: number, answer: string | null) => {
     const updatedAnswers = answers.map((answerObj) => {
       if (answerObj.questionNumber === questionNumber) {
@@ -96,13 +85,6 @@ const Quiz = () => {
 
   const clearAnswer = (questionNumber: number) =>
     recordAnswer(questionNumber, null);
-
-  const resetAnswers = () => {
-    setAnswers(createBlankAnswersList());
-    setFavoriteTopics([]);
-    setHighestVisibleQuestion(0);
-    saveParty(null);
-  };
 
   const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
@@ -193,7 +175,7 @@ const Quiz = () => {
                             // If the user is selecting a party, we want to scroll to the first question
                             // after a short delay, so that the user doesn't see the content change
                             // inside the quiz intro section
-                            saveParty(button.party, ANCHOR_LINK_DURATION)
+                            setParty(button.party, ANCHOR_LINK_DURATION)
                           }
                           extraOffset={150}
                         >
@@ -492,10 +474,7 @@ const Quiz = () => {
                 </div>
               </div>
             </div>
-            <Results
-              showTopicsSelector={highestVisibleQuestion > answers.length}
-              resetAnswers={resetAnswers}
-            />
+            <Results />
           </div>
         )}
       </div>

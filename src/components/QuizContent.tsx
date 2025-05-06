@@ -9,18 +9,17 @@ import { Party, useAppStore } from "../useAppStore";
  * candidates' responses to quiz questions, with explanations.
  */
 export const formatCandidateContent = () => {
-  const { candidateX, ...candidatesAll } = candidateContent;
   const party = useAppStore((state) => state.party);
 
   // Filter candidates by party (if selected):
   const candidates =
     party === "democrat"
       ? Object.fromEntries(
-          Object.entries(candidatesAll).filter(
+          Object.entries(candidateContent).filter(
             (candidate) => candidate[1].party === "democrat"
           )
         )
-      : candidatesAll;
+      : candidateContent;
 
   const splitCandidateInfo = (text: string) => text.split(" | ");
 
@@ -46,9 +45,7 @@ export const formatCandidateContent = () => {
 };
 
 export const generateListOfCandidatesByParty = (party?: Party) => {
-  const { candidateX, ...candidates } = candidateContent;
-
-  return Object.values(candidates)
+  return Object.values(candidateContent)
     .sort((a, b) => (a.name > b.name ? 1 : -1)) // Sort alphabetically by name
     .filter((candidate) =>
       party === "democrat"
@@ -71,7 +68,6 @@ export const generateListOfCandidatesByParty = (party?: Party) => {
  */
 export const formatQuestionContent = () => {
   const candidates = formatCandidateContent();
-  const { questionX, ...questions } = questionContent;
   const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
     candidates
       .filter((c) => c.responses[questionIndex].optionNumber === quizOption)
@@ -80,7 +76,7 @@ export const formatQuestionContent = () => {
         quote: c.responses[questionIndex].quote,
         source: c.responses[questionIndex].source,
       }));
-  const questonsArray = Object.values(questions).map((question, i) => ({
+  const questonsArray = Object.values(questionContent).map((question, i) => ({
     ...question,
     number: i + 1,
     option1: {
@@ -118,18 +114,6 @@ export type QuizInput = {
   answer: string | null;
 };
 
-/**
- * This function creates a blank template to keep track of user's
- * responses to quiz questions.
- */
-export const createBlankAnswersList = (): QuizInput[] => {
-  const { questionX, ...questions } = questionContent;
-  return Object.entries(questions).map((question, i) => ({
-    questionNumber: i + 1,
-    answer: null,
-  }));
-};
-
 export type ScoreCard = {
   candidateName: string;
   scoreList: { questionNumber: number; subject: string; points: number }[];
@@ -142,8 +126,7 @@ export type ScoreCard = {
  * candidates match up with user responses most closely.
  */
 export const generateBlankScorecard = (): ScoreCard => {
-  const { candidateX, ...candidates } = candidateContent;
-  return Object.entries(candidates).map((candidate) => {
+  return Object.entries(candidateContent).map((candidate) => {
     return {
       candidateName: candidate[1].name,
       scoreList: [],

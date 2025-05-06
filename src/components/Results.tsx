@@ -9,11 +9,6 @@ import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
 import { useAppStore } from "../useAppStore";
 
-type ResultsProps = {
-  showTopicsSelector: boolean;
-  resetAnswers: () => void;
-};
-
 const calculateScore = () => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
   const answers = useAppStore((state) => state.answers);
@@ -138,17 +133,22 @@ const MAX_FAVORITE_TOPICS = 3;
  */
 const MATCHES_TO_SHOW = 5;
 
-const Results: React.FC<ResultsProps> = ({
-  resetAnswers,
-  showTopicsSelector,
-}) => {
+const Results: React.FC = () => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
   const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
+
   const answers = useAppStore((state) => state.answers);
+  const resetAnswers = useAppStore((state) => state.resetAnswers);
+
+  const highestVisibleQuestion = useAppStore(
+    (state) => state.highestVisibleQuestion
+  );
 
   const questionContent = formatQuestionContent();
   const score = calculateScore();
   const totalPossiblePoints = score[0].totalPossibleScore;
+
+  const showTopicsSelector = highestVisibleQuestion > answers.length;
 
   const changeFavoriteTopics = (topic: string) => {
     let newArray = favoriteTopics; // Create a copy of the previous Set
