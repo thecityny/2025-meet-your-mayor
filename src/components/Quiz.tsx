@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
@@ -6,7 +6,6 @@ import {
   createBlankAnswersList,
   formatQuestionContent,
   generateListOfCandidatesByParty,
-  QuizInput,
 } from "./QuizContent";
 import {
   ANCHOR_LINK_DURATION,
@@ -46,31 +45,6 @@ const Quiz = () => {
     (state) => state.setHighestVisibleQuestion
   );
 
-  useEffect(() => {
-    const savedParty = localStorage.getItem(`party`);
-    saveParty(savedParty as Party);
-
-    const userAnswers = localStorage.getItem(`userAnswers`);
-    if (!!userAnswers) {
-      const recordedAnswers = JSON.parse(userAnswers) as QuizInput[];
-      setAnswers(recordedAnswers);
-
-      const lastQuestion = recordedAnswers.reduce((acc, curr) => {
-        if (!!curr.answer) {
-          return Math.max(acc, curr.questionNumber);
-        }
-        return acc;
-      }, 0);
-      setHighestVisibleQuestion(lastQuestion + 1);
-    } else {
-      setHighestVisibleQuestion(!!savedParty ? 1 : 0);
-      setAnswers(createBlankAnswersList());
-    }
-
-    const savedFavoriteTopics = localStorage.getItem(`favoriteTopics`);
-    setFavoriteTopics(new Set(JSON.parse(savedFavoriteTopics || "[]")));
-  }, []);
-
   const questions = formatQuestionContent();
 
   const democraticCandidates = generateListOfCandidatesByParty("democrat");
@@ -102,7 +76,6 @@ const Quiz = () => {
 
     setTimeout(() => {
       setParty(party);
-      localStorage.setItem(`party`, party || "");
     }, delay || 0);
   };
 
@@ -114,7 +87,6 @@ const Quiz = () => {
       return answerObj;
     });
     setAnswers(updatedAnswers);
-    localStorage.setItem(`userAnswers`, `${JSON.stringify(updatedAnswers)}`);
 
     if (highestVisibleQuestion === questionNumber) {
       const prev = highestVisibleQuestion;
@@ -127,9 +99,7 @@ const Quiz = () => {
 
   const resetAnswers = () => {
     setAnswers(createBlankAnswersList());
-    localStorage.setItem(`userAnswers`, "");
-    setFavoriteTopics(new Set());
-    localStorage.setItem(`favoriteTopics`, "");
+    setFavoriteTopics([]);
     setHighestVisibleQuestion(0);
     saveParty(null);
   };

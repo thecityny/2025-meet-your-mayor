@@ -29,7 +29,7 @@ const calculateScore = () => {
     // If the user has selected this topic as a favorite, set the point value to 2
     // and increase the total possible score by 1 for each question in this group:
     let pointValue = 1;
-    if (favoriteTopics.has(subject)) {
+    if (favoriteTopics.includes(subject)) {
       pointValue = 2;
       totalPossibleScore += questions.length;
     }
@@ -113,7 +113,7 @@ export const getQuestionsLeftToAnswer = () => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
   const answers = useAppStore((state) => state.answers);
 
-  const pickedFavoriteTopics = favoriteTopics.size > 0;
+  const pickedFavoriteTopics = favoriteTopics.length > 0;
 
   let remainingQuestions = answers
     .filter((question) => question.answer === null)
@@ -151,10 +151,13 @@ const Results: React.FC<ResultsProps> = ({
   const totalPossiblePoints = score[0].totalPossibleScore;
 
   const changeFavoriteTopics = (topic: string) => {
-    let newSet = new Set(favoriteTopics); // Create a copy of the previous Set
-    favoriteTopics.has(topic) ? newSet.delete(topic) : newSet.add(topic); // Add or remove the new element
-    localStorage.setItem(`favoriteTopics`, JSON.stringify(Array.from(newSet)));
-    setFavoriteTopics(newSet);
+    let newArray = favoriteTopics; // Create a copy of the previous Set
+    favoriteTopics.includes(topic)
+      ? (newArray = favoriteTopics.filter(
+          (favoriteTopic) => favoriteTopic !== topic
+        ))
+      : (newArray = favoriteTopics.concat(topic)); // Add or remove the new element
+    setFavoriteTopics(newArray);
   };
 
   let questionsLeftToAnswer = getQuestionsLeftToAnswer();
@@ -193,17 +196,18 @@ const Results: React.FC<ResultsProps> = ({
                         "button",
                         "is-white",
                         "mb-2",
-                        favoriteTopics.has(questionGroup[0]) && "is-selected"
+                        favoriteTopics.includes(questionGroup[0]) &&
+                          "is-selected"
                       )}
                       onClick={() => {
                         changeFavoriteTopics(questionGroup[0]);
                       }}
                       disabled={
-                        !favoriteTopics.has(questionGroup[0]) &&
-                        favoriteTopics.size >= MAX_FAVORITE_TOPICS
+                        !favoriteTopics.includes(questionGroup[0]) &&
+                        favoriteTopics.length >= MAX_FAVORITE_TOPICS
                       }
                     >
-                      {favoriteTopics.has(questionGroup[0]) && (
+                      {favoriteTopics.includes(questionGroup[0]) && (
                         <span className="icon is-small mr-1">✕</span>
                       )}
                       {questionGroup[0]}
@@ -211,7 +215,7 @@ const Results: React.FC<ResultsProps> = ({
                   </div>
                 ))}
               </div>
-              {favoriteTopics.size > 0 && (
+              {favoriteTopics.length > 0 && (
                 <div className="question-controls">
                   <SmoothScroll to="results">
                     <button className="button py-5 is-extra-dark see-my-results">
@@ -408,12 +412,14 @@ const Results: React.FC<ResultsProps> = ({
                                   <div key={i} className="mr-6">
                                     <h3
                                       className={classnames(
-                                        favoriteTopics.has(questionGroup[0]) &&
-                                          "has-text-weight-semibold"
+                                        favoriteTopics.includes(
+                                          questionGroup[0]
+                                        ) && "has-text-weight-semibold"
                                       )}
                                     >
-                                      {favoriteTopics.has(questionGroup[0]) &&
-                                        "★"}{" "}
+                                      {favoriteTopics.includes(
+                                        questionGroup[0]
+                                      ) && "★"}{" "}
                                       {questionGroup[0]}{" "}
                                     </h3>
                                     <div className="copy">
