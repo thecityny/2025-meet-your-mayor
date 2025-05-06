@@ -53,7 +53,11 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { website, bio, quotes } = candidateInfo;
 
   return (
-    <PageLayout customMetadata={{ siteName: candidateName }}>
+    <PageLayout
+      customMetadata={{
+        siteName: `${candidateName} | ${process.env.GATSBY_SITE_NAME}`,
+      }}
+    >
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
         <div className="eyebrow">
           <Link to={`/${cameFromResults ? "#results" : ""}`}>
