@@ -544,7 +544,7 @@ $full-color-image-filter: contrast(1);
   &.is-on-candidate-page {
     max-width: 400px;
     a:not(.is-active) {
-      .illustration.top {
+      .top .illustration {
         animation: none;
       }
 
@@ -565,14 +565,14 @@ $full-color-image-filter: contrast(1);
     &:not(:hover) {
       filter: $full-color-image-filter;
 
-      .illustration.top {
+      .top .illustration {
         animation: none;
       }
     }
     &:hover {
       a:not(:hover) {
         filter: $greyed-out-image-filter;
-        .illustration.top {
+        .top .illustration {
           animation: none;
         }
       }
