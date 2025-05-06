@@ -33,7 +33,6 @@ export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
 const Quiz = () => {
   const party = useAppStore((state) => state.party);
   const setParty = useAppStore((state) => state.setParty);
-  const favoriteTopics = useAppStore((state) => state.favoriteTopics);
   const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
   const answers = useAppStore((state) => state.answers);
   const setAnswers = useAppStore((state) => state.setAnswers);
@@ -131,8 +130,7 @@ const Quiz = () => {
     saveParty(null);
   };
 
-  const questionsLeftToAnswer = () =>
-    getQuestionsLeftToAnswer(answers, favoriteTopics.size > 0);
+  const questionsLeftToAnswer = () => getQuestionsLeftToAnswer();
 
   return (
     <>

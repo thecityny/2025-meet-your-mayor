@@ -1,10 +1,6 @@
 import React from "react";
 import { groupBy, kebabCase } from "../utils";
-import {
-  formatQuestionContent,
-  generateBlankScorecard,
-  QuizInput,
-} from "./QuizContent";
+import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
 import classnames from "classnames";
@@ -113,10 +109,12 @@ const calculateScore = () => {
   return scorecardSorted;
 };
 
-export const getQuestionsLeftToAnswer = (
-  answers: QuizInput[],
-  pickedFavoriteTopics: boolean
-) => {
+export const getQuestionsLeftToAnswer = () => {
+  const favoriteTopics = useAppStore((state) => state.favoriteTopics);
+  const answers = useAppStore((state) => state.answers);
+
+  const pickedFavoriteTopics = favoriteTopics.size > 0;
+
   let remainingQuestions = answers
     .filter((question) => question.answer === null)
     .map((question) => question.questionNumber);
@@ -159,10 +157,7 @@ const Results: React.FC<ResultsProps> = ({
     setFavoriteTopics(newSet);
   };
 
-  let questionsLeftToAnswer = getQuestionsLeftToAnswer(
-    answers,
-    favoriteTopics.size > 0
-  );
+  let questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   return (
     <>
