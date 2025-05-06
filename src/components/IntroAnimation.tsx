@@ -25,6 +25,7 @@ export const IntroAnimation: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
             candidateName={name}
             customClassNames="slide"
             size="is-1by2"
+            loadWithBlurEffect
           />
         ))}
       </div>

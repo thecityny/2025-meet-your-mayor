@@ -8,12 +8,14 @@ export const Bobblehead: React.FC<{
   size: "is-48x48" | "is-64x64" | "is-96x96" | "is-128x128" | "is-1by2";
   customClassNames?: string;
   showBustOnly?: boolean;
+  loadWithBlurEffect?: boolean;
   startAnimationRightAway?: boolean;
 }> = ({
   candidateName,
   size,
   customClassNames,
   showBustOnly,
+  loadWithBlurEffect,
   startAnimationRightAway,
 }) => {
   const isCandidatePage = useIsCandidatePage();
@@ -38,33 +40,34 @@ export const Bobblehead: React.FC<{
       )}
     >
       <LazyLoadImage
-        src={`${imgPathPrefix}-head.svg`}
-        className={classnames("illustration", "top", candidatePath)}
+        src={`${imgPathPrefix}-head.png`}
+        className={classnames("illustration", candidatePath)}
         style={{
           animationDelay: animationDelay,
         }}
-        effect="blur"
+        wrapperClassName={classnames("image-wrapper", "top")}
+        effect={loadWithBlurEffect ? "blur" : undefined}
+        visibleByDefault
         alt={candidateName}
       />
       <LazyLoadImage
-        src={`${imgPathPrefix}-body.svg`}
-        className={classnames("illustration", "bottom", candidatePath)}
-        effect="blur"
+        src={`${imgPathPrefix}-body.png`}
+        className={classnames("illustration", candidatePath)}
+        wrapperClassName={classnames("image-wrapper", "bottom")}
+        effect={loadWithBlurEffect ? "blur" : undefined}
+        visibleByDefault
         alt={candidateName}
       />
       {candidateName === "Jessica Ramos" && (
         <LazyLoadImage
-          src={`${imgPathPrefix}-head-back.svg`}
-          className={classnames(
-            "illustration",
-            "top",
-            "background",
-            candidatePath
-          )}
+          src={`${imgPathPrefix}-head-back.png`}
+          className={classnames("illustration", candidatePath)}
+          wrapperClassName={classnames("image-wrapper", "top", "background")}
           style={{
             animationDelay: animationDelay,
           }}
-          effect="blur"
+          effect={loadWithBlurEffect ? "blur" : undefined}
+          visibleByDefault
           alt={candidateName}
         />
       )}

@@ -4,9 +4,10 @@ import TheCityLogo from "../assets/logo.svg";
 import GothamistLogo from "../assets/logo-gothamist.svg";
 import { Helmet } from "react-helmet";
 import { OutboundLink } from "./Links";
+import { SocialButton } from "./SocialShareButtons";
 
 import "../styles/app.scss";
-import { SocialButton } from "./SocialShareButtons";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const THE_CITY_SITE_LINKS = {
   website: "https://thecity.nyc/",
