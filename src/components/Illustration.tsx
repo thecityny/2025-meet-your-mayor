@@ -39,16 +39,18 @@ export const Bobblehead: React.FC<{
     >
       <LazyLoadImage
         src={`${imgPathPrefix}-head.png`}
-        className={classnames("illustration", "top", candidatePath)}
+        className={classnames("illustration", candidatePath)}
         style={{
           animationDelay: animationDelay,
         }}
+        wrapperClassName={classnames("image-wrapper", "top")}
         effect="blur"
         alt={candidateName}
       />
       <LazyLoadImage
         src={`${imgPathPrefix}-body.png`}
-        className={classnames("illustration", "bottom", candidatePath)}
+        className={classnames("illustration", candidatePath)}
+        wrapperClassName={classnames("image-wrapper", "bottom")}
         effect="blur"
         alt={candidateName}
       />
@@ -57,10 +59,10 @@ export const Bobblehead: React.FC<{
           src={`${imgPathPrefix}-head-back.png`}
           className={classnames(
             "illustration",
-            "top",
-            "background",
+
             candidatePath
           )}
+          wrapperClassName={classnames("image-wrapper", "top", "background")}
           style={{
             animationDelay: animationDelay,
           }}
