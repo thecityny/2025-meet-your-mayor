@@ -33,15 +33,18 @@ export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
 const Quiz = () => {
   const party = useAppStore((state) => state.party);
   const setParty = useAppStore((state) => state.setParty);
+
   const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
+
   const answers = useAppStore((state) => state.answers);
   const setAnswers = useAppStore((state) => state.setAnswers);
-  /**
-   * This state is used to keep track of the number of the last question
-   * that was visible to the user.
-   */
-  const [highestVisibleQuestion, setHighestVisibleQuestion] =
-    React.useState<number>(0);
+
+  const highestVisibleQuestion = useAppStore(
+    (state) => state.highestVisibleQuestion
+  );
+  const setHighestVisibleQuestion = useAppStore(
+    (state) => state.setHighestVisibleQuestion
+  );
 
   useEffect(() => {
     const savedParty = localStorage.getItem(`party`);
@@ -114,7 +117,8 @@ const Quiz = () => {
     localStorage.setItem(`userAnswers`, `${JSON.stringify(updatedAnswers)}`);
 
     if (highestVisibleQuestion === questionNumber) {
-      setHighestVisibleQuestion((prev) => prev + 1);
+      const prev = highestVisibleQuestion;
+      setHighestVisibleQuestion(prev + 1);
     }
   };
 
@@ -130,7 +134,7 @@ const Quiz = () => {
     saveParty(null);
   };
 
-  const questionsLeftToAnswer = () => getQuestionsLeftToAnswer();
+  const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   return (
     <>
@@ -157,7 +161,7 @@ const Quiz = () => {
               </p>
 
               <div className="pt-3">
-                {questionsLeftToAnswer().length === 0 ? (
+                {questionsLeftToAnswer.length === 0 ? (
                   <>
                     <h2 className="deck has-text-left">
                       You completed the quiz already!
@@ -187,7 +191,7 @@ const Quiz = () => {
 
                       <div className="field is-grouped">
                         <SmoothScroll
-                          to={`question-${questionsLeftToAnswer()[0]}`}
+                          to={`question-${questionsLeftToAnswer[0]}`}
                           className="control"
                         >
                           <button className="button">Continue</button>
