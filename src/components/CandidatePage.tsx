@@ -11,6 +11,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useLocation } from "@reach/router";
 import { NewsletterSignupBanner } from "./NewsletterSignup";
 import { useAppStore } from "../useAppStore";
+import { getQuestionsLeftToAnswer } from "./Results";
 
 const splitByFirstComma = (text: string) => {
   let textSplit = text.split(",");
@@ -40,11 +41,12 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
     score &&
     score.find((candidate) => candidate.candidateName === candidateName);
 
-  const candidateScore = !!candidateStats
-    ? Math.round(
-        candidateStats.totalScore / candidateStats.totalPossibleScore
-      ) * 100
-    : null;
+  const candidateScore =
+    !!candidateStats && getQuestionsLeftToAnswer().length === 0
+      ? Math.round(
+          (candidateStats.totalScore / candidateStats.totalPossibleScore) * 100
+        )
+      : null;
 
   if (!candidateInfo) return <></>;
 
@@ -93,9 +95,9 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           <OutboundLink to={website}>
             <button className="button">{lastName}'s Website</button>
           </OutboundLink>
-          <Link to="/">
+          <Link to={`/${!!candidateScore ? "#results" : ""}`}>
             <button className="button is-white">
-              {candidateScore
+              {!!candidateScore
                 ? `You're a ${candidateScore}% match`
                 : "See if you're a match"}
             </button>
