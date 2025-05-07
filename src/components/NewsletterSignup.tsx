@@ -20,6 +20,7 @@ export const NewsletterSignupBanner: React.FC = () => {
     setStatus("loading");
 
     try {
+      // GOTHAMIST EMAIL SIGNUP:
       const response = await fetch(
         "https://api.demo.nypr.digital/email-proxy/subscribe",
         {
@@ -37,7 +38,32 @@ export const NewsletterSignupBanner: React.FC = () => {
 
       if (response.ok) {
         setStatus("success");
-        setEmail("");
+
+        try {
+          // THE CITY EMAIL SIGNUP:
+          const response = await fetch(
+            "https://rankedchoices.netlify.app/.netlify/functions/subscribe",
+            {
+              method: "POST",
+              headers: {
+                accept: "application/json",
+                "content-type": "application/json",
+              },
+              body: JSON.stringify({
+                email,
+              }),
+            }
+          );
+
+          if (response.ok) {
+            setStatus("success");
+            setEmail("");
+          } else {
+            setStatus("error");
+          }
+        } catch (error) {
+          setStatus("error");
+        }
       } else {
         setStatus("error");
       }
