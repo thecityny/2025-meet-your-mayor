@@ -1,6 +1,9 @@
 import React from "react";
 import { Link as AnchorLink } from "react-scroll";
 
+const DEFAULT_OUTBOUND_LINK_UTM_CODES =
+  "?utm_medium=partnersite&utm_source=the-city&utm_campaign=meet-your-mayor";
+
 export const OutboundLink: React.FC<{
   to: string;
   children: React.ReactNode;
@@ -11,7 +14,7 @@ export const OutboundLink: React.FC<{
     <a
       className={className}
       style={style}
-      href={to}
+      href={to + DEFAULT_OUTBOUND_LINK_UTM_CODES}
       target="_blank"
       rel="noopener noreferrer"
     >
