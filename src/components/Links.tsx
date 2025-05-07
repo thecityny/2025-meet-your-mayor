@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as AnchorLink } from "react-scroll";
 
-const DEFAULT_GOTHAMIST_UTM_CODES =
+const DEFAULT_GOTHAMIST_UTM_PARAMS =
   "?utm_medium=partnersite&utm_source=the-city&utm_campaign=meet-your-mayor";
 
 const DEFAULT_THE_CITY_UTM_PARAMS =
@@ -20,11 +20,12 @@ export const OutboundLink: React.FC<{
       className={className}
       style={style}
       href={
-        to + isGothamistLink
-          ? DEFAULT_GOTHAMIST_UTM_CODES
+        to +
+        (isGothamistLink
+          ? DEFAULT_GOTHAMIST_UTM_PARAMS
           : isTheCityLink
           ? DEFAULT_THE_CITY_UTM_PARAMS
-          : ""
+          : "")
       }
       target="_blank"
       rel="noopener noreferrer"
