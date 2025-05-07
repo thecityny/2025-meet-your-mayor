@@ -4,12 +4,6 @@ import { OutboundLink } from "./Links";
 const LINKS_JSON_URL_PREFIX =
   "https://raw.githubusercontent.com/thecityny/mym-recent-coverage/refs/heads/main/";
 
-const GOTHAMIST_UTM_PARAMS =
-  "?utm_medium=partnersite&utm_source=the-city&utm_campaign=meet-your-mayor";
-
-const THE_CITY_UTM_PARAMS =
-  "?utm_source=button&utm_medium=website&utm_campaign=meet%20your%20mayor%202025";
-
 const GOTHAMIST_DONATION_URL = "https://pledge.wnyc.org/support/gothamist/";
 
 const THE_CITY_DONATION_URL = "https://donorbox.org/nycdonate";
@@ -110,7 +104,7 @@ export const RecentCoverage: React.FC = () => {
           <li key={i} className="label is-flex mb-0">
             <div className="mr-2 mt-1">●</div>{" "}
             <OutboundLink
-              to={link.href + THE_CITY_UTM_PARAMS}
+              to={link.href}
               className="copy has-text-left ml-0"
               style={{ lineHeight: "1.4rem" }}
             >
@@ -119,7 +113,7 @@ export const RecentCoverage: React.FC = () => {
           </li>
         ))}
       </ul>
-      <OutboundLink to={THE_CITY_DONATION_URL + THE_CITY_UTM_PARAMS}>
+      <OutboundLink to={THE_CITY_DONATION_URL}>
         <div
           className="button is-white is-small mt-3"
           aria-label="Donate to THE CITY"
@@ -133,7 +127,7 @@ export const RecentCoverage: React.FC = () => {
           <li key={i} className="label is-flex mb-0">
             <div className="mr-2 mt-1">●</div>{" "}
             <OutboundLink
-              to={link.href + GOTHAMIST_UTM_PARAMS}
+              to={link.href}
               className="copy has-text-left ml-0"
               style={{ lineHeight: "1.4rem" }}
             >
@@ -142,7 +136,7 @@ export const RecentCoverage: React.FC = () => {
           </li>
         ))}
       </ul>
-      <OutboundLink to={GOTHAMIST_DONATION_URL + GOTHAMIST_UTM_PARAMS}>
+      <OutboundLink to={GOTHAMIST_DONATION_URL}>
         <div
           className="button is-white is-small mt-3"
           aria-label="Donate to Gothamist"
