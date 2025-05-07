@@ -50,7 +50,7 @@ const Footer = () => {
   return (
     <footer className="footer has-color-background">
       <div
-        className="container is-flex is-flex-direction-column is-align-items-center"
+        className="container is-flex is-flex-direction-column is-align-items-center p-0"
         style={{ maxWidth: "750px" }}
       >
         <div className="eyebrow">Made with ♥ in NYC by</div>
