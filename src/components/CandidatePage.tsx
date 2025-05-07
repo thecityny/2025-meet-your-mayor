@@ -82,8 +82,8 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
                 effect="blur"
                 alt={candidateName}
                 style={{
-                  width: "350px",
-                  height: "350px",
+                  maxWidth: "350px",
+                  maxHeight: "350px",
                   borderRadius: "100%",
                 }}
               />

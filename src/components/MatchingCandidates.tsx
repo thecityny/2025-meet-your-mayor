@@ -81,14 +81,21 @@ export const MatchingCandidates: FC<{
 
             <div className="mb-5 mt-4">
               <p className="label">
-                {quote || (
+                {!!quote ? (
+                  quote
+                ) : isSkipped ? (
+                  <span>
+                    {abbreviatedName} skipped this response <br />
+                    in our survey to their team.
+                  </span>
+                ) : (
                   <span>
                     {abbreviatedName} selected this response <br />
                     in our survey to their team.
                   </span>
                 )}
               </p>
-              {source && (
+              {!!source && (
                 <div className="label mt-1">
                   {formatContent(" - From " + source)}
                 </div>
@@ -130,15 +137,13 @@ export const MatchingCandidates: FC<{
               <ListOfCandidates candidates={candidates} />
             </span>
           )}
-          {!isSkipped && (
-            <span
-              key="x"
-              className="eyebrow is-link is-inline-block"
-              onClick={handleClick}
-            >
-              See <span className="no-wrap">responses +</span>
-            </span>
-          )}
+          <span
+            key="x"
+            className="eyebrow is-link is-inline-block"
+            onClick={handleClick}
+          >
+            See <span className="no-wrap">responses +</span>
+          </span>
         </div>
       )}
 
