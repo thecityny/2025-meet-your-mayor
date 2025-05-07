@@ -1,5 +1,6 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { OutboundLink } from "./Links";
+import { useLocation } from "@reach/router";
 
 const GOTHAMIST_EMAIL_LIST_NAME =
   "Gothamist Membership++Politics Brief Newsletter";
@@ -9,41 +10,92 @@ const THE_CITY_FALLBACK_NEWSLETTER_LINK =
 
 const GOTHAMIST_FALLBACK_NEWSLETTER_LINK = "https://gothamist.com/newsletters";
 
+type RequestStatus = "idle" | "loading" | "success" | "error";
+
 export const NewsletterSignupBanner: React.FC = () => {
   const [email, setEmail] = useState<string>("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [statusTheCity, setStatusTheCity] = useState<RequestStatus>("idle");
+  const [statusGothamist, setStatusGothamist] = useState<RequestStatus>("idle");
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const location = useLocation();
+  /**
+   * Let's use the DEMO API from Gothamist if we are in local development or
+   * on the staging site:
+   */
+  const isTestingSite =
+    location?.origin?.includes("localhost") ||
+    location?.origin?.includes("qa-project.thecity.nyc");
+  const gothamistApiUrl = isTestingSite
+    ? "https://api.demo.nypr.digital/email-proxy/subscribe"
+    : "https://api.prod.nypr.digital/email-proxy/subscribe";
+
+  /**
+   * Sign up for THE CITY's Ranked Choices newsletter via Netlify email proxy
+   */
+  const submitTheCity = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("loading");
-
+    setStatusTheCity("loading");
     try {
       const response = await fetch(
-        "https://api.demo.nypr.digital/email-proxy/subscribe",
+        "https://rankedchoices.netlify.app/.netlify/functions/subscribe",
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            accept: "application/json",
+            "content-type": "application/json",
           },
           body: JSON.stringify({
-            source: "meet_your_mayor",
-            list: GOTHAMIST_EMAIL_LIST_NAME,
             email,
           }),
         }
       );
 
       if (response.ok) {
-        setStatus("success");
+        setStatusTheCity("success");
         setEmail("");
       } else {
-        setStatus("error");
+        setStatusTheCity("error");
       }
     } catch (error) {
-      setStatus("error");
+      setStatusTheCity("error");
     }
+  };
+
+  /**
+   * Sign up for Gothamist's politics newsletter via their custom email proxy
+   */
+  const submitGothamist = async (e: FormEvent<HTMLFormElement>) => {
+    try {
+      const response = await fetch(gothamistApiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          source: "meet_your_mayor",
+          list: GOTHAMIST_EMAIL_LIST_NAME,
+          email,
+        }),
+      });
+
+      if (response.ok) {
+        setStatusGothamist("success");
+      } else {
+        setStatusGothamist("error");
+      }
+    } catch (error) {
+      setStatusGothamist("error");
+    }
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setStatusTheCity("loading");
+    setStatusGothamist("loading");
+
+    submitTheCity(e);
+    submitGothamist(e);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -77,18 +129,37 @@ export const NewsletterSignupBanner: React.FC = () => {
                 <button
                   className="button is-small is-white mt-1"
                   type="submit"
-                  disabled={status === "loading"}
+                  disabled={
+                    statusTheCity === "loading" || statusGothamist === "loading"
+                  }
                 >
-                  {status === "loading" ? "Submitting..." : "Sign Up"}
+                  {statusTheCity === "loading" || statusGothamist === "loading"
+                    ? "Submitting..."
+                    : "Sign Up"}
                 </button>
               </div>
             </div>
           </div>
         </form>
-        {status === "success" && (
+        {statusTheCity === "success" && statusGothamist === "success" ? (
           <p className="label mt-2 has-text-centered">You're signed up!</p>
-        )}
-        {status === "error" && (
+        ) : statusTheCity === "success" && statusGothamist === "error" ? (
+          <p className="label mt-2 has-text-centered">
+            You're signed up with Gothamist! Something went wrong with THE CITY.{" "}
+            <OutboundLink to={THE_CITY_FALLBACK_NEWSLETTER_LINK}>
+              Sign up manually
+            </OutboundLink>
+            .
+          </p>
+        ) : statusTheCity === "error" && statusGothamist === "success" ? (
+          <p className="label mt-2 has-text-centered">
+            You're signed up with THE CITY! Something went wrong with Gothamist.{" "}
+            <OutboundLink to={GOTHAMIST_FALLBACK_NEWSLETTER_LINK}>
+              Sign up manually
+            </OutboundLink>
+            .
+          </p>
+        ) : statusTheCity === "error" && statusGothamist === "error" ? (
           <p className="label mt-2 has-text-centered">
             Something went wrong. Sign up manually via{" "}
             <OutboundLink to={THE_CITY_FALLBACK_NEWSLETTER_LINK}>
@@ -100,6 +171,8 @@ export const NewsletterSignupBanner: React.FC = () => {
             </OutboundLink>
             .
           </p>
+        ) : (
+          <></>
         )}
       </div>
     </div>
