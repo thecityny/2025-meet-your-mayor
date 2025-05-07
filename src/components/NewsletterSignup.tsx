@@ -1,5 +1,6 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { OutboundLink } from "./Links";
+import { useLocation } from "@reach/router";
 
 const GOTHAMIST_EMAIL_LIST_NAME =
   "Gothamist Membership++Politics Brief Newsletter";
@@ -15,6 +16,18 @@ export const NewsletterSignupBanner: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [statusTheCity, setStatusTheCity] = useState<RequestStatus>("idle");
   const [statusGothamist, setStatusGothamist] = useState<RequestStatus>("idle");
+
+  const location = useLocation();
+  /**
+   * Let's use the DEMO API from Gothamist if we are in local development or
+   * on the staging site:
+   */
+  const isTestingSite =
+    location?.origin.includes("localhost") ||
+    location?.origin.includes("qa-project.thecity.nyc");
+  const gothamistApiUrl = isTestingSite
+    ? "https://api.demo.nypr.digital/email-proxy/subscribe"
+    : "https://api.prod.nypr.digital/email-proxy/subscribe";
 
   /**
    * Sign up for THE CITY's Ranked Choices newsletter via Netlify email proxy
@@ -53,20 +66,17 @@ export const NewsletterSignupBanner: React.FC = () => {
    */
   const submitGothamist = async (e: FormEvent<HTMLFormElement>) => {
     try {
-      const response = await fetch(
-        "https://api.demo.nypr.digital/email-proxy/subscribe",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            source: "meet_your_mayor",
-            list: GOTHAMIST_EMAIL_LIST_NAME,
-            email,
-          }),
-        }
-      );
+      const response = await fetch(gothamistApiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          source: "meet_your_mayor",
+          list: GOTHAMIST_EMAIL_LIST_NAME,
+          email,
+        }),
+      });
 
       if (response.ok) {
         setStatusGothamist("success");
