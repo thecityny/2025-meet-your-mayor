@@ -23,8 +23,8 @@ export const NewsletterSignupBanner: React.FC = () => {
    * on the staging site:
    */
   const isTestingSite =
-    location?.origin.includes("localhost") ||
-    location?.origin.includes("qa-project.thecity.nyc");
+    location?.origin?.includes("localhost") ||
+    location?.origin?.includes("qa-project.thecity.nyc");
   const gothamistApiUrl = isTestingSite
     ? "https://api.demo.nypr.digital/email-proxy/subscribe"
     : "https://api.prod.nypr.digital/email-proxy/subscribe";
