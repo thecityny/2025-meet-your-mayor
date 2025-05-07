@@ -19,23 +19,23 @@ export const formatCandidateContent = (party?: Party) => {
         )
       : candidateContent;
 
-  const splitCandidateInfo = (text: string) => text.split(" | ");
+  const splitCandidateInfo = (text: string) => text.split("|");
 
   return Object.values(candidates).map((candidate) => {
     const quizResponses = Object.entries(candidate)
       .filter(([key]) => key.startsWith("quizResponse"))
       .map(([, value]) => ({
-        optionNumber: splitCandidateInfo(value)[0],
-        quote: splitCandidateInfo(value)[1],
-        source: splitCandidateInfo(value)[2],
+        optionNumber: splitCandidateInfo(value)[0]?.trim(),
+        quote: splitCandidateInfo(value)[1]?.trim(),
+        source: splitCandidateInfo(value)[2]?.trim(),
       }));
 
     const quotes = Object.entries(candidate)
       .filter(([key]) => key.startsWith("quote"))
       .map(([, value]) => ({
-        subject: splitCandidateInfo(value)[0],
-        quote: splitCandidateInfo(value)[1],
-        source: splitCandidateInfo(value)[2],
+        subject: splitCandidateInfo(value)[0]?.trim(),
+        quote: splitCandidateInfo(value)[1]?.trim(),
+        source: splitCandidateInfo(value)[2]?.trim(),
       }));
 
     return { responses: quizResponses, quotes, ...candidate };
@@ -95,13 +95,15 @@ export const formatQuestionContent = () => {
       matchingCandidates: findMatchingCandidates(i, "4"),
     },
     skipped: {
-      matchingCandidates: candidates
-        .filter((c) => !c.responses[i].optionNumber)
-        .map((c) => ({
-          name: c.name,
-          quote: null,
-          source: null,
-        })),
+      matchingCandidates: findMatchingCandidates(i, "0").concat(
+        candidates
+          .filter((c) => !c.responses[i].optionNumber)
+          .map((c) => ({
+            name: c.name,
+            quote: "",
+            source: "",
+          }))
+      ),
     },
   }));
 
