@@ -97,7 +97,7 @@ export const MatchingCandidates: FC<{
               </p>
               {!!source && (
                 <div className="label mt-1">
-                  {formatContent(" - From " + source)}
+                  {formatContent(" — From " + source)}
                 </div>
               )}
             </div>
