@@ -140,6 +140,8 @@ const Results: React.FC = () => {
   const answers = useAppStore((state) => state.answers);
   const resetAnswers = useAppStore((state) => state.resetAnswers);
 
+  const party = useAppStore((state) => state.party);
+
   const highestVisibleQuestion = useAppStore(
     (state) => state.highestVisibleQuestion
   );
@@ -185,8 +187,9 @@ const Results: React.FC = () => {
                 <div className="tag question-number-tag">
                   {answers.length + 1}
                 </div>
-                Choose up to {MAX_FAVORITE_TOPICS}. These will impact your
-                matching score more
+                Choose between 1 and {MAX_FAVORITE_TOPICS}. The candidates that
+                matched with you on those questions will get extra points toward
+                their total score.
               </h3>
               <div className="buttons mt-5">
                 {Object.entries(questionContent).map((questionGroup, i) => (
@@ -297,12 +300,18 @@ const Results: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div
-              className="copy has-text-left ml-0 mt-5"
-              style={{ maxWidth: "600px" }}
-            >
-              Here are your top 5 matches. On election day, you are allowed to
-              rank up to 5 candidates, or however many you like.
+            <div className="deck has-text-left ml-0 mt-5">
+              You matched most closely with{" "}
+              <span className="has-text-weight-semibold">
+                {score.slice(0, MATCHES_TO_SHOW)[0].candidateName}
+              </span>
+              .{" "}
+              {party === "democrat" && (
+                <span>
+                  In the primary election you may choose up to five candidates,
+                  so consider your runner-up matches:
+                </span>
+              )}
             </div>
 
             {score.slice(0, MATCHES_TO_SHOW).map((candidate, i) => {
