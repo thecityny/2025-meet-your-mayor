@@ -60,6 +60,20 @@ export const questionContent = {
     option3: "Do not issue summonses for fare nonpayment",
     option4: "",
   },
+  question5a: {
+    title:
+      "The number of people incarcerated at Rikers Island is approaching double the capacity of planned new jails. What should the next mayor do?",
+    subject: "Public Safety",
+    tellMeMore:
+      'The four new borough-based jails – meant to replace the Rikers Island complex and place incarcerated folks in areas closer to their families and courts — will have 4,160 beds. As of March, 7,067 people were <a href="https://www.thecity.nyc/2025/03/20/rikers-population-tops-7000/">incarcerated at Rikers</a>.',
+    option1:
+      "Stay on course with the Rikers Island shutdown, work with DAs to release more people pretrial or divert them from prosecution entirely",
+    option2:
+      "Stay on course with the Rikers Island shutdown, work with the City Council to keep a Rikers facility open to maintain continued capacity",
+    option3:
+      "Pause planning for jails still in the design phase, work with the City Council to reinvest in Rikers facilities",
+    option4: "",
+  },
   question6: {
     title:
       "What is your preferred main path to creating more affordable housing?",
@@ -119,20 +133,6 @@ export const questionContent = {
     option2:
       "Only promote children to the next grade once they can pass the reading test",
     option3: "Reduce standardized testing in city public schools",
-    option4: "",
-  },
-  question11: {
-    title:
-      "The number of people incarcerated at Rikers Island is approaching double the capacity of planned new jails. What should the next mayor do?",
-    subject: "Public Safety",
-    tellMeMore:
-      'The four new borough-based jails – meant to replace the Rikers Island complex and place incarcerated folks in areas closer to their families and courts — will have 4,160 beds. As of March, 7,067 people were <a href="https://www.thecity.nyc/2025/03/20/rikers-population-tops-7000/">incarcerated at Rikers</a>.',
-    option1:
-      "Stay on course with the Rikers Island shutdown, work with DAs to release more people pretrial or divert them from prosecution entirely",
-    option2:
-      "Stay on course with the Rikers Island shutdown, work with the City Council to keep a Rikers facility open to maintain continued capacity",
-    option3:
-      "Pause planning for jails still in the design phase, work with the City Council to reinvest in Rikers facilities",
     option4: "",
   },
   question12: {
