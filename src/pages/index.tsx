@@ -76,6 +76,7 @@ const Homepage = () => (
     </div>
     <NewsletterSignupBanner />
     <Quiz />
+    <NewsletterSignupBanner />
     <div className="hero is-fullheight-with-navbar pt-6">
       <div className="container mt-6 pt-5" id="learn">
         <div className="columns">
