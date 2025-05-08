@@ -190,8 +190,7 @@ export const questionContent = {
   question17: {
     title: "What kind of manager are you?",
     subject: "Background",
-    tellMeMore:
-      "We asked the candidates to identify their preferred approach in running an organization.",
+    tellMeMore: "",
     option1:
       "The Decider — centralize decision-making with the mayor and close advisers",
     option2:
@@ -204,7 +203,7 @@ export const questionContent = {
     title:
       "You get one thing people will remember your mayoralty for above all a generation from now. What is that legacy?",
     subject: "Background",
-    tellMeMore: "TKTKTK",
+    tellMeMore: "",
     option1: "I expanded opportunities for poor and working-class New Yorkers",
     option2: "I created lasting public works",
     option3: "I imposed fiscal discipline and cleaned up government",
@@ -214,7 +213,7 @@ export const questionContent = {
     title:
       "What early-career experience is the most influential on how you govern?",
     subject: "Background",
-    tellMeMore: "TKTKTK",
+    tellMeMore: "",
     option1: "Led a nonprofit",
     option2: "Served as a community or labor organizer",
     option3: "Worked in the private sector",
