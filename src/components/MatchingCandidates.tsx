@@ -142,7 +142,7 @@ export const MatchingCandidates: FC<{
             className="eyebrow is-link is-inline-block"
             onClick={handleClick}
           >
-            See <span className="no-wrap">responses +</span>
+            See <span className="no-wrap">details +</span>
           </span>
         </div>
       )}
