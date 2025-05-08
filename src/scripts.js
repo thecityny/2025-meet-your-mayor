@@ -57,26 +57,6 @@ const downloadGoogleDocContent = () => {
     );
 };
 
-function generateSitemapXML() {
-  const root = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-  const end = "</urlset>";
-
-  /**
-   * Date the site was last updated, with time removed (just date)
-   */
-  const lastUpdated = process.env.REACT_APP_UPDATE_DATE.slice(0, 10);
-
-  const url = `<url><loc>${process.env.REACT_APP_DOMAIN}${process.env.REACT_APP_SLUG}/</loc><lastmod>${lastUpdated}</lastmod></url>`;
-
-  const xml = root + url + end;
-
-  // Write the XML to a file
-  fs.writeFileSync("public/sitemap.xml", xml);
-
-  console.log("Generated sitemap at public/sitemap.xml");
-}
-
 module.exports = {
   downloadGoogleDocContent,
-  generateSitemapXML,
 };

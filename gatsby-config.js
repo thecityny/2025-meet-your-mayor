@@ -8,16 +8,16 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `multipage-gatsby-template`,
-    siteUrl: `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}`,
+    title: `meet-your-mayor-2025`,
+    siteUrl: `${process.env.GATSBY_DOMAIN}`,
   },
-  pathPrefix: process.env.PREFIX,
+  pathPrefix: process.env.PREFIX || process.env.GATSBY_SLUG,
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-typescript",
     "gatsby-transformer-sharp",
     {

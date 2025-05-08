@@ -1,5 +1,5 @@
 {
-  "name": "the-city-news-app",
+  "name": "meet-your-mayor-2025",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "validate": "node validate.mjs",
-    "scrape-coverage": "node -e 'require(\"./src/scripts\").getGothamistLinks()' && node -e 'require(\"./src/scripts\").getTheCityLinks()'",
     "download-content": "node -e 'require(\"./src/scripts\").downloadGoogleDocContent()'",
     "generate-sitemap": "node -e 'require(\"./src/scripts\").generateSitemapXML()'"
   },

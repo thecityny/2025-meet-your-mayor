@@ -8,6 +8,7 @@ import { SocialButton } from "./SocialShareButtons";
 
 import "../styles/app.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { Script } from "gatsby";
 
 const THE_CITY_SITE_LINKS = {
   website: "https://thecity.nyc/",
@@ -138,6 +139,46 @@ const Footer = () => {
   );
 };
 
+const Analytics = () => (
+  <>
+    {/* Google Analytics & Google Tag Manager: */}
+    <Script>
+      {`(function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
+        
+        ga('create', 'UA-18163580-19', 'auto');
+        ga('send', 'pageview');`}
+    </Script>
+    <Script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G0ZNNV3GTX"
+    />
+    <Script>
+      {`window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-G0ZNNV3GTX');
+        dataLayer.push({
+          'Author': 'Alyssa Katz:Mia Hollie:Sam Rabiyah',
+          'Primary_Group': 'Campaign 2023',
+          'Type': 'Interactive'
+        });`}
+    </Script>
+    {/* Parse.ly Analytics: */}
+    <Script id="parsely-cfg" src="//cdn.parsely.com/keys/thecity.nyc/p.js" />
+  </>
+);
+
 type MetadataProps = {
   slug?: string;
   siteName?: string;
@@ -227,6 +268,7 @@ export const PageLayout: React.FC<{
           "author": ${author}
         }`}</script>
       </Helmet>
+      <Analytics />
       {children}
       <Footer />
     </article>
