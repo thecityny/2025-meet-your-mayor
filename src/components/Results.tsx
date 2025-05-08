@@ -184,9 +184,7 @@ const Results: React.FC = () => {
                 Now, pick which topics matter most to you
               </h2>
               <h3 className="deck has-text-left">
-                <div className="tag question-number-tag">
-                  {answers.length + 1}
-                </div>
+                <div className="tag question-number-tag">★</div>
                 Choose between 1 and {MAX_FAVORITE_TOPICS}. The candidates that
                 matched with you on those questions will get extra points toward
                 their total score.
@@ -253,19 +251,30 @@ const Results: React.FC = () => {
           <div>
             <h1 className="headline has-text-left is-inline-block">Results</h1>
             <p className="copy">
-              Oops! You're not finished with the quiz yet! Please go back and
-              answer{" "}
+              Oops! You're not finished with the quiz yet! Please go back and{" "}
               {questionsLeftToAnswer.length > 1 ? (
                 <>
-                  questions{" "}
+                  answer question
+                  {questionsLeftToAnswer.length === 2 &&
+                  favoriteTopics.length === 0
+                    ? ""
+                    : "s"}{" "}
                   <b>
                     {questionsLeftToAnswer.slice(0, -1).join(", ")} and{" "}
-                    {questionsLeftToAnswer.slice(-1)}
+                    {favoriteTopics.length === 0
+                      ? "select your most important topics"
+                      : questionsLeftToAnswer.slice(-1)}
                   </b>
                 </>
               ) : (
                 <>
-                  question <b>{questionsLeftToAnswer}</b>
+                  {favoriteTopics.length === 0 ? (
+                    <b>select your most important topics</b>
+                  ) : (
+                    <span>
+                      question <b>{questionsLeftToAnswer[0]}</b>
+                    </span>
+                  )}
                 </>
               )}
               .
