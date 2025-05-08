@@ -13,12 +13,6 @@ import { NewsletterSignupBanner } from "./NewsletterSignup";
 import { useAppStore } from "../useAppStore";
 import { getQuestionsLeftToAnswer } from "./Results";
 
-const splitByFirstComma = (text: string) => {
-  let textSplit = text.split(",");
-  const firstBit = textSplit.shift();
-  return [firstBit, textSplit.join(",")];
-};
-
 type LocationState = {
   origin?: string;
 };
@@ -141,13 +135,9 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
                   <div className="mb-5">
                     <div className="copy">{formatContent(quote)}</div>
                     {source && (
-                      <span>
-                        {splitByFirstComma(source).map((text, i) => (
-                          <p key={i} className="copy mb-0">
-                            {text && convertToHtml(text)}
-                          </p>
-                        ))}
-                      </span>
+                      <p key={i} className="copy mb-0">
+                        {convertToHtml(source.replace("</a>", "</a><br/>"))}
+                      </p>
                     )}
                   </div>
                 </div>
