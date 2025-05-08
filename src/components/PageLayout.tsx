@@ -98,7 +98,7 @@ const Footer = () => {
           By{" "}
           {byline.map((author: any, i: number) => (
             <span key={i} className="author">
-              <a href={author.url}>{author.name}</a>
+              <OutboundLink to={author.url}>{author.name}</OutboundLink>
               {i < byline.length - 2
                 ? ", "
                 : i < byline.length - 1

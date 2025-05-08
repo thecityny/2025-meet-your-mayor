@@ -13,12 +13,6 @@ import { NewsletterSignupBanner } from "./NewsletterSignup";
 import { useAppStore } from "../useAppStore";
 import { getQuestionsLeftToAnswer } from "./Results";
 
-const splitByFirstComma = (text: string) => {
-  let textSplit = text.split(",");
-  const firstBit = textSplit.shift();
-  return [firstBit, textSplit.join(",")];
-};
-
 type LocationState = {
   origin?: string;
 };
@@ -31,8 +25,6 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const state = location.state as LocationState | undefined;
   const cameFromResults = state && state.origin === "results";
 
-  const lastName =
-    candidateName.split(" ")[candidateName.split(" ").length - 1];
   const candidateInfo = formatCandidateContent().find(
     (candidate) => candidate.name === candidateName
   );
@@ -44,10 +36,13 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   const candidateScore =
-    !!candidateStats && questionsLeftToAnswer.length === 0
-      ? Math.round(
-          (candidateStats.totalScore / candidateStats.totalPossibleScore) * 100
-        )
+    questionsLeftToAnswer.length === 0
+      ? !!candidateStats
+        ? Math.round(
+            (candidateStats.totalScore / candidateStats.totalPossibleScore) *
+              100
+          )
+        : 0
       : null;
 
   if (!candidateInfo) return <></>;
@@ -106,11 +101,11 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
         <div className="field is-grouped">
           <OutboundLink to={website}>
-            <button className="button">{lastName}'s Website</button>
+            <button className="button">Campaign Website</button>
           </OutboundLink>
-          <Link to={`/${!!candidateScore ? "#results" : ""}`}>
+          <Link to={`/${questionsLeftToAnswer.length === 0 ? "#results" : ""}`}>
             <button className="button is-white">
-              {!!candidateScore
+              {questionsLeftToAnswer.length === 0
                 ? `You're a ${candidateScore}% match`
                 : "See if you're a match"}
             </button>
@@ -141,13 +136,11 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
                   <div className="mb-5">
                     <div className="copy">{formatContent(quote)}</div>
                     {source && (
-                      <span>
-                        {splitByFirstComma(source).map((text, i) => (
-                          <p key={i} className="copy mb-0">
-                            {text && convertToHtml(text)}
-                          </p>
-                        ))}
-                      </span>
+                      <p key={i} className="copy mb-0">
+                        {
+                          convertToHtml(source.replace("</a>", "</a><br/>")) // Add a line break after each hyperlink
+                        }
+                      </p>
                     )}
                   </div>
                 </div>
@@ -160,13 +153,13 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         <h1 className="headline has-text-left mt-1">Positions on Key Issues</h1>
         <div className="copy my-5">
           THE CITY sent multiple-choice surveys to every mayoral candidate on
-          the ballot for the June 22 primary, starting in April. See how Zohran
-          Mamdani answered below.
+          the ballot for the June 24 primary. See how {candidateName} answered
+          by taking the Meet Your Mayor Quiz.
         </div>
         <Link to="/" className="mb-5">
           <button className="button is-link">Take our quiz</button>
         </Link>
-        <h1 className="headline has-text-left mt-6">Recent Coverage</h1>
+        <h1 className="headline has-text-left mt-6">Election Coverage</h1>
         <RecentCoverage />
         <div className="mt-6">
           <NewsletterSignupBanner />
