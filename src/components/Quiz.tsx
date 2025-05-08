@@ -108,7 +108,7 @@ const Quiz = () => {
               <p className="copy has-text-left mt-5">
                 Voters of New York City: Can’t decide who to put on your ballot
                 for mayor? This quiz will help you decide by matching your
-                responses to 20 questions with how candidates answered the same
+                responses to 18 questions with how candidates answered the same
                 questions on urgent issues facing New Yorkers. The primary is on
                 June 24, and early voting starts on June 14. The general
                 election is on November 4, 2025.
