@@ -40,15 +40,11 @@ export const candidateContent = {
       "1 | “The opioid crisis does not have a single panacea, which is why in addition to making sure every New Yorker has access to supportive housing, I will expand access to long-term substance use treatment and safe injection facilities, ensuring they are equitably located across the city.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse15:
       "2 | “The most effective way to treat those with severe mental illness is by offering solutions that lead to stability. I will build an integrated system of mental health, housing, and substance use services, such that hospitalization is rare. Peer-based outreach, crisis intervention and programming—from Intensive Mobile Treatment to Peer Clubhouses like Fountain House—are proven to positively engage people into treatment, decrease hospitalization and reduce substance use. These are key to ending the revolving door and will be the focus of my Department of Community Safety.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse16:
-      "2 | “Current city vacancies are partially driven by a lack of flexibility in many government jobs, which make positions untenable for working parents and caregivers. We should expand remote work when the position allows for its effective implementation to reduce hiring gaps.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse17:
       "3 | “I will build a team of the best to run our city, hiring individuals who have served in prior mayoral administrations, whose work showcases an excellence we have clearly missed in city government, and who will be empowered to fulfill the mandate of New Yorkers with regards to their respective agency.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse18:
       "1 | “If you ask working-class New Yorkers, many of whom have been failed by a bureaucracy, to jump through many more hoops to get relief from that bureaucracy, you will lose about half, or in this case even more than 80% of your target population. Versus, if you make it universal, the benefits are not just fiscal. They're also public safety. They're also peace of mind.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">The New York Editorial Board</a> (Feb 2, 2025)",
     quizResponse19: "2",
-    quizResponse20: "1",
-    quizResponse21: "3",
   },
   candidateEric: {
     name: "Eric Adams",
@@ -79,12 +75,9 @@ export const candidateContent = {
     quizResponse13: "1",
     quizResponse14: "2",
     quizResponse15: "1",
-    quizResponse16: "1",
     quizResponse17: "1",
     quizResponse18: "",
     quizResponse19: "4",
-    quizResponse20: "1",
-    quizResponse21: "1",
   },
   candidateAdrienne: {
     name: "Adrienne Adams",
@@ -115,12 +108,9 @@ export const candidateContent = {
     quizResponse13: "2",
     quizResponse14: "1",
     quizResponse15: "0",
-    quizResponse16: "1",
     quizResponse17: "2",
     quizResponse18: "1",
     quizResponse19: "3",
-    quizResponse20: "1",
-    quizResponse21: "1",
   },
   candidateMichael: {
     name: "Michael Blake",
@@ -148,12 +138,9 @@ export const candidateContent = {
     quizResponse13: "2",
     quizResponse14: "1",
     quizResponse15: "3",
-    quizResponse16: "1",
     quizResponse17: "3",
     quizResponse18: "1",
     quizResponse19: "4",
-    quizResponse20: "1",
-    quizResponse21: "1",
   },
   candidateAndrew: {
     name: "Andrew Cuomo",
@@ -181,12 +168,9 @@ export const candidateContent = {
     quizResponse13: "",
     quizResponse14: "1",
     quizResponse15: "1",
-    quizResponse16: "1",
     quizResponse17: "1",
     quizResponse18: "1",
     quizResponse19: "4",
-    quizResponse20: "1",
-    quizResponse21: "2",
   },
   candidateBrad: {
     name: "Brad Lander",
@@ -215,12 +199,9 @@ export const candidateContent = {
     quizResponse13: "2",
     quizResponse14: "1",
     quizResponse15: "1",
-    quizResponse16: "1",
     quizResponse17: "3",
     quizResponse18: "1",
     quizResponse19: "1",
-    quizResponse20: "3",
-    quizResponse21: "1",
   },
   candidateZellnor: {
     name: "Zellnor Myrie",
@@ -255,12 +236,9 @@ export const candidateContent = {
     quizResponse14: "1",
     quizResponse15:
       "1 | “What happens after that involuntary commitment, to me, is just as important as removing them from the public space. If we are sending that individual to Rikers where they're going to get worse, or we're sending them to the emergency room where they're going to cycle right back out, that is unhelpful on both counts.” | <a href=\"https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript\">New York Editorial Board Interview</a> (Feb 24, 2025)",
-    quizResponse16: "1",
     quizResponse17: "3",
     quizResponse18: "1",
     quizResponse19: "4",
-    quizResponse20: "1",
-    quizResponse21: "3",
   },
   candidateJessica: {
     name: "Jessica Ramos",
@@ -288,12 +266,9 @@ export const candidateContent = {
     quizResponse13: "1",
     quizResponse14: "1",
     quizResponse15: "1",
-    quizResponse16: "2",
     quizResponse17: "3",
     quizResponse18: "1",
     quizResponse19: "2",
-    quizResponse20: "1",
-    quizResponse21: "3",
   },
   candidateScott: {
     name: "Scott Stringer",
@@ -334,15 +309,11 @@ export const candidateContent = {
       "1 | “We need to invest in housing-first initiatives that provide stable housing paired with comprehensive services in order to reduce homelessness and promote long-term well-being. Expanding rapid rehousing programs, providing mental health counseling, addiction recovery, and job training in mixed-use neighborhoods will enable individuals to regain stability and self-sufficiency.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse15:
       "1 | “My quality of life plan focuses on addressing the mental health crisis in this city by investing in our city’s mental health infrastructure and making services available 24/7. While I support strengthening involuntary commitment laws in the interest of public safety, it must only be in the most extreme cases. I have advocated for revising these laws to allow for more effective interventions in cases where individuals pose a danger to themselves or others. We need specific, actionable plans rather than broad proposals to address the mental health crisis. This issue has always required a very nuanced approach, balancing civil liberties and justice reform with stronger tools for intervention when necessary.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse16:
-      "2 | “We need to meet the needs of all New Yorkers, that includes the scheduling needs of our public workforce. Quality of Life in our city agencies ensures that we can retain the best and brightest as they serve the rest of the city.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse17:
       "1 | “New York needs a mayor who wakes up every morning focused on what he can do to make the city work better for the people who live here. That will take centralizing decisions and leading with conviction, it will take working closely with City Council and other elected leaders, and it will require hiring the best people to run city agencies. With me, you will get a mayor who knows how this city works and will do the hard work every day to make it better.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse18: "4",
     quizResponse19:
       "4 | “I began my career as a tenant organizer, standing alongside Mitchell-Lama residents who were fighting to stop their homes from being sold to private developers. That led me to embark on a career of public service, from the state assembly to the Manhattan Borough President’s Office, to the city Comptroller.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse20: "1",
-    quizResponse21: "2",
   },
   candidateWhitney: {
     name: "Whitney Tilson",
@@ -370,12 +341,9 @@ export const candidateContent = {
     quizResponse13: "3",
     quizResponse14: "1",
     quizResponse15: "1",
-    quizResponse16: "3",
     quizResponse17: "3",
     quizResponse18: "4",
     quizResponse19: "3",
-    quizResponse20: "3",
-    quizResponse21: "1",
   },
   candidateJim: {
     name: "Jim Walden",
@@ -403,12 +371,9 @@ export const candidateContent = {
     quizResponse13: "",
     quizResponse14: "",
     quizResponse15: "",
-    quizResponse16: "",
     quizResponse17: "",
     quizResponse18: "",
     quizResponse19: "",
-    quizResponse20: "",
-    quizResponse21: "",
   },
   candidateCurtis: {
     name: "Curtis Sliwa",
@@ -436,11 +401,8 @@ export const candidateContent = {
     quizResponse13: "1",
     quizResponse14: "3",
     quizResponse15: "1",
-    quizResponse16: "1",
     quizResponse17: "3",
     quizResponse18: "3",
     quizResponse19: "2",
-    quizResponse20: "1",
-    quizResponse21: "2",
   },
 };
