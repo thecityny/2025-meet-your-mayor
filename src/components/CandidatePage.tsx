@@ -137,7 +137,9 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
                     <div className="copy">{formatContent(quote)}</div>
                     {source && (
                       <p key={i} className="copy mb-0">
-                        {convertToHtml(source.replace("</a>", "</a><br/>"))}
+                        {
+                          convertToHtml(source.replace("</a>", "</a><br/>")) // Add a line break after each hyperlink
+                        }
                       </p>
                     )}
                   </div>
