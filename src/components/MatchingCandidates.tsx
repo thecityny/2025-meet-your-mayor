@@ -86,12 +86,12 @@ export const MatchingCandidates: FC<{
                 ) : isSkipped ? (
                   <span>
                     {abbreviatedName} skipped this response <br />
-                    in our survey to their team.
+                    in our survey.
                   </span>
                 ) : (
                   <span>
                     {abbreviatedName} selected this response <br />
-                    in our survey to their team.
+                    in our survey.
                   </span>
                 )}
               </p>
