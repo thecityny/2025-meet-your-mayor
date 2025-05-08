@@ -36,10 +36,13 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   const candidateScore =
-    !!candidateStats && questionsLeftToAnswer.length === 0
-      ? Math.round(
-          (candidateStats.totalScore / candidateStats.totalPossibleScore) * 100
-        )
+    questionsLeftToAnswer.length === 0
+      ? !!candidateStats
+        ? Math.round(
+            (candidateStats.totalScore / candidateStats.totalPossibleScore) *
+              100
+          )
+        : 0
       : null;
 
   if (!candidateInfo) return <></>;
@@ -100,9 +103,9 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           <OutboundLink to={website}>
             <button className="button">Campaign Website</button>
           </OutboundLink>
-          <Link to={`/${!!candidateScore ? "#results" : ""}`}>
+          <Link to={`/${questionsLeftToAnswer.length === 0 ? "#results" : ""}`}>
             <button className="button is-white">
-              {!!candidateScore
+              {questionsLeftToAnswer.length === 0
                 ? `You're a ${candidateScore}% match`
                 : "See if you're a match"}
             </button>
