@@ -98,14 +98,12 @@ const Homepage = () => (
               className="headline has-text-left mt-2"
               style={{ maxWidth: "500px" }}
             >
-              Learn more about the candidates...
+              About the Candidates
             </h1>
             <CandidateSelectorMenu />
           </div>
           <div className="column">
-            <h1 className="headline has-text-left mt-2">
-              ...or read recent news coverage
-            </h1>
+            <h1 className="headline has-text-left mt-5">Recent News</h1>
             <RecentCoverage />
           </div>
         </div>
