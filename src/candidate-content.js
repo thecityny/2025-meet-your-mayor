@@ -20,6 +20,8 @@ export const candidateContent = {
       "2 | “My administration will create the Department of Community Safety to prevent violence before it happens through evidence-based solutions. Police have a critical role to play, but right now we’re relying on them to deal with the failures of our social safety net—which prevents them from doing their actual jobs. Through this new city agency and whole-of-government approach, community safety will be prioritized like never before in NYC. The Department will invest in citywide mental health programs and crisis response—including deploying dedicated outreach workers in 100 subway stations, providing medical services in vacant commercial units, and increasing Transit Ambassadors to assist New Yorkers on their journeys—expand evidence-based gun violence prevention programs, and increase funding to hate violence prevention programs by 800%. In addition to this, we will disband the Strategic Response Group which has been found to violate New Yorker’s rights, cancel Adams’ plan to create a $225M Cop City and eliminate the NYPD ever-growing $1 billion+ overtime budget, while continuing Commissioner Tisch’s downsizing of the NYPD’s more than 80 person communications department.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse5:
       "3 | “The MTA commissioned a Blue Ribbon Panel on Fare Evasion, and it showed a strong correlation between lower median income in an area and greater fare evasion. As of 2024, one in five New Yorkers struggled to afford subway and bus fares, and only a third of the almost one million adult New Yorkers who are eligible access Fair Fares. At its core, this is an economic crisis, and we must address it as such.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+    quizResponse5a:
+      '1 | Mamdani committed to closing Rikers at a mayoral forum jointly hosted by multiple LGBTQ+ political groups. He pointed to a need to invest in alternatives for incarceration. | <a href="https://gaycitynews.com/nyc-mayoral-hopefuls-2025-lgbtq-forum/">Gay City News</a> (Mar 28, 2025)',
     quizResponse6:
       "4 | “What we have selected represents one portion of our housing vision. To achieve our goal of housing every New Yorker, we must reform our disjointed planning and zoning processes to create a holistic vision for affordability, equity, and growth. I will create a comprehensive, citywide planning process to allow NYC to both address the legacy of racially discriminatory zoning and proactively plan for the health and needs of the city—in housing, transit, education, and other areas. That planning will include eliminating parking minimums, increasing density around transit hubs, and upzoning neighborhoods that have historically not contributed to citywide housing goals—including those cut out of City of Yes. | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse7:
@@ -30,8 +32,6 @@ export const candidateContent = {
       "0 | “As a Bronx Science alum and a former standardized test tutor, I’ve seen firsthand the promise and the failure of our specialized high schools and their admissions process. They are one example of systemic issues across our school system—the most segregated in the nation. My administration will focus on addressing the root educational causes of this segregation by implementing recommendations from the 2019 School Diversity Advisory Group’s at elementary and middle schools across our city.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse10:
       "1 | “NYC Reads is an important step in the right direction; we need to continue our citywide commitment to wide-scale literacy efforts, while honing our programming—including providing educators with support to differentiate existing materials for students struggling to access the curriculum.” | Campaign’s response to questionnaire. | Apr 18, 2025",
-    quizResponse11:
-      '1 | Mamdani committed to closing Rikers at a mayoral forum jointly hosted by multiple LGBTQ+ political groups. He pointed to a need to invest in alternatives for incarceration. | <a href="https://gaycitynews.com/nyc-mayoral-hopefuls-2025-lgbtq-forum/">Gay City News</a> (Mar 28, 2025)',
     quizResponse12:
       "4 | “The Trump administration is waging war on the first amendment and our constitutional rights as it continues to abduct New Yorkers from across our city. Any effort to cooperate with these efforts is a moral stain on our city. We should strengthen our sanctuary city laws through greater oversight, enforcement and compliance.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse13:
@@ -40,15 +40,11 @@ export const candidateContent = {
       "1 | “The opioid crisis does not have a single panacea, which is why in addition to making sure every New Yorker has access to supportive housing, I will expand access to long-term substance use treatment and safe injection facilities, ensuring they are equitably located across the city.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse15:
       "2 | “The most effective way to treat those with severe mental illness is by offering solutions that lead to stability. I will build an integrated system of mental health, housing, and substance use services, such that hospitalization is rare. Peer-based outreach, crisis intervention and programming—from Intensive Mobile Treatment to Peer Clubhouses like Fountain House—are proven to positively engage people into treatment, decrease hospitalization and reduce substance use. These are key to ending the revolving door and will be the focus of my Department of Community Safety.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse16:
-      "2 | “Current city vacancies are partially driven by a lack of flexibility in many government jobs, which make positions untenable for working parents and caregivers. We should expand remote work when the position allows for its effective implementation to reduce hiring gaps.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse17:
       "3 | “I will build a team of the best to run our city, hiring individuals who have served in prior mayoral administrations, whose work showcases an excellence we have clearly missed in city government, and who will be empowered to fulfill the mandate of New Yorkers with regards to their respective agency.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse18:
       "1 | “If you ask working-class New Yorkers, many of whom have been failed by a bureaucracy, to jump through many more hoops to get relief from that bureaucracy, you will lose about half, or in this case even more than 80% of your target population. Versus, if you make it universal, the benefits are not just fiscal. They're also public safety. They're also peace of mind.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">The New York Editorial Board</a> (Feb 2, 2025)",
     quizResponse19: "2",
-    quizResponse20: "1",
-    quizResponse21: "3",
   },
   candidateEric: {
     name: "Eric Adams",
@@ -68,23 +64,20 @@ export const candidateContent = {
     quizResponse3: "4",
     quizResponse4: "1",
     quizResponse5: "1",
+    quizResponse5a: "2",
     quizResponse6: "1",
     quizResponse7:
       '2 | “The bus shouldn’t be to ‘anti-RAD’ the bus should be bringing people here and say, “see the possibility.’” | <a href="https://www.youtube.com/watch?v=n1nK4cRIKtQ">Press conference</a> (May 20, 2022)',
     quizResponse8: "3",
     quizResponse9: "1",
     quizResponse10: "1",
-    quizResponse11: "2",
     quizResponse12: "2",
     quizResponse13: "1",
     quizResponse14: "2",
     quizResponse15: "1",
-    quizResponse16: "1",
     quizResponse17: "1",
     quizResponse18: "",
     quizResponse19: "4",
-    quizResponse20: "1",
-    quizResponse21: "1",
   },
   candidateAdrienne: {
     name: "Adrienne Adams",
@@ -102,6 +95,8 @@ export const candidateContent = {
     quizResponse3: "4",
     quizResponse4: "2",
     quizResponse5: "2",
+    quizResponse5a:
+      "0 | “Everyone has acknowledged the plan is delayed and will go beyond 2027, partially because the current mayor has failed to follow-through on the necessary steps to advance the plan. The Independent Rikers Commission's plan should be followed with better leadership from the mayor's office. We must safely reduce the inflated population by creating the mental health infrastructure that helps move the approximately half of those on Rikers with mental illness to more appropriate settings, while working with DAs and the courts to resolve delays in case processing times. This can help us close Rikers as soon as possible to improve public safety.” | campaign’s response to THE CITY/Gothamist’s survey. (May 7, 2025)",
     quizResponse6: "1",
     quizResponse7:
       "0 | “We need to repair and maintain Section 9 units, allow residents to opt-in to private management of public housing units, and pursue public-private financing models of public housing development that are more financially sustainable for NYCHA. Residents must help guide the options available with clear communication about their trade-offs.” | campaign’s response to THE CITY/Gothamist’s survey. (May 7, 2025)",
@@ -109,18 +104,13 @@ export const candidateContent = {
     quizResponse9:
       "0 | “I believe we must expand more specialized schools so more communities can participate based on grades and tests and not entirely focus on where we apply SHSAT.” | campaign’s response to THE CITY/Gothamist’s survey. (May 7, 2025)",
     quizResponse10: "3",
-    quizResponse11:
-      "0 | “Everyone has acknowledged the plan is delayed and will go beyond 2027, partially because the current mayor has failed to follow-through on the necessary steps to advance the plan. The Independent Rikers Commission's plan should be followed with better leadership from the mayor's office. We must safely reduce the inflated population by creating the mental health infrastructure that helps move the approximately half of those on Rikers with mental illness to more appropriate settings, while working with DAs and the courts to resolve delays in case processing times. This can help us close Rikers as soon as possible to improve public safety.” | campaign’s response to THE CITY/Gothamist’s survey. (May 7, 2025)",
     quizResponse12: "1",
     quizResponse13: "2",
     quizResponse14: "1",
     quizResponse15: "0",
-    quizResponse16: "1",
     quizResponse17: "2",
     quizResponse18: "1",
     quizResponse19: "3",
-    quizResponse20: "1",
-    quizResponse21: "1",
   },
   candidateMichael: {
     name: "Michael Blake",
@@ -138,22 +128,19 @@ export const candidateContent = {
     quizResponse3: "4",
     quizResponse4: "2",
     quizResponse5: "2",
+    quizResponse5a: "1",
     quizResponse6: "4",
     quizResponse7: "2",
     quizResponse8: "2",
     quizResponse9: "3",
     quizResponse10: "3",
-    quizResponse11: "1",
     quizResponse12: "1",
     quizResponse13: "2",
     quizResponse14: "1",
     quizResponse15: "3",
-    quizResponse16: "1",
     quizResponse17: "3",
     quizResponse18: "1",
     quizResponse19: "4",
-    quizResponse20: "1",
-    quizResponse21: "1",
   },
   candidateAndrew: {
     name: "Andrew Cuomo",
@@ -171,22 +158,19 @@ export const candidateContent = {
     quizResponse3: "3",
     quizResponse4: "1",
     quizResponse5: "1",
+    quizResponse5a: "3",
     quizResponse6: "1",
     quizResponse7: "3",
     quizResponse8: "2",
     quizResponse9: "1",
     quizResponse10: "",
-    quizResponse11: "3",
     quizResponse12: "1",
     quizResponse13: "",
     quizResponse14: "1",
     quizResponse15: "1",
-    quizResponse16: "1",
     quizResponse17: "1",
     quizResponse18: "1",
     quizResponse19: "4",
-    quizResponse20: "1",
-    quizResponse21: "2",
   },
   candidateBrad: {
     name: "Brad Lander",
@@ -204,23 +188,20 @@ export const candidateContent = {
     quizResponse3: "4",
     quizResponse4: "2",
     quizResponse5: "1",
+    quizResponse5a: "2",
     quizResponse6: "1",
     quizResponse7:
       "0 | “The choice must be made by a majority vote of residents in any NYCHA development. Residents should have all options to consider: private management, Preservation Trust, infill, or remaining traditional Section 9.” | campaign's response to THE CITY/Gothamist's survey. (May 7, 2025)",
     quizResponse8: "2",
     quizResponse9: "1",
     quizResponse10: "1",
-    quizResponse11: "2",
     quizResponse12: "1",
     quizResponse13: "2",
     quizResponse14: "1",
     quizResponse15: "1",
-    quizResponse16: "1",
     quizResponse17: "3",
     quizResponse18: "1",
     quizResponse19: "1",
-    quizResponse20: "3",
-    quizResponse21: "1",
   },
   candidateZellnor: {
     name: "Zellnor Myrie",
@@ -240,6 +221,7 @@ export const candidateContent = {
       '1 | “I proposed in my public safety plan a return to our police headcount, to where it was pre-pandemic. It is important that we have police officers to help with some of these quality of life issues. But also that they’re smartly deployed.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
     quizResponse5:
       "1 | In response to the survey, Myrie’s campaign noted that he believes there should be escalating consequences for repeat offenders. | campaign's response to THE CITY/Gothamist's survey. (April 18, 2025)",
+    quizResponse5a: "1",
     quizResponse6:
       '1 | “So our plan is focused, as you mentioned, on 1 million homes over the next decade, and in that, we include an expansion of our right to counsel to protect renters, but also to be extended to homeowners who are facing foreclosure and deed theft. It includes some upzoning, some commercial residential conversions, building in places that are already dense, building in industrial areas that can be converted to residential, and being creative about what we\'re doing on our public housing sites.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
     quizResponse7:
@@ -248,19 +230,15 @@ export const candidateContent = {
     quizResponse9: "1",
     quizResponse10:
       '1 | Myrie told the New York Editorial Board that he’d like to expand the <a href="https://www.schools.nyc.gov/learning/subjects/literacy/nyc-reads">NYC Reads</a> initiative to include training for educators, adding: “We have heard from some surveys that the teachers, by and large, support the NYC Reads initiative that focuses on evidence-based curriculum. They need some more support, and that is something that I’d be doing in my first administration. You do not get this type of training before you become a teacher, and so I think the city has to do a better job of supporting teachers to teach this type of curriculum.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
-    quizResponse11: "1",
     quizResponse12: "1",
     quizResponse13:
       '2 | Myrie wants to create a new unit within the city’s Law Department to file suits against the Trump administration should “coercive policy demands” be placed on the city, he told the New York Daily News. If that doesn’t work, then his administration will “withhold our tax dollars from the federal government, and we will march in the streets.” | <a href="https://www.nydailynews.com/2025/03/26/mayoral-candidate-zellnor-myrie-proposes-strategy-to-fight-trump-funding-cuts/">New York Daily News</a> (Mar 26, 2025)',
     quizResponse14: "1",
     quizResponse15:
       "1 | “What happens after that involuntary commitment, to me, is just as important as removing them from the public space. If we are sending that individual to Rikers where they're going to get worse, or we're sending them to the emergency room where they're going to cycle right back out, that is unhelpful on both counts.” | <a href=\"https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript\">New York Editorial Board Interview</a> (Feb 24, 2025)",
-    quizResponse16: "1",
     quizResponse17: "3",
     quizResponse18: "1",
     quizResponse19: "4",
-    quizResponse20: "1",
-    quizResponse21: "3",
   },
   candidateJessica: {
     name: "Jessica Ramos",
@@ -278,22 +256,19 @@ export const candidateContent = {
     quizResponse3: "4",
     quizResponse4: "2",
     quizResponse5: "4",
+    quizResponse5a: "1",
     quizResponse6: "1",
     quizResponse7: "1",
     quizResponse8: "1",
     quizResponse9: "2",
     quizResponse10: "2",
-    quizResponse11: "1",
     quizResponse12: "1",
     quizResponse13: "1",
     quizResponse14: "1",
     quizResponse15: "1",
-    quizResponse16: "2",
     quizResponse17: "3",
     quizResponse18: "1",
     quizResponse19: "2",
-    quizResponse20: "1",
-    quizResponse21: "3",
   },
   candidateScott: {
     name: "Scott Stringer",
@@ -316,6 +291,8 @@ export const candidateContent = {
       "1 | “My public safety and quality of life plan focuses on rebuilding and refocusing the NYPD’s capacity, bringing our officer count back up to 35,000 officers and refocusing their efforts away from administrative tasks and on frontline policing. We need to lead with compassion, integrating 311 and 911 to facilitate a coordinated response from our social services to provide New Yorkers with the support they need while bringing an end to the disorder on our streets and subways.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse5:
       "2 | “The solution isn’t enforcement, it's accessibility. I have long supported a fair fares system that enables those who struggle to pay to maintain access to city services without breaking the law and still makes those who can afford it pay their fair share. By implementing this system throughout our transit, the number of fare violations will decrease and further enforcement won’t be necessary.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+    quizResponse5a:
+      "2 | “Rikers isn’t just broken – it's a moral failure. It needs to be shut down, and we must transition to a borough-based prison system. However, that will take time that the current incarcerated people at Rikers don’t have. The conditions at Rikers, including a lack of accessible healthcare, is jeopardizing the only chance at rehabilitation these people have. We must improve the conditions at Rikers and invest in the rehabilitation of the people currently there while moving towards closing the facility.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse6: "1",
     quizResponse7:
       "1 | “My administration will unlock $40B for repairs and modernization of NYCHA, leveraging federal and state funding to address the repair backlog, eliminate mold and lead permanently, make sustainable upgrades, and revive the uninhabitable units to provide urgently needed housing for families. We will also create tenant-led oversight committees to monitor repair progress, ensure transparency, and hold NYCHA accountable for quality standards.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
@@ -325,8 +302,6 @@ export const candidateContent = {
       "1 | “I support the use of the SHSAT. And I also support great schools for all NYC kids. We need more specialized schools to give even more students opportunities and make sure we aren’t leaving talented students behind. It is also our responsibility to ensure high-quality public schools in every zip code so a great education is something every kid can count on.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse10:
       "2 | “Our public education system is not the beacon of opportunity it once was. My bold plan to improve this is to extend the public school day to 4:30 p.m. by collaborating with community nonprofits to provide free or low-cost after-school activities like academic tutoring, arts, sports, and STEM education. Research shows that extended school hours improve literacy and math scores for students, especially for disadvantaged students, and they keep our kids safe during the hours when parents are still at work.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse11:
-      "2 | “Rikers isn’t just broken – it's a moral failure. It needs to be shut down, and we must transition to a borough-based prison system. However, that will take time that the current incarcerated people at Rikers don’t have. The conditions at Rikers, including a lack of accessible healthcare, is jeopardizing the only chance at rehabilitation these people have. We must improve the conditions at Rikers and invest in the rehabilitation of the people currently there while moving towards closing the facility.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse12:
       "1 | “Trump’s immigration crackdown is an embarrassment that unjustly targets undocumented New Yorkers. NYC will double down on sanctuary protections, ensuring no city agency helps ICE or federal law enforcement carry out political persecution.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse13: "2",
@@ -334,15 +309,11 @@ export const candidateContent = {
       "1 | “We need to invest in housing-first initiatives that provide stable housing paired with comprehensive services in order to reduce homelessness and promote long-term well-being. Expanding rapid rehousing programs, providing mental health counseling, addiction recovery, and job training in mixed-use neighborhoods will enable individuals to regain stability and self-sufficiency.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse15:
       "1 | “My quality of life plan focuses on addressing the mental health crisis in this city by investing in our city’s mental health infrastructure and making services available 24/7. While I support strengthening involuntary commitment laws in the interest of public safety, it must only be in the most extreme cases. I have advocated for revising these laws to allow for more effective interventions in cases where individuals pose a danger to themselves or others. We need specific, actionable plans rather than broad proposals to address the mental health crisis. This issue has always required a very nuanced approach, balancing civil liberties and justice reform with stronger tools for intervention when necessary.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse16:
-      "2 | “We need to meet the needs of all New Yorkers, that includes the scheduling needs of our public workforce. Quality of Life in our city agencies ensures that we can retain the best and brightest as they serve the rest of the city.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse17:
       "1 | “New York needs a mayor who wakes up every morning focused on what he can do to make the city work better for the people who live here. That will take centralizing decisions and leading with conviction, it will take working closely with City Council and other elected leaders, and it will require hiring the best people to run city agencies. With me, you will get a mayor who knows how this city works and will do the hard work every day to make it better.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
     quizResponse18: "4",
     quizResponse19:
       "4 | “I began my career as a tenant organizer, standing alongside Mitchell-Lama residents who were fighting to stop their homes from being sold to private developers. That led me to embark on a career of public service, from the state assembly to the Manhattan Borough President’s Office, to the city Comptroller.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse20: "1",
-    quizResponse21: "2",
   },
   candidateWhitney: {
     name: "Whitney Tilson",
@@ -360,22 +331,19 @@ export const candidateContent = {
     quizResponse3: "4",
     quizResponse4: "1",
     quizResponse5: "1",
+    quizResponse5a: "2",
     quizResponse6: "1",
     quizResponse7: "3",
     quizResponse8: "3",
     quizResponse9: "1",
     quizResponse10: "2",
-    quizResponse11: "2",
     quizResponse12: "2",
     quizResponse13: "3",
     quizResponse14: "1",
     quizResponse15: "1",
-    quizResponse16: "3",
     quizResponse17: "3",
     quizResponse18: "4",
     quizResponse19: "3",
-    quizResponse20: "3",
-    quizResponse21: "1",
   },
   candidateJim: {
     name: "Jim Walden",
@@ -393,22 +361,19 @@ export const candidateContent = {
     quizResponse3: "",
     quizResponse4: "",
     quizResponse5: "",
+    quizResponse5a: "",
     quizResponse6: "",
     quizResponse7: "",
     quizResponse8: "",
     quizResponse9: "",
     quizResponse10: "",
-    quizResponse11: "",
     quizResponse12: "",
     quizResponse13: "",
     quizResponse14: "",
     quizResponse15: "",
-    quizResponse16: "",
     quizResponse17: "",
     quizResponse18: "",
     quizResponse19: "",
-    quizResponse20: "",
-    quizResponse21: "",
   },
   candidateCurtis: {
     name: "Curtis Sliwa",
@@ -426,21 +391,18 @@ export const candidateContent = {
     quizResponse3: "3",
     quizResponse4: "1",
     quizResponse5: "1",
+    quizResponse5a: "3",
     quizResponse6: "2",
     quizResponse7: "2",
     quizResponse8: "2",
     quizResponse9: "1",
     quizResponse10: "2",
-    quizResponse11: "3",
     quizResponse12: "2",
     quizResponse13: "1",
     quizResponse14: "3",
     quizResponse15: "1",
-    quizResponse16: "1",
     quizResponse17: "3",
     quizResponse18: "3",
     quizResponse19: "2",
-    quizResponse20: "1",
-    quizResponse21: "2",
   },
 };

@@ -9,12 +9,12 @@ export type Party = "democrat" | "other" | null;
  * A blank template to keep track of user's
  * responses to quiz questions.
  */
-export const blankAnswersList = Object.entries(questionContent)
-  .filter((question) => question[0] !== "questionX")
-  .map((question, i) => ({
+export const blankAnswersList = Object.entries(questionContent).map(
+  (question, i) => ({
     questionNumber: i + 1,
     answer: null,
-  }));
+  })
+);
 
 type AppState = {
   party: Party;

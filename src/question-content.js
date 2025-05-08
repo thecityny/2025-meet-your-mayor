@@ -60,6 +60,20 @@ export const questionContent = {
     option3: "Do not issue summonses for fare nonpayment",
     option4: "",
   },
+  question5a: {
+    title:
+      "The number of people incarcerated at Rikers Island is approaching double the capacity of planned new jails. What should the next mayor do?",
+    subject: "Public Safety",
+    tellMeMore:
+      'The four new borough-based jails – meant to replace the Rikers Island complex and place incarcerated folks in areas closer to their families and courts — will have 4,160 beds. As of March, 7,067 people were <a href="https://www.thecity.nyc/2025/03/20/rikers-population-tops-7000/">incarcerated at Rikers</a>.',
+    option1:
+      "Stay on course with the Rikers Island shutdown, work with DAs to release more people pretrial or divert them from prosecution entirely",
+    option2:
+      "Stay on course with the Rikers Island shutdown, work with the City Council to keep a Rikers facility open to maintain continued capacity",
+    option3:
+      "Pause planning for jails still in the design phase, work with the City Council to reinvest in Rikers facilities",
+    option4: "",
+  },
   question6: {
     title:
       "What is your preferred main path to creating more affordable housing?",
@@ -121,27 +135,13 @@ export const questionContent = {
     option3: "Reduce standardized testing in city public schools",
     option4: "",
   },
-  question11: {
-    title:
-      "The number of people incarcerated at Rikers Island is approaching double the capacity of planned new jails. What should the next mayor do?",
-    subject: "Jails",
-    tellMeMore:
-      'The four new borough-based jails – meant to replace the Rikers Island complex and place incarcerated folks in areas closer to their families and courts — will have 4,160 beds. As of March, 7,067 people were <a href="https://www.thecity.nyc/2025/03/20/rikers-population-tops-7000/">incarcerated at Rikers</a>.',
-    option1:
-      "Stay on course with the Rikers Island shutdown, work with DAs to release more people pretrial or divert them from prosecution entirely",
-    option2:
-      "Stay on course with the Rikers Island shutdown, work with the City Council to keep a Rikers facility open to maintain continued capacity",
-    option3:
-      "Pause planning for jails still in the design phase, work with the City Council to reinvest in Rikers facilities",
-    option4: "",
-  },
   question12: {
     title: "What is your position on NYC's sanctuary city laws?",
     subject: "Federal Government",
     tellMeMore:
       "NYC laws prohibit most cooperation with immigration enforcement, making exceptions only for the NYPD and Department of Correction to transfer custody where someone sought by federal agents has been convicted of a specified violent crime.",
     option1:
-      "Laws should remain as they are: City authorities should only cooperate with federal agents in immigration enforcement where a person has previously been convicted of a violent felony, regardless of new charges",
+      "Laws should remain as they are: City authorities should only cooperate with federal agents in immigration enforcement where a person has previously been convicted of a serious crime, regardless of new charges",
     option2:
       "Change the laws: City authorities should help federal agents with enforcement for people charged with violent felonies, in addition to those already convicted",
     option3:
@@ -187,21 +187,9 @@ export const questionContent = {
     option3: "I support the bill's premise but it does not go far enough",
     option4: "",
   },
-  question16: {
-    title: "Do you support remote work for city employees?",
-    subject: "Jobs",
-    tellMeMore:
-      "The incoming mayor will have the ability to set remote work policies for the more than 300,000 employees who work directly for the city, building on agreements that allow up to two days a week remote for many city workers.",
-    option1:
-      "Yes, continue the pilot program of up to two days a week for office workers",
-    option2:
-      "Yes, expand flexibility for remote work to more than two days a week",
-    option3: "No, city workers should all go back to the office full time",
-    option4: "",
-  },
   question17: {
     title: "What kind of manager are you?",
-    subject: "Personality",
+    subject: "Background",
     tellMeMore:
       "We asked the candidates to identify their preferred approach in running an organization.",
     option1:
@@ -215,7 +203,7 @@ export const questionContent = {
   question18: {
     title:
       "You get one thing people will remember your mayoralty for above all a generation from now. What is that legacy?",
-    subject: "Personality",
+    subject: "Background",
     tellMeMore: "TKTKTK",
     option1: "I expanded opportunities for poor and working-class New Yorkers",
     option2: "I created lasting public works",
@@ -225,29 +213,11 @@ export const questionContent = {
   question19: {
     title:
       "What early-career experience is the most influential on how you govern?",
-    subject: "Personality",
+    subject: "Background",
     tellMeMore: "TKTKTK",
     option1: "Led a nonprofit",
     option2: "Served as a community or labor organizer",
     option3: "Worked in the private sector",
     option4: "Career-long work in government and politics",
-  },
-  question20: {
-    title: "But are you a real New Yorker?",
-    subject: "Personality",
-    tellMeMore: "TKTKTK",
-    option1: "Grew up here and never left",
-    option2: "Took a break and came back",
-    option3: "Moved to the city as an adult",
-    option4: "",
-  },
-  question21: {
-    title: "Do you own or rent your current home?",
-    subject: "Personality",
-    tellMeMore: "TKTKTK",
-    option1: "Own and live in an NYC residence",
-    option2: "Rent a market-rate apartment",
-    option3: "Rent a rent-stabilized apartment",
-    option4: "",
   },
 };
