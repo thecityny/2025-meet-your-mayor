@@ -1,5 +1,5 @@
 import React from "react";
-import { groupBy, kebabCase } from "../utils";
+import { groupBy, kebabCase, shuffleArray } from "../utils";
 import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
@@ -96,6 +96,7 @@ const calculateScore = () => {
     );
     candidate.totalPossibleScore = totalPossibleScore;
   });
+  scorecard = shuffleArray(scorecard); // Randomize order of candidates before we sort them
   const scorecardSorted = scorecard.sort((a, b) => {
     return b.totalScore - a.totalScore;
   });
