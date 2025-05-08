@@ -41,8 +41,10 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
     score &&
     score.find((candidate) => candidate.candidateName === candidateName);
 
+  const questionsLeftToAnswer = getQuestionsLeftToAnswer();
+
   const candidateScore =
-    !!candidateStats && getQuestionsLeftToAnswer().length === 0
+    !!candidateStats && questionsLeftToAnswer.length === 0
       ? Math.round(
           (candidateStats.totalScore / candidateStats.totalPossibleScore) * 100
         )
