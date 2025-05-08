@@ -117,7 +117,8 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           </Link>
         </div>
         <div className="eyebrow has-text-left mt-5 mb-2 is-flex is-align-items-center">
-          <div className="mr-3">Share this tool: </div> <SocialShareButtons />
+          <div className="mr-3">Share Meet Your Mayor:</div>{" "}
+          <SocialShareButtons />
         </div>
 
         <div className="copy my-5 py-5">{formatContent(bio)}</div>
