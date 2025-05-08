@@ -11,7 +11,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { Script } from "gatsby";
 
 const THE_CITY_SITE_LINKS = {
-  website: "https://thecity.nyc/",
+  website: "https://www.thecity.nyc/",
   x: "https://x.com/intent/follow?screen_name=TheCityNY",
   instagram: "https://www.instagram.com/thecityny",
   facebook: "https://www.facebook.com/thecityny",
