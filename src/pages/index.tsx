@@ -104,7 +104,8 @@ const Homepage = () => (
             <CandidateSelectorMenu />
           </div>
           <div className="column">
-            <h1 className="headline has-text-left mt-5">Recent News</h1>
+            <div className="eyebrow is-inline-block"> </div>
+            <h1 className="headline has-text-left mt-1">Recent News</h1>
             <RecentCoverage />
           </div>
         </div>
