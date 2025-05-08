@@ -14,6 +14,7 @@ import {
 import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
 import { Bobblehead } from "./Illustration";
 import { Party, useAppStore } from "../useAppStore";
+import { Methodology } from "./Methodology";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -112,6 +113,7 @@ const Quiz = () => {
                 June 24, and early voting starts on June 14. The general
                 election is on November 4, 2025.
               </p>
+              <Methodology />
 
               <div className="pt-3">
                 {questionsLeftToAnswer.length === 0 ? (
