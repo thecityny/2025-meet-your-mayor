@@ -78,7 +78,14 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
         <div className="columns candidate-page-intro">
           <div className="column is-two-fifths-desktop is-half-tablet">
-            <figure className="image">
+            <figure
+              className="image"
+              style={{
+                // This reduces the flickr affect when the photo is still loading
+                // by maintaining a certain height on the container
+                minHeight: "325px",
+              }}
+            >
               <LazyLoadImage
                 src={`../photos/${kebabCase(candidateName)}-photo.jpg`}
                 effect="blur"
