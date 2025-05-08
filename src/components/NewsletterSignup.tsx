@@ -145,16 +145,16 @@ export const NewsletterSignupBanner: React.FC = () => {
           <p className="label mt-2 has-text-centered">You're signed up!</p>
         ) : statusTheCity === "success" && statusGothamist === "error" ? (
           <p className="label mt-2 has-text-centered">
-            You're signed up with Gothamist! Something went wrong with THE CITY.{" "}
-            <OutboundLink to={THE_CITY_FALLBACK_NEWSLETTER_LINK}>
+            You're signed up with THE CITY! Something went wrong with Gothamist.{" "}
+            <OutboundLink to={GOTHAMIST_FALLBACK_NEWSLETTER_LINK}>
               Sign up manually
             </OutboundLink>
             .
           </p>
         ) : statusTheCity === "error" && statusGothamist === "success" ? (
           <p className="label mt-2 has-text-centered">
-            You're signed up with THE CITY! Something went wrong with Gothamist.{" "}
-            <OutboundLink to={GOTHAMIST_FALLBACK_NEWSLETTER_LINK}>
+            You're signed up with Gothamist! Something went wrong with THE CITY.{" "}
+            <OutboundLink to={THE_CITY_FALLBACK_NEWSLETTER_LINK}>
               Sign up manually
             </OutboundLink>
             .
