@@ -8,10 +8,6 @@ import { RecentCoverage } from "../components/RecentCoverage";
 import { IntroAnimation } from "../components/IntroAnimation";
 import { NewsletterSignupBanner } from "../components/NewsletterSignup";
 
-const byline = process.env.GATSBY_AUTHOR
-  ? JSON.parse(process.env.GATSBY_AUTHOR)
-  : ([] as any);
-
 const getDateUpdated = () => {
   const timestamp = process.env.GATSBY_UPDATE_DATE;
   if (!timestamp) {
@@ -35,32 +31,16 @@ const Homepage = () => (
           <IntroAnimation isMobile />
           <div className="column is-half">
             <h1 className="headline has-text-left mt-0">
-              Meet your Mayor: 2025
+              Meet Your Mayor 2025
             </h1>
             <div className="attribution">
               <p className="eyebrow has-text-left mb-2">
                 Updated: {getDateUpdated()}
               </p>
-              <p className="eyebrow has-text-left mb-0">
-                By{" "}
-                {byline.map((author: any, i: number) => (
-                  <span key={i} className="author">
-                    <a href={author.url}>{author.name}</a>
-                    {i < byline.length - 2
-                      ? ", "
-                      : i < byline.length - 1
-                      ? " and "
-                      : ""}
-                  </span>
-                ))}
-              </p>
-              <p className="eyebrow has-text-left mt-0 mb-4">
-                In partnership with Gothamist
-              </p>
               <p className="deck has-text-left" style={{ maxWidth: "600px" }}>
-                Candidates for NYC mayor told us where they stand on 8 big
-                issues. Now you can pick your positions and see which contenders
-                are the right ones for you.
+                Who should you rank on your ballot to be the next mayor of New
+                York City? Take the same quiz the candidates did and find your
+                closest match.
               </p>
               <div className="is-flex is-flex-direction-column my-6">
                 <SmoothScroll
@@ -80,12 +60,12 @@ const Homepage = () => (
                     className="button is-white"
                     style={{ width: "100%", maxWidth: "350px" }}
                   >
-                    Learn on your own
+                    See the candidates{" "}
                   </button>
                 </a>
               </div>
               <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
-                <div className="mr-3">Share this tool: </div>{" "}
+                <div className="mr-3">Share Meet Your Mayor:</div>{" "}
                 <SocialShareButtons />
               </div>
             </div>
@@ -96,6 +76,7 @@ const Homepage = () => (
     </div>
     <NewsletterSignupBanner />
     <Quiz />
+    <NewsletterSignupBanner />
     <div className="hero is-fullheight-with-navbar pt-6">
       <div className="container mt-6 pt-5" id="learn">
         <div className="columns">
@@ -118,14 +99,13 @@ const Homepage = () => (
               className="headline has-text-left mt-2"
               style={{ maxWidth: "500px" }}
             >
-              Learn more about the candidates...
+              About the Candidates
             </h1>
             <CandidateSelectorMenu />
           </div>
           <div className="column">
-            <h1 className="headline has-text-left mt-2">
-              ...or read recent news coverage
-            </h1>
+            <div className="eyebrow is-inline-block"> </div>
+            <h1 className="headline has-text-left mt-1">Recent News</h1>
             <RecentCoverage />
           </div>
         </div>

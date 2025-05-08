@@ -86,12 +86,12 @@ export const MatchingCandidates: FC<{
                 ) : isSkipped ? (
                   <span>
                     {abbreviatedName} skipped this response <br />
-                    in our survey to their team.
+                    in our survey.
                   </span>
                 ) : (
                   <span>
                     {abbreviatedName} selected this response <br />
-                    in our survey to their team.
+                    in our survey.
                   </span>
                 )}
               </p>
@@ -142,7 +142,7 @@ export const MatchingCandidates: FC<{
             className="eyebrow is-link is-inline-block"
             onClick={handleClick}
           >
-            See <span className="no-wrap">responses +</span>
+            See <span className="no-wrap">details +</span>
           </span>
         </div>
       )}

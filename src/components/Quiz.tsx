@@ -14,6 +14,7 @@ import {
 import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
 import { Bobblehead } from "./Illustration";
 import { Party, useAppStore } from "../useAppStore";
+import { Methodology } from "./Methodology";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -57,7 +58,7 @@ const Quiz = () => {
 
   const partySelectorButtons: PartySelectorButton[] = [
     {
-      label: "Democrat",
+      label: "Democratic Primary",
       party: "democrat",
       candidates: democraticCandidates,
     },
@@ -102,15 +103,17 @@ const Quiz = () => {
           <div className="container" style={{ maxWidth: "600px" }}>
             <div>
               <h1 className="headline has-text-left">
-                The Ultimate Match Quiz
+                The Meet Your Mayor Quiz
               </h1>
               <p className="copy has-text-left mt-5">
-                Voters of New York City: It’s time to pick your nominee for
-                mayor, with primary day approaching on June 22. Since March, THE
-                CITY has been presenting the candidates’ positions, issue by
-                issue. Meet Your Mayor shows you how the contenders' stands fit
-                with your take on what matters most to New Yorkers.
+                Voters of New York City: Can’t decide who to put on your ballot
+                for mayor? This quiz will help you decide by matching your
+                responses to 18 questions with how candidates answered the same
+                questions on urgent issues facing New Yorkers. The primary is on
+                June 24, and early voting starts on June 14. The general
+                election is on November 4, 2025.
               </p>
+              <Methodology />
 
               <div className="pt-3">
                 {questionsLeftToAnswer.length === 0 ? (
@@ -162,9 +165,7 @@ const Quiz = () => {
                   </>
                 ) : (
                   <>
-                    <h2 className="deck has-text-left">
-                      To start, pick your party:
-                    </h2>
+                    <h2 className="deck has-text-left">Choose a contest:</h2>
 
                     {partySelectorButtons.map((button, i) => (
                       <div key={i} className="my-5">

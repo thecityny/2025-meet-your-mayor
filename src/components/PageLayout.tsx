@@ -26,6 +26,10 @@ const GOTHAMIST_SITE_LINKS = {
   bluesky: "https://bsky.app/profile/gothamist.com",
 };
 
+const byline = process.env.GATSBY_AUTHOR
+  ? JSON.parse(process.env.GATSBY_AUTHOR)
+  : ([] as any);
+
 const Header = () => (
   <nav className="nav has-color-background">
     <div className="nav-container">
@@ -91,6 +95,19 @@ const Footer = () => {
             ))}
         </div>
         <div className="eyebrow mt-6 mb-2 has-text-centered">
+          By{" "}
+          {byline.map((author: any, i: number) => (
+            <span key={i} className="author">
+              <a href={author.url}>{author.name}</a>
+              {i < byline.length - 2
+                ? ", "
+                : i < byline.length - 1
+                ? " and "
+                : ""}
+            </span>
+          ))}
+          . Design and development by{" "}
+          <OutboundLink to="www.samrabiyah.com">Sam Rabiyah</OutboundLink>.{" "}
           Illustrations by{" "}
           <OutboundLink to="https://patrick-leger.com/">
             Patrick Léger
@@ -99,18 +116,16 @@ const Footer = () => {
           <OutboundLink to="https://www.thecity.nyc/author/ben-fractenberg/">
             Ben Fractenberg
           </OutboundLink>{" "}
-          and courtesy of the Tim Walden campaign. Design support from{" "}
-          <OutboundLink to="https://temberdesign.com/about">
-            Tember Hopkins
-          </OutboundLink>
-          . Development support from{" "}
-          <OutboundLink to="https://samguzik.com/">Sam Guzik</OutboundLink>.
+          and courtesy of the Tim Walden campaign. Design support from Tember
+          Hopkins . Development support from Sam Guzik.
         </div>
 
         <div className="eyebrow mt-5 has-text-centered">
-          Meet Your Mayor does not collect any personal data from users. We do
-          collect quiz responses anonymously to improve this resource and track
-          aggregate results.
+          View source code on{" "}
+          <OutboundLink to="https://github.com/thecityny/2025-meet-your-mayor">
+            Github
+          </OutboundLink>
+          .
         </div>
 
         <ul className="footer-links">
@@ -169,7 +184,7 @@ const Analytics = () => (
 
         gtag('config', 'G-G0ZNNV3GTX');
         dataLayer.push({
-          'Author': 'Alyssa Katz:Mia Hollie:Sam Rabiyah',
+          'Author': 'Alyssa Katz:Mia Hollie:Sam Rabiyah:Richard Kim',
           'Primary_Group': 'Campaign 2023',
           'Type': 'Interactive'
         });`}
