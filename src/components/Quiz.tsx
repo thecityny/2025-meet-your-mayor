@@ -316,16 +316,18 @@ const Quiz = () => {
                                   {title}
                                 </h3>
 
-                                <details className="mb-5">
-                                  <summary className="eyebrow is-link">
-                                    Tell me{" "}
-                                    <span className="open-text">more +</span>
-                                    <span className="close-text">less -</span>
-                                  </summary>
-                                  <div className="details-content copy mt-2">
-                                    {formatContent(tellMeMore)}
-                                  </div>
-                                </details>
+                                {!!tellMeMore && (
+                                  <details className="mb-5">
+                                    <summary className="eyebrow is-link">
+                                      Tell me{" "}
+                                      <span className="open-text">more +</span>
+                                      <span className="close-text">less -</span>
+                                    </summary>
+                                    <div className="details-content copy mt-2">
+                                      {formatContent(tellMeMore)}
+                                    </div>
+                                  </details>
+                                )}
                                 {[
                                   option1,
                                   option2,
