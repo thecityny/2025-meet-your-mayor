@@ -1,42 +1,40 @@
-# THE CITY's Multi-page Gatsby Template for News Apps
+# Meet Your Mayor 2025
 
-[THE CITY](https://www.thecity.nyc/pages/about) is a nonprofit, nonpartisan, digital newsroom dedicated to hard-hitting reporting that serves the people of New York. We publish news apps and data graphics regularly, and we try and open source as much of our code as we can so that others can use it. You can check out a list of our recent projects on [THE CITY Projects Page](https://projects.thecity.nyc/all-projects/).
+**A multi-page Gatsby-powered news application by [THE CITY](https://www.thecity.nyc) and [Gothamist](https://gothamist.com/), designed to inform New Yorkers about the 2025 NYC mayoral candidates.**
 
-This template is what we use to create multi-page interactive projects, and it is bootstrapped with [Gatsby](https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter). The deployment process is based in part on the [Baker Rig](https://github.com/datadesk/baker) project by the L.A. Times.
+## 📰 Overview
 
-If you're looking to build a simple one-page app, you may want to check out our [Full-page React Template](https://github.com/thecityny/fullpage-react-template) instead.
+[THE CITY](https://www.thecity.nyc) is a nonprofit, nonpartisan digital newsroom dedicated to hard-hitting reporting that serves the people of New York. This project aims to provide an interactive platform and quiz for voters to learn about the 2025 mayoral candidates, their policies, backgrounds, and visions for the city.
 
-## 🚀 Getting started
+## 🛠️ Technologies Used
 
-The first step is to click GitHub’s “use this template” button to a make a copy of the repository for yourself.
+- **[Gatsby](https://www.gatsbyjs.com/)**: A React-based open-source framework for creating fast websites.
+- **React**: For building dynamic user interfaces.
+- **TypeScript**: Ensures type safety and better developer experience.
+- **ArchieML**: For syncing site content with Google Docs used by editorial staff.
 
-![](./.github/images/use-this-template.png)
+## 📁 Project Structure
 
-You’ll be asked to provide a slug for your project. Once that’s done, a new repository will be available at `https://github.com/your-username/your-slug`.
-
-Next you’ll need to clone it down to your computer to work with the code.
-
-Open up your terminal and cd to your code folder. Clone the project into your folder. This will copy the project onto your computer.
-
-```sh
-gh repo clone https://github.com/your-username/your-slug
+```
+2025-meet-your-mayor/
+├── src/                # Source files
+│   ├── assets/         # Logos
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Pages (using Gatsby page logic)
+│   ├── templates/      # Page templates
+│   └── styles/         # Custom SCSS styles
+├── static/             # Static assets, like photos and illustrations
+├── .github/            # Scripts for running Github Actions
+├── .env                # Client-accessible environment variables
+├── gatsby-config.js    # Gatsby configuration
+├── gatsby-node.js      # Gatsby Node APIs
+├── package.json        # Project metadata and dependencies
+└── README.md           # Project documentation
 ```
 
-Once the repository has finished downloading, cd into your-slug and install the Node.js dependencies.
+## ⚙️ Getting Started
 
-```sh
-npm install
-```
-
-Once the dependencies have been installed, you’re ready to preview the project. Run the following to start the test server.
-
-```sh
-npm start
-```
-
-Now go to `localhost:8000` in your browser. You should see a boilerplate page ready for your customizations.
-
-## Using this template
+### Installation## Using this template
 
 This code is free and open source and you are permitted to use for your own projects under the [Apache 2.0 License](LICENSE) included in this repository. However, before deploying anything publicly using this codebase, you must:
 
