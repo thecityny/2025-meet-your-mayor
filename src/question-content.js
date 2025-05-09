@@ -133,7 +133,7 @@ export const questionContent = {
     option4: "",
   },
   question12: {
-    title: "How should the next mayor deal with President Trump?",
+    title: "What is your position on NYC’s sanctuary city laws?",
     subject: "Federal Government",
     tellMeMore:
       "NYC laws prohibit most cooperation with immigration enforcement, making exceptions only for the NYPD and Department of Correction to transfer custody where someone sought by federal agents has been convicted of a specified violent crime.",
@@ -147,8 +147,7 @@ export const questionContent = {
       "Change the laws: City authorities should further restrict cooperation with federal authorities",
   },
   question13: {
-    title:
-      "Which most closely describes how you will deal with President Trump?",
+    title: "How should the next mayor deal with President Trump?",
     subject: "Federal Government",
     tellMeMore:
       "President Donald Trump has taken numerous steps targeting New York City specifically, including threatening to end congestion pricing that helps fund mass transit and clawing back funds the city uses to aid migrants.",
