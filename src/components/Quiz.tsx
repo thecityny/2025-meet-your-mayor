@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
@@ -46,6 +46,12 @@ const Quiz = () => {
   );
 
   const questions = formatQuestionContent();
+
+  const [methodologyVisible, setMethodologyVisible] = useState(false);
+  const toggleMethodology = () => {
+    const currentVisibility = methodologyVisible;
+    setMethodologyVisible(!currentVisibility);
+  };
 
   const democraticCandidates = generateListOfCandidatesByParty("democrat");
   const otherCandidates = generateListOfCandidatesByParty("other");
@@ -171,12 +177,16 @@ const Quiz = () => {
                         <SmoothScroll
                           to="questions"
                           className="control"
-                          onClick={() =>
+                          onClick={() => {
+                            setMethodologyVisible(false);
+
                             // If the user is selecting a party, we want to scroll to the first question
                             // after a short delay, so that the user doesn't see the content change
                             // inside the quiz intro section
-                            setParty(button.party, ANCHOR_LINK_DURATION)
-                          }
+                            setTimeout(() => {
+                              setParty(button.party, ANCHOR_LINK_DURATION);
+                            }, 1000);
+                          }}
                           extraOffset={150}
                         >
                           <button className="button">{button.label}</button>
@@ -210,7 +220,18 @@ const Quiz = () => {
                   </>
                 )}
               </div>
-              <Methodology />
+              <div className="mb-5">
+                <span
+                  key="x"
+                  className="eyebrow is-link is-inline-block"
+                  onClick={() => toggleMethodology()}
+                >
+                  How Meet Your Mayor Works{" "}
+                  <span>{methodologyVisible ? "-" : "+"}</span>
+                </span>
+
+                {methodologyVisible && <Methodology />}
+              </div>
             </div>
           </div>
         </div>
