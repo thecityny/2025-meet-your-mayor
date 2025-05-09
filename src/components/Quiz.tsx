@@ -114,7 +114,12 @@ const Quiz = () => {
                 election is on November 4, 2025.
               </p>
 
-              <div className="pt-3 pb-3">
+              <div
+                className="pt-3 pb-3"
+                style={{
+                  minHeight: "500px",
+                }}
+              >
                 {questionsLeftToAnswer.length === 0 ? (
                   <div className="my-4">
                     <h2 className="deck has-text-left">
@@ -209,8 +214,8 @@ const Quiz = () => {
                     ))}
                   </>
                 )}
+                <Methodology />
               </div>
-              <Methodology />
             </div>
           </div>
         </div>
