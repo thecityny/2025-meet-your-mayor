@@ -397,12 +397,18 @@ const Quiz = () => {
                                 })}
 
                                 {!!answerSelected && (
-                                  <div className="field is-grouped mt-6 question-controls">
+                                  <div className="field is-grouped mt-6 question-controls is-flex is-flex-direction-column">
                                     <SmoothScroll
                                       to={`question-${number + 1}`}
                                       className="control"
                                     >
-                                      <button className="button is-link">
+                                      <button
+                                        className="button is-link mb-2"
+                                        style={{
+                                          width: "100%",
+                                          maxWidth: "350px",
+                                        }}
+                                      >
                                         Next Question
                                       </button>
                                     </SmoothScroll>
@@ -411,7 +417,13 @@ const Quiz = () => {
                                       className="control"
                                       onClick={() => clearAnswer(number)}
                                     >
-                                      <button className="button is-link is-white">
+                                      <button
+                                        className="button is-link is-white"
+                                        style={{
+                                          width: "100%",
+                                          maxWidth: "350px",
+                                        }}
+                                      >
                                         Change answer
                                       </button>
                                     </SmoothScroll>
