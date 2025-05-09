@@ -53,8 +53,14 @@ export const testCandidateContentFormat = () => {
     for (const innerKey in innerObj) {
       const value = innerObj[innerKey as keyof typeof innerObj];
       const pipeCount = (value.match(/\|/g) || []).length;
+      const noSpaceBeforeParenthesis = (value.match(/\S\(/) || []).length > 0;
       if (pipeCount > 2) {
         console.log(`Too many pipes in ${outerKey}.${innerKey}: "${value}"`);
+      }
+      if (noSpaceBeforeParenthesis) {
+        console.log(
+          `Improper parentesis spacing in ${outerKey}.${innerKey}: "${value}"`
+        );
       }
     }
   }
