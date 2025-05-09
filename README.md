@@ -5,19 +5,19 @@
 ## 🛠️ Technologies Used
 
 - **[Gatsby](https://www.gatsbyjs.com/)**: A React-based open-source framework for creating fast websites.
-- **React**: For building dynamic user interfaces.
-- **TypeScript**: Ensures type safety and better developer experience.
-- **ArchieML**: For syncing site content with Google Docs used by editorial staff.
+- **[React](https://react.dev/)**: For building dynamic user interfaces.
+- **[TypeScript](https://www.typescriptlang.org/)**: Ensures type safety and better developer experience.
+- **[ArchieML](https://archieml.org/)**: For syncing site content with Google Docs used by editorial staff.
 
 ## 📁 Project Structure
 
 ```
 2025-meet-your-mayor/
 ├── src/                # Source files
+│   ├── @types/         # Custom type declarations
 │   ├── assets/         # Logos
 │   ├── components/     # Reusable UI components
 │   ├── pages/          # Pages (using Gatsby page logic)
-│   ├── templates/      # Page templates
 │   └── styles/         # Custom SCSS styles
 ├── static/             # Static assets, like photos and illustrations
 ├── .github/            # Scripts for running Github Actions
@@ -26,6 +26,7 @@
 ├── gatsby-node.js      # Gatsby Node APIs
 ├── package.json        # Project metadata and dependencies
 └── README.md           # Project documentation
+└── LICENSE             # Project license
 ```
 
 ## ⚙️ Getting Started
