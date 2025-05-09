@@ -13,7 +13,8 @@ export const OutboundLink: React.FC<{
   className?: string;
   style?: React.CSSProperties;
 }> = ({ to, children, className, style }) => {
-  const isGothamistLink = to.includes("gothamist.com");
+  const isGothamistLink =
+    to.includes("gothamist.com") || to.includes("wnyc.org");
   const isTheCityLink = to.includes("www.thecity.nyc");
   return (
     <a
