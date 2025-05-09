@@ -112,7 +112,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           </Link>
         </div>
         <div className="eyebrow has-text-left mt-5 mb-2 is-flex is-align-items-center">
-          <div className="mr-3">Share Meet Your Mayor:</div>{" "}
+          <div className="mr-3 is-flex-shrink-2">Share Meet Your Mayor:</div>{" "}
           <SocialShareButtons />
         </div>
 

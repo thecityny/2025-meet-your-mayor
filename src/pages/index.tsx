@@ -65,7 +65,9 @@ const Homepage = () => (
                 </a>
               </div>
               <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
-                <div className="mr-3">Share Meet Your Mayor:</div>{" "}
+                <div className="mr-3 is-flex-shrink-2">
+                  Share Meet Your Mayor:
+                </div>{" "}
                 <SocialShareButtons />
               </div>
             </div>
