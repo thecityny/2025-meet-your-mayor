@@ -149,6 +149,16 @@ details {
   }
 }
 
+// This workaround removes the need for mobile Safari to zoom in
+// to the input area on form fields:
+@media (max-width: $mobile-breakpoint) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
 // FORMS:
 
 .newsletter-signup {
