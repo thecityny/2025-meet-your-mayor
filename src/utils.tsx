@@ -102,3 +102,15 @@ export const formatContent = (content: string) => (
     ))}
   </>
 );
+
+export const arrayToNiceList = (list: string[]) => {
+  if (list.length === 1) {
+    return <span>{list[0]}</span>;
+  } else if (list.length > 1) {
+    return (
+      <span>
+        {list.slice(0, -1).join(", ")} and {list.slice(-1)}
+      </span>
+    );
+  } else return <></>;
+};
