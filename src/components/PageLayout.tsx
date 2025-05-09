@@ -107,8 +107,10 @@ const Footer = () => {
             </span>
           ))}
           . Design and development by{" "}
-          <OutboundLink to="www.samrabiyah.com">Sam Rabiyah</OutboundLink>.{" "}
-          Illustrations by{" "}
+          <OutboundLink to="https://www.samrabiyah.com">
+            Sam Rabiyah
+          </OutboundLink>
+          . Illustrations by{" "}
           <OutboundLink to="https://patrick-leger.com/">
             Patrick Léger
           </OutboundLink>
