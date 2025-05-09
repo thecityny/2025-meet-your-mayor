@@ -144,9 +144,9 @@ export const candidateContent = {
     website: "https://blakefornyc.com/",
     bio: "Democrat Michael Blake is running for mayor on a platform that includes tax breaks for middle-class homeowners, guaranteed income for all New Yorkers and universal childcare.{newParagraph}Blake, a former state Assembly member who represented parts of the South Bronx for three terms, previously served as an aide in former President Obama’s first administration, where he advocated for minority- and women-owned businesses, and helped campaign for the former president.{newParagraph}As a mayoral candidate, Blake has been vocal about his support of the city’s sanctuary laws — particularly to protect immigrant students — and withholding taxes sent to D.C. should any more federal dollars be cut from the city’s budget under his watch.{newParagraph}Blake has sought multiple public offices without success, including a seat in the House of Representatives and as New York City Public Advocate.",
     quote1:
-      'Schools | “I think that you have to ensure that there are more kids of color that get access to the specialized high schools. Fundamentally, I think it should be beyond just a test in the collective process.” | <a href="https://podcasts.apple.com/us/podcast/faq-nyc/id1422065980?i=1000693989355">FAQ NYC</a> (Feb 19, 2025)',
+      'Schools | “I think that you have to ensure that there are more kids of color that get access to the specialized high schools. Fundamentally, I think it should be beyond just a test in the collective process.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
     quote2:
-      'Public Safety | “We need to recruit more and also empower them to be able to do jobs honorably with respect.” | <a href="https://podcasts.apple.com/us/podcast/faq-nyc/id1422065980?i=1000693989355">FAQ NYC</a> (Feb 19, 2025)',
+      'Public Safety | “We need to recruit more and also empower them to be able to do jobs honorably with respect.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
     quote3:
       'Housing | “Should we freeze rent? The answer is yes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
     quizResponse1:
@@ -163,7 +163,7 @@ export const candidateContent = {
       '4 | “Housing is a right, not a luxury, and I will ensure every New Yorker can afford to live here.” | <a href="https://thenyhc.org/mayoral-candidates/michael-blake/">New York Housing Conference</a>',
     quizResponse7: "2 |",
     quizResponse8:
-      '2 | “Should we freeze rent? The answer is yes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2025)',
+      '2 | “Should we freeze rent? The answer is yes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
     quizResponse9:
       '3 | “You have to ensure that there are more kids of color that get access to the specialized high schools. Fundamentally, I think it should be beyond just a test in the collective process.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
     quizResponse10: "3 |",
