@@ -130,8 +130,11 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
                     height: "100%",
                   }}
                 >
-                  <div className="tag has-white-background mb-4">
-                    <div className="eyebrow">ON: {subject}</div>
+                  <div
+                    className="eyebrow has-white-background mb-4 px-1 is-inline-flex"
+                    style={{ borderRadius: "10%" }}
+                  >
+                    ON: {subject}
                   </div>
                   <div className="mb-5">
                     <div className="copy">{formatContent(quote)}</div>
