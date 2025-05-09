@@ -8,7 +8,8 @@
 - **[React](https://react.dev/)**: For building dynamic user interfaces.
 - **[TypeScript](https://www.typescriptlang.org/)**: Ensures type safety and better developer experience.
 - **[ArchieML](https://archieml.org/)**: For syncing site content with Google Docs used by editorial staff.
-
+- **[Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)**: For global state management (see [useAppStore.ts](src/useAppStore.ts) for implementation).
+  
 ## 📁 Project Structure
 
 ```
