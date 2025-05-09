@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { arrayToNiceList, groupBy, kebabCase, shuffleArray } from "../utils";
 import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
@@ -8,102 +8,6 @@ import { Link } from "gatsby";
 import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
 import { useAppStore } from "../useAppStore";
-
-const calculateScore = () => {
-  const favoriteTopics = useAppStore((state) => state.favoriteTopics);
-  const answers = useAppStore((state) => state.answers);
-  const setScore = useAppStore((state) => state.setScore);
-
-  let scorecard = generateBlankScorecard();
-  let totalPossibleScore = answers.length;
-  const questionContent = formatQuestionContent();
-
-  Object.entries(questionContent).forEach((questionGroup) => {
-    const [subject, questions] = questionGroup;
-
-    // If the user has selected this topic as a favorite, set the point value to 2
-    // and increase the total possible score by 1 for each question in this group:
-    let pointValue = 1;
-    if (favoriteTopics.includes(subject)) {
-      pointValue = 2;
-      totalPossibleScore += questions.length;
-    }
-
-    questions.forEach((question) => {
-      const { number, option1, option2, option3, option4 } = question;
-      const userAnswer = answers.find(
-        (answer) => answer.questionNumber === number
-      );
-      scorecard.forEach((candidate, i) => {
-        if (
-          userAnswer?.answer === "1" &&
-          option1.matchingCandidates.find(
-            (c) => c.name === candidate.candidateName
-          )
-        ) {
-          scorecard[i].scoreList.push({
-            questionNumber: number,
-            subject,
-            points: pointValue,
-          });
-        } else if (
-          userAnswer?.answer === "2" &&
-          option2.matchingCandidates.find(
-            (c) => c.name === candidate.candidateName
-          )
-        ) {
-          scorecard[i].scoreList.push({
-            questionNumber: number,
-            subject,
-            points: pointValue,
-          });
-        } else if (
-          userAnswer?.answer === "3" &&
-          option3.matchingCandidates.find(
-            (c) => c.name === candidate.candidateName
-          )
-        ) {
-          scorecard[i].scoreList.push({
-            questionNumber: number,
-            subject,
-            points: pointValue,
-          });
-        } else if (
-          userAnswer?.answer === "4" &&
-          option4.matchingCandidates.find(
-            (c) => c.name === candidate.candidateName
-          )
-        ) {
-          scorecard[i].scoreList.push({
-            questionNumber: number,
-            subject,
-            points: pointValue,
-          });
-        } else {
-          scorecard[i].scoreList.push({
-            questionNumber: number,
-            subject,
-            points: 0,
-          });
-        }
-      });
-    });
-  });
-  scorecard.forEach((candidate) => {
-    candidate.totalScore = candidate.scoreList.reduce(
-      (total, current) => total + current.points,
-      0
-    );
-    candidate.totalPossibleScore = totalPossibleScore;
-  });
-  scorecard = shuffleArray(scorecard); // Randomize order of candidates before we sort them
-  const scorecardSorted = scorecard.sort((a, b) => {
-    return b.totalScore - a.totalScore;
-  });
-
-  setScore(scorecardSorted);
-  return scorecardSorted;
-};
 
 export const getQuestionsLeftToAnswer = () => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
@@ -143,6 +47,8 @@ const Results: React.FC = () => {
 
   const party = useAppStore((state) => state.party);
 
+  const setScore = useAppStore((state) => state.setScore);
+
   const highestVisibleQuestion = useAppStore(
     (state) => state.highestVisibleQuestion
   );
@@ -160,7 +66,103 @@ const Results: React.FC = () => {
   };
 
   const questionContent = formatQuestionContent();
-  const score = calculateScore();
+
+  const calculateScore = () => {
+    let scorecard = generateBlankScorecard();
+    let totalPossibleScore = answers.length;
+
+    Object.entries(questionContent).forEach((questionGroup) => {
+      const [subject, questions] = questionGroup;
+
+      // If the user has selected this topic as a favorite, set the point value to 2
+      // and increase the total possible score by 1 for each question in this group:
+      let pointValue = 1;
+      if (favoriteTopics.includes(subject)) {
+        pointValue = 2;
+        totalPossibleScore += questions.length;
+      }
+
+      questions.forEach((question) => {
+        const { number, option1, option2, option3, option4 } = question;
+        const userAnswer = answers.find(
+          (answer) => answer.questionNumber === number
+        );
+        scorecard.forEach((candidate, i) => {
+          if (
+            userAnswer?.answer === "1" &&
+            option1.matchingCandidates.find(
+              (c) => c.name === candidate.candidateName
+            )
+          ) {
+            scorecard[i].scoreList.push({
+              questionNumber: number,
+              subject,
+              points: pointValue,
+            });
+          } else if (
+            userAnswer?.answer === "2" &&
+            option2.matchingCandidates.find(
+              (c) => c.name === candidate.candidateName
+            )
+          ) {
+            scorecard[i].scoreList.push({
+              questionNumber: number,
+              subject,
+              points: pointValue,
+            });
+          } else if (
+            userAnswer?.answer === "3" &&
+            option3.matchingCandidates.find(
+              (c) => c.name === candidate.candidateName
+            )
+          ) {
+            scorecard[i].scoreList.push({
+              questionNumber: number,
+              subject,
+              points: pointValue,
+            });
+          } else if (
+            userAnswer?.answer === "4" &&
+            option4.matchingCandidates.find(
+              (c) => c.name === candidate.candidateName
+            )
+          ) {
+            scorecard[i].scoreList.push({
+              questionNumber: number,
+              subject,
+              points: pointValue,
+            });
+          } else {
+            scorecard[i].scoreList.push({
+              questionNumber: number,
+              subject,
+              points: 0,
+            });
+          }
+        });
+      });
+    });
+    scorecard.forEach((candidate) => {
+      candidate.totalScore = candidate.scoreList.reduce(
+        (total, current) => total + current.points,
+        0
+      );
+      candidate.totalPossibleScore = totalPossibleScore;
+    });
+    scorecard = shuffleArray(scorecard); // Randomize order of candidates before we sort them
+    const scorecardSorted = scorecard.sort((a, b) => {
+      return b.totalScore - a.totalScore;
+    });
+
+    return scorecardSorted;
+  };
+
+  const score = useMemo(() => calculateScore(), [answers, favoriteTopics]);
+
+  useEffect(() => {
+    setScore(score);
+  }, [score]);
+
   const totalPossiblePoints = score[0].totalPossibleScore;
 
   /**
