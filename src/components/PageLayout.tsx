@@ -118,7 +118,7 @@ const Footer = () => {
           <OutboundLink to="https://www.thecity.nyc/author/ben-fractenberg/">
             Ben Fractenberg
           </OutboundLink>{" "}
-          and courtesy of the Tim Walden campaign. Design support from Tember
+          and courtesy of the Jim Walden campaign. Design support from Tember
           Hopkins . Development support from Sam Guzik.
         </div>
 
