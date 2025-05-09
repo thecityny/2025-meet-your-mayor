@@ -15,7 +15,7 @@ export const IntroAnimation: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
     <div
       className={classnames(
         "intro-animation column is-flex is-flex-direction-row is-half",
-        isMobile ? "is-hidden-tablet" : "is-hidden-mobile"
+        isMobile ? "is-hidden-tablet p-0 mt-5" : "is-hidden-mobile"
       )}
     >
       <div className="slider">

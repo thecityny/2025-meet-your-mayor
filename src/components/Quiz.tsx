@@ -113,11 +113,10 @@ const Quiz = () => {
                 June 24, and early voting starts on June 14. The general
                 election is on November 4, 2025.
               </p>
-              <Methodology />
 
-              <div className="pt-3">
+              <div className="pt-3 pb-3">
                 {questionsLeftToAnswer.length === 0 ? (
-                  <>
+                  <div className="my-4">
                     <h2 className="deck has-text-left">
                       You completed the quiz already!
                     </h2>
@@ -136,9 +135,9 @@ const Quiz = () => {
                         </button>
                       </SmoothScroll>
                     </div>
-                  </>
+                  </div>
                 ) : !!party ? (
-                  <>
+                  <div className="my-4">
                     <>
                       <h2 className="deck has-text-left">
                         You started the quiz already!
@@ -162,13 +161,13 @@ const Quiz = () => {
                         </SmoothScroll>
                       </div>
                     </>
-                  </>
+                  </div>
                 ) : (
                   <>
                     <h2 className="deck has-text-left">Choose a contest:</h2>
 
                     {partySelectorButtons.map((button, i) => (
-                      <div key={i} className="my-5">
+                      <div key={i} className="mt-5 mb-4">
                         <SmoothScroll
                           to="questions"
                           className="control"
@@ -211,6 +210,7 @@ const Quiz = () => {
                   </>
                 )}
               </div>
+              <Methodology />
             </div>
           </div>
         </div>

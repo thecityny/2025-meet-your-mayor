@@ -149,6 +149,16 @@ details {
   }
 }
 
+// This workaround removes the need for mobile Safari to zoom in
+// to the input area on form fields:
+@media (max-width: $mobile-breakpoint) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
 // FORMS:
 
 .newsletter-signup {
@@ -193,6 +203,7 @@ details {
   }
 
   &.is-icon {
+    background-color: colors.$city-black;
     box-shadow: 2px 4px 0px
       color.adjust($color: colors.$city-grey, $lightness: -10%);
 
@@ -388,7 +399,9 @@ $full-color-image-filter: contrast(1);
 
 .quiz-selection-button {
   &.is-active:hover .quiz-selection-oval {
-    background-color: #00000055;
+    @media screen and (min-width: $tablet-breakpoint) {
+      background-color: #00000055;
+    }
   }
 
   &.is-selected {

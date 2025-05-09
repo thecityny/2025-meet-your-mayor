@@ -26,9 +26,9 @@ const getDateUpdated = () => {
 const Homepage = () => (
   <PageLayout>
     <div className="hero is-fullheight-with-navbar has-color-background">
-      <div className="hero-body">
+      <IntroAnimation isMobile />
+      <div className="hero-body pt-6">
         <div className="columns" style={{ width: "100%" }}>
-          <IntroAnimation isMobile />
           <div className="column is-half">
             <h1 className="headline has-text-left mt-0">
               Meet Your Mayor 2025
@@ -65,7 +65,9 @@ const Homepage = () => (
                 </a>
               </div>
               <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
-                <div className="mr-3">Share Meet Your Mayor:</div>{" "}
+                <div className="mr-3 is-flex-shrink-2">
+                  Share Meet Your Mayor:
+                </div>{" "}
                 <SocialShareButtons />
               </div>
             </div>
