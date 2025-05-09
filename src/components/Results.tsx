@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { arrayToNiceList, groupBy, kebabCase, shuffleArray } from "../utils";
 import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
@@ -46,6 +46,7 @@ const Results: React.FC = () => {
   const resetAnswers = useAppStore((state) => state.resetAnswers);
 
   const party = useAppStore((state) => state.party);
+
   const setScore = useAppStore((state) => state.setScore);
 
   const highestVisibleQuestion = useAppStore(
@@ -156,7 +157,7 @@ const Results: React.FC = () => {
     return scorecardSorted;
   };
 
-  const score = calculateScore();
+  const score = useMemo(() => calculateScore(), [answers, favoriteTopics]);
 
   useEffect(() => {
     setScore(score);
