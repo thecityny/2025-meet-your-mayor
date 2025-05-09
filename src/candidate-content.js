@@ -15,35 +15,35 @@ export const candidateContent = {
     quizResponse2:
       '1 | "We have an opportunity here to do immense amounts of pedestrianization for the entire congestion pricing zone.... We have an opportunity to make one-way bike lanes into two-way bike lanes." | <a href="https://www.youtube.com/live/lqQIiczm7Kc">Transit Riders Mayoral Forum</a> (Feb 21, 2025)',
     quizResponse3:
-      "4 | “With the current administration’s recent containerization plan, the City missed an opportunity to require residents to put recycling in containers. We should not have any more bags on the sidewalk – instead, small and midsize buildings should use shared on-street containers for all streams of waste, clearing the sidewalks of wheelie bins. On-street containers make our city cleaner, give rats fewer opportunities to infiltrate trash, and reduce the smells that waft down our streets.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "4 | Mamdani says the containerization program should be expanded to also require recycling to be placed in on-street containers for pickup. | Candidate statement (Apr 18, 2025)",
     quizResponse4:
-      "2 | “My administration will create the Department of Community Safety to prevent violence before it happens through evidence-based solutions. Police have a critical role to play, but right now we’re relying on them to deal with the failures of our social safety net—which prevents them from doing their actual jobs. Through this new city agency and whole-of-government approach, community safety will be prioritized like never before in NYC. The Department will invest in citywide mental health programs and crisis response—including deploying dedicated outreach workers in 100 subway stations, providing medical services in vacant commercial units, and increasing Transit Ambassadors to assist New Yorkers on their journeys—expand evidence-based gun violence prevention programs, and increase funding to hate violence prevention programs by 800%. In addition to this, we will disband the Strategic Response Group which has been found to violate New Yorker’s rights, cancel Adams’ plan to create a $225M Cop City and eliminate the NYPD ever-growing $1 billion+ overtime budget, while continuing Commissioner Tisch’s downsizing of the NYPD’s more than 80 person communications department.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      '2 | “My administration will create the Department of Community Safety to prevent violence before it happens," through mental health outreach and gun violence prevention. He also vows to disband the NYPD Strategic Response Group.” | Candidate statement (Apr 18, 2025)',
     quizResponse5:
-      "3 | “The MTA commissioned a Blue Ribbon Panel on Fare Evasion, and it showed a strong correlation between lower median income in an area and greater fare evasion. As of 2024, one in five New Yorkers struggled to afford subway and bus fares, and only a third of the almost one million adult New Yorkers who are eligible access Fair Fares. At its core, this is an economic crisis, and we must address it as such.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "3 | “Only a third of the almost one million adult New Yorkers who are eligible access Fair Fares. At its core, this is an economic crisis, and we must address it as such.” | Candidate statement (Apr 18, 2025)",
     quizResponse5a:
-      '1 | Mamdani committed to closing Rikers at a mayoral forum jointly hosted by multiple LGBTQ+ political groups. He pointed to a need to invest in alternatives for incarceration. | <a href="https://gaycitynews.com/nyc-mayoral-hopefuls-2025-lgbtq-forum/">Gay City News</a> (Mar 28, 2025)',
+      '1 | Mamdani committed to closing Rikers and pointed to a need to invest in alternatives for incarceration. | <a href="https://gaycitynews.com/nyc-mayoral-hopefuls-2025-lgbtq-forum/">Gay City News</a> (Mar 28, 2025)',
     quizResponse6:
-      "4 | “What we have selected represents one portion of our housing vision. To achieve our goal of housing every New Yorker, we must reform our disjointed planning and zoning processes to create a holistic vision for affordability, equity, and growth. I will create a comprehensive, citywide planning process to allow NYC to both address the legacy of racially discriminatory zoning and proactively plan for the health and needs of the city—in housing, transit, education, and other areas. That planning will include eliminating parking minimums, increasing density around transit hubs, and upzoning neighborhoods that have historically not contributed to citywide housing goals—including those cut out of City of Yes. | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "4 | “To achieve our goal of housing every New Yorker, we must reform our disjointed planning and zoning processes to create a holistic vision for affordability, equity, and growth. I will create a comprehensive, citywide planning process.” | Candidate statement (Apr 18, 2025)",
     quizResponse7:
-      "1 | “For decades, the city, state, and federal government neglected and underfunded NYCHA. As NYCHA has pursued PACT, the Trust and Comprehensive Modernization, more than half of its $78 billion 20-year capital need still remains unmet. There is currently no plan for the remaining $40 billion needed, however, and this lack of funding poses a major threat to NYCHA. Without adequate resources, NYCHA residents will face a continuation and exacerbation of the problems of past years, pushing the system back into crisis. My goal as Mayor would be to prioritize resident-led processes to address NYCHA’s ongoing capital needs, while finding new solutions. Resident support for RAD/PACT and the Trust varies, and it is important that residents are fully engaged in planning around these capital needs every step of the way. I also vow to fight for Albany to overturn its decades of investment and at a bare minimum start to match City funding. In other words, I would work to create more options for us to be able to truly recommit to, and reinvest in, public housing.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "1 | “Prioritize resident-led processes to address NYCHA’s ongoing capital needs, while finding new solutions.... I also vow to fight for Albany to overturn its decades of investment and at a bare minimum start to match City funding.” | Candidate statement (Apr 18, 2025)",
     quizResponse8:
       '1 | “Yes, I will freeze the rent every single year that I am the mayor of New York City.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
     quizResponse9:
-      "0 | “As a Bronx Science alum and a former standardized test tutor, I’ve seen firsthand the promise and the failure of our specialized high schools and their admissions process. They are one example of systemic issues across our school system—the most segregated in the nation. My administration will focus on addressing the root educational causes of this segregation by implementing recommendations from the 2019 School Diversity Advisory Group’s at elementary and middle schools across our city.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "0 | “As a Bronx Science alum and a former standardized test tutor, I’ve seen firsthand the promise and the failure of our specialized high schools and their admissions process.” | Candidate statement (Apr 18, 2025)",
     quizResponse10:
-      "1 | “NYC Reads is an important step in the right direction; we need to continue our citywide commitment to wide-scale literacy efforts, while honing our programming—including providing educators with support to differentiate existing materials for students struggling to access the curriculum.” | Campaign’s response to questionnaire. | Apr 18, 2025",
+      "1 | “NYC Reads is an important step in the right direction. We need to continue our citywide commitment to wide-scale literacy efforts, while honing our programming — including providing educators with support.” | Candidate statement (Apr 18, 2025)",
     quizResponse12:
-      "4 | “The Trump administration is waging war on the first amendment and our constitutional rights as it continues to abduct New Yorkers from across our city. Any effort to cooperate with these efforts is a moral stain on our city. We should strengthen our sanctuary city laws through greater oversight, enforcement and compliance.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "4 | “The Trump administration is waging war on the First Amendment and our constitutional rights as it continues to abduct New Yorkers from across our city. Any effort to cooperate with these efforts is a moral stain on our city. We should strengthen our sanctuary city laws.” | Campaign statement (Apr 18, 2025)",
     quizResponse13:
       "2 | “What we saw under Donald Trump's first presidency is there's far more respect for someone who fights back than someone who simply relents.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">The New York Editorial Board</a> (Feb 2, 2025)",
     quizResponse14:
-      "1 | “The opioid crisis does not have a single panacea, which is why in addition to making sure every New Yorker has access to supportive housing, I will expand access to long-term substance use treatment and safe injection facilities, ensuring they are equitably located across the city.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "1 | Mamdani promises to expand access to substance use treatment and safe injection facilities, “ensuring they are equitably loctaed across the city.” | Candidate statement (Apr 18, 2025)",
     quizResponse15:
-      "2 | “The most effective way to treat those with severe mental illness is by offering solutions that lead to stability. I will build an integrated system of mental health, housing, and substance use services, such that hospitalization is rare. Peer-based outreach, crisis intervention and programming—from Intensive Mobile Treatment to Peer Clubhouses like Fountain House—are proven to positively engage people into treatment, decrease hospitalization and reduce substance use. These are key to ending the revolving door and will be the focus of my Department of Community Safety.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "2 | “I will build an integrated system of mental health, housing, and substance use services, such that hospitalization is rare.” | Candidate statement (Apr 18, 2025)",
     quizResponse17:
-      "3 | “I will build a team of the best to run our city, hiring individuals who have served in prior mayoral administrations, whose work showcases an excellence we have clearly missed in city government, and who will be empowered to fulfill the mandate of New Yorkers with regards to their respective agency.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "3 | “I have seen in previous mayoral administrations, across the ideological spectrum, examples that I would love to bring into my administration of how you can empower the people who know the most about the work that you're seeking to accomplish.” | Candidate statement (Apr 18, 2025)",
     quizResponse18:
-      "1 | “If you ask working-class New Yorkers, many of whom have been failed by a bureaucracy, to jump through many more hoops to get relief from that bureaucracy, you will lose about half, or in this case even more than 80% of your target population. Versus, if you make it universal, the benefits are not just fiscal. They're also public safety. They're also peace of mind.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">The New York Editorial Board</a> (Feb 2, 2025)",
+      "1 | “If you make it universal, the benefits are not just fiscal. They're also public safety. They're also peace of mind.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">The New York Editorial Board</a> (Feb 2, 2025)",
     quizResponse19: "2",
   },
   candidateEric: {
@@ -61,21 +61,34 @@ export const candidateContent = {
       '2 | “Outdoor dining will be here forever, and it will continue to expand and grow.” | <a href="https://www.youtube.com/watch?v=3LuSLhQmpdM">ABC7NY</a> (Aug 16, 2023)',
     quizResponse2:
       '2 | The Adams administration has installed 89.4 miles of protected bike lanes. The law requires 250 miles by 2026. | <a href="https://projects.transalt.org/bikelanes">Transportation Alternatives Bike Lane Tracker</a> (Jan 1, 2025)',
-    quizResponse3: "4",
-    quizResponse4: "1",
-    quizResponse5: "1",
-    quizResponse5a: "2",
-    quizResponse6: "1",
+    quizResponse3:
+      '4 | “We’re going to continue to evolve until you see a city where the garbage is containerized.” | <a href="https://ny1.com/nyc/all-boroughs/news/2023/10/11/nearly-all-residential-buildings-must-containerize-trash-next-year--adams-says">Spectrum News NY1</a> (Oct 11, 2023)',
+    quizResponse4:
+      '1 | “From putting more offices on the beat to tackling the quality-of-life issues that families care about, we have...driven down crime.” | <a href="https://www.youtube.com/watch?v=h_VMZ7ueCbQ">2025 State of the City Address</a> (Jan 9, 2025)',
+    quizResponse5:
+      '1 | Adams promised to “double down on our commitment to keep riders safe and help ensure more New Yorkers feel comfortable riding our subway.” | <a href="https://www.youtube.com/watch?v=h_VMZ7ueCbQ">2025 State of the City Address</a> (Jan 9, 2025)',
+    quizResponse5a:
+      '2 | “I think it’s pie in the sky to close in 2027.” | <a href="https://www.nydailynews.com/2025/05/06/new-jail-planned-for-manhattan-could-become-psych-facility-as-adams-rethinks-close-rikers-plan/">The New York Daily News</a> (May 6, 2025)',
+    quizResponse6:
+      '1 | “Going forward, we are going to turn New York into a city of yes. Yes in my backyard. Yes on my block. Yes in my borough.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/354-22/transcript-mayor-eric-adams-outlines-vision-city-yes-plan-citywide-zoning">City of Yes announcement</a> (Jun 1, 2022)',
     quizResponse7:
       '2 | “The bus shouldn’t be to ‘anti-RAD’ the bus should be bringing people here and say, “see the possibility.’” | <a href="https://www.youtube.com/watch?v=n1nK4cRIKtQ">Press conference</a> (May 20, 2022)',
-    quizResponse8: "3",
-    quizResponse9: "1",
-    quizResponse10: "1",
-    quizResponse12: "2",
-    quizResponse13: "1",
-    quizResponse14: "2",
-    quizResponse15: "1",
-    quizResponse17: "1",
+    quizResponse8:
+      '3 | “When we start talking about just across the board rent freeze, we need to talk to those small property owners. How does it impact them? Gas doesn’t freeze, electricity doesn’t freeze, insurance doesn’t freeze, the cost to run a building doesn’t freeze.” | <a href="https://ny1.com/nyc/all-boroughs/politics/2025/04/28/mayor-candidates-rent-freeze-#:~:text=Mayor%20Eric%20Adams%20said%20he,POLITICS">Spectrum News NY1</a> (Apr 28, 2025)',
+    quizResponse9:
+      '1 | “Frustrating that there were a lot of accelerated learners who didn’t have enough seats.” | <a href="https://www.littleafricanews.com/mayor-adams-reaffirms-support-for-specialized-high-schools-amid-shsat-vote-delay/">LittleAfrica News</a> (Nov 22, 2024)',
+    quizResponse10:
+      '1 | “Through the implementation of NYC Reads and NYC Solves, we have brought evidence-based curricula to our public schools as we zero in on what\'s needed to teach our students how to read and do math.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/243-25/mayor-adams-chancellor-aviles-ramos-expand-signature-initiatives-nyc-reads-nyc-solves-#/0">Press conference</a> (Apr 21, 2025)',
+    quizResponse12:
+      '2 | “Those who are committing crimes in our city must be addressed, and we should change the current sanctuary city laws to address that issue.” | <a href="https://www.youtube.com/watch?v=vvUgvuBH1Fs">The Point with Marsha Kramer</a> (Dec 8, 2024)',
+    quizResponse13:
+      '1 | “I\'m going to work with that president to produce for the people of our city because I respect the office.” | <a href="https://www.youtube.com/watch?v=xO9SwJGtbDU">FOX News</a> (Apr 19, 2025)',
+    quizResponse14:
+      '2 | Eric Adams\' administration currently allocates opioid settlement funds toward treatment initiatives, including needle-exchange sites. | <a href="https://www.nyc.gov/assets/doh/downloads/pdf/basas/opioid-settlement-funds-report-09102024.pdf">Opioid Settlement Funds Report</a> (Sep 10, 2024)',
+    quizResponse15:
+      '1 | “Our advocacy has led to real progress as Albany has finally taken action to make lasting change. And although it is rare, random attacks are still committed by people who desperately need help. We cannot continue to ignore them, and we are not.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/292-25/mayor-adams-in-response-amendments-related-involuntary-commitment-state-budget">Press conference</a> (May 8, 2025)',
+    quizResponse17:
+      '1 | “I have the Bloomberg style with an asterisk — put the right people in place and then use his favorite quote: Don’t f+++ it up. But I also believe, and I live by this, you have to inspect what you expect or it’s all suspect.” | <a href="https://www.bloomberg.com/opinion/articles/2021-02-22/new-york-mayor-s-race-eric-adams-puts-priority-on-city-s-safety?sref=sxorlmMs">Bloomberg Opinion</a> (Feb 22, 2021)',
     quizResponse18: "",
     quizResponse19: "4",
   },
@@ -90,26 +103,38 @@ export const candidateContent = {
       'Housing | “... Our city can ensure every area helps contribute to confronting the housing crisis by creating more housing, while respecting the differences of neighborhoods across the five boroughs and investing in New Yorkers.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/882-24/mayor-adams-governor-hochul-speaker-adams-celebrates-passage-most-pro-housing-proposal-in?">City Hall Press Release</a> (Nov 29, 2022)',
     quote3:
       'Law Enforcement | “If you break the law there are consequences to that, but low-level crimes should never be penalized under the threat of death in Rikers Island.” | <a href="https://www.youtube.com/watch?v=7nh3KBOrRrg">Vital City/CUNY Mayoral Forum</a> (Apr 7, 2025)',
-    quizResponse1: "3",
-    quizResponse2: "1",
+    quizResponse1:
+      "3 | “Outdoor dining rescued countless restaurants during COVID and needs to endure.” | Candidate statement (May 7, 2025)",
+    quizResponse2:
+      '1 | “The city has consistently fallen short on its milestones [in the Streets Master Plan], including the miles of protected bus and bike lanes required to be built each year.” | <a href="https://nyc.streetsblog.org/2025/04/11/council-to-dot-do-better-at-tracking-projects-so-we-can-see-when-you-fail">Streetsblog NYC</a> (Apr 11, 2025)',
     quizResponse3: "4",
-    quizResponse4: "2",
-    quizResponse5: "2",
+    quizResponse4:
+      '2 | “We\'ve got vacancies of at least 2,400 vacancies right now in the NYPD. So, what makes sense to me as mayor is to fill those vacancies before we do anything else.” | <a href="https://www.youtube.com/watch?v=Bmkx_s2QuaE">Brooklyn Democrats Mayoral Forum</a> (Apr 23, 2025)',
+    quizResponse5:
+      "2 | “Maintain summons enforcement with greater equity that no longer employs disproportionally aggressive policing of only communities of color when fare evasion exists more broadly. Enforce summonses for those who can afford to pay and provide a better way for New Yorkers unable to afford the fare to access the Fair Fares discounted fare program, with an opportunity to avoid fines they are unlikely to pay through demonstrated good behavior of no further fare evasion.” | Candidate statement (May 7, 2025)",
     quizResponse5a:
-      "0 | “Everyone has acknowledged the plan is delayed and will go beyond 2027, partially because the current mayor has failed to follow-through on the necessary steps to advance the plan. The Independent Rikers Commission's plan should be followed with better leadership from the mayor's office. We must safely reduce the inflated population by creating the mental health infrastructure that helps move the approximately half of those on Rikers with mental illness to more appropriate settings, while working with DAs and the courts to resolve delays in case processing times. This can help us close Rikers as soon as possible to improve public safety.” | campaign’s response to THE CITY/Gothamist’s survey. (May 7, 2025)",
-    quizResponse6: "1",
+      "0 | “Everyone has acknowledged the plan is delayed and will go beyond 2027, partially because the current mayor has failed to follow-through on the necessary steps to advance the plan. The Independent Rikers Commission's plan should be followed with better leadership from the mayor's office. We must safely reduce the inflated population by creating the mental health infrastructure that helps move the approximately half of those on Rikers with mental illness to more appropriate settings, while working with DAs and the courts to resolve delays in case processing times.” | Candidate statement (May 7, 2025)",
+    quizResponse6:
+      '1 | “Our city can ensure every area helps contribute to confronting the housing crisis by creating more housing.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/882-24/mayor-adams-governor-hochul-speaker-adams-celebrates-passage-most-pro-housing-proposal-in?">NYC Mayor\'s Office</a> (Dec 5, 2024)',
     quizResponse7:
-      "0 | “We need to repair and maintain Section 9 units, allow residents to opt-in to private management of public housing units, and pursue public-private financing models of public housing development that are more financially sustainable for NYCHA. Residents must help guide the options available with clear communication about their trade-offs.” | campaign’s response to THE CITY/Gothamist’s survey. (May 7, 2025)",
-    quizResponse8: "2",
+      "0 | “We need to repair and maintain public housing units, allow residents to opt-in to private management, and pursue public-private financing models of public housing development that are more financially sustainable for NYCHA. Residents must help guide the options available with clear communication about their trade-offs.” | Candidate statement (May 7, 2025)",
+    quizResponse8:
+      '2 | “I certainly would consider a rent freeze and certainly would support it, but I don\'t want it to be to the detriment of our renters, where there could be retaliation.” | <a href="https://www.wnyc.org/story/meet-the-mayoral-candidates-adrienne-adams/">The Brian Lehrer Show</a> (Apr 17, 2025)',
     quizResponse9:
-      "0 | “I believe we must expand more specialized schools so more communities can participate based on grades and tests and not entirely focus on where we apply SHSAT.” | campaign’s response to THE CITY/Gothamist’s survey. (May 7, 2025)",
-    quizResponse10: "3",
-    quizResponse12: "1",
-    quizResponse13: "2",
-    quizResponse14: "1",
-    quizResponse15: "0",
-    quizResponse17: "2",
-    quizResponse18: "1",
+      "0 | “I believe we must expand more specialized schools so more communities can participate based on grades and tests and not entirely focus on where we apply SHSAT.” | Candidate statement (May 7, 2025)",
+    quizResponse10:
+      "3 | “We must prioritize targeted support for students and families whose children need extra help.” | Candidate statement (May 7, 2025)",
+    quizResponse12:
+      '1 | “Our sanctuary city laws are enough.” | <a href="https://youtu.be/Kssi4cZKLvI?feature=shared">PIX 11 News</a> (Dec 13, 2024)',
+    quizResponse13:
+      '2 | “I cannot in good faith ever as mayor — as I have watched our current mayor do — be silent or cozy up to the Trump administration to the detriment, quite frankly, of our citizens of this city.” | <a href="https://www.youtube.com/watch?v=OV_TZxXqVmw">Columbia Journalism School Mayoral Forum</a> (Apr 14, 2025)',
+    quizResponse14:
+      "1 | “This funding should also support harm reduction and other treatment programs, as well as law enforcement efforts targeting drug dealers.” | Candidate statement (May 7, 2025)",
+    quizResponse15:
+      "0 | “Involuntary removals and hospitalizations — meant for rare cases — now dominate the focus of policy discussions and shouldn't because they don't yield successful outcomes without sufficient mental healthcare access.\" To improve access Adams promises to expand psychiatric hospital beds, residential treatment programs and mobile treatment teams.” | Candidate statement (May 7, 2025)",
+    quizResponse17: "2 |",
+    quizResponse18:
+      "1 | “That I was a mayor for us who ended the disappointment and disinterest our communities have felt from their city government by replacing drama and nonsense with competence and integrity.” | Candidate statement (May 7, 2025)",
     quizResponse19: "3",
   },
   candidateMichael: {
@@ -123,24 +148,34 @@ export const candidateContent = {
       'Law Enforcement | “We need to recruit more and also empower them to be able to do jobs honorably with respect.” | <a href="https://podcasts.apple.com/us/podcast/faq-nyc/id1422065980?i=1000693989355">FAQ NYC</a> (Feb 19, 2025)',
     quote3:
       'Rent-Stabilized Units | “Should we freeze rent? The answer is yes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
-    quizResponse1: "3",
-    quizResponse2: "1",
-    quizResponse3: "4",
-    quizResponse4: "2",
-    quizResponse5: "2",
+    quizResponse1:
+      '3 | “We absolutely need year-round outdoor dining,” but “cumbersome” new rules should be “re-evaluated.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
+    quizResponse2:
+      '1 | Blake said he\'d exceed a mandate for 250 miles of protected bike lanes. | <a href="https://www.youtube.com/watch?v=A2he_B5f3ZE">Transportation Alternatives Mayoral Forum</a> (Feb 21, 2025)',
+    quizResponse3:
+      '4 | “The containerization program does not accommodate for the unique context of NYC’s neighborhoods.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
+    quizResponse4:
+      '2 | “We need to recruit more and also empower them to be able to do jobs honorably with respect.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
+    quizResponse5: "2 |",
     quizResponse5a: "1",
-    quizResponse6: "4",
-    quizResponse7: "2",
-    quizResponse8: "2",
-    quizResponse9: "3",
-    quizResponse10: "3",
-    quizResponse12: "1",
-    quizResponse13: "2",
-    quizResponse14: "1",
-    quizResponse15: "3",
-    quizResponse17: "3",
-    quizResponse18: "1",
-    quizResponse19: "4",
+    quizResponse6:
+      '4 | “Housing is a right, not a luxury, and I will ensure every New Yorker can afford to live here.” | <a href="https://thenyhc.org/mayoral-candidates/michael-blake/">New York Housing Conference</a>',
+    quizResponse7: "2 |",
+    quizResponse8:
+      '2 | “Should we freeze rent? The answer is yes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2025)',
+    quizResponse9:
+      '3 | “You have to ensure that there are more kids of color that get access to the specialized high schools. Fundamentally, I think it should be beyond just a test in the collective process.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
+    quizResponse10: "3 |",
+    quizResponse12:
+      "1 | Blake's website says that on “day one” he would work with the City Council to affirm New York's sanctuary city status. | <a href=\"https://blakefornyc.com/platform/\">Blake for NYC</a>",
+    quizResponse13:
+      '2 | “You work with him in the areas where it’s workable. But you have to check this foolishness.” | <a href="https://www.cityandstateny.com/podcasts/2025/04/episode-3-interview-michael-blake/404455/">City & State NY\'s “Race to Gracie Mansion” Podcast</a> (Apr 10, 2025)',
+    quizResponse14:
+      '1 | Blake is calling on Comptroller Brad Lander to launch an inquiry into how New York City has been spending Opioid Settlement Fund dollars. | <a href="https://blakefornyc.com/vision/wellness-plan/">Blake for NYC </a>',
+    quizResponse15: "3 |",
+    quizResponse17: "3 |",
+    quizResponse18: "1 |",
+    quizResponse19: "4 |",
   },
   candidateAndrew: {
     name: "Andrew Cuomo",
@@ -153,24 +188,40 @@ export const candidateContent = {
       'Mental Health | “Allowing dangerously mentally ill people to remain on the streets makes no sense for anyone.” | <a href="https://www.youtube.com/watch?v=y2jD9dZ6ov0">Diario AS</a> (Mar 2, 2025)',
     quote3:
       'Feds | “It is his hometown. I think that he wants New York City to appreciate him. I think he thinks there\'s an opportunity for him to do good things in New York City. And really, we have to see what he does, what posture President Trump takes.” | <a href="https://www.youtube.com/watch?v=YTVx47qbOtY">The Stephen A. Smith Show</a> (Mar 3, 2025)',
-    quizResponse1: "3",
-    quizResponse2: "1",
-    quizResponse3: "3",
-    quizResponse4: "1",
-    quizResponse5: "1",
-    quizResponse5a: "3",
-    quizResponse6: "1",
-    quizResponse7: "3",
-    quizResponse8: "2",
-    quizResponse9: "1",
-    quizResponse10: "",
-    quizResponse12: "1",
-    quizResponse13: "",
-    quizResponse14: "1",
-    quizResponse15: "1",
-    quizResponse17: "1",
-    quizResponse18: "1",
-    quizResponse19: "4",
+    quizResponse1:
+      "3 | Cuomo's website says he'll streamline approvals, improve agency coordination, set timelines for permit decisions, and provide more transparency to help small businesses. | <a href=\"https://www.andrewcuomo.com/issues#public-safety\">Cuomo for Mayor</a>",
+    quizResponse2:
+      "1 | “We will expand bike lanes for ordinary New Yorkers where possible, balanced against concerns about congestion and dangerous use of e-bikes.” | Candidate statement (May 5, 2025)",
+    quizResponse3: "3 |",
+    quizResponse4:
+      '1 | “We need more police in our subways, more police in our high crime areas, more police to stop the number of recidivists.” Cuomo wants to increase the NYPD by 5,000 officers, or 15%, bringing the force to approximately 39,000. | <a href="https://www.andrewcuomo.com/sites/default/files/documents/public-safety-plan.pdf">Cuomo for Mayor Safety Plan</a>',
+    quizResponse5:
+      "1 | Cuomo's subway safety plan states that he'd like to hire some 500 additional MTA officers to monitor turnstiles and reduce fare evasion. | <a href=\"https://www.andrewcuomo.com/sites/default/files/documents/public-safety-plan.pdf\">Cuomo for Mayor Safety Plan</a>",
+    quizResponse5a:
+      "3 | “We need to face the facts that the new borough jails will not be completed in time to close Rikers by 2027. We need to stop massive budget overruns and develop an interim plan for the operation of Rikers while we do an overall assessment of what the right pathway forward should be.” | Candidate statement (May 5, 2025)",
+    quizResponse6:
+      "1 | “I will make housing more affordable by insuring that tax abatement programs such as 485x are sufficient to incentivize affordable housing development, increase public subsidies for affordable housing (including from City pension funds to the extent appropriate), accelerating development in high density areas recently rezoned under the City of Yes, and partnering with faith based institutions to build affordable housing.” | Candidate statement (May 5, 2025)",
+    quizResponse7:
+      "3 | A spokesperson for Cuomo's campaign said that none of the available responses reflect his policies, which are to “leverage a combination of public and private resources to improve NYCHA housing, in close partnership with residents themselves.” | Candidate statement (May 5, 2025)",
+    quizResponse8:
+      '2 | Cuomo vows to appoint Rent Guidelines Board members who make decisions that limit rent increases while also addressing landlords\' needs to keep up with costs that include maintenance, insurance, taxes and utilities. | <a href="https://www.andrewcuomo.com/sites/default/files/documents/housing-plan.pdf">Cuomo for Mayor Housing Plan</a>',
+    quizResponse9:
+      '1 | “I would suggest the city and the City Council comes up with their admission policy" for schools whose admission the city controls, and the state legislature "should then be informed by that admission policy for the remaining three.” | <a href="https://nypost.com/2019/03/20/cuomo-calls-on-city-to-fix-obnoxious-problem-in-high-school-admissions/">The New York Post</a> (Mar 20, 2019)',
+    quizResponse10:
+      "0 | “The Department of Education needs to improve the implementation of NYC Reads, which is a proven approach to teaching reading that has not been smoothly implemented. Increased teacher recruitment and retention and reduced chronic absenteeism are both essential elements of improving learning.” | Candidate statement (May 5, 2025)",
+    quizResponse12:
+      '1 | “I wouldn’t do any ‘collaborative’ with ICE, ‘cooperative’ with ICE because I just frankly wouldn’t trust that they would live up to their representations.” | <a href="https://ny1.com/nyc/all-boroughs/politics/2025/04/13/andrew-cuomo-ice-on-rikers-hochul-trump-exclusive-ny1-interview">Spectrum News NY1</a> (Apr 13, 2025)',
+    quizResponse13:
+      "0 | “I will work with any willing partner to advance New York City’s vital interests, but I will fight back against any incursions on the values or economic interests of all New Yorkers.” | Candidate statement (May 5, 2025)",
+    quizResponse14: "1 |",
+    quizResponse15:
+      '1 | “If a person is mentally ill, the wrong thing to do is actually leave them on the street. The right thing to do, right thing to do is to get them the help they need.” | <a href="https://www.youtube.com/watch?v=YTVx47qbOtY">The Stephen A. Smith Show</a> (Mar 3, 2025)',
+    quizResponse17:
+      "1 | “I would centralize decision-making, and would rely on close advisors who best understand the nuances of each issue. And in turn, implementation would rest with skilled agency heads.” | Candidate statement (May 5, 2025)",
+    quizResponse18:
+      "1 | “I would like to be remembered as a mayor who lifted the quality of life of each and every New Yorkers by increasing public safety, addressing the crisis of affordability, and building transformative public projects that will last generations.” | Candidate statement (May 5, 2025)",
+    quizResponse19:
+      '4 | Cuomo led his father Mario Cuomo\'s campaign for governor shortly after graduating from Albany School of Law. Roles since include assistant district attorney for Manhattan, U.S. Secretary of Housing and Urban Development, state attorney general and governor. He also founded HELP USA, a homeless services group. | <a href="https://www.andrewcuomo.com/about">Cuomo for Mayor website</a>',
   },
   candidateBrad: {
     name: "Brad Lander",
@@ -178,30 +229,47 @@ export const candidateContent = {
     website: "https://landerfornyc.com/",
     bio: "Brad Lander, currently city comptroller, says he wants to be NYC’s next housing mayor. He vows to declare a state of emergency, build over half a million new housing units and recommend that the 2025 Charter Revision Commission place some proposals in Mayor Eric Adams’ original City of Yes housing plan on the ballot to New Yorkers.{newParagraph}Lander spent his early career in community-led city planning, leading the Fifth Avenue Committee and Pratt Center for Community Development. He has often touted his work on the Gowanus rezoning – which will create 8,000 new units in the Brooklyn neighborhood – as a testament to his ability to build large-scale affordable housing.{newParagraph}Before he became comptroller, Lander spent eight years representing Brooklyn’s District 39 in the City Council. In addition to housing, he has ambitious plans to increase the city’s climate investment and expand child care.",
     quote1:
-      'Jails | “Admittedly with some trepidation, I have come to the conclusion that to address the short-term crisis – which is rooted largely in deeply entrenched mismanagement of staff and union leadership recalcitrance – a receiver should be appointed.” | <a href="https://comptroller.nyc.gov/newsroom/citing-rising-violence-and-deaths-comptroller-lander-calls-for-federal-receiver-at-rikers-island/">Statement from the Office of the NYC Comptroller’s Office</a> (Oct 13, 2022)',
+      'Jails | “Admittedly with some trepidation, I have come to the conclusion that to address the short-term crisis – which is rooted largely in deeply entrenched mismanagement of staff and union leadership recalcitrance – a receiver should be appointed.” | <a href="https://comptroller.nyc.gov/newsroom/citing-rising-violence-and-deaths-comptroller-lander-calls-for-federal-receiver-at-rikers-island/">statement from the Office of the NYC Comptroller’s Office</a> (Oct 13, 2022)',
     quote2:
       'Housing | “We do not have to be a city where thousands of people who are mentally ill are sleeping on the streets and are sometimes often a danger to themselves and to others.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">New York Editorial Board Interview</a> (Dec 15, 2024)',
     quote3:
       'Management | “I have always seen myself as a pragmatic, pro-growth progressive, and I think the evidence is pretty clear. What I like to do is bring people together, set ambitious goals and then take pragmatic and really data-driven steps to get things done.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">New York Editorial Board Interview</a> (Dec 15, 2024)',
-    quizResponse1: "1",
-    quizResponse2: "1",
-    quizResponse3: "4",
-    quizResponse4: "2",
-    quizResponse5: "1",
-    quizResponse5a: "2",
-    quizResponse6: "1",
+    quizResponse1:
+      "1 | “We can have a strong, year-round outdoor dining program, with less red tape for restaurants, but still with oversight to ensure cleanliness and remove abandoned sheds.” | Candidate statement (May 7, 2025)",
+    quizResponse2:
+      '1 | Lander said he\'d carry out the requirements of Local Law 195 and exceed its mandate for 150 miles of protected bus lanes and 250 miles of protected bike lanes. | <a href="https://www.youtube.com/live/A2he_B5f3ZE">Transportation Alternative Mayoral Forum</a> (Feb 21, 2025)',
+    quizResponse3:
+      '4 | Lander supports containerization but wants to ensure “big trash bins go in the curb lane instead of the sidewalk, preserving pedestrian space and access.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
+    quizResponse4:
+      '2 | “Budgeted headcount right now is 35,000. We only have 33,500, and it\'s trended down because, in 2005, we hired about 4,000 officers and a lot of them are going to retire this year. So I want to get back to that 35,000.” | <a href="https://www.youtube.com/watch?v=Bmkx_s2QuaE">Brooklyn Democrats Mayoral Forum</a> (Apr 23, 2025)',
+    quizResponse5:
+      "1 | “The best long-term solution is to install new turnstiles, like those in Paris and Amsterdam, that prevent fare evasion, and to expand half-priced Fair Fares for low-income, students, and seniors.” | Candidate statement (May 7, 2025)",
+    quizResponse5a:
+      "2 | “We can end the humanitarian disaster that is Rikers by following the Lippmann Commission 2.0 recommendations, including new secure treatment beds and ensuring timely trials.” | Candidate statement (May 7, 2025)",
+    quizResponse6:
+      "1 | “All of the above! My plan includes building 500,000 new units (focusing on genuinely affordable), preserving what we have, protecting tenants from eviction, and increasing pathways to home ownership.” | Candidate statement (May 7, 2025)",
     quizResponse7:
-      "0 | “The choice must be made by a majority vote of residents in any NYCHA development. Residents should have all options to consider: private management, Preservation Trust, infill, or remaining traditional Section 9.” | campaign's response to THE CITY/Gothamist's survey. (May 7, 2025)",
-    quizResponse8: "2",
-    quizResponse9: "1",
-    quizResponse10: "1",
-    quizResponse12: "1",
-    quizResponse13: "2",
-    quizResponse14: "1",
-    quizResponse15: "1",
-    quizResponse17: "3",
-    quizResponse18: "1",
-    quizResponse19: "1",
+      "0 | “The choice must be made by a majority vote of residents in any NYCHA development. Residents should have all options to consider: private management, Preservation Trust, infill, or remaining traditional Section 9.” | Candidate statement (May 7, 2025)",
+    quizResponse8:
+      "2 | “This year, the evidence supports a rent freeze. The proposed increases are far beyond justification.” | Candidate statement (May 7, 2025)",
+    quizResponse9:
+      "1 | “I’ll expand the number of high schools offering greater academic challenge and career pathways, creating new specialized schools that admit top students citywide to increase diversity, access, and opportunity.” | Candidate statement (May 7, 2025)",
+    quizResponse10:
+      "1 | “I have spelled out a Framework for Great Public Schools to enable every child to learn and thrive, through strong and consistent support and accountability in every school.” | Candidate statement (May 7, 2025)",
+    quizResponse12:
+      '1 | “I want to keep this a city where crimes are prosecuted and immigrants are welcome.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">The New York Editorial Board</a> (Dec 15, 202)',
+    quizResponse13:
+      "2 | “It matters when people stand up,” Lander said. “What tyrants count on is fear; that is their whole game plan. They know that if they get out there and make people afraid, then people will cower.” | Brooklyn Paper (Apr 16, 2025)",
+    quizResponse14:
+      '1 | “We can in New York City effectively end street homelessness for people with serious mental illness.” | <a href="https://youtu.be/dx8-BNCoZ_A?feature=shared">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
+    quizResponse15:
+      "1 | “While I support involuntary hospitalization when people are a danger to themselves or others, solving the problem requires utilizing a “housing first” that connects people to housing and services.” | Candidate statement (May 7, 2025)",
+    quizResponse17:
+      '3 | “What I like to do is bring people together, set ambitious goals and then take pragmatic and really data-driven steps to get things done.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">The New York Editorial Board</a> (Dec 15, 2025)',
+    quizResponse18:
+      "1 | “The way to a safer and more affordable New York City is through a better-run New York City.” | Candidate statement (May 7, 2025)",
+    quizResponse19:
+      "1 | “Before public office, I spent my career building and preserving thousands of units of affordable homes while leading two affordable housing and community development groups.” | Candidate statement (May 7, 2025)",
   },
   candidateZellnor: {
     name: "Zellnor Myrie",
@@ -214,26 +282,33 @@ export const candidateContent = {
       'Schools | “Every single kid should have access to an after school program, because it should not be dependent on what zip code you are in or how much money your PTA has.” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Dems Mayoral Forum</a> (Jan 31, 2025)',
     quote3:
       'Housing | “We need permanent homes, not just shelters, and a plan to do that. We need revenue for our public housing so people can live with dignity, not just rhetoric. We need laws that will go after bad landlords, that will protect our tenants, that will actually fund right to counsel, that will actually do the things to bring our costs down, and yes, we need to build more homes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice For All Mayoral Forum</a> (Dec 7, 2024)',
-    quizResponse1: "1",
+    quizResponse1:
+      '1 | “If we want outdoor dining to be successful, we need to make it easier and more accessible for restaurants to participate.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
     quizResponse2: "1",
-    quizResponse3: "4",
+    quizResponse3:
+      '4 | Myrie called containerization “a step in the right direction” but said we must watch out for quality-of-life impacts: “For example, if trash containers are blocking our sidewalks, we should amend our approach.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
     quizResponse4:
-      '1 | “I proposed in my public safety plan a return to our police headcount, to where it was pre-pandemic. It is important that we have police officers to help with some of these quality of life issues. But also that they’re smartly deployed.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
+      '1 | “I want to restore our headcount for the NYPD to pre-pandemic levels, where we saw crime at its lowest in the city\'s history.” | <a href="https://youtu.be/dx8-BNCoZ_A?feature=shared">Bronxnet Mayoral Forum</a> (Jan 30, 2025)',
     quizResponse5:
-      "1 | In response to the survey, Myrie’s campaign noted that he believes there should be escalating consequences for repeat offenders. | campaign's response to THE CITY/Gothamist's survey. (April 18, 2025)",
-    quizResponse5a: "1",
+      '1 | Myrie supports escalating consequences for repeat offenders. "This is a straightforward thing. People should pay the fare. If you ask anyone, you walk across Flatbush Avenue, Fordham Road, Utica Avenue, say should you pay the fare? Yes, people should pay the fare.” | <a href="https://www.youtube.com/live/lqQIiczm7Kc">Riders Alliance Mayoral Forum</a> (Dec 2, 2024)',
+    quizResponse5a:
+      '1 | “What currently exists at Rikers is wholly unacceptable, and we should all be ashamed of this.” | <a href="https://youdecidewitherrollouis.libsyn.com/zellnor-myrie-a-mayoral-candidate-with-an-ambitious-housing-proposal">You Decide with Errol Louis</a> (Dec 5, 2025)',
     quizResponse6:
-      '1 | “So our plan is focused, as you mentioned, on 1 million homes over the next decade, and in that, we include an expansion of our right to counsel to protect renters, but also to be extended to homeowners who are facing foreclosure and deed theft. It includes some upzoning, some commercial residential conversions, building in places that are already dense, building in industrial areas that can be converted to residential, and being creative about what we\'re doing on our public housing sites.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
+      '1 | His plan to build 1 million homes “includes some upzoning, some commercial residential conversions, building in places that are already dense, building in industrial areas that can be converted to residential, and being creative about what we\'re doing on our public housing sites.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
     quizResponse7:
-      "3 | In response to the survey, Myrie’s campaign noted that his housing plan would allow for NYCHA residents to “have a say in whether new development would happen.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse8: "2",
-    quizResponse9: "1",
+      "3 | Myrie wants to allow NYCHA residents to “have a say in whether new development would happen.” | Candidate statement (Apr 18, 2025)",
+    quizResponse8:
+      "2 | “I'm a rent stabilized tenant. I grew up in a rent-stabilized apartment, and my mom still lives in that apartment that she raised me in. So I didn't just adopt protecting tenants for my campaign.” | <a href=\"https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F\">Housing Justice For All Mayoral Forum</a> (Dec 7, 2024)",
+    quizResponse9:
+      '1 | “I believe in that. I was a goofball in middle school. I was a class clown. I was going through puberty. I was trying to impress girls, so my grades were terrible. If there was something outside of the test, I\'m not sure that I would have been successful, that the test is what allowed me to get into Brooklyn Tech, but I was only able to do that because I had the right preparation.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
     quizResponse10:
-      '1 | Myrie told the New York Editorial Board that he’d like to expand the <a href="https://www.schools.nyc.gov/learning/subjects/literacy/nyc-reads">NYC Reads</a> initiative to include training for educators, adding: “We have heard from some surveys that the teachers, by and large, support the NYC Reads initiative that focuses on evidence-based curriculum. They need some more support, and that is something that I’d be doing in my first administration. You do not get this type of training before you become a teacher, and so I think the city has to do a better job of supporting teachers to teach this type of curriculum.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
-    quizResponse12: "1",
+      '1 | Myrie says he\'ll expand the NYC Reads initiative to include training for educators. “Teachers, by and large, support the NYC Reads initiative that focuses on evidence-based curriculum. They need some more support.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
+    quizResponse12:
+      '1 | “I plan to stand up for our sanctuary city laws so that our vulnerable New Yorkers can be protected. And this is not political. We got to fight when it\'s important for us.” | <a href="https://youtu.be/dx8-BNCoZ_A?feature=shared">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quizResponse13:
-      '2 | Myrie wants to create a new unit within the city’s Law Department to file suits against the Trump administration should “coercive policy demands” be placed on the city, he told the New York Daily News. If that doesn’t work, then his administration will “withhold our tax dollars from the federal government, and we will march in the streets.” | <a href="https://www.nydailynews.com/2025/03/26/mayoral-candidate-zellnor-myrie-proposes-strategy-to-fight-trump-funding-cuts/">New York Daily News</a> (Mar 26, 2025)',
-    quizResponse14: "1",
+      '2 | Myrie wants to create a new unit within the city’s Law Department to file suits against the Trump administration should “coercive policy demands” be placed on the city, and also to be prepared to “withhold our tax dollars from the federal government.” | <a href="https://www.nydailynews.com/2025/03/26/mayoral-candidate-zellnor-myrie-proposes-strategy-to-fight-trump-funding-cuts/">New York Daily News</a> (Mar 26, 2025)',
+    quizResponse14:
+      '1 | “There are current needle cleanup programs that need to be expanded. We need more social workers and EMTs to be working together in that area to ensure that people remain safe.” | <a href="https://youtu.be/dx8-BNCoZ_A?feature=shared">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quizResponse15:
       "1 | “What happens after that involuntary commitment, to me, is just as important as removing them from the public space. If we are sending that individual to Rikers where they're going to get worse, or we're sending them to the emergency room where they're going to cycle right back out, that is unhelpful on both counts.” | <a href=\"https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript\">New York Editorial Board Interview</a> (Feb 24, 2025)",
     quizResponse17: "3",
@@ -251,22 +326,35 @@ export const candidateContent = {
       'Public Housing | “No private management of our NYCHA buildings, no developers, no land for sale, no infills, no any of that. We have to keep public housing, public housing.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 2, 2024)',
     quote3:
       'Schools | “I think there should be year round opportunities after school where possible, on weekends where possible, so that kids have an earlier opportunity to figure out how to fulfill their potential and perhaps even enjoy greater job satisfaction as they enter adulthood.” | <a href="https://www.thecity.nyc/2025/03/15/jessca-ramos-mayor-interview-faqnyc-podcast/">FAQ NYC</a> (Mar 15, 2025)',
-    quizResponse1: "3",
-    quizResponse2: "2",
-    quizResponse3: "4",
-    quizResponse4: "2",
-    quizResponse5: "4",
+    quizResponse1:
+      '3 | “The streets are for people and not for cars.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
+    quizResponse2:
+      '2 | Ramos said she\'d carry out the requirements of Local Law 195 and exceed its mandate for 150 miles of protected bus lanes and 250 miles of protected bike lanes. | <a href="https://www.youtube.com/live/A2he_B5f3ZE">Transportation Alternatives Mayoral Forum</a> (Feb 21, 2025)',
+    quizResponse3:
+      '4 | “Making sure that we are putting forth a system that allows everybody — both residential and commercial — to be able to compost our organic waste, to be able to recycle, to be able to throw away landfill trash, and educate people in that way, is really really important and the only way we\'re going to be able to keep our streets clean.” | <a href="https://www.youtube.com/watch?v=EGZwwvha5BU">New York League of Conservation Voters Mayoral Forum</a> (Mar 7, 2025)',
+    quizResponse4:
+      "2 | “There's policing of the streets, but also there's just an education of the population in terms of conflict resolution and other things.” | <a href=\"https://nyeditorialboard.substack.com/p/jessica-ramos-interview-transcript\">The New York Editorial Board</a> (Jan 12, 2025)",
+    quizResponse5:
+      "4 | Ramos wants to ensure “that more and more people who really do need the help are able to get it and so that we can do away with this culture of those who are able to pay the fare, but simply aren't doing it because they feel that too many aren't doing it, so why should I?” | <a href=\"https://www.youtube.com/live/lqQIiczm7Kc\">Transit Riders Mayoral Forum</a> (Dec 2, 2024)",
     quizResponse5a: "1",
-    quizResponse6: "1",
-    quizResponse7: "1",
-    quizResponse8: "1",
-    quizResponse9: "2",
-    quizResponse10: "2",
-    quizResponse12: "1",
-    quizResponse13: "1",
-    quizResponse14: "1",
-    quizResponse15: "1",
-    quizResponse17: "3",
+    quizResponse6:
+      '1 | Ramos\' campaign said she wants to do all of the above. “For a long time, New York City has prayed that affordable housing is magically going to trickle down from all of these tax abatements that are given to big real estate without actually looking at some of the solutions that have been hiding in plain sight for a while.” | <a href="https://www.youtube.com/watch?v=OV_TZxXqVmw">Columbia Journalism School Mayoral Forum</a> (Apr 14, 2025)',
+    quizResponse7:
+      '1 | “No private management of our NYCHA buildings, no developers, no land for sale, no infills, no any of that. We have to keep public housing, public housing.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 2, 2024)',
+    quizResponse8:
+      '1 | Ramos says she\'s "proud to have been a part of the administration that delivered on rent freezes," adding: "I am ready to win a rent freeze again. | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 2, 2024)',
+    quizResponse9:
+      '2 | Ramos wants to build more specialized high schools and register middle school students for the test by default. “Our black and brown children are not being accepted into specialized high schools at the rate they should be, and we need to accept that one test cannot possibly capture the potential of each student.” | <a href="https://politicsny.com/2019/03/22/liu-ramos-want-community-input-for-more-specialized-high-schools-diversity/">Politics NY</a> (Mar 22, 2019)',
+    quizResponse10:
+      "2 | Ramos believes that staying on the current course still leaves room to keep the option to hold children to make sure they are developing the skills they need. | Candidate statement (Apr 18, 2025)",
+    quizResponse12: "1 |",
+    quizResponse13:
+      '1 | Ramos says she has bright red lines where she would not be able to find partnership with the Trump admin and would resist, should those be crossed. “If he really is going to take away federal funding — whether it’s from education, SNAP benefits, social security benefits, and many of our retirees, including HIV-positive survivors… we have to be able to withhold our federal taxes from Donald Trump.” | <a href="https://gaycitynews.com/nyc-mayoral-hopefuls-2025-lgbtq-forum/">Gay City News</a> (Mar 27, 2025)',
+    quizResponse14: "1 |",
+    quizResponse15:
+      "1 | “We have to solve the quandary of, well, where do we take them to? Yes, there's the hospital but there has to be a place where hopefully it's a supportive housing environment where they're getting all of the help that they need.” | <a href=\"https://youtu.be/dx8-BNCoZ_A?feature=shared\">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)",
+    quizResponse17:
+      '3 | “The mayor is the CEO who provides the common vision.... I would want to cast a very wide net in terms of attracting the most talented people in our city and then actually trusting them to do their job.” | <a href="https://nyeditorialboard.substack.com/p/jessica-ramos-interview-transcript">The New York Editorial Board</a> (Jan 12, 2025)',
     quizResponse18: "1",
     quizResponse19: "2",
   },
@@ -282,38 +370,40 @@ export const candidateContent = {
     quote3:
       'Feds | “But let\'s think about the kind of mayor we want in this moment. I think everyone agrees we will march, we will fight, we will lay our bodies on the floor…” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Dems Mayoral Forum</a> (Jan 31, 2025)',
     quizResponse1:
-      "3 | “We need to create a way for open streets and outdoor dining to work for everyone – businesses, residents, and pedestrians – permanently. Beyond the pandemic, outdoor dining has been a lifeline for local restaurants and brought new energy to our neighborhoods. This year, after the application process was formalized 4,000 applications were submitted, but only 39 licenses were approved. As mayor, I will urge the City Council to revisit the issue, push to loosen the unnecessary design requirements so smaller businesses can participate without breaking the bank, and create a dedicated support program to assist business owners navigate the process making it simpler, fairer, and more transparent.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "3 | “We need to create a way for open streets and outdoor dining to work for everyone – businesses, residents, and pedestrians – permanently.” | Candidate statement (Apr 18, 2025)",
     quizResponse2:
-      "1 | “Protected bike lanes are one of the most important improvements we can make to our streets. Throughout my career, I have supported the expansion of biking infrastructure and believe cyclists should be able to commute safely throughout New York City.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "1 | “Protected bike lanes are one of the most important improvements we can make to our streets.” | Candidate statement (Apr 18, 2025)",
     quizResponse3:
-      "4 | “My sanitation plan is designed to bring New York City’s waste management into the twenty-first century – by incorporating composting and rat-proof containers – and dealing with the piles of trash that litter our streets and attract rodents.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "4 | “My sanitation plan is designed to bring New York City’s waste management into the twenty-first century – by incorporating composting and rat-proof containers – and dealing with the piles of trash that litter our streets and attract rodents.” | Candidate statement (Apr 18, 2025)",
     quizResponse4:
-      "1 | “My public safety and quality of life plan focuses on rebuilding and refocusing the NYPD’s capacity, bringing our officer count back up to 35,000 officers and refocusing their efforts away from administrative tasks and on frontline policing. We need to lead with compassion, integrating 311 and 911 to facilitate a coordinated response from our social services to provide New Yorkers with the support they need while bringing an end to the disorder on our streets and subways.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "1 | “We're going to hire 3,000 more cops — because we've been at the lowest level of policing in many years — and we're also going to, for the first time, align policing with the greatest mental health initiative this city will ever see.” | <a href=\"https://youtu.be/dx8-BNCoZ_A?feature=shared\">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)",
     quizResponse5:
-      "2 | “The solution isn’t enforcement, it's accessibility. I have long supported a fair fares system that enables those who struggle to pay to maintain access to city services without breaking the law and still makes those who can afford it pay their fair share. By implementing this system throughout our transit, the number of fare violations will decrease and further enforcement won’t be necessary.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      '2 | “The solution isn’t enforcement, it\'s accessibility," says Stringer, citing the existing "fair fares" program for low-income riders. "By implementing this system throughout our transit, the number of fare violations will decrease and further enforcement won’t be necessary.” | Candidate statement (Apr 18, 2025)',
     quizResponse5a:
-      "2 | “Rikers isn’t just broken – it's a moral failure. It needs to be shut down, and we must transition to a borough-based prison system. However, that will take time that the current incarcerated people at Rikers don’t have. The conditions at Rikers, including a lack of accessible healthcare, is jeopardizing the only chance at rehabilitation these people have. We must improve the conditions at Rikers and invest in the rehabilitation of the people currently there while moving towards closing the facility.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse6: "1",
+      "2 | “Rikers isn’t just broken – it's a moral failure. It needs to be shut down, and we must transition to a borough-based prison system. However, that will take time that the current incarcerated people at Rikers don’t have.... We must improve the conditions at Rikers and invest in the rehabilitation of the people currently there while moving towards closing the facility.” | Candidate statement (Apr 18, 2025)",
+    quizResponse6:
+      '1 | “We now have in this city a thousand at least vacant parcels of land. The city owns it. We give it away to speculators. It\'s time that we gave it to the not-for-profit communities" for housing development.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
     quizResponse7:
-      "1 | “My administration will unlock $40B for repairs and modernization of NYCHA, leveraging federal and state funding to address the repair backlog, eliminate mold and lead permanently, make sustainable upgrades, and revive the uninhabitable units to provide urgently needed housing for families. We will also create tenant-led oversight committees to monitor repair progress, ensure transparency, and hold NYCHA accountable for quality standards.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "1 | “My administration will unlock $40B for repairs and modernization of NYCHA, leveraging federal and state funding to address the repair backlog, eliminate mold and lead permanently, make sustainable upgrades, and revive the uninhabitable units to provide urgently needed housing.” | Candidate statement (Apr 18, 2025)",
     quizResponse8:
-      "3 | “We are in the midst of a massive affordability crisis. The city needs to take steps to ensure families have safe, healthy, livable conditions to reside in, and that means meeting the needs of the landlords serving the people. My Robin Hood plan holds landlords accountable and makes sure they are delivering on the promises of housing across New York City.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "3 | “We are in the midst of a massive affordability crisis. The city needs to take steps to ensure families have safe, healthy, livable conditions to reside in, and that means meeting the needs of the landlords serving the people.” | Candidate statement (Apr 18, 2025)",
     quizResponse9:
-      "1 | “I support the use of the SHSAT. And I also support great schools for all NYC kids. We need more specialized schools to give even more students opportunities and make sure we aren’t leaving talented students behind. It is also our responsibility to ensure high-quality public schools in every zip code so a great education is something every kid can count on.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "1 | “I support the use of the SHSAT. And I also support great schools for all NYC kids. We need more specialized schools to give even more students opportunities and make sure we aren’t leaving talented students behind.” | Candidate statement (Apr 18, 2025)",
     quizResponse10:
-      "2 | “Our public education system is not the beacon of opportunity it once was. My bold plan to improve this is to extend the public school day to 4:30 p.m. by collaborating with community nonprofits to provide free or low-cost after-school activities like academic tutoring, arts, sports, and STEM education. Research shows that extended school hours improve literacy and math scores for students, especially for disadvantaged students, and they keep our kids safe during the hours when parents are still at work.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "2 | “My bold plan to improve this is to extend the public school day to 4:30 p.m. by collaborating with community nonprofits to provide free or low-cost after-school activities like academic tutoring, arts, sports, and STEM education.” | Candidate statement (Apr 18, 2025)",
     quizResponse12:
-      "1 | “Trump’s immigration crackdown is an embarrassment that unjustly targets undocumented New Yorkers. NYC will double down on sanctuary protections, ensuring no city agency helps ICE or federal law enforcement carry out political persecution.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
-    quizResponse13: "2",
+      "1 | “Trump’s immigration crackdown is an embarrassment that unjustly targets undocumented New Yorkers. NYC will double down on sanctuary protections, ensuring no city agency helps ICE or federal law enforcement carry out political persecution.” | Candidate statement (Apr 18, 2025)",
+    quizResponse13:
+      '2 | “Let\'s think about the kind of mayor we want in this moment. I think everyone agrees we will march, we will fight, we will lay our bodies on the floor.” | <a href="https://youtu.be/dx8-BNCoZ_A?feature=shared">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quizResponse14:
-      "1 | “We need to invest in housing-first initiatives that provide stable housing paired with comprehensive services in order to reduce homelessness and promote long-term well-being. Expanding rapid rehousing programs, providing mental health counseling, addiction recovery, and job training in mixed-use neighborhoods will enable individuals to regain stability and self-sufficiency.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "1 | “We need to invest in housing-first initiatives that provide stable housing paired with comprehensive services in order to reduce homelessness and promote long-term well-being. Expanding rapid rehousing programs, providing mental health counseling, addiction recovery, and job training in mixed-use neighborhoods will enable individuals to regain stability and self-sufficiency.” | Candidate statement (Apr 18, 2025)",
     quizResponse15:
-      "1 | “My quality of life plan focuses on addressing the mental health crisis in this city by investing in our city’s mental health infrastructure and making services available 24/7. While I support strengthening involuntary commitment laws in the interest of public safety, it must only be in the most extreme cases. I have advocated for revising these laws to allow for more effective interventions in cases where individuals pose a danger to themselves or others. We need specific, actionable plans rather than broad proposals to address the mental health crisis. This issue has always required a very nuanced approach, balancing civil liberties and justice reform with stronger tools for intervention when necessary.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "1 | “My quality-of-life plan focuses on addressing the mental health crisis in this city by investing in our city’s mental health infrastructure and making services available 24/7. While I support strengthening involuntary commitment laws in the interest of public safety, it must only be in the most extreme cases.” | Candidate statement (Apr 18, 2025)",
     quizResponse17:
-      "1 | “New York needs a mayor who wakes up every morning focused on what he can do to make the city work better for the people who live here. That will take centralizing decisions and leading with conviction, it will take working closely with City Council and other elected leaders, and it will require hiring the best people to run city agencies. With me, you will get a mayor who knows how this city works and will do the hard work every day to make it better.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "1 | “New York needs a mayor who wakes up every morning focused on what he can do to make the city work better for the people who live here. That will take centralizing decisions and leading with conviction, it will take working closely with City Council and other elected leaders, and it will require hiring the best people to run city agencies.” | Candidate statement (Apr 18, 2025)",
     quizResponse18: "4",
     quizResponse19:
-      "4 | “I began my career as a tenant organizer, standing alongside Mitchell-Lama residents who were fighting to stop their homes from being sold to private developers. That led me to embark on a career of public service, from the state assembly to the Manhattan Borough President’s Office, to the city Comptroller.” | campaign's response to THE CITY/Gothamist's survey. (Apr 18, 2025)",
+      "4 | “I began my career as a tenant organizer, standing alongside Mitchell-Lama residents who were fighting to stop their homes from being sold to private developers. That led me to embark on a career of public service, from the state assembly to the Manhattan Borough President’s Office, to the city Comptroller.” | Candidate statement (Apr 18, 2025)",
   },
   candidateWhitney: {
     name: "Whitney Tilson",
@@ -326,18 +416,28 @@ export const candidateContent = {
       'Jails | “The question is, will the city at that point just extend and pretend and delay and continue the myth that we should entirely close Rikers Island or fix it and realize, okay, well, let\'s have Rikers as one of our five jails in this city.” | <a href="https://www.thecity.nyc/2025/02/25/whitney-tilson-mayoral-interview-faqnyc-podcast/">FAQ NYC</a> (Feb 25, 2025)',
     quote3:
       'Schools | “With mayoral control, I mentioned earlier, the percentage of fourth graders reading below basic. That dropped from 53% to 38% under Mayor Bloomberg. Since he left – and we still have mayoral control, but not a mayor willing to use it to shape, to continue to reform the system – it\'s gone back up to 48%.” | <a href="https://www.thecity.nyc/2025/02/25/whitney-tilson-mayoral-interview-faqnyc-podcast/">FAQ NYC</a> (Feb 25, 2025)',
-    quizResponse1: "3",
-    quizResponse2: "1",
-    quizResponse3: "4",
-    quizResponse4: "1",
-    quizResponse5: "1",
-    quizResponse5a: "2",
-    quizResponse6: "1",
-    quizResponse7: "3",
-    quizResponse8: "3",
-    quizResponse9: "1",
-    quizResponse10: "2",
-    quizResponse12: "2",
+    quizResponse1:
+      '3 | Tilson supports full-time outdoor dining through “permanent, high-quality structures” while holding “restaurants accountable for maintaining their spaces clean and rodent-free.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
+    quizResponse2: "1 |",
+    quizResponse3:
+      '4 | Tilson has suggested “incentivizing compliance” with “tax incentives or subsidies for buildings that adopt modernized trash solutions quickly.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
+    quizResponse4:
+      "1 | “We're at a 34-year low, in terms of the number of police officers, they're understaffed, and we need to rebuild that.” | <a href=\"https://www.thecity.nyc/2025/02/25/whitney-tilson-mayoral-interview-faqnyc-podcast/\">FAQ NYC</a> (Feb 25, 2025)",
+    quizResponse5:
+      '1 | “We’ve got to enforce the smaller, quality-of-life crimes — like the turnstile jumping — that are leading to the more serious crimes.” | <a href="https://x.com/WhitneyTilson/status/1902742874661290124">X</a> (Mar 20, 2025)',
+    quizResponse5a:
+      '2 | “If you shrink it, and you take two-thirds or three-fourths of the people at Rikers, put them in the borough-based jails, you can then tear down the dilapidated old buildings at Rikers.” | <a href="https://www.thecity.nyc/2025/02/25/whitney-tilson-mayoral-interview-faqnyc-podcast/">FAQ NYC</a> (Feb 25, 2025)',
+    quizResponse6:
+      '1 | “80,000 units in 15 years is at best 10% of what’s necessary. So I’m going to go in and fight for the other 90%.” | <a href="https://www.brickunderground.com/live/whitney-tilson-speed-development-ease-evictions-for-non-paying-tenants-nyc-mayor-race">Brick Underground</a> (Mar 31, 2025)',
+    quizResponse7:
+      '3 | “The development partner would come in and front the money and build brand new buildings in empty parking lots...nobody gets displaced.” | <a href="https://www.brickunderground.com/live/whitney-tilson-speed-development-ease-evictions-for-non-paying-tenants-nyc-mayor-race">Brick Underground</a> (Mar 31, 2025)',
+    quizResponse8:
+      '3 | “One of the main reasons we have a housing crisis [in] what should be the greatest real estate market in the country [is that] we\'ve turned into a terrible and impossible market.” | <a href="https://www.brickunderground.com/live/whitney-tilson-speed-development-ease-evictions-for-non-paying-tenants-nyc-mayor-race">Brick Underground</a> (Mar 31, 2025)',
+    quizResponse9: "1 |",
+    quizResponse10:
+      '2 | “The percentage of fourth graders reading below basic, that dropped from 53% to 38% under Mayor Bloomberg. Since he left — and we still have mayoral control, but not a mayor willing to use it to shape, to continue to reform the system — it\'s gone back up to 48%.” | <a href="https://www.thecity.nyc/2025/02/25/whitney-tilson-mayoral-interview-faqnyc-podcast/">FAQ NYC</a> (Feb 25, 2025)',
+    quizResponse12:
+      '2 | “I strongly believe in New York\'s status as a sanctuary city. The only area where I think there should be limited cooperation is in the area of people who are here, who are not US citizens, who are committing serious crimes.” | <a href="https://www.thecity.nyc/2025/02/25/whitney-tilson-mayoral-interview-faqnyc-podcast/">FAQ NYC</a> (Feb 25, 2025)',
     quizResponse13: "3",
     quizResponse14: "1",
     quizResponse15: "1",
@@ -389,20 +489,25 @@ export const candidateContent = {
     quizResponse1: "2",
     quizResponse2: "3",
     quizResponse3: "3",
-    quizResponse4: "1",
-    quizResponse5: "1",
+    quizResponse4:
+      '1 | “We have 32,500 cops. We need at least 40,000.” | <a href="https://qns.com/2025/04/curtis-sliwa-mayoral-priorities-ridgewood-forum/">QNS</a> (Apr 9, 2025)',
+    quizResponse5:
+      "1 | Sliwa proposed on his campaign's X account that the MTA shouldn't be “taxing” New Yorkers via congestion tolling while “letting fare evaders ride for free.” | <a href=\"https://x.com/TeamSliwa/status/1913744348488802687\">X</a> (Apr 19, 2025)",
     quizResponse5a: "3",
-    quizResponse6: "2",
+    quizResponse6:
+      '2 | “There are 60,000 apartments that are warehoused. There are other apartments that are not being rented out in residential areas because tenant-landlord courts are a complete disaster.” | <a href="https://www.youtube.com/watch?v=1baVcLh7k6U">The Point with Marsha Kramer</a> (Dec 22, 2024)',
     quizResponse7: "2",
     quizResponse8: "2",
     quizResponse9: "1",
     quizResponse10: "2",
-    quizResponse12: "2",
+    quizResponse12:
+      '2 | “The president of the United States is correct: We have to get rid of those who have committed crimes here, or those who have committed crimes in their country of origin that were never properly vetted at the border.” | <a href="https://www.youtube.com/watch?v=1baVcLh7k6U">The Point with Marsha Kramer</a> (Dec 22, 2024)',
     quizResponse13: "1",
     quizResponse14: "3",
     quizResponse15: "1",
     quizResponse17: "3",
-    quizResponse18: "3",
+    quizResponse18:
+      '3 | “Under a Sliwa administration, we\'ll audit city agencies to root out rules that just weigh New Yorkers down and push to repeal laws that do little but squeeze our communities dry.” | <a href="https://x.com/CurtisSliwa/status/1912509696986018224">X</a> (Apr 16, 2025)',
     quizResponse19: "2",
   },
 };
