@@ -42,6 +42,24 @@ export const formatCandidateContent = (party?: Party) => {
   });
 };
 
+/**
+ * This function can be used to test the formatting of the candidate content array.
+ * For example: test to make sure each entry has no more than two `|` delimiters.
+ */
+export const testCandidateContentFormat = () => {
+  for (const outerKey in candidateContent) {
+    const innerObj =
+      candidateContent[outerKey as keyof typeof candidateContent];
+    for (const innerKey in innerObj) {
+      const value = innerObj[innerKey as keyof typeof innerObj];
+      const pipeCount = (value.match(/\|/g) || []).length;
+      if (pipeCount > 2) {
+        console.log(`Too many pipes in ${outerKey}.${innerKey}: "${value}"`);
+      }
+    }
+  }
+};
+
 export const generateListOfCandidatesByParty = (party?: Party) => {
   return Object.values(candidateContent)
     .sort((a, b) => (a.name > b.name ? 1 : -1)) // Sort alphabetically by name
