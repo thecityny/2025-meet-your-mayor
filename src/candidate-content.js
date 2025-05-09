@@ -207,7 +207,7 @@ export const candidateContent = {
     quizResponse8:
       '2 | Cuomo vows to appoint Rent Guidelines Board members who make decisions that limit rent increases while also addressing landlords\' needs to keep up with costs that include maintenance, insurance, taxes and utilities. | <a href="https://www.andrewcuomo.com/sites/default/files/documents/housing-plan.pdf">Cuomo for Mayor Housing Plan</a>',
     quizResponse9:
-      '1 | “I would suggest the city and the City Council comes up with their admission policy" for schools whose admission the city controls, and the state legislature "should then be informed by that admission policy for the remaining three.” | <a href="https://nypost.com/2019/03/20/cuomo-calls-on-city-to-fix-obnoxious-problem-in-high-school-admissions/">The New York Post</a> (Mar 20, 2019)',
+      '1 | “I would suggest the city and the City Council comes up with their admission policy" for schools whose admission the city controls, and the state legislature "should then be informed by that admission policy for the remaining three.” | <a href="https://nypost.com/2019/03/20/cuomo-calls-on-city-to-fix-obnoxious-problem-in-high-school-admissions/">New York Post</a> (Mar 20, 2019)',
     quizResponse10:
       "0 | “The Department of Education needs to improve the implementation of NYC Reads, which is a proven approach to teaching reading that has not been smoothly implemented. Increased teacher recruitment and retention and reduced chronic absenteeism are both essential elements of improving learning.” | Candidate statement (May 5, 2025)",
     quizResponse12:
@@ -246,7 +246,7 @@ export const candidateContent = {
     quizResponse5:
       "1 | “The best long-term solution is to install new turnstiles, like those in Paris and Amsterdam, that prevent fare evasion, and to expand half-priced Fair Fares for low-income, students, and seniors.” | Candidate statement (May 7, 2025)",
     quizResponse5a:
-      "2 | “We can end the humanitarian disaster that is Rikers by following the Lippmann Commission 2.0 recommendations, including new secure treatment beds and ensuring timely trials.” | Candidate statement (May 7, 2025)",
+      "1 | “We can end the humanitarian disaster that is Rikers by following the Lippmann Commission 2.0 recommendations, including new secure treatment beds and ensuring timely trials.” | Candidate statement (May 7, 2025)",
     quizResponse6:
       "1 | “All of the above! My plan includes building 500,000 new units (focusing on genuinely affordable), preserving what we have, protecting tenants from eviction, and increasing pathways to home ownership.” | Candidate statement (May 7, 2025)",
     quizResponse7:
@@ -258,9 +258,9 @@ export const candidateContent = {
     quizResponse10:
       "1 | “I have spelled out a Framework for Great Public Schools to enable every child to learn and thrive, through strong and consistent support and accountability in every school.” | Candidate statement (May 7, 2025)",
     quizResponse12:
-      '1 | “I want to keep this a city where crimes are prosecuted and immigrants are welcome.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">The New York Editorial Board</a> (Dec 15, 202)',
+      '1 | “I want to keep this a city where crimes are prosecuted and immigrants are welcome.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">The New York Editorial Board</a> (Dec 15, 2024)',
     quizResponse13:
-      "2 | “It matters when people stand up,” Lander said. “What tyrants count on is fear; that is their whole game plan. They know that if they get out there and make people afraid, then people will cower.” | Brooklyn Paper (Apr 16, 2025)",
+      '2 | “It matters when people stand up,” Lander said. “What tyrants count on is fear; that is their whole game plan. They know that if they get out there and make people afraid, then people will cower.” | <a href="https://www.brooklynpaper.com/mayoral-candidate-brad-lander-town-hall/">Brooklyn Paper</a> (Apr 16, 2025)',
     quizResponse14:
       '1 | “We can in New York City effectively end street homelessness for people with serious mental illness.” | <a href="https://youtu.be/dx8-BNCoZ_A?feature=shared">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quizResponse15:
@@ -280,7 +280,7 @@ export const candidateContent = {
     quote1:
       'Federal Government | “I want to be very clear: It is in our city’s DNA to stand up to bullies. We don’t let people push us around in New York City.” | <a href="https://x.com/zellnor4ny/status/1900202985294037487">X</a> (Mar 13, 2025)',
     quote2:
-      'Schools | “Every single kid should have access to an after school program, because it should not be dependent on what zip code you are in or how much money your PTA has.” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Dems Mayoral Forum</a> (Jan 31, 2025)',
+      'Schools | “Every single kid should have access to an after school program, because it should not be dependent on what zip code you are in or how much money your PTA has.” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quote3:
       'Housing | “We need permanent homes, not just shelters, and a plan to do that. We need revenue for our public housing so people can live with dignity, not just rhetoric. We need laws that will go after bad landlords, that will protect our tenants, that will actually fund right to counsel, that will actually do the things to bring our costs down, and yes, we need to build more homes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice For All Mayoral Forum</a> (Dec 7, 2024)',
     quizResponse1:
@@ -289,21 +289,21 @@ export const candidateContent = {
     quizResponse3:
       '4 | Myrie called containerization “a step in the right direction” but said we must watch out for quality-of-life impacts: “For example, if trash containers are blocking our sidewalks, we should amend our approach.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
     quizResponse4:
-      '1 | “I want to restore our headcount for the NYPD to pre-pandemic levels, where we saw crime at its lowest in the city\'s history.” | <a href="https://youtu.be/dx8-BNCoZ_A?feature=shared">Bronxnet Mayoral Forum</a> (Jan 30, 2025)',
+      '1 | “I want to restore our headcount for the NYPD to pre-pandemic levels, where we saw crime at its lowest in the city\'s history.” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quizResponse5:
-      '1 | Myrie supports escalating consequences for repeat offenders. "This is a straightforward thing. People should pay the fare. If you ask anyone, you walk across Flatbush Avenue, Fordham Road, Utica Avenue, say should you pay the fare? Yes, people should pay the fare.” | <a href="https://www.youtube.com/live/lqQIiczm7Kc">Riders Alliance Mayoral Forum</a> (Dec 2, 2024)',
+      '1 | Myrie supports escalating consequences for repeat offenders. "This is a straightforward thing. People should pay the fare. If you ask anyone, you walk across Flatbush Avenue, Fordham Road, Utica Avenue, say should you pay the fare? Yes, people should pay the fare.” | <a href="https://www.youtube.com/live/lqQIiczm7Kc">Transit Riders Mayoral Forum</a> (Dec 2, 2024)',
     quizResponse5a:
       '1 | “What currently exists at Rikers is wholly unacceptable, and we should all be ashamed of this.” | <a href="https://youdecidewitherrollouis.libsyn.com/zellnor-myrie-a-mayoral-candidate-with-an-ambitious-housing-proposal">You Decide with Errol Louis</a> (Dec 5, 2025)',
     quizResponse6:
-      '1 | His plan to build 1 million homes “includes some upzoning, some commercial residential conversions, building in places that are already dense, building in industrial areas that can be converted to residential, and being creative about what we\'re doing on our public housing sites.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
+      '1 | His plan to build 1 million homes “includes some upzoning, some commercial residential conversions, building in places that are already dense, building in industrial areas that can be converted to residential, and being creative about what we\'re doing on our public housing sites.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">The New York Editorial Board</a> (Feb 24, 2025)',
     quizResponse7:
       "3 | Myrie wants to allow NYCHA residents to “have a say in whether new development would happen.” | Candidate statement (Apr 18, 2025)",
     quizResponse8:
       "2 | “I'm a rent stabilized tenant. I grew up in a rent-stabilized apartment, and my mom still lives in that apartment that she raised me in. So I didn't just adopt protecting tenants for my campaign.” | <a href=\"https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F\">Housing Justice For All Mayoral Forum</a> (Dec 7, 2024)",
     quizResponse9:
-      '1 | “I believe in that. I was a goofball in middle school. I was a class clown. I was going through puberty. I was trying to impress girls, so my grades were terrible. If there was something outside of the test, I\'m not sure that I would have been successful, that the test is what allowed me to get into Brooklyn Tech, but I was only able to do that because I had the right preparation.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
+      '1 | “I believe in that. I was a goofball in middle school. I was a class clown. I was going through puberty. I was trying to impress girls, so my grades were terrible. If there was something outside of the test, I\'m not sure that I would have been successful, that the test is what allowed me to get into Brooklyn Tech, but I was only able to do that because I had the right preparation.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">The New York Editorial Board</a> (Feb 24, 2025)',
     quizResponse10:
-      '1 | Myrie says he\'ll expand the NYC Reads initiative to include training for educators. “Teachers, by and large, support the NYC Reads initiative that focuses on evidence-based curriculum. They need some more support.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">New York Editorial Board Interview</a> (Feb 24, 2025)',
+      '1 | Myrie says he\'ll expand the NYC Reads initiative to include training for educators. “Teachers, by and large, support the NYC Reads initiative that focuses on evidence-based curriculum. They need some more support.” | <a href="https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript">The New York Editorial Board</a> (Feb 24, 2025)',
     quizResponse12:
       '1 | “I plan to stand up for our sanctuary city laws so that our vulnerable New Yorkers can be protected. And this is not political. We got to fight when it\'s important for us.” | <a href="https://youtu.be/dx8-BNCoZ_A?feature=shared">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quizResponse13:
@@ -311,7 +311,7 @@ export const candidateContent = {
     quizResponse14:
       '1 | “There are current needle cleanup programs that need to be expanded. We need more social workers and EMTs to be working together in that area to ensure that people remain safe.” | <a href="https://youtu.be/dx8-BNCoZ_A?feature=shared">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quizResponse15:
-      "1 | “What happens after that involuntary commitment, to me, is just as important as removing them from the public space. If we are sending that individual to Rikers where they're going to get worse, or we're sending them to the emergency room where they're going to cycle right back out, that is unhelpful on both counts.” | <a href=\"https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript\">New York Editorial Board Interview</a> (Feb 24, 2025)",
+      "1 | “What happens after that involuntary commitment, to me, is just as important as removing them from the public space. If we are sending that individual to Rikers where they're going to get worse, or we're sending them to the emergency room where they're going to cycle right back out, that is unhelpful on both counts.” | <a href=\"https://nyeditorialboard.substack.com/p/zellnor-myrie-interview-transcript\">The New York Editorial Board</a> (Feb 24, 2025)",
     quizResponse17: "3",
     quizResponse18: "1",
     quizResponse19: "4",
