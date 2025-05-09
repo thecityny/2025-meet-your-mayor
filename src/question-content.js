@@ -86,7 +86,7 @@ export const questionContent = {
       "Promote policies that give renters more control over their housing and curb real estate speculation",
   },
   question7: {
-    title: "How will you manage decaying public housing?",
+    title: "How should the next mayor manage decaying public housing?",
     subject: "Housing",
     tellMeMore:
       "The New York City Housing Authority operates under a federal monitor who is overseeing repairs. Dozens of developments now operate under private management via programs that invest in upgrades, including Rental Assistance Demonstration, or “RAD.”",
@@ -133,7 +133,7 @@ export const questionContent = {
     option4: "",
   },
   question12: {
-    title: "What is your position on NYC's sanctuary city laws?",
+    title: "How should the next mayor deal with President Trump?",
     subject: "Federal Government",
     tellMeMore:
       "NYC laws prohibit most cooperation with immigration enforcement, making exceptions only for the NYPD and Department of Correction to transfer custody where someone sought by federal agents has been convicted of a specified violent crime.",
@@ -185,7 +185,7 @@ export const questionContent = {
     option4: "",
   },
   question17: {
-    title: "What kind of manager are you?",
+    title: "What kind of manager should the next mayor be?",
     subject: "Background",
     tellMeMore: "",
     option1:
@@ -198,22 +198,23 @@ export const questionContent = {
   },
   question18: {
     title:
-      "You get one thing people will remember your mayoralty for above all a generation from now. What is that legacy?",
+      "A generation from now, what’s the one legacy you’d like New Yorkers to recall from the next mayor?",
     subject: "Background",
     tellMeMore: "",
-    option1: "I expanded opportunities for poor and working-class New Yorkers",
-    option2: "I created lasting public works",
-    option3: "I imposed fiscal discipline and cleaned up government",
-    option4: "I curbed disorder and improved neighborhood quality of life",
+    option1:
+      "They expanded opportunities for poor and working-class New Yorkers",
+    option2: "They created lasting public works",
+    option3: "They imposed fiscal discipline and cleaned up government",
+    option4: "They curbed disorder and improved neighborhood quality of life",
   },
   question19: {
     title:
-      "What early-career experience is the most influential on how you govern?",
+      "What kind of early-career experience is most important for the next mayor to have?",
     subject: "Background",
     tellMeMore: "",
     option1: "Led a nonprofit",
     option2: "Served as a community or labor organizer",
     option3: "Worked in the private sector",
-    option4: "Career-long work in government and politics",
+    option4: "Career-long work in government or politics",
   },
 };
