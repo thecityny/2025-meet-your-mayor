@@ -34,15 +34,79 @@
 
 ## ⚙️ Getting Started
 
-### Installation## Using this template
+First you’ll need to clone this repository down to your computer to work with the code.
+
+Open up your terminal and cd to your code folder. Clone the project into your folder. This will copy the project onto your computer.
+
+```sh
+gh repo clone https://github.com/thecityny/2025-meet-your-mayor
+```
+
+Once the repository has finished downloading, cd into it and install the Node.js dependencies.
+
+```sh
+cd 2025-meet-your-mayor
+npm install
+```
+
+Once the dependencies have been installed, you’re ready to preview the project. Run the following to start the test server.
+
+```sh
+npm start
+```
+
+Now go to `localhost:8000` in your browser. You should see a boilerplate page ready for your customizations.
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `DOCID=XXXXXX npm run download-content` (CUSTOM)
+
+Runs the `downloadGoogleDocContent` function inside `src/scripts.js`. This function uses ArchieML to download content from a Google Doc and save it in a
+JavaScript object variable in `page-content.js` in the `src` directory.
+
+NOTE: before running this command, you must globally install the AML Google Doc Server on your computer by running:
+
+```
+npm install -g aml-gdoc-server
+```
+
+Once installed, you then must log in to google by running:
+
+```
+aml-gdoc-server
+```
+
+and following the steps in the terminal. Once that's running, you should see a message that says "The aml-gdoc-server is up and listening at http://127.0.0.1:6006." Keep this terminal window open and start a new terminal to run further commands.
+
+Lastly, find what google doc you want to pull content from and copy the "Document ID" from the URL, which is the long string of characters
+at the end of the URL. Use this ID in the above command where it says `XXXXXX`.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+### Using this template
 
 This code is free and open source and you are permitted to use for your own projects under the [Apache 2.0 License](LICENSE) included in this repository. However, before deploying anything publicly using this codebase, you must:
 
 - Change [`_fonts/scss`](src/styles/_fonts.scss) — our fonts are proprietary and are not permitted for use outside of THE CITY's domain. Please change these fonts to ones you own publishing rights to, or use free, web-safe fonts instead.
-- Remove [`logo.svg`](src/assets/logo.svg) — our logo is trademarked and cannot be used without THE CITY's explicit permission. Please remove this logo [from the header](src/components/PageLayout.tsx), or swap in your own logo.
+- Remove [`logo.svg`](src/assets/logo.svg) and [`logo-gothamist.svg`](src/assets/logo-gothamist.svg) — our logos are trademarked and cannot be used without THE CITY and Gothamist's explicit permission. Please remove these logos [from the header](src/components/PageLayout.tsx), or swap in your own logo.
 
-Also, as part of our license, we require that any online publication of work built using this software **include a credit and
-link to THE CITY**. The template includes the suggested sentence “Made with ♥ in NYC by THE CITY” in the page footer — feel free to leave that in.
+Also, as part of our license, we require that any online publication of work built using this software **include a credit and link to THE CITY**. The template includes the suggested sentence “Made with ♥ in NYC...” in the page footer — feel free to leave that in.
 
 Lastly, we want to hear from you! We'd love to know if you are using this code to publish your own projects. Drop us a line at [data@thecity.nyc](mailto:data@thecity.nyc).
 
