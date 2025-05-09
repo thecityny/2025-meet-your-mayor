@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classnames from "classnames";
-import { formatContent } from "../utils";
+import { arrayToNiceList, formatContent } from "../utils";
 import { Bobblehead } from "./Illustration";
 
 type MatchingCandidate = {
@@ -19,15 +19,7 @@ const ListOfCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
   candidates,
 }) => {
   const names = candidates.map((candidate) => abbreviateName(candidate.name));
-  if (names.length === 1) {
-    return <span>{names[0]}</span>;
-  } else if (names.length > 1) {
-    return (
-      <span>
-        {names.slice(0, -1).join(", ")} and {names.slice(-1)}
-      </span>
-    );
-  } else return <></>;
+  return arrayToNiceList(names);
 };
 
 /**

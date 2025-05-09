@@ -1,5 +1,5 @@
 import React from "react";
-import { groupBy, kebabCase, shuffleArray } from "../utils";
+import { arrayToNiceList, groupBy, kebabCase, shuffleArray } from "../utils";
 import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { SmoothScroll } from "./Links";
@@ -164,11 +164,20 @@ const Results: React.FC = () => {
   const totalPossiblePoints = score[0].totalPossibleScore;
 
   /**
+   * Let's count how many candidates had the same score as the first candidate we're showing,
+   * so we can list them all as the most matched candidates:
+   */
+  let candidatesTiedWithFirstPlace = 0;
+
+  /**
    * Let's count how many candidates had the same score as the last candidate we're showing,
    * just to make sure we don't exclude any candidate that tied that score:
    */
   let candidatesTiedWithLastPlace = 0;
   score.forEach((candidate, i) => {
+    if (candidate.totalScore === score[0].totalScore) {
+      i > 0 && candidatesTiedWithFirstPlace++;
+    }
     if (
       i >= MINIMUM_MATCHES_TO_SHOW &&
       candidate.totalScore === score[MINIMUM_MATCHES_TO_SHOW - 1].totalScore
@@ -329,7 +338,11 @@ const Results: React.FC = () => {
             <div className="deck has-text-left ml-0 mt-5">
               You matched most closely with{" "}
               <span className="has-text-weight-semibold">
-                {score[0].candidateName}
+                {arrayToNiceList(
+                  score
+                    .slice(0, 1 + candidatesTiedWithFirstPlace)
+                    .map((candidate) => candidate.candidateName)
+                )}
               </span>
               .{" "}
               {party === "democrat" && (
