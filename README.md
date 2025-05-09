@@ -2,10 +2,6 @@
 
 **A multi-page Gatsby-powered news application by [THE CITY](https://www.thecity.nyc) and [Gothamist](https://gothamist.com/), designed to inform New Yorkers about the 2025 NYC mayoral candidates.**
 
-## 📰 Overview
-
-[THE CITY](https://www.thecity.nyc) is a nonprofit, nonpartisan digital newsroom dedicated to hard-hitting reporting that serves the people of New York. This project aims to provide an interactive platform and quiz for voters to learn about the 2025 mayoral candidates, their policies, backgrounds, and visions for the city.
-
 ## 🛠️ Technologies Used
 
 - **[Gatsby](https://www.gatsbyjs.com/)**: A React-based open-source framework for creating fast websites.
@@ -69,10 +65,11 @@ Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `DOCID=XXXXXX npm run download-content` (CUSTOM)
+### `FILENAME=XXXXXX DOCID=XXXXXX npm run download-content` (CUSTOM)
 
-Runs the `downloadGoogleDocContent` function inside `src/scripts.js`. This function uses ArchieML to download content from a Google Doc and save it in a
-JavaScript object variable in `page-content.js` in the `src` directory.
+Runs the `downloadGoogleDocContent` function inside `src/scripts.js`. This function uses [ArchieML](http://archieml.org/) to download content from a Google Doc and save it in a JavaScript object variable in `[FILENAME]-content.js` in the `src` directory.
+
+This current iteration of the project downloads from two different google docs via the two options: `FILENAME = candidate` and `FILENAME = questions`. However, you can edit the `downloadGoogleDocContent` function inside `src/scripts.js` to work with whatever content management system makes sense for your team. And usage of this integration is totally optional — feel free to edit the content in `candidate-content.js`, `question-content.js`, and `candidate-list.json` directly.
 
 NOTE: before running this command, you must globally install the AML Google Doc Server on your computer by running:
 
