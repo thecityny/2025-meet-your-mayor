@@ -14,20 +14,23 @@
 
 ```
 2025-meet-your-mayor/
-├── src/                # Source files
-│   ├── @types/         # Custom type declarations
-│   ├── assets/         # Logos
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Pages (using Gatsby page logic)
-│   └── styles/         # Custom SCSS styles
-├── static/             # Static assets, like photos and illustrations
-├── .github/            # Scripts for running Github Actions
-├── .env                # Client-accessible environment variables
-├── gatsby-config.js    # Gatsby configuration
-├── gatsby-node.js      # Gatsby Node APIs
-├── package.json        # Project metadata and dependencies
-└── README.md           # Project documentation
-└── LICENSE             # Project license
+├── src/                  # Source files
+│   ├── @types/           # Custom type declarations
+│   ├── assets/           # Logos
+│   ├── components/       # Reusable UI components
+│   ├── pages/            # Pages (using Gatsby page logic)
+│   └── styles/           # Custom SCSS styles
+├── static/               # Static assets, like photos and illustrations
+├── .github/              # Scripts for running Github Actions
+├── .env                  # Client-accessible environment variables
+├── candidate-content.js  # JS object with each candidate's info and question responses
+├── candidate-list.json   # A JSON list of each candidate and their full name
+├── question-content.js   # JS object with each quiz question and set of responses
+├── gatsby-config.js      # Gatsby configuration
+├── gatsby-node.js        # Gatsby Node APIs
+├── package.json          # Project metadata and dependencies
+└── README.md             # Project documentation
+└── LICENSE               # Project license
 ```
 
 ## ⚙️ Getting Started
