@@ -14,20 +14,23 @@
 
 ```
 2025-meet-your-mayor/
-├── src/                # Source files
-│   ├── @types/         # Custom type declarations
-│   ├── assets/         # Logos
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Pages (using Gatsby page logic)
-│   └── styles/         # Custom SCSS styles
-├── static/             # Static assets, like photos and illustrations
-├── .github/            # Scripts for running Github Actions
-├── .env                # Client-accessible environment variables
-├── gatsby-config.js    # Gatsby configuration
-├── gatsby-node.js      # Gatsby Node APIs
-├── package.json        # Project metadata and dependencies
-└── README.md           # Project documentation
-└── LICENSE             # Project license
+├── src/                  # Source files
+│   ├── @types/           # Custom type declarations
+│   ├── assets/           # Logos
+│   ├── components/       # Reusable UI components
+│   ├── pages/            # Pages (using Gatsby page logic)
+│   └── styles/           # Custom SCSS styles
+├── static/               # Static assets, like photos and illustrations
+├── .github/              # Scripts for running Github Actions
+├── .env                  # Client-accessible environment variables
+├── candidate-content.js  # JS object with each candidate's info and question responses
+├── candidate-list.json   # A JSON list of each candidate and their full name
+├── question-content.js   # JS object with each quiz question and set of responses
+├── gatsby-config.js      # Gatsby configuration
+├── gatsby-node.js        # Gatsby Node APIs
+├── package.json          # Project metadata and dependencies
+└── README.md             # Project documentation
+└── LICENSE               # Project license
 ```
 
 ## ⚙️ Getting Started
@@ -53,7 +56,7 @@ Once the dependencies have been installed, you’re ready to preview the project
 npm start
 ```
 
-Now go to `localhost:8000` in your browser. You should see a boilerplate page ready for your customizations.
+Now go to `localhost:8000` in your browser. You should see a copy of the Meet Your Mayor site ready for your customizations.
 
 ## Available Scripts
 
@@ -71,7 +74,7 @@ You may also see any lint errors in the console.
 
 Runs the `downloadGoogleDocContent` function inside `src/scripts.js`. This function uses [ArchieML](http://archieml.org/) to download content from a Google Doc and save it in a JavaScript object variable in `[FILENAME]-content.js` in the `src` directory.
 
-This current iteration of the project downloads from two different google docs via the two options: `FILENAME = candidate` and `FILENAME = questions`. However, you can edit the `downloadGoogleDocContent` function inside `src/scripts.js` to work with whatever content management system makes sense for your team. And usage of this integration is totally optional — feel free to edit the content in `candidate-content.js`, `question-content.js`, and `candidate-list.json` directly.
+This current iteration of the project downloads from two different google docs via the two options: `FILENAME = candidate` and `FILENAME = questions`. However, you can edit the `downloadGoogleDocContent` function inside `src/scripts.js` to work with whatever set of documents makes sense for your project. Using this integration is totally optional — feel free to edit the content in `candidate-content.js`, `question-content.js`, and `candidate-list.json` directly.
 
 NOTE: before running this command, you must globally install the AML Google Doc Server on your computer by running:
 
@@ -88,7 +91,7 @@ aml-gdoc-server
 and following the steps in the terminal. Once that's running, you should see a message that says "The aml-gdoc-server is up and listening at http://127.0.0.1:6006." Keep this terminal window open and start a new terminal to run further commands.
 
 Lastly, find what google doc you want to pull content from and copy the "Document ID" from the URL, which is the long string of characters
-at the end of the URL. Use this ID in the above command where it says `XXXXXX`.
+at the end of the URL. Use this ID in the above command where it says `DOCID=XXXXXX`.
 
 ### `npm run build`
 
