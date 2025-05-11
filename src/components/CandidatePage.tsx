@@ -12,10 +12,7 @@ import { useLocation } from "@reach/router";
 import { NewsletterSignupBanner } from "./NewsletterSignup";
 import { useAppStore } from "../useAppStore";
 import { getQuestionsLeftToAnswer } from "./Results";
-
-type LocationState = {
-  origin?: string;
-};
+import { LocationState } from "../pages/index";
 
 const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { candidateName } = pageContext;
@@ -57,7 +54,12 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
     >
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
         <div className="eyebrow">
-          <Link to={`/${cameFromResults ? "#results" : ""}`}>
+          <Link
+            to={`/${cameFromResults ? "#learn" : ""}`}
+            state={{
+              origin: cameFromResults ? "results" : undefined,
+            }}
+          >
             <div
               className="mr-1"
               style={{
@@ -103,7 +105,13 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           <OutboundLink to={website}>
             <button className="button">Campaign Website</button>
           </OutboundLink>
-          <Link to={`/${questionsLeftToAnswer.length === 0 ? "#results" : ""}`}>
+          <Link
+            to={`/${questionsLeftToAnswer.length === 0 ? "#learn" : ""}`}
+            state={{
+              origin:
+                questionsLeftToAnswer.length === 0 ? "results" : undefined,
+            }}
+          >
             <button className="button is-white">
               {questionsLeftToAnswer.length === 0
                 ? `You're a ${candidateScore}% match`
