@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
 import { formatContent } from "../utils";
@@ -15,6 +15,7 @@ import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
 import { Bobblehead } from "./Illustration";
 import { Party, useAppStore } from "../useAppStore";
 import { Methodology } from "./Methodology";
+import { scroller } from "react-scroll";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -46,6 +47,12 @@ const Quiz = () => {
   );
 
   const questions = formatQuestionContent();
+
+  const [methodologyVisible, setMethodologyVisible] = useState(false);
+  const toggleMethodology = () => {
+    const currentVisibility = methodologyVisible;
+    setMethodologyVisible(!currentVisibility);
+  };
 
   const democraticCandidates = generateListOfCandidatesByParty("democrat");
   const otherCandidates = generateListOfCandidatesByParty("other");
@@ -173,18 +180,33 @@ const Quiz = () => {
 
                     {partySelectorButtons.map((button, i) => (
                       <div key={i} className="mt-5 mb-4">
-                        <SmoothScroll
-                          to="questions"
+                        <button
                           className="control"
-                          onClick={() =>
+                          onClick={() => {
+                            setMethodologyVisible(false);
+
+                            setTimeout(() => {
+                              scroller.scrollTo("question-1", {
+                                duration: ANCHOR_LINK_DURATION,
+                                delay: 0,
+                                smooth: true,
+                                offset: QUESTION_ANCHOR_LINK_OFFSET, // optional, to adjust for headers etc.
+                              });
+                            }, 100); // wait until content has re-rendered
+
                             // If the user is selecting a party, we want to scroll to the first question
                             // after a short delay, so that the user doesn't see the content change
                             // inside the quiz intro section
-                            setParty(button.party, ANCHOR_LINK_DURATION)
-                          }
-                          extraOffset={150}
+
+                            setParty(button.party, ANCHOR_LINK_DURATION);
+                          }}
                         >
-                          <button className="button">{button.label}</button>
+                          <div
+                            className="button"
+                            onClick={() => setMethodologyVisible(false)}
+                          >
+                            {button.label}
+                          </div>
                           <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center my-3">
                             {button.party === "other" && (
                               <span className="copy is-inline-block m-0 mr-2">
@@ -208,13 +230,24 @@ const Quiz = () => {
                                 </div>
                               </div>
                             ))}
-                          </div>{" "}
-                        </SmoothScroll>
+                          </div>
+                        </button>
                       </div>
                     ))}
                   </>
                 )}
-                <Methodology />
+                <div className="mb-5">
+                  <button
+                    key="x"
+                    className="eyebrow is-link is-inline-block"
+                    onClick={() => toggleMethodology()}
+                  >
+                    How Meet Your Mayor Works{" "}
+                    <span>{methodologyVisible ? "-" : "+"}</span>
+                  </button>
+
+                  {methodologyVisible && <Methodology />}
+                </div>
               </div>
             </div>
           </div>
