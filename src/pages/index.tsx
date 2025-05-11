@@ -8,6 +8,7 @@ import { RecentCoverage } from "../components/RecentCoverage";
 import { IntroAnimation } from "../components/IntroAnimation";
 import { NewsletterSignupBanner } from "../components/NewsletterSignup";
 import { useLocation } from "@reach/router";
+import { navigate } from "gatsby";
 
 const getDateUpdated = () => {
   const timestamp = process.env.GATSBY_UPDATE_DATE;
@@ -33,16 +34,23 @@ const Homepage = () => {
   const state = location.state as LocationState | undefined;
   const headedToResults = state && state.origin === "results";
 
+  // Add a special scroll effect if user is headed to results section from
+  // a candidate page (to make sure results container has rendered first)
   useEffect(() => {
     if (headedToResults && location.hash) {
+      // Clear state by replacing the current entry
+      navigate(location.pathname + location.hash, { replace: true });
       const id = "results";
       const scrollToElement = () => {
         const el = document.getElementById(id);
         if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
+          setTimeout(
+            () => el.scrollIntoView({ behavior: "smooth", block: "start" }),
+            200
+          );
         } else {
           // Try again later if not found yet
-          setTimeout(scrollToElement, 100);
+          setTimeout(scrollToElement, 200);
         }
       };
       scrollToElement();
