@@ -44,16 +44,13 @@ const Homepage = () => {
       const scrollToElement = () => {
         const el = document.getElementById(id);
         if (el) {
-          setTimeout(
-            () => el.scrollIntoView({ behavior: "smooth", block: "start" }),
-            200
-          );
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
         } else {
           // Try again later if not found yet
-          setTimeout(scrollToElement, 200);
+          setTimeout(scrollToElement, 100);
         }
       };
-      scrollToElement();
+      setTimeout(scrollToElement, 100);
     }
   }, [location]);
 
