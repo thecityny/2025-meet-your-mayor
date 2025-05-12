@@ -431,7 +431,9 @@ const Results: React.FC = () => {
                             customClassNames="py-4 mr-4"
                           />
                           <div className="headline has-text-left is-size-3-mobile">
-                            {candidate.candidateName}{" "}
+                            <span className="is-link">
+                              {candidate.candidateName}
+                            </span>{" "}
                             <span className="is-hidden-tablet">
                               <div className="mt-3">
                                 {Math.round(
@@ -443,12 +445,14 @@ const Results: React.FC = () => {
                             </span>
                           </div>
                         </div>
-                        <h2 className="headline is-hidden-mobile">
-                          {Math.round(
-                            (candidate.totalScore / totalPossiblePoints) * 100
-                          )}
-                          % Match
-                        </h2>
+                        <div className="is-flex is-align-items-center">
+                          <h2 className="headline is-hidden-mobile">
+                            {Math.round(
+                              (candidate.totalScore / totalPossiblePoints) * 100
+                            )}
+                            % Match
+                          </h2>
+                        </div>
                       </summary>
                       <div className="details-content">
                         {resultsSections
