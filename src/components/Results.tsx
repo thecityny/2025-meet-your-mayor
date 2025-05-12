@@ -497,7 +497,14 @@ const Results: React.FC = () => {
 
                         <div className="buttons mt-5 ml-4">
                           <button className="button">
-                            <Link to={kebabCase(candidate.candidateName)}>
+                            <Link
+                              to={kebabCase(candidate.candidateName)}
+                              onClick={() =>
+                                track(
+                                  `Visit ${candidate.candidateName}'s page from results`
+                                )
+                              }
+                            >
                               Learn more about {candidate.candidateName}
                             </Link>{" "}
                           </button>

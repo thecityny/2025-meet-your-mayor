@@ -1,5 +1,6 @@
 import React from "react";
 import { OutboundLink } from "./Links";
+import { track } from "@amplitude/analytics-browser";
 
 const LINKS_JSON_URL_PREFIX =
   "https://raw.githubusercontent.com/thecityny/mym-recent-coverage/refs/heads/main/";
@@ -117,6 +118,9 @@ export const RecentCoverage: React.FC = () => {
         <div
           className="button is-white is-small mt-3"
           aria-label="Donate to THE CITY"
+          onClick={() => {
+            track("Clicked THE CITY Donate button");
+          }}
         >
           Donate
         </div>
@@ -140,6 +144,9 @@ export const RecentCoverage: React.FC = () => {
         <div
           className="button is-white is-small mt-3"
           aria-label="Donate to Gothamist"
+          onClick={() => {
+            track("Clicked Gothamist Donate button");
+          }}
         >
           Donate
         </div>
