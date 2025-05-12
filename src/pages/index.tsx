@@ -14,6 +14,8 @@ import { NewsletterSignupBanner } from "../components/NewsletterSignup";
 import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
 import { scroller } from "react-scroll";
+import { getQuestionsLeftToAnswer } from "../components/Results";
+import { useAppStore } from "../useAppStore";
 
 const getDateUpdated = () => {
   const timestamp = process.env.GATSBY_UPDATE_DATE;
@@ -38,6 +40,9 @@ const Homepage = () => {
   const location = useLocation();
   const state = location.state as LocationState | undefined;
   const headedToResults = state && state.origin === "results";
+
+  const party = useAppStore((state) => state.party);
+  const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   // Add a special scroll effect if user is headed to results section from
   // a candidate page (to make sure results container has rendered first)
@@ -85,14 +90,26 @@ const Homepage = () => {
                 <div className="is-flex is-flex-direction-column my-6">
                   <SmoothScroll
                     className="mb-5"
-                    to="quiz"
-                    extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
+                    to={
+                      questionsLeftToAnswer.length === 0
+                        ? "results"
+                        : !!party
+                        ? `question-${questionsLeftToAnswer[0]}`
+                        : "quiz"
+                    }
+                    extraOffset={
+                      QUESTION_ANCHOR_LINK_OFFSET * (!!party ? 1 : -1)
+                    } // Remove offset if going to quiz section
                   >
                     <button
                       className="button is-extra-dark"
                       style={{ width: "100%", maxWidth: "350px" }}
                     >
-                      Take the quiz
+                      {questionsLeftToAnswer.length === 0
+                        ? "View my results"
+                        : !!party
+                        ? "Continue the quiz"
+                        : "Take the quiz"}
                     </button>
                   </SmoothScroll>
 
