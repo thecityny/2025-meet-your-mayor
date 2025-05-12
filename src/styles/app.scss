@@ -638,6 +638,11 @@ $bust-only-cropping-factor: -15%;
       }
     }
   }
+
+  &.is-96x96 .image-wrapper .illustration {
+    padding: 0 8px;
+  }
+
   &:not(.bust-only) {
     .illustration {
       width: 100%;

@@ -31,8 +31,8 @@ export const CandidateSelectorMenu: React.FC = () => {
           <div className="is-flex is-flex-direction-column is-align-items-center">
             <Bobblehead
               candidateName={candidate.name}
-              size={isCandidatePage ? "is-64x64" : "is-128x128"}
-              showBustOnly={isCandidatePage}
+              size={isCandidatePage ? "is-64x64" : "is-96x96"}
+              showBustOnly
               startAnimationRightAway
             />
 
