@@ -148,16 +148,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           })}
         </div>
       </div>
-      <div className="container pt-6 mb-6" style={{ maxWidth: "600px" }}>
-        <h1 className="headline has-text-left mt-1">Positions on Key Issues</h1>
-        <div className="copy my-5">
-          THE CITY sent multiple-choice surveys to every mayoral candidate on
-          the ballot for the June 24 primary. See how {candidateName} answered
-          by taking the Meet Your Mayor Quiz.
-        </div>
-        <Link to="/" className="mb-5">
-          <button className="button is-link">Take our quiz</button>
-        </Link>
+      <div className="container pt-5 mb-5" style={{ maxWidth: "600px" }}>
         <h1 className="headline has-text-left mt-6">Election Coverage</h1>
         <RecentCoverage />
         <div className="mt-6">
