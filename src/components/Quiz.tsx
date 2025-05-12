@@ -99,7 +99,7 @@ const Quiz = () => {
         className="hero mb-6"
         id="quiz"
         style={{
-          minHeight: "150vh", // Make sure this section stays a consistent height
+          minHeight: "110vh", // Make sure this section stays a consistent height
           // even when the content changes
         }}
       >
@@ -333,8 +333,8 @@ const Quiz = () => {
                                   display: isQuestionVisible ? "block" : "none",
                                   minHeight: "100vh",
                                   margin: isFirstQuestionInSection
-                                    ? "0 0 50vh 0"
-                                    : "50vh 0",
+                                    ? "0 0 30vh 0"
+                                    : "30vh 0",
                                 }}
                               >
                                 <h3 className="deck has-text-left mb-2">

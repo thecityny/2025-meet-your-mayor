@@ -196,7 +196,7 @@ const Results: React.FC = () => {
         <div
           className="columns container favorite-topics"
           style={{
-            margin: "50vh 0",
+            margin: "30vh 0",
           }}
         >
           <div className="column is-one-quarter" />
