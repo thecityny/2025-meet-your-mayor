@@ -3,12 +3,17 @@ import { PageLayout } from "../components/PageLayout";
 import Quiz from "../components/Quiz";
 import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 import { SocialShareButtons } from "../components/SocialShareButtons";
-import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "../components/Links";
+import {
+  ANCHOR_LINK_DURATION,
+  QUESTION_ANCHOR_LINK_OFFSET,
+  SmoothScroll,
+} from "../components/Links";
 import { RecentCoverage } from "../components/RecentCoverage";
 import { IntroAnimation } from "../components/IntroAnimation";
 import { NewsletterSignupBanner } from "../components/NewsletterSignup";
 import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
+import { scroller } from "react-scroll";
 
 const getDateUpdated = () => {
   const timestamp = process.env.GATSBY_UPDATE_DATE;
@@ -37,18 +42,24 @@ const Homepage = () => {
   // Add a special scroll effect if user is headed to results section from
   // a candidate page (to make sure results container has rendered first)
   useEffect(() => {
-    if (headedToResults && location.hash) {
+    if (headedToResults) {
       const id = "results";
+      navigate("/", { replace: true });
       const scrollToElement = () => {
         const el = document.getElementById(id);
         if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          scroller.scrollTo(id, {
+            duration: ANCHOR_LINK_DURATION * 2,
+            delay: 400,
+            smooth: true,
+            offset: -1 * QUESTION_ANCHOR_LINK_OFFSET,
+          });
         } else {
           // Try again later if not found yet
           setTimeout(scrollToElement, 100);
         }
       };
-      setTimeout(scrollToElement, 100);
+      setTimeout(scrollToElement, 500);
     }
   }, [location]);
 

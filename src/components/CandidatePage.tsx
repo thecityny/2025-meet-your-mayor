@@ -55,7 +55,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
         <div className="eyebrow">
           <Link
-            to={`/${cameFromResults ? "#learn" : ""}`}
+            to="/"
             state={{
               origin: cameFromResults ? "results" : undefined,
             }}
@@ -106,7 +106,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
             <button className="button">Campaign Website</button>
           </OutboundLink>
           <Link
-            to={`/${questionsLeftToAnswer.length === 0 ? "#learn" : ""}`}
+            to="/"
             state={{
               origin:
                 questionsLeftToAnswer.length === 0 ? "results" : undefined,
