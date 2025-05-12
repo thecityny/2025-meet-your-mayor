@@ -94,12 +94,12 @@ export const MatchingCandidates: FC<{
               )}
             </div>
             {i === 0 && (
-              <div
+              <button
                 className="eyebrow is-link is-inline-block is-float-right mt-3 ml-5 no-wrap"
                 onClick={handleClick}
               >
                 Hide -
-              </div>
+              </button>
             )}
           </div>
         ) : isUserSelection ? (
@@ -129,13 +129,13 @@ export const MatchingCandidates: FC<{
               <ListOfCandidates candidates={candidates} />
             </span>
           )}
-          <span
+          <button
             key="x"
             className="eyebrow is-link is-inline-block"
             onClick={handleClick}
           >
             See <span className="no-wrap">details +</span>
-          </span>
+          </button>
         </div>
       )}
 

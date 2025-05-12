@@ -129,7 +129,7 @@ details {
     }
 
     &:focus-visible {
-      outline: 2px solid colors.$city-blue;
+      outline: 2px solid rgb(66, 88, 255);
       outline-offset: 2px;
     }
   }
@@ -405,8 +405,19 @@ $full-color-image-filter: contrast(1);
     }
   }
 
+  // Only apply focus outline when element receives focus via keyboard navigation
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgb(66, 88, 255);
+    outline-offset: 2px;
+  }
+
   &.is-selected {
     font-weight: 600;
+    pointer-events: none;
     .quiz-selection-oval {
       background-color: colors.$city-black;
     }
