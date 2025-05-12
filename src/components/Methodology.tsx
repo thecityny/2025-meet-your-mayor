@@ -17,8 +17,9 @@ export const Methodology = () => (
       actually been saying on the campaign trail.
     </p>
     <p className="mt-2">
-      Of the 12, only Eric Adams did not respond to the survey. Meet Your Mayor
-      has assigned responses based on his policies and public statements.
+      Of the 12, only Eric Adams and Jim Walden did not respond to the survey.
+      Meet Your Mayor has assigned responses based on their policies and public
+      statements.
     </p>
     <p className="mt-2">
       In the quiz, candidates score 1 point for each question on which their
