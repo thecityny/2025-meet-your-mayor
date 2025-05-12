@@ -277,32 +277,12 @@ const Results: React.FC = () => {
           <div>
             <h1 className="headline has-text-left is-inline-block">Results</h1>
             <p className="copy">
-              Oops! You're not finished with the quiz yet! Please go back and{" "}
-              {questionsLeftToAnswer.length > 1 ? (
-                <>
-                  answer question
-                  {questionsLeftToAnswer.length === 2 &&
-                  favoriteTopics.length === 0
-                    ? ""
-                    : "s"}{" "}
-                  <b>
-                    {questionsLeftToAnswer.slice(0, -1).join(", ")} and{" "}
-                    {favoriteTopics.length === 0
-                      ? "select your most important topics"
-                      : questionsLeftToAnswer.slice(-1)}
-                  </b>
-                </>
-              ) : (
-                <>
-                  {favoriteTopics.length === 0 ? (
-                    <b>select your most important topics</b>
-                  ) : (
-                    <span>
-                      question <b>{questionsLeftToAnswer[0]}</b>
-                    </span>
-                  )}
-                </>
-              )}
+              Oops! You're not finished with the quiz yet. Please go back to{" "}
+              <b>
+                {questionsLeftToAnswer[0] === 19
+                  ? "select your most important topics"
+                  : `question ${questionsLeftToAnswer[0]}`}
+              </b>
               .
             </p>
             <SmoothScroll to={`question-${questionsLeftToAnswer[0]}`}>
