@@ -502,10 +502,7 @@ const Results: React.FC = () => {
 
                         <div className="buttons mt-5 ml-4">
                           <button className="button">
-                            <Link
-                              to={kebabCase(candidate.candidateName)}
-                              state={{ origin: "results" }}
-                            >
+                            <Link to={kebabCase(candidate.candidateName)}>
                               Learn more about {candidate.candidateName}
                             </Link>{" "}
                           </button>

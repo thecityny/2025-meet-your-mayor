@@ -8,22 +8,13 @@ import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { RecentCoverage } from "./RecentCoverage";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useLocation } from "@reach/router";
 import { NewsletterSignupBanner } from "./NewsletterSignup";
 import { useAppStore } from "../useAppStore";
 import { getQuestionsLeftToAnswer } from "./Results";
 
-type LocationState = {
-  origin?: string;
-};
-
 const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { candidateName } = pageContext;
   const score = useAppStore((state) => state.score);
-
-  const location = useLocation();
-  const state = location.state as LocationState | undefined;
-  const cameFromResults = state && state.origin === "results";
 
   const candidateInfo = formatCandidateContent().find(
     (candidate) => candidate.name === candidateName
@@ -57,7 +48,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
     >
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
         <div className="eyebrow">
-          <Link to={`/${cameFromResults ? "#results" : ""}`}>
+          <Link to="/">
             <div
               className="mr-1"
               style={{
@@ -67,7 +58,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
             >
               ↗
             </div>
-            {cameFromResults ? "Back to results" : "Meet your mayor"}
+            Meet your mayor
           </Link>
         </div>
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
@@ -99,14 +90,19 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         </div>
       </div>
       <div className="container pt-6" style={{ maxWidth: "600px" }}>
+        {questionsLeftToAnswer.length === 0 && (
+          <div className="eyebrow is-align-items-center mb-5">
+            Based on your quiz results, you're a <b>{candidateScore}% match</b>
+          </div>
+        )}
         <div className="field is-grouped">
           <OutboundLink to={website}>
             <button className="button">Campaign Website</button>
           </OutboundLink>
-          <Link to={`/${questionsLeftToAnswer.length === 0 ? "#results" : ""}`}>
+          <Link to="/">
             <button className="button is-white">
               {questionsLeftToAnswer.length === 0
-                ? `You're a ${candidateScore}% match`
+                ? `Revisit the quiz`
                 : "See if you're a match"}
             </button>
           </Link>
