@@ -3,7 +3,7 @@ import { PageLayout } from "../components/PageLayout";
 import Quiz from "../components/Quiz";
 import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 import { SocialShareButtons } from "../components/SocialShareButtons";
-import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "../components/Links";
+import { SmoothScroll } from "../components/Links";
 import { RecentCoverage } from "../components/RecentCoverage";
 import { IntroAnimation } from "../components/IntroAnimation";
 import { NewsletterSignupBanner } from "../components/NewsletterSignup";

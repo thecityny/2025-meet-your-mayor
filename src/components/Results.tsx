@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from "react";
 import { arrayToNiceList, groupBy, kebabCase, shuffleArray } from "../utils";
 import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
-import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "./Links";
+import { SmoothScroll } from "./Links";
 import classnames from "classnames";
 import { Link } from "gatsby";
 import { CircleIcon } from "./Quiz";
