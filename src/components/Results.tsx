@@ -8,6 +8,7 @@ import { Link } from "gatsby";
 import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
 import { useAppStore } from "../useAppStore";
+import { track } from "@amplitude/analytics-browser";
 
 export const getQuestionsLeftToAnswer = () => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
@@ -158,9 +159,22 @@ const Results: React.FC = () => {
   };
 
   const score = useMemo(() => calculateScore(), [answers, favoriteTopics]);
+  let questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   useEffect(() => {
     setScore(score);
+    if (questionsLeftToAnswer.length === 0) {
+      track("Received final score", {
+        score: JSON.stringify(
+          score.map((candidate) => ({
+            candidateName: candidate.candidateName,
+            matchingPercentage: Math.round(
+              (candidate.totalScore / candidate.totalPossibleScore) * 100
+            ),
+          }))
+        ),
+      });
+    }
   }, [score]);
 
   const totalPossiblePoints = score[0].totalPossibleScore;
@@ -187,8 +201,6 @@ const Results: React.FC = () => {
       candidatesTiedWithLastPlace++;
     }
   });
-
-  let questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   return (
     <>

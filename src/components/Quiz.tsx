@@ -16,6 +16,7 @@ import { Bobblehead } from "./Illustration";
 import { Party, useAppStore } from "../useAppStore";
 import { Methodology } from "./Methodology";
 import { scroller } from "react-scroll";
+import { track } from "@amplitude/analytics-browser";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -390,6 +391,17 @@ const Quiz = () => {
                                           )}
                                           onClick={() => {
                                             recordAnswer(number, optionNumber);
+                                            track(
+                                              `${
+                                                !!answerSelected
+                                                  ? "Changed"
+                                                  : "Recorded"
+                                              } answer`,
+                                              {
+                                                question: number,
+                                                answer: optionNumber,
+                                              }
+                                            );
                                             const id =
                                               document.getElementById(
                                                 optionSlug
