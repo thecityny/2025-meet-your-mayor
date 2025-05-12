@@ -84,22 +84,19 @@ const Homepage = () => {
                       Take the quiz
                     </button>
                   </SmoothScroll>
-                  <a
-                    href="#learn"
+
+                  <button
+                    className="button is-white"
                     onClick={() =>
                       // Since we use the #learn container to smooth scroll to the #results
                       // section from a Candidate page, we need to make sure this button here
                       // clears the location state so that it indeed goes to #learn.
-                      navigate(location.pathname, { replace: true })
+                      navigate("#learn", { replace: true })
                     }
+                    style={{ width: "100%", maxWidth: "350px" }}
                   >
-                    <button
-                      className="button is-white"
-                      style={{ width: "100%", maxWidth: "350px" }}
-                    >
-                      See the candidates{" "}
-                    </button>
-                  </a>
+                    See the candidates{" "}
+                  </button>
                 </div>
                 <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
                   <div className="mr-3 is-flex-shrink-2">
