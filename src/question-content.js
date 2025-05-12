@@ -138,7 +138,7 @@ export const questionContent = {
     tellMeMore:
       "NYC laws prohibit most cooperation with immigration enforcement, making exceptions only for the NYPD and Department of Correction to transfer custody where someone sought by federal agents has been convicted of a specified violent crime.",
     option1:
-      "Laws should remain as they are: City authorities should only cooperate with federal agents in immigration enforcement where a person has previously been convicted of a qualifying crime, regardless of new charges",
+      "Laws should remain as they are: City authorities should only cooperate with federal agents on immigration enforcement where a person has previously been convicted of a qualifying crime, regardless of new charges",
     option2:
       "Change the laws: City authorities should help federal agents with enforcement for people charged with violent felonies, in addition to those already convicted",
     option3:

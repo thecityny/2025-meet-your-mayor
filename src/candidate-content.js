@@ -324,7 +324,7 @@ export const candidateContent = {
     quote1:
       "Public Safety | “There's policing of the streets, but also there's just an education of the population in terms of conflict resolution and other things…” | <a href=\"https://nyeditorialboard.substack.com/p/jessica-ramos-interview-transcript\">The New York Editorial Board</a> (Jan 12, 2025)",
     quote2:
-      'Housing | “No private management of our NYCHA buildings, no developers, no land for sale, no infills, no any of that. We have to keep public housing, public housing.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 2, 2024)',
+      'Housing | “No private management of our NYCHA buildings, no developers, no land for sale, no infills, no any of that. We have to keep public housing, public housing.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
     quote3:
       'Schools | “I think there should be year round opportunities after school where possible, on weekends where possible, so that kids have an earlier opportunity to figure out how to fulfill their potential and perhaps even enjoy greater job satisfaction as they enter adulthood.” | <a href="https://www.thecity.nyc/2025/03/15/jessca-ramos-mayor-interview-faqnyc-podcast/">FAQ NYC</a> (Mar 15, 2025)',
     quizResponse1:
@@ -350,7 +350,7 @@ export const candidateContent = {
       "2 | Ramos believes that staying on the current course still leaves room to keep the option to hold children to make sure they are developing the skills they need. | Candidate statement (Apr 18, 2025)",
     quizResponse12: "1 |",
     quizResponse13:
-      '1 | Ramos says she has bright red lines where she would not be able to find partnership with the Trump admin and would resist, should those be crossed. “If he really is going to take away federal funding — whether it’s from education, SNAP benefits, social security benefits, and many of our retirees, including HIV-positive survivors… we have to be able to withhold our federal taxes from Donald Trump.” | <a href="https://gaycitynews.com/nyc-mayoral-hopefuls-2025-lgbtq-forum/">Gay City News</a> (Mar 27, 2025)',
+      '1 | In addition to selecting this response, Ramos says she has bright red lines where she would not be able to find partnership with the Trump admin and would resist, should those be crossed. “If he really is going to take away federal funding — whether it’s from education, SNAP benefits, social security benefits, and many of our retirees, including HIV-positive survivors… we have to be able to withhold our federal taxes from Donald Trump.” | <a href="https://gaycitynews.com/nyc-mayoral-hopefuls-2025-lgbtq-forum/">Gay City News</a> (Mar 27, 2025)',
     quizResponse14: "1 |",
     quizResponse15:
       "1 | “We have to solve the quandary of, well, where do we take them to? Yes, there's the hospital but there has to be a place where hopefully it's a supportive housing environment where they're getting all of the help that they need.” | <a href=\"https://youtu.be/dx8-BNCoZ_A?feature=shared\">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)",
@@ -379,7 +379,7 @@ export const candidateContent = {
     quizResponse4:
       "1 | “We're going to hire 3,000 more cops — because we've been at the lowest level of policing in many years — and we're also going to, for the first time, align policing with the greatest mental health initiative this city will ever see.” | <a href=\"https://youtu.be/dx8-BNCoZ_A?feature=shared\">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)",
     quizResponse5:
-      '2 | “The solution isn’t enforcement, it\'s accessibility," says Stringer, citing the existing "fair fares" program for low-income riders. "By implementing this system throughout our transit, the number of fare violations will decrease and further enforcement won’t be necessary.” | Candidate statement (Apr 18, 2025)',
+      '2 | “The solution isn’t enforcement, it\'s accessibility," says Stringer, citing the existing "fair fares" program for low-income riders. “By implementing this system throughout our transit, the number of fare violations will decrease and further enforcement won’t be necessary.” | Candidate statement (Apr 18, 2025)',
     quizResponse5a:
       "2 | “Rikers isn’t just broken – it's a moral failure. It needs to be shut down, and we must transition to a borough-based prison system. However, that will take time that the current incarcerated people at Rikers don’t have.... We must improve the conditions at Rikers and invest in the rehabilitation of the people currently there while moving towards closing the facility.” | Candidate statement (Apr 18, 2025)",
     quizResponse6:
