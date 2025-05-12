@@ -390,7 +390,6 @@ const Quiz = () => {
                                           onClick={() =>
                                             recordAnswer(number, optionNumber)
                                           }
-                                          disabled={!!answerSelected}
                                         >
                                           <div className="quiz-selection-oval mr-4" />
                                           <div className="copy">
@@ -433,28 +432,13 @@ const Quiz = () => {
                                       className="control"
                                     >
                                       <button
-                                        className="button is-link mb-2"
+                                        className="button is-link"
                                         style={{
                                           width: "100%",
                                           maxWidth: "350px",
                                         }}
                                       >
                                         Next Question
-                                      </button>
-                                    </SmoothScroll>
-                                    <SmoothScroll
-                                      to={`question-${number}`}
-                                      className="control"
-                                      onClick={() => clearAnswer(number)}
-                                    >
-                                      <button
-                                        className="button is-link is-white"
-                                        style={{
-                                          width: "100%",
-                                          maxWidth: "350px",
-                                        }}
-                                      >
-                                        Change answer
                                       </button>
                                     </SmoothScroll>
                                   </div>
