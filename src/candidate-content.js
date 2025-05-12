@@ -7,9 +7,9 @@ export const candidateContent = {
     quote1:
       'Housing | “We have to leave the days of spot neighborhood rezonings behind. That policy, what we\'ve seen under previous administrations, has exacerbated segregation across New York City.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
     quote2:
-      'Public Safety | “Public safety is created by dignified work, economic stability and well-resourced neighborhoods, but for decades all that\'s been offered to communities facing violence is more policing and incarceration.” | <a href="https://www.cityandstateny.com/personality/2024/10/could-pro-palestinian-socialist-really-be-nycs-next-mayor/400487/">City & State Interview</a> (Oct 23, 2024)',
+      'Public Safety | “Public safety is created by dignified work, economic stability and well-resourced neighborhoods, but for decades all that\'s been offered to communities facing violence is more policing and incarceration.” | <a href="https://www.cityandstateny.com/personality/2024/10/could-pro-palestinian-socialist-really-be-nycs-next-mayor/400487/">City & State NY</a> (Oct 23, 2024)',
     quote3:
-      "Federal Government | “What we saw under Donald Trump's first presidency is there's far more respect for someone who fights back than someone who simply relents.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">New York Editorial Board Interview</a> (Feb 2, 2025)",
+      "Federal Government | “What we saw under Donald Trump's first presidency is there's far more respect for someone who fights back than someone who simply relents.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">New York Editorial Board</a> (Feb 2, 2025)",
     quizResponse1:
       '1 | Mamdani says he would “eliminate the unnecessary and cumbersome design restrictions placed on restaurants.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
     quizResponse2:

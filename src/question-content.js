@@ -185,7 +185,7 @@ export const questionContent = {
   },
   question17: {
     title: "What kind of manager should the next mayor be?",
-    subject: "Background",
+    subject: "Leadership",
     tellMeMore: "",
     option1:
       "The Decider — centralize decision-making with the mayor and close advisers",
@@ -198,7 +198,7 @@ export const questionContent = {
   question18: {
     title:
       "A generation from now, what’s the one legacy you’d like New Yorkers to recall from the next mayor?",
-    subject: "Background",
+    subject: "Leadership",
     tellMeMore: "",
     option1:
       "They expanded opportunities for poor and working-class New Yorkers",
@@ -209,7 +209,7 @@ export const questionContent = {
   question19: {
     title:
       "What kind of early-career experience is most important for the next mayor to have?",
-    subject: "Background",
+    subject: "Leadership",
     tellMeMore: "",
     option1: "Led a nonprofit",
     option2: "Served as a community or labor organizer",
