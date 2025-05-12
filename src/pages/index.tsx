@@ -1,19 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { PageLayout } from "../components/PageLayout";
 import Quiz from "../components/Quiz";
 import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
 import { SocialShareButtons } from "../components/SocialShareButtons";
-import {
-  ANCHOR_LINK_DURATION,
-  QUESTION_ANCHOR_LINK_OFFSET,
-  SmoothScroll,
-} from "../components/Links";
+import { QUESTION_ANCHOR_LINK_OFFSET, SmoothScroll } from "../components/Links";
 import { RecentCoverage } from "../components/RecentCoverage";
 import { IntroAnimation } from "../components/IntroAnimation";
 import { NewsletterSignupBanner } from "../components/NewsletterSignup";
-import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
-import { scroller } from "react-scroll";
 import { getQuestionsLeftToAnswer } from "../components/Results";
 import { useAppStore } from "../useAppStore";
 
@@ -32,41 +26,9 @@ const getDateUpdated = () => {
   }
 };
 
-export type LocationState = {
-  origin?: string;
-};
-
 const Homepage = () => {
-  const location = useLocation();
-  const state = location.state as LocationState | undefined;
-  const headedToResults = state && state.origin === "results";
-
   const party = useAppStore((state) => state.party);
   const questionsLeftToAnswer = getQuestionsLeftToAnswer();
-
-  // Add a special scroll effect if user is headed to results section from
-  // a candidate page (to make sure results container has rendered first)
-  useEffect(() => {
-    if (headedToResults) {
-      const id = "results";
-      navigate("/", { replace: true });
-      const scrollToElement = () => {
-        const el = document.getElementById(id);
-        if (el) {
-          scroller.scrollTo(id, {
-            duration: ANCHOR_LINK_DURATION * 2,
-            delay: 400,
-            smooth: true,
-            offset: -1 * QUESTION_ANCHOR_LINK_OFFSET,
-          });
-        } else {
-          // Try again later if not found yet
-          setTimeout(scrollToElement, 100);
-        }
-      };
-      setTimeout(scrollToElement, 500);
-    }
-  }, [location]);
 
   return (
     <PageLayout>
