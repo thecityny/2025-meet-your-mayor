@@ -43,6 +43,8 @@ export const QUESTION_ANCHOR_LINK_OFFSET = -150;
 
 export const ANCHOR_LINK_DURATION = 800;
 
+const LINKS_WITH_REMOVED_OFFSET = ["quiz", "results"];
+
 export const SmoothScroll: React.FC<{
   to: string;
   children: React.ReactNode;
@@ -68,7 +70,11 @@ export const SmoothScroll: React.FC<{
       spy={true}
       smooth={true}
       duration={ANCHOR_LINK_DURATION}
-      offset={QUESTION_ANCHOR_LINK_OFFSET + (extraOffset || 0)}
+      offset={
+        (LINKS_WITH_REMOVED_OFFSET.includes(to)
+          ? 0
+          : QUESTION_ANCHOR_LINK_OFFSET) + (extraOffset || 0)
+      }
       to={to}
       onClick={onClick}
     >

@@ -59,9 +59,6 @@ const Homepage = () => {
                         ? `question-${questionsLeftToAnswer[0]}`
                         : "quiz"
                     }
-                    extraOffset={
-                      QUESTION_ANCHOR_LINK_OFFSET * (!!party ? 1 : -1)
-                    } // Remove offset if going to quiz section
                   >
                     <button
                       className="button is-extra-dark"

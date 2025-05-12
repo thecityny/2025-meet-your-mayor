@@ -137,11 +137,7 @@ const Quiz = () => {
                       <SmoothScroll to="results" className="control">
                         <button className="button">See my Results</button>
                       </SmoothScroll>
-                      <SmoothScroll
-                        to="quiz"
-                        extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
-                        onClick={() => resetAnswers()}
-                      >
+                      <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
                         <button className="button is-white">
                           Reset Answers
                         </button>
@@ -162,11 +158,7 @@ const Quiz = () => {
                         >
                           <button className="button">Continue</button>
                         </SmoothScroll>
-                        <SmoothScroll
-                          to="quiz"
-                          extraOffset={QUESTION_ANCHOR_LINK_OFFSET * -1} // Remove offset
-                          onClick={() => resetAnswers()}
-                        >
+                        <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
                           <button className="button is-white">
                             Reset Answers
                           </button>
