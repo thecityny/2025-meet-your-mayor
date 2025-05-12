@@ -51,7 +51,7 @@ const Homepage = () => {
                 </p>
                 <div className="is-flex is-flex-direction-column my-6">
                   <SmoothScroll
-                    className="mb-5"
+                    className="mb-4"
                     to={
                       questionsLeftToAnswer.length === 0
                         ? "results"

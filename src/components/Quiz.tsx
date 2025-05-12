@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
-import { formatContent } from "../utils";
+import { formatContent, smoothScrollToCenter } from "../utils";
 import {
   formatQuestionContent,
   generateListOfCandidatesByParty,
@@ -91,9 +91,6 @@ const Quiz = () => {
     }
   };
 
-  const clearAnswer = (questionNumber: number) =>
-    recordAnswer(questionNumber, null);
-
   const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   return (
@@ -102,7 +99,7 @@ const Quiz = () => {
         className="hero mb-6"
         id="quiz"
         style={{
-          minHeight: "150vh", // Make sure this section stays a consistent height
+          minHeight: "110vh", // Make sure this section stays a consistent height
           // even when the content changes
         }}
       >
@@ -135,10 +132,10 @@ const Quiz = () => {
 
                     <div className="field is-grouped">
                       <SmoothScroll to="results" className="control">
-                        <button className="button">See my Results</button>
+                        <button className="button mb-1">See my Results</button>
                       </SmoothScroll>
                       <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
-                        <button className="button is-white">
+                        <button className="button is-white mb-1">
                           Reset Answers
                         </button>
                       </SmoothScroll>
@@ -156,10 +153,10 @@ const Quiz = () => {
                           to={`question-${questionsLeftToAnswer[0]}`}
                           className="control"
                         >
-                          <button className="button">Continue</button>
+                          <button className="button mb-1">Continue</button>
                         </SmoothScroll>
                         <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
-                          <button className="button is-white">
+                          <button className="button is-white mb-1">
                             Reset Answers
                           </button>
                         </SmoothScroll>
@@ -336,8 +333,8 @@ const Quiz = () => {
                                   display: isQuestionVisible ? "block" : "none",
                                   minHeight: "100vh",
                                   margin: isFirstQuestionInSection
-                                    ? "0 0 50vh 0"
-                                    : "50vh 0",
+                                    ? "0 0 30vh 0"
+                                    : "30vh 0",
                                 }}
                               >
                                 <h3 className="deck has-text-left mb-2">
@@ -370,8 +367,12 @@ const Quiz = () => {
                                     optionInfo.text === optionSkipped.text
                                       ? "0"
                                       : `${i + 1}`;
+                                  /**
+                                   * Unique id for smooth scrolling purposes:
+                                   */
+                                  const optionSlug = `question-${number}-option-${optionNumber}`;
                                   return !!optionInfo.text ? (
-                                    <div key={i}>
+                                    <div key={i} id={optionSlug}>
                                       <div style={{ width: "100%" }}>
                                         <button
                                           className={classnames(
@@ -387,10 +388,16 @@ const Quiz = () => {
                                                 : "is-disabled"
                                               : "is-active"
                                           )}
-                                          onClick={() =>
-                                            recordAnswer(number, optionNumber)
-                                          }
-                                          disabled={!!answerSelected}
+                                          onClick={() => {
+                                            recordAnswer(number, optionNumber);
+                                            const id =
+                                              document.getElementById(
+                                                optionSlug
+                                              );
+                                            if (!!id) {
+                                              smoothScrollToCenter(id);
+                                            }
+                                          }}
                                         >
                                           <div className="quiz-selection-oval mr-4" />
                                           <div className="copy">
@@ -433,28 +440,13 @@ const Quiz = () => {
                                       className="control"
                                     >
                                       <button
-                                        className="button is-link mb-2"
+                                        className="button is-link"
                                         style={{
                                           width: "100%",
                                           maxWidth: "350px",
                                         }}
                                       >
                                         Next Question
-                                      </button>
-                                    </SmoothScroll>
-                                    <SmoothScroll
-                                      to={`question-${number}`}
-                                      className="control"
-                                      onClick={() => clearAnswer(number)}
-                                    >
-                                      <button
-                                        className="button is-link is-white"
-                                        style={{
-                                          width: "100%",
-                                          maxWidth: "350px",
-                                        }}
-                                      >
-                                        Change answer
                                       </button>
                                     </SmoothScroll>
                                   </div>
@@ -480,41 +472,50 @@ const Quiz = () => {
                     }}
                   >
                     <p className="has-text-left eyebrow mb-2">PROGRESS:</p>
-                    {Object.entries(questions).map((questionGroup, i) => (
-                      <div className="has-text-left" key={i}>
-                        <SmoothScroll
+                    {Object.entries(questions).map((questionGroup, i) => {
+                      const questionGroupSeen =
+                        questionGroup[1][0].number <= highestVisibleQuestion;
+
+                      return (
+                        <div
+                          className="has-text-left"
                           key={i}
-                          enableActiveClass
-                          className="mr-1 copy"
-                          style={{
-                            pointerEvents: "none",
-                          }}
-                          to={`section-${questionGroup[0].toLowerCase()}`}
+                          style={{ opacity: questionGroupSeen ? 1 : 0.4 }}
                         >
-                          {questionGroup[0]}
-                        </SmoothScroll>
-                        {questionGroup[1].map((question, i) => {
-                          const questionAnswered = answers.find(
-                            (answer) =>
-                              answer.questionNumber === question.number
-                          )?.answer;
-                          return (
-                            <span
-                              key={i}
-                              style={{
-                                marginRight: "1px",
-                              }}
-                            >
-                              {!!questionAnswered ? (
-                                <CircleIcon filledIn />
-                              ) : (
-                                <CircleIcon />
-                              )}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    ))}
+                          <SmoothScroll
+                            key={i}
+                            enableActiveClass
+                            className="mr-1 copy"
+                            style={{
+                              pointerEvents: questionGroupSeen ? "all" : "none",
+                            }}
+                            to={`section-${questionGroup[0].toLowerCase()}`}
+                          >
+                            {questionGroup[0]}
+                          </SmoothScroll>
+                          {questionGroup[1].map((question, i) => {
+                            const questionAnswered = answers.find(
+                              (answer) =>
+                                answer.questionNumber === question.number
+                            )?.answer;
+                            return (
+                              <span
+                                key={i}
+                                style={{
+                                  marginRight: "1px",
+                                }}
+                              >
+                                {!!questionAnswered ? (
+                                  <CircleIcon filledIn />
+                                ) : (
+                                  <CircleIcon />
+                                )}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

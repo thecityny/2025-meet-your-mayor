@@ -114,3 +114,35 @@ export const arrayToNiceList = (list: string[]) => {
     );
   } else return <></>;
 };
+
+export function smoothScrollToCenter(
+  target: HTMLElement,
+  duration: number = 1000
+): void {
+  const elementTop = target.getBoundingClientRect().top + window.scrollY;
+  const elementHeight = target.offsetHeight;
+  const viewportHeight = window.innerHeight;
+  const targetY = elementTop - viewportHeight / 2 + elementHeight / 2;
+  const startY = window.scrollY;
+  const distance = targetY - startY;
+  const startTime = performance.now();
+
+  function animateScroll(currentTime: number): void {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1); // Clamp between 0 and 1
+
+    // Ease-in-out cubic function
+    const ease =
+      progress < 0.5
+        ? 2 * progress * progress
+        : -1 + (4 - 2 * progress) * progress;
+
+    window.scrollTo(0, startY + distance * ease);
+
+    if (progress < 1) {
+      requestAnimationFrame(animateScroll);
+    }
+  }
+
+  requestAnimationFrame(animateScroll);
+}

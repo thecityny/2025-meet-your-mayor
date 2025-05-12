@@ -87,6 +87,7 @@ $tablet-breakpoint: 1025px;
 
 .eyebrow,
 p,
+span,
 .label {
   color: colors.$city-black;
   a,
@@ -398,7 +399,7 @@ $full-color-image-filter: contrast(1);
 }
 
 .quiz-selection-button {
-  &.is-active:hover .quiz-selection-oval {
+  &:hover .quiz-selection-oval {
     @media screen and (min-width: $tablet-breakpoint) {
       background-color: #00000055;
     }
@@ -412,8 +413,6 @@ $full-color-image-filter: contrast(1);
   }
 
   &.is-disabled {
-    pointer-events: none;
-    cursor: not-allowed;
     opacity: 0.7;
     .quiz-selection-oval {
       opacity: 0.4;
@@ -638,6 +637,11 @@ $bust-only-cropping-factor: -15%;
       }
     }
   }
+
+  &.is-96x96 .image-wrapper .illustration {
+    padding: 0 8px;
+  }
+
   &:not(.bust-only) {
     .illustration {
       width: 100%;

@@ -101,7 +101,7 @@ export const candidateContent = {
     quote1:
       'Federal Government | “..Our sanctuary city laws are enough. The fact of the matter is some folks want to make our city agencies become agents of the federal government – this just simply should not be the case.” | <a href="https://youtu.be/Kssi4cZKLvI?feature=shared">PIX 11 News</a> (Dec 13, 2024)',
     quote2:
-      'Housing | “... Our city can ensure every area helps contribute to confronting the housing crisis by creating more housing, while respecting the differences of neighborhoods across the five boroughs and investing in New Yorkers.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/882-24/mayor-adams-governor-hochul-speaker-adams-celebrates-passage-most-pro-housing-proposal-in?">City Hall Press Release</a> (Dec 5, 2024)',
+      'Housing | “Our city can ensure every area helps contribute to confronting the housing crisis by creating more housing, while respecting the differences of neighborhoods across the five boroughs and investing in New Yorkers.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/882-24/mayor-adams-governor-hochul-speaker-adams-celebrates-passage-most-pro-housing-proposal-in?">City Hall Press Release</a> (Dec 5, 2024)',
     quote3:
       'Public Safety | “If you break the law there are consequences to that, but low-level crimes should never be penalized under the threat of death in Rikers Island.” | <a href="https://www.youtube.com/watch?v=7nh3KBOrRrg">Vital City/CUNY Mayoral Forum</a> (Apr 7, 2025)',
     quizResponse1:
@@ -146,7 +146,7 @@ export const candidateContent = {
     quote1:
       'Schools | “I think that you have to ensure that there are more kids of color that get access to the specialized high schools. Fundamentally, I think it should be beyond just a test in the collective process.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
     quote2:
-      'Public Safety | “We need to recruit more and also empower them to be able to do jobs honorably with respect.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
+      'Public Safety | “We need to recruit more [police] and also empower them to be able to do jobs honorably with respect.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
     quote3:
       'Housing | “Should we freeze rent? The answer is yes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
     quizResponse1:
@@ -330,13 +330,13 @@ export const candidateContent = {
     quizResponse1:
       '3 | “The streets are for people and not for cars.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
     quizResponse2:
-      '2 | Ramos said she\'d carry out the requirements of Local Law 195 and exceed its mandate for 150 miles of protected bus lanes and 250 miles of protected bike lanes. | <a href="https://www.youtube.com/live/A2he_B5f3ZE">Transportation Alternatives Mayoral Forum</a> (Feb 21, 2025)',
+      '1 | Ramos said she\'d carry out the requirements of Local Law 195 and exceed its mandate for 150 miles of protected bus lanes and 250 miles of protected bike lanes. | <a href="https://www.youtube.com/live/A2he_B5f3ZE">Transportation Alternatives Mayoral Forum</a> (Feb 21, 2025)',
     quizResponse3:
       '4 | “Making sure that we are putting forth a system that allows everybody — both residential and commercial — to be able to compost our organic waste, to be able to recycle, to be able to throw away landfill trash, and educate people in that way, is really really important and the only way we\'re going to be able to keep our streets clean.” | <a href="https://www.youtube.com/watch?v=EGZwwvha5BU">New York League of Conservation Voters Mayoral Forum</a> (Mar 7, 2025)',
     quizResponse4:
       "2 | “There's policing of the streets, but also there's just an education of the population in terms of conflict resolution and other things.” | <a href=\"https://nyeditorialboard.substack.com/p/jessica-ramos-interview-transcript\">The New York Editorial Board</a> (Jan 12, 2025)",
     quizResponse5:
-      "4 | Ramos wants to ensure “that more and more people who really do need the help are able to get it and so that we can do away with this culture of those who are able to pay the fare, but simply aren't doing it because they feel that too many aren't doing it, so why should I?” | <a href=\"https://www.youtube.com/live/lqQIiczm7Kc\">Transit Riders Mayoral Forum</a> (Dec 2, 2024)",
+      "1 | Ramos wants to ensure “that more and more people who really do need the help are able to get it and so that we can do away with this culture of those who are able to pay the fare, but simply aren't doing it because they feel that too many aren't doing it, so why should I?” | <a href=\"https://www.youtube.com/live/lqQIiczm7Kc\">Transit Riders Mayoral Forum</a> (Dec 2, 2024)",
     quizResponse5a: "1",
     quizResponse6:
       '1 | Ramos\' campaign said she wants to do all of the above. “For a long time, New York City has prayed that affordable housing is magically going to trickle down from all of these tax abatements that are given to big real estate without actually looking at some of the solutions that have been hiding in plain sight for a while.” | <a href="https://www.youtube.com/watch?v=OV_TZxXqVmw">Columbia Journalism School Mayoral Forum</a> (Apr 14, 2025)',
@@ -375,7 +375,7 @@ export const candidateContent = {
     quizResponse2:
       "1 | “Protected bike lanes are one of the most important improvements we can make to our streets.” | Candidate statement (Apr 18, 2025)",
     quizResponse3:
-      "4 | “My sanitation plan is designed to bring New York City’s waste management into the twenty-first century – by incorporating composting and rat-proof containers – and dealing with the piles of trash that litter our streets and attract rodents.” | Candidate statement (Apr 18, 2025)",
+      "4 | “My sanitation plan is designed to bring New York City’s waste management into the 21st century – by incorporating composting and rat-proof containers – and dealing with the piles of trash that litter our streets and attract rodents.” | Candidate statement (Apr 18, 2025)",
     quizResponse4:
       "1 | “We're going to hire 3,000 more cops — because we've been at the lowest level of policing in many years — and we're also going to, for the first time, align policing with the greatest mental health initiative this city will ever see.” | <a href=\"https://youtu.be/dx8-BNCoZ_A?feature=shared\">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)",
     quizResponse5:
