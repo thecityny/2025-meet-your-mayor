@@ -91,9 +91,6 @@ const Quiz = () => {
     }
   };
 
-  const clearAnswer = (questionNumber: number) =>
-    recordAnswer(questionNumber, null);
-
   const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   return (
