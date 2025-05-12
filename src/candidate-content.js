@@ -9,7 +9,7 @@ export const candidateContent = {
     quote2:
       'Public Safety | “Public safety is created by dignified work, economic stability and well-resourced neighborhoods, but for decades all that\'s been offered to communities facing violence is more policing and incarceration.” | <a href="https://www.cityandstateny.com/personality/2024/10/could-pro-palestinian-socialist-really-be-nycs-next-mayor/400487/">City & State NY</a> (Oct 23, 2024)',
     quote3:
-      "Federal Government | “What we saw under Donald Trump's first presidency is there's far more respect for someone who fights back than someone who simply relents.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">New York Editorial Board</a> (Feb 2, 2025)",
+      "Federal Government | “What we saw under Donald Trump's first presidency is there's far more respect for someone who fights back than someone who simply relents.” | <a href=\"https://nyeditorialboard.substack.com/p/zohran-mamdani-interview-transcript\">The New York Editorial Board</a> (Feb 2, 2025)",
     quizResponse1:
       '1 | Mamdani says he would “eliminate the unnecessary and cumbersome design restrictions placed on restaurants.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
     quizResponse2:
@@ -17,7 +17,7 @@ export const candidateContent = {
     quizResponse3:
       "4 | Mamdani says the containerization program should be expanded to also require recycling to be placed in on-street containers for pickup. | Candidate statement (Apr 18, 2025)",
     quizResponse4:
-      '2 | “My administration will create the Department of Community Safety to prevent violence before it happens," through mental health outreach and gun violence prevention. He also vows to disband the NYPD Strategic Response Group.” | Candidate statement (Apr 18, 2025)',
+      '2 | “My administration will create the Department of Community Safety to prevent violence before it happens," through mental health outreach and gun violence prevention. He also vows to disband the NYPD Strategic Response Group. | Candidate statement (Apr 18, 2025)',
     quizResponse5:
       "3 | “Only a third of the almost one million adult New Yorkers who are eligible access Fair Fares. At its core, this is an economic crisis, and we must address it as such.” | Candidate statement (Apr 18, 2025)",
     quizResponse5a:
@@ -52,7 +52,7 @@ export const candidateContent = {
     website: "https://ericadamsformayor.com/",
     bio: "Despite corruption scandals and indictments that have plagued him and key administration officials, and blowback over his negotiations with the Trump administration to drop federal charges against him, incumbent Eric Adams is pressing on in an attempt to secure a second term as mayor.{newParagraph}A registered Democrat, he declared in April his intention to run as an independent. Adams has made few campaign appearances, relying instead on his visibility as mayor and initiatives such as containerizing household trash pickup.{newParagraph}Elected mayor in 2021, Adams previously ran on a platform that focused on public safety. He served as Brooklyn’s borough president from 2013 to 2021, and before that he served as a state senator. He began his career as an officer in the Transit Police before transitioning to the NYPD, and helped found the advocacy group 100 Black Men in Law Enforcement Who Care.",
     quote1:
-      'Federal Government | “I want to go back to the standards of the previous mayors who I believe subscribe to my belief that people who are suspected of committing serious crimes in this city should be held accountable.” | <a href="https://www.politico.com/news/2024/02/27/adams-sanctuary-city-laws-new-york-00143705">POLITICO</a> (Feb 27, 2024)',
+      "Federal Government | “You don't all of the sudden become anti-American because the person you wanted to be president is not president. It's the office. When you don't respect the office, you're sending the wrong message.” | <a href=\"https://www.youtube.com/watch?v=xO9SwJGtbDU\">Fox News</a> (April 19, 2025)",
     quote2:
       'Health | “We can no longer deny the reality that untreated psychosis can be a cruel and all-consuming condition that often requires involuntary intervention.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/870-22/mayor-adams-plan-provide-care-individuals-suffering-untreated-severe-mental#/0">Press conference</a> (Nov 29, 2022)',
     quote3:
@@ -232,9 +232,9 @@ export const candidateContent = {
     quote1:
       'Public Safety | “Admittedly with some trepidation, I have come to the conclusion that to address the short-term crisis – which is rooted largely in deeply entrenched mismanagement of staff and union leadership recalcitrance – a receiver should be appointed.” | <a href="https://comptroller.nyc.gov/newsroom/citing-rising-violence-and-deaths-comptroller-lander-calls-for-federal-receiver-at-rikers-island/">statement from the Office of the NYC Comptroller’s Office</a> (Oct 13, 2022)',
     quote2:
-      'Housing | “We do not have to be a city where thousands of people who are mentally ill are sleeping on the streets and are sometimes often a danger to themselves and to others.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">New York Editorial Board Interview</a> (Dec 15, 2024)',
+      'Housing | “We do not have to be a city where thousands of people who are mentally ill are sleeping on the streets and are sometimes often a danger to themselves and to others.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">The New York Editorial Board</a> (Dec 15, 2024)',
     quote3:
-      'Background | “I have always seen myself as a pragmatic, pro-growth progressive, and I think the evidence is pretty clear. What I like to do is bring people together, set ambitious goals and then take pragmatic and really data-driven steps to get things done.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">New York Editorial Board Interview</a> (Dec 15, 2024)',
+      'Background | “I have always seen myself as a pragmatic, pro-growth progressive, and I think the evidence is pretty clear. What I like to do is bring people together, set ambitious goals and then take pragmatic and really data-driven steps to get things done.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">The New York Editorial Board</a> (Dec 15, 2024)',
     quizResponse1:
       "1 | “We can have a strong, year-round outdoor dining program, with less red tape for restaurants, but still with oversight to ensure cleanliness and remove abandoned sheds.” | Candidate statement (May 7, 2025)",
     quizResponse2:
@@ -322,7 +322,7 @@ export const candidateContent = {
     website: "https://www.ramosfornyc.com/",
     bio: "State Sen. Jessica Ramos’ vision for NYC includes expanded child care programs and embedding mental health support into every aspect of city life.{newParagraph}Ramos, who has represented Corona, East Elmhurst and Jackson Heights since 2019, is a big proponent of organized labor: she used to negotiate contracts for SSEU Local 371 and 32BJ SEIU and currently chairs the Senate’s labor committee. She weaves job training programs into her broader policies supporting immigration and mental health.{newParagraph}Where most other candidates prioritize tenants in their housing agendas Ramos also promotes homeownership. The daughter of Colombian immigrants, she is committed to making city-provided resources accessible in languages that people can understand.",
     quote1:
-      "Public Safety | “There's policing of the streets, but also there's just an education of the population in terms of conflict resolution and other things…” | <a href=\"https://nyeditorialboard.substack.com/p/jessica-ramos-interview-transcript\">New York Editorial Board Interview</a> (Jan 12, 2025)",
+      "Public Safety | “There's policing of the streets, but also there's just an education of the population in terms of conflict resolution and other things…” | <a href=\"https://nyeditorialboard.substack.com/p/jessica-ramos-interview-transcript\">The New York Editorial Board</a> (Jan 12, 2025)",
     quote2:
       'Housing | “No private management of our NYCHA buildings, no developers, no land for sale, no infills, no any of that. We have to keep public housing, public housing.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 2, 2024)',
     quote3:
@@ -365,11 +365,11 @@ export const candidateContent = {
     website: "https://scottstringernyc.com/",
     bio: "Scott Stringer, who previously ran for mayor in 2021, wants to leverage his decades of political experience to expand and reorganize the police department, flip empty lots into new housing units and improve sanitation.{newParagraph}Hailing from Manhattan’s Washington Heights, Stringer often credits his time organizing to keep Mitchell-Lama housing units out of the hands of profiteering owners as a stepping stone to his political career. He served as a state Assembly member for 13 years before becoming Manhattan Borough President in 2006. He then served as the city’s comptroller.{newParagraph}When he ran for mayor in 2021, a former campaign volunteer alleged sexual misconduct, prompting some allies to withdraw their endorsements. Stringer has strongly denied those allegations.",
     quote1:
-      "Public Safety | “What I'm going to do is we're going to hire 3,000 more cops – because we've been at the lowest level of policing in many years – and we're also going to, for the first time, align policing with the greatest mental health initiative this city will ever see. | <a href=\"https://www.youtube.com/watch?v=dx8-BNCoZ_A\">Bronx Dems Mayoral Forum</a> (Jan 31, 2025)",
+      "Public Safety | “What I'm going to do is we're going to hire 3,000 more cops – because we've been at the lowest level of policing in many years – and we're also going to, for the first time, align policing with the greatest mental health initiative this city will ever see.” | <a href=\"https://www.youtube.com/watch?v=dx8-BNCoZ_A\">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)",
     quote2:
-      'Housing | “As mayor, on day one, I\'m going to do what I started when I was comptroller. I identified a thousand vacant lots that we the people own.” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Dems Mayoral Forum</a> (Jan 31, 2025)',
+      'Housing | “As mayor, on day one, I\'m going to do what I started when I was comptroller. I identified a thousand vacant lots that we the people own.” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quote3:
-      'Federal Government | “But let\'s think about the kind of mayor we want in this moment. I think everyone agrees we will march, we will fight, we will lay our bodies on the floor…” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Dems Mayoral Forum</a> (Jan 31, 2025)',
+      'Federal Government | “But let\'s think about the kind of mayor we want in this moment. I think everyone agrees we will march, we will fight, we will lay our bodies on the floor…” | <a href="https://www.youtube.com/watch?v=dx8-BNCoZ_A">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)',
     quizResponse1:
       "3 | “We need to create a way for open streets and outdoor dining to work for everyone – businesses, residents, and pedestrians – permanently.” | Candidate statement (Apr 18, 2025)",
     quizResponse2:
@@ -480,7 +480,7 @@ export const candidateContent = {
     quizResponse10:
       '0 | “You have to reduce the class size, particularly in K-3, to get down to manageable numbers." Walden says he wants to "put more bespoke supports there to identify kids who fall behind.” | Candidate statement (May 8, 2025)',
     quizResponse12:
-      '2 | Walden says he wants a voter referendum on amending the laws “to better balance our suport for migrants with our need for safety.” He tweeted: “\'Sanctuary City" is a wonderful ideal for a different time. It needs SERIOUS reform. Now. Starting with cooperating fully with ICE on migrant criminals.” | <a href="https://x.com/jimfornyc/status/1875669206777340115">X</a> (Jan 4, 2025)',
+      '2 | Walden says he wants a voter referendum on amending the laws “to better balance our support for migrants with our need for safety.” He tweeted: “\'Sanctuary City" is a wonderful ideal for a different time. It needs SERIOUS reform. Now. Starting with cooperating fully with ICE on migrant criminals.” | <a href="https://x.com/jimfornyc/status/1875669206777340115">X</a> (Jan 4, 2025)',
     quizResponse13:
       '1 | Walden is offering a plan to “shield New Yorkers from Project 2025.” He said: “I want to cooperate with Washington where I can, and where I can’t, I am the right person to know the power of the courts to push back.” | <a href="https://brooklyneagle.com/articles/2025/02/03/nyc-mayoral-candidate-jim-walden-mulls-run-as-republican/">Brooklyn Daily Eagle</a> (Feb 3, 2025)',
     quizResponse14: "",
@@ -488,7 +488,8 @@ export const candidateContent = {
       '1 | “Severely mentally ill people do not belong anywhere other than in treatment that will help them get better. It is the right thing for them. It was terrible social policy to let them languish on the streets, where they create violence and harm to themselves, as well as harm to our communities.” | <a href="https://www.youtube.com/watch?v=7nh3KBOrRrg">Vital City/CUNY Mayoral Forum</a> (Apr 7, 2025)',
     quizResponse17:
       "3 | “I lead by example. I manage closely without micro-managing, except when needed.” | Candidate statement (May 8, 2025)",
-    quizResponse18: "",
+    quizResponse18:
+      "0 | “That I worked tirelessly to solve as many problems as I could, putting people over politics.” | Candidate statement (May 8, 2025)",
     quizResponse19: "4 |",
   },
   candidateCurtis: {
