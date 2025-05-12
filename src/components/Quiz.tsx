@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
-import { formatContent } from "../utils";
+import { formatContent, smoothScrollToCenter } from "../utils";
 import {
   formatQuestionContent,
   generateListOfCandidatesByParty,
@@ -367,8 +367,12 @@ const Quiz = () => {
                                     optionInfo.text === optionSkipped.text
                                       ? "0"
                                       : `${i + 1}`;
+                                  /**
+                                   * Unique id for smooth scrolling purposes:
+                                   */
+                                  const optionSlug = `question-${number}-option-${optionNumber}`;
                                   return !!optionInfo.text ? (
-                                    <div key={i}>
+                                    <div key={i} id={optionSlug}>
                                       <div style={{ width: "100%" }}>
                                         <button
                                           className={classnames(
@@ -384,9 +388,16 @@ const Quiz = () => {
                                                 : "is-disabled"
                                               : "is-active"
                                           )}
-                                          onClick={() =>
-                                            recordAnswer(number, optionNumber)
-                                          }
+                                          onClick={() => {
+                                            recordAnswer(number, optionNumber);
+                                            const id =
+                                              document.getElementById(
+                                                optionSlug
+                                              );
+                                            if (!!id) {
+                                              smoothScrollToCenter(id);
+                                            }
+                                          }}
                                         >
                                           <div className="quiz-selection-oval mr-4" />
                                           <div className="copy">
