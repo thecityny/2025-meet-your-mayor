@@ -427,9 +427,8 @@ const Results: React.FC = () => {
                           </span>
                           <Bobblehead
                             candidateName={candidate.candidateName}
-                            size="is-96x96"
+                            size="is-128x128"
                             customClassNames="py-4 mr-4"
-                            showBustOnly
                           />
                           <div className="headline has-text-left is-size-3-mobile">
                             {candidate.candidateName}{" "}
