@@ -461,41 +461,50 @@ const Quiz = () => {
                     }}
                   >
                     <p className="has-text-left eyebrow mb-2">PROGRESS:</p>
-                    {Object.entries(questions).map((questionGroup, i) => (
-                      <div className="has-text-left" key={i}>
-                        <SmoothScroll
+                    {Object.entries(questions).map((questionGroup, i) => {
+                      const questionGroupSeen =
+                        questionGroup[1][0].number <= highestVisibleQuestion;
+
+                      return (
+                        <div
+                          className="has-text-left"
                           key={i}
-                          enableActiveClass
-                          className="mr-1 copy"
-                          style={{
-                            pointerEvents: "none",
-                          }}
-                          to={`section-${questionGroup[0].toLowerCase()}`}
+                          style={{ opacity: questionGroupSeen ? 1 : 0.4 }}
                         >
-                          {questionGroup[0]}
-                        </SmoothScroll>
-                        {questionGroup[1].map((question, i) => {
-                          const questionAnswered = answers.find(
-                            (answer) =>
-                              answer.questionNumber === question.number
-                          )?.answer;
-                          return (
-                            <span
-                              key={i}
-                              style={{
-                                marginRight: "1px",
-                              }}
-                            >
-                              {!!questionAnswered ? (
-                                <CircleIcon filledIn />
-                              ) : (
-                                <CircleIcon />
-                              )}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    ))}
+                          <SmoothScroll
+                            key={i}
+                            enableActiveClass
+                            className="mr-1 copy"
+                            style={{
+                              pointerEvents: questionGroupSeen ? "all" : "none",
+                            }}
+                            to={`section-${questionGroup[0].toLowerCase()}`}
+                          >
+                            {questionGroup[0]}
+                          </SmoothScroll>
+                          {questionGroup[1].map((question, i) => {
+                            const questionAnswered = answers.find(
+                              (answer) =>
+                                answer.questionNumber === question.number
+                            )?.answer;
+                            return (
+                              <span
+                                key={i}
+                                style={{
+                                  marginRight: "1px",
+                                }}
+                              >
+                                {!!questionAnswered ? (
+                                  <CircleIcon filledIn />
+                                ) : (
+                                  <CircleIcon />
+                                )}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
