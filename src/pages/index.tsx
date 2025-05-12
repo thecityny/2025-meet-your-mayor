@@ -38,8 +38,6 @@ const Homepage = () => {
   // a candidate page (to make sure results container has rendered first)
   useEffect(() => {
     if (headedToResults && location.hash) {
-      // Clear state by replacing the current entry
-      navigate(location.pathname + location.hash, { replace: true });
       const id = "results";
       const scrollToElement = () => {
         const el = document.getElementById(id);
@@ -86,7 +84,15 @@ const Homepage = () => {
                       Take the quiz
                     </button>
                   </SmoothScroll>
-                  <a href="#learn">
+                  <a
+                    href="#learn"
+                    onClick={() =>
+                      // Since we use the #learn container to smooth scroll to the #results
+                      // section from a Candidate page, we need to make sure this button here
+                      // clears the location state so that it indeed goes to #learn.
+                      navigate(location.pathname, { replace: true })
+                    }
+                  >
                     <button
                       className="button is-white"
                       style={{ width: "100%", maxWidth: "350px" }}
