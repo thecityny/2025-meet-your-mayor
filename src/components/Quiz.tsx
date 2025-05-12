@@ -132,10 +132,10 @@ const Quiz = () => {
 
                     <div className="field is-grouped">
                       <SmoothScroll to="results" className="control">
-                        <button className="button">See my Results</button>
+                        <button className="button mb-1">See my Results</button>
                       </SmoothScroll>
                       <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
-                        <button className="button is-white">
+                        <button className="button is-white mb-1">
                           Reset Answers
                         </button>
                       </SmoothScroll>
@@ -153,10 +153,10 @@ const Quiz = () => {
                           to={`question-${questionsLeftToAnswer[0]}`}
                           className="control"
                         >
-                          <button className="button">Continue</button>
+                          <button className="button mb-1">Continue</button>
                         </SmoothScroll>
                         <SmoothScroll to="quiz" onClick={() => resetAnswers()}>
-                          <button className="button is-white">
+                          <button className="button is-white mb-1">
                             Reset Answers
                           </button>
                         </SmoothScroll>

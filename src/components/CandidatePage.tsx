@@ -97,10 +97,10 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
         )}
         <div className="field is-grouped">
           <OutboundLink to={website}>
-            <button className="button">Campaign Website</button>
+            <button className="button mb-1">Campaign Website</button>
           </OutboundLink>
           <Link to="/">
-            <button className="button is-white">
+            <button className="button is-white mb-1">
               {questionsLeftToAnswer.length === 0
                 ? `Revisit the quiz`
                 : "See if you're a match"}
