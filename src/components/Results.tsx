@@ -8,6 +8,7 @@ import { Link } from "gatsby";
 import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
 import { useAppStore } from "../useAppStore";
+import { track } from "@amplitude/analytics-browser";
 
 export const getQuestionsLeftToAnswer = () => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
@@ -158,9 +159,19 @@ const Results: React.FC = () => {
   };
 
   const score = useMemo(() => calculateScore(), [answers, favoriteTopics]);
+  let questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   useEffect(() => {
     setScore(score);
+    if (!!questionsLeftToAnswer && questionsLeftToAnswer.length === 0) {
+      score.forEach((candidate, i) => {
+        track(`${candidate.candidateName} ranked #${i + 1} in final score`, {
+          matchingPercentage: Math.round(
+            (candidate.totalScore / candidate.totalPossibleScore) * 100
+          ),
+        });
+      });
+    }
   }, [score]);
 
   const totalPossiblePoints = score[0].totalPossibleScore;
@@ -187,8 +198,6 @@ const Results: React.FC = () => {
       candidatesTiedWithLastPlace++;
     }
   });
-
-  let questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
   return (
     <>
@@ -227,6 +236,13 @@ const Results: React.FC = () => {
                           "is-selected"
                       )}
                       onClick={() => {
+                        track(
+                          `${
+                            favoriteTopics.includes(questionGroup[0])
+                              ? "Removed"
+                              : "Selected"
+                          } favorite topic: ${questionGroup[0]}`
+                        );
                         changeFavoriteTopics(questionGroup[0]);
                       }}
                       disabled={
@@ -488,7 +504,14 @@ const Results: React.FC = () => {
 
                         <div className="buttons mt-5 ml-4">
                           <button className="button">
-                            <Link to={kebabCase(candidate.candidateName)}>
+                            <Link
+                              to={kebabCase(candidate.candidateName)}
+                              onClick={() =>
+                                track(
+                                  `Visit ${candidate.candidateName}'s page from results`
+                                )
+                              }
+                            >
                               Learn more about {candidate.candidateName}
                             </Link>{" "}
                           </button>

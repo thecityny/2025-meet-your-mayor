@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import TheCityLogo from "../assets/logo.svg";
 import GothamistLogo from "../assets/logo-gothamist.svg";
@@ -9,6 +9,9 @@ import { SocialButton } from "./SocialShareButtons";
 import "../styles/app.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Script } from "gatsby";
+import { init } from "@amplitude/analytics-browser";
+
+const AMPLITUDE_PUBLIC_KEY = "cd8c6e9c6e26111a843bec73acf6fc28";
 
 const THE_CITY_SITE_LINKS = {
   website: "https://www.thecity.nyc/",
@@ -221,6 +224,11 @@ export const PageLayout: React.FC<{
   const socialDescription =
     customMetadata?.socialDescription || process.env.GATSBY_SOCIAL_DESCRIPTION;
   const author = customMetadata?.author || process.env.GATSBY_AUTHOR;
+
+  // Initialize Amplitude Tracking:
+  useEffect(() => {
+    init(AMPLITUDE_PUBLIC_KEY);
+  });
 
   return (
     <article id="main">

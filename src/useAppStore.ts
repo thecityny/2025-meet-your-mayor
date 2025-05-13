@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { QuizInput, ScoreCard } from "./components/QuizContent";
 import { questionContent } from "./question-content";
+import { track } from "@amplitude/analytics-browser";
 
 export type Party = "democrat" | "other" | null;
 
@@ -39,6 +40,9 @@ export const useAppStore = create<AppState>()(
     (set, get) => ({
       party: null,
       setParty: (party, delay) => {
+        track(`Selected party`, {
+          party: party,
+        });
         const highestVisibleQuestion = get().highestVisibleQuestion;
         const setHighestVisibleQuestion = get().setHighestVisibleQuestion;
         if (highestVisibleQuestion === 0 && !!party) {
@@ -49,21 +53,27 @@ export const useAppStore = create<AppState>()(
         }, delay || 0);
       },
       favoriteTopics: [],
-      setFavoriteTopics: (favoriteTopics) => set({ favoriteTopics }),
+      setFavoriteTopics: (favoriteTopics) => {
+        set({ favoriteTopics });
+      },
       answers: blankAnswersList,
       setAnswers: (answers) => set({ answers }),
       score: null,
-      setScore: (score) => set({ score }),
+      setScore: (score) => {
+        set({ score });
+      },
       highestVisibleQuestion: 0,
       setHighestVisibleQuestion: (highestVisibleQuestion) =>
         set({ highestVisibleQuestion }),
-      resetAnswers: () =>
+      resetAnswers: () => {
+        track(`Reset answers`);
         set({
           answers: blankAnswersList,
           favoriteTopics: [],
           highestVisibleQuestion: 0,
           party: null,
-        }),
+        });
+      },
     }),
     {
       name: "app-store",

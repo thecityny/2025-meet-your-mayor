@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import classnames from "classnames";
 import { Bobblehead } from "./Illustration";
 import { useIsCandidatePage } from "../utils";
+import { track } from "@amplitude/analytics-browser";
 
 /**
  * A menu of buttons that link to each candidate page.
@@ -25,6 +26,15 @@ export const CandidateSelectorMenu: React.FC = () => {
         <Link
           key={i}
           to={`/${candidate.slug}`}
+          onClick={() =>
+            track(
+              `Visit ${candidate.name}'s page from ${
+                isCandidatePage
+                  ? "another candidate page"
+                  : "bottom of main page"
+              }`
+            )
+          }
           className="column is-one-quarter"
           activeClassName="is-active"
         >
