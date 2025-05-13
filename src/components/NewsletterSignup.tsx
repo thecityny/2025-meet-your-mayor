@@ -37,7 +37,7 @@ export const NewsletterSignupBanner: React.FC = () => {
     setStatusTheCity("loading");
     try {
       const response = await fetch(
-        "https://rankedchoices.netlify.app/.netlify/functions/subscribe",
+        "https://rankedchoices-proxy.netlify.app/.netlify/functions/subscribe",
         {
           method: "POST",
           headers: {
