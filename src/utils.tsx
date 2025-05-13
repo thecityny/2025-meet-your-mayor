@@ -117,7 +117,7 @@ export const arrayToNiceList = (list: string[]) => {
 
 export function smoothScrollToCenter(
   target: HTMLElement,
-  duration: number = 1000
+  duration: number = 500
 ): void {
   const elementTop = target.getBoundingClientRect().top + window.scrollY;
   const elementHeight = target.offsetHeight;
