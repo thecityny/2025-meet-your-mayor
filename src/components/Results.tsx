@@ -397,7 +397,10 @@ const Results: React.FC = () => {
                         className="is-inline-flex is-justify-content-space-between"
                         style={{ width: "100%", cursor: "pointer" }}
                       >
-                        <div className="is-flex is-align-items-center">
+                        <div
+                          className="is-flex is-align-items-center"
+                          style={{ maxWidth: "100%" }}
+                        >
                           <span
                             className="headline"
                             style={{ minWidth: "3rem" }}
