@@ -376,6 +376,11 @@ const Quiz = () => {
                                     <div key={i} id={optionSlug}>
                                       <div style={{ width: "100%" }}>
                                         <button
+                                          aria-label={
+                                            !!answerSelected
+                                              ? `Change answer: ${optionInfo.text}`
+                                              : `Select answer: ${optionInfo.text}`
+                                          }
                                           className={classnames(
                                             "quiz-selection-button",
                                             "is-flex",
