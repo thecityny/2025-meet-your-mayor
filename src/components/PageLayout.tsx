@@ -11,7 +11,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { Script } from "gatsby";
 import { init } from "@amplitude/analytics-browser";
 
-const AMPLITUDE_PUBLIC_KEY = "f14d501f41e9d890509cf20140350c97";
+const AMPLITUDE_PUBLIC_KEY = "cd8c6e9c6e26111a843bec73acf6fc28";
 
 const THE_CITY_SITE_LINKS = {
   website: "https://www.thecity.nyc/",
