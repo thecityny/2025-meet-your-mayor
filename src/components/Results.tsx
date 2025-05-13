@@ -236,6 +236,13 @@ const Results: React.FC = () => {
                           "is-selected"
                       )}
                       onClick={() => {
+                        track(
+                          `${
+                            favoriteTopics.includes(questionGroup[0])
+                              ? "Removed"
+                              : "Selected"
+                          } favorite topic: ${questionGroup[0]}`
+                        );
                         changeFavoriteTopics(questionGroup[0]);
                       }}
                       disabled={

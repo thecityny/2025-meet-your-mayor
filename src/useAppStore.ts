@@ -54,9 +54,6 @@ export const useAppStore = create<AppState>()(
       },
       favoriteTopics: [],
       setFavoriteTopics: (favoriteTopics) => {
-        track(`Selected favorite topics`, {
-          topics: favoriteTopics,
-        });
         set({ favoriteTopics });
       },
       answers: blankAnswersList,
