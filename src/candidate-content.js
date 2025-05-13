@@ -3,7 +3,7 @@ export const candidateContent = {
     name: "Zohran Mamdani",
     party: "democrat",
     website: "https://www.zohranfornyc.com/",
-    bio: "Zohran Mamdani is a rapper-turned-elected official whose campaign promises include free and fast buses, rent freezes and no-cost childcare.{newParagraph}Mamdani, a state Assembly member since 2021 whose district covers Astoria, Queens, previously worked as a foreclosure prevention counselor. He also spent several years organizing to win national elections and expand health care coverage. The Assembly member spent some time as a rapper, performing under the pseudonym Mr. Cardamom.{newParagraph}Endorsed by the Democratic Socialists of America and highlighting free bus service and free child care as pillars of his campaign, he has attracted by far the most donors in the field and has maxed out on public matching dollars.",
+    bio: "Zohran Mamdani is a state Assembly member whose campaign promises include free and fast buses, rent freezes and no-cost childcare.{newParagraph}Mamdani, whose district covers Astoria, Queens, previously worked as a foreclosure prevention counselor. He also spent several years organizing to win national elections and expand health care coverage. The Assembly member spent some time as a rapper, performing under the pseudonym Mr. Cardamom.{newParagraph}Endorsed by the Democratic Socialists of America and highlighting free bus service and free child care as pillars of his campaign, he has attracted by far the most donors in the field and has maxed out on public matching dollars.",
     quote1:
       'Housing | “We have to leave the days of spot neighborhood rezonings behind. That policy, what we\'ve seen under previous administrations, has exacerbated segregation across New York City.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
     quote2:
@@ -82,14 +82,15 @@ export const candidateContent = {
     quizResponse12:
       '2 | “Those who are committing crimes in our city must be addressed, and we should change the current sanctuary city laws to address that issue.” | <a href="https://www.youtube.com/watch?v=vvUgvuBH1Fs">The Point with Marsha Kramer</a> (Dec 8, 2024)',
     quizResponse13:
-      '1 | “I\'m going to work with that president to produce for the people of our city because I respect the office.” | <a href="https://www.youtube.com/watch?v=xO9SwJGtbDU">FOX News</a> (Apr 19, 2025)',
+      '1 | “I\'m going to work with that president to produce for the people of our city because I respect the office.” | <a href="https://www.youtube.com/watch?v=xO9SwJGtbDU">Fox News</a> (Apr 19, 2025)',
     quizResponse14:
       '2 | Eric Adams\' administration currently allocates opioid settlement funds toward treatment initiatives, including needle-exchange sites. | <a href="https://www.nyc.gov/assets/doh/downloads/pdf/basas/opioid-settlement-funds-report-09102024.pdf">Opioid Settlement Funds Report</a> (Sep 10, 2024)',
     quizResponse15:
       '1 | “Our advocacy has led to real progress as Albany has finally taken action to make lasting change. And although it is rare, random attacks are still committed by people who desperately need help. We cannot continue to ignore them, and we are not.” | <a href="https://www.nyc.gov/office-of-the-mayor/news/292-25/mayor-adams-in-response-amendments-related-involuntary-commitment-state-budget">Press conference</a> (May 8, 2025)',
     quizResponse17:
       '1 | “I have the Bloomberg style with an asterisk — put the right people in place and then use his favorite quote: Don’t f+++ it up. But I also believe, and I live by this, you have to inspect what you expect or it’s all suspect.” | <a href="https://www.bloomberg.com/opinion/articles/2021-02-22/new-york-mayor-s-race-eric-adams-puts-priority-on-city-s-safety?sref=sxorlmMs">Bloomberg Opinion</a> (Feb 22, 2021)',
-    quizResponse18: "",
+    quizResponse18:
+      "4 | “I'm running for reelection, to continue the work that I've done of making our city a safe place to raise children and families.” | <a href=\"https://www.youtube.com/watch?v=tBSijWenKv0\">Piers Morgan Uncensored</a> (May 8, 2025)",
     quizResponse19:
       '4 | Adams began his career as a police officer and founded the activist group 100 Blacks In Law Enforcement. He has served as a state senator and then Brooklyn Borough President. He was elected mayor in 2021. | <a href="https://www.nysenate.gov/senators/eric-adams">The New York State Senate</a>',
   },
@@ -97,7 +98,7 @@ export const candidateContent = {
     name: "Adrienne Adams",
     party: "democrat",
     website: "https://adrienneforthepeople.com/",
-    bio: "As speaker of the New York City Council and a representative for southeast Queens, Adrienne Adams has been a strong advocate of the city’s sanctuary laws, closing Rikers Island and protecting the rights of women and people of color.{newParagraph}She has also fought over city budgets with Mayor Eric Adams, seeking to maintain spending on education and other public services. She says she will maintain and build on funding those resources should she become mayor.{newParagraph}She worked in the private sector as a corporate trainer before focusing her attention on being an active member of southeast Queens’ Community Board 12. She unsuccessfully ran for state Senate in 2016, but rebounded a year later by winning the local City Council seat.",
+    bio: "Adrienne Adams is the speaker of the New York City Council, representing southeast Queens. She has defended the city’s sanctuary laws, advocated for the closing of Rikers Island and prioritized the rights of women and people of color.{newParagraph}She has also fought over city budgets with Mayor Eric Adams, to whom she is not related. She has sought to maintain spending on education and other public services and says she will build on those resources should she become mayor.{newParagraph}She worked in the private sector as a corporate trainer before focusing her attention on being an active member of southeast Queens’ Community Board 12. She unsuccessfully ran for state Senate in 2016, but rebounded a year later by winning the local City Council seat.",
     quote1:
       'Federal Government | “..Our sanctuary city laws are enough. The fact of the matter is some folks want to make our city agencies become agents of the federal government – this just simply should not be the case.” | <a href="https://youtu.be/Kssi4cZKLvI?feature=shared">PIX 11 News</a> (Dec 13, 2024)',
     quote2:
@@ -133,7 +134,7 @@ export const candidateContent = {
       "1 | “This funding should also support harm reduction and other treatment programs, as well as law enforcement efforts targeting drug dealers.” | Candidate statement (May 7, 2025)",
     quizResponse15:
       "0 | “Involuntary removals and hospitalizations — meant for rare cases — now dominate the focus of policy discussions and shouldn't because they don't yield successful outcomes without sufficient mental healthcare access.\" To improve access Adams promises to expand psychiatric hospital beds, residential treatment programs and mobile treatment teams.” | Candidate statement (May 7, 2025)",
-    quizResponse17: "2 |",
+    quizResponse17: "2",
     quizResponse18:
       "1 | “That I was a mayor for us who ended the disappointment and disinterest our communities have felt from their city government by replacing drama and nonsense with competence and integrity.” | Candidate statement (May 7, 2025)",
     quizResponse19: "3",
@@ -157,13 +158,13 @@ export const candidateContent = {
       '4 | “The containerization program does not accommodate for the unique context of NYC’s neighborhoods.” | <a href="https://www.citylandnyc.org/outdoor-dining-open-streets-trash-containerization-where-democratic-mayoral-candidates-stand-on-public-space-issues/">Cityland</a> (Mar 18, 2025)',
     quizResponse4:
       '2 | “We need to recruit more and also empower them to be able to do jobs honorably with respect.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
-    quizResponse5: "2 |",
+    quizResponse5: "2",
     quizResponse5a: "1",
     quizResponse6:
       '4 | “Housing is a right, not a luxury, and I will ensure every New Yorker can afford to live here.” | <a href="https://thenyhc.org/mayoral-candidates/michael-blake/">New York Housing Conference</a>',
-    quizResponse7: "2 |",
+    quizResponse7: "2",
     quizResponse8:
-      '2 | “Should we freeze rent? The answer is yes.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
+      "2 | “I think there should be a rent freeze on some of the rent-stabilized units. I think across the board we have to assess on if that's even feasible itself. But we're talking about effectively less than half of New Yorkers that would be applicable to.” | <a href=\"https://www.youtube.com/watch?v=qGvHWGdIChw\">The Point with Marcia Kramer</a> (Feb 9, 2025)",
     quizResponse9:
       '3 | “You have to ensure that there are more kids of color that get access to the specialized high schools. Fundamentally, I think it should be beyond just a test in the collective process.” | <a href="https://www.thecity.nyc/2025/02/19/michael-blake-interview-mayor-nyc-faqnyc/">FAQ NYC</a> (Feb 19, 2025)',
     quizResponse10: "3 |",
@@ -172,17 +173,18 @@ export const candidateContent = {
     quizResponse13:
       '2 | “You work with him in the areas where it’s workable. But you have to check this foolishness.” | <a href="https://www.cityandstateny.com/podcasts/2025/04/episode-3-interview-michael-blake/404455/">City & State NY\'s “Race to Gracie Mansion” Podcast</a> (Apr 10, 2025)',
     quizResponse14:
-      '1 | Blake is calling on Comptroller Brad Lander to launch an inquiry into how New York City has been spending Opioid Settlement Fund dollars. | <a href="https://blakefornyc.com/vision/wellness-plan/">Blake for NYC </a>',
-    quizResponse15: "3 |",
-    quizResponse17: "3 |",
-    quizResponse18: "1 |",
-    quizResponse19: "4 |",
+      '1 | Blake is calling on Comptroller Brad Lander to launch an inquiry into how New York City has been spending Opioid Settlement Fund dollars. | <a href="https://blakefornyc.com/vision/wellness-plan/">Blake for NYC</a>',
+    quizResponse15: "3",
+    quizResponse17: "3",
+    quizResponse18: "1",
+    quizResponse19:
+      '4 | “As the only person who could say that I have White House, State House, and local experience, we are in a moment right now where you have to ask yourself of January 1st next year, who is best prepared to make sure you\'re ready to fight for this city?” | <a href="https://www.youtube.com/watch?v=VA61kWJlC0g">CUNY/New York Immigration Coalition Mayoral Forum</a> (Apr 16, 2025)',
   },
   candidateAndrew: {
     name: "Andrew Cuomo",
     party: "democrat",
     website: "https://www.andrewcuomo.com/",
-    bio: "Veteran politician Andrew Cuomo entered the mayoral race just months before the primary election, yet he’s continued to lead in polls — a testament to his and his family’s political legacy in New York.{newParagraph}In his run for mayor, Cuomo has made housing affordability and public safety — specifically safety on the subways — core themes of his campaign.{newParagraph}He began his career leading the gubernatorial campaign of his late father Mario Cuomo. He then served as assistant district attorney in Manhattan and founded the homeless shelter organization HELP USA before becoming Secretary of Housing and Urban Development under former President Bill Clinton. He became New York’s attorney general before being elected governor in 2011.{newParagraph}Cuomo’s prominence grew in 2020 when he began airing daily briefings during the height of COVID. But he later came under fire for understating death counts while deploying state employees to help him write a self-promotional book. He has also been accused of sexual harassment by over a dozen women, claims substantiated in an investigation by the state attorney general. Cuomo has denied the allegations.",
+    bio: "Veteran politician Andrew Cuomo entered the mayoral race months after his main competitors in the primary election, yet he’s continued to lead in polls — evidence of his strong name recognition owing to his and his family’s political legacy in New York.{newParagraph}In his run for mayor, Cuomo has made housing affordability and public safety — specifically safety on the subways — core themes of his campaign.{newParagraph}He began his career leading the gubernatorial campaign of his late father Mario Cuomo. He then served as assistant district attorney in Manhattan and founded the homeless shelter organization HELP USA before becoming Secretary of Housing and Urban Development under former President Bill Clinton. He became New York’s attorney general before being elected governor in 2011.{newParagraph}Cuomo’s prominence grew in 2020 when he began airing daily briefings during the height of COVID. But he later came under fire for understating death counts while deploying state employees to help him write a self-promotional book. He has also been accused of sexual harassment by over a dozen women, claims substantiated in an investigation by the state attorney general. Cuomo has denied the allegations.",
     quote1:
       'Federal Government | “We do not harbor criminals, but we believe in lawful, intelligent immigration because we are a city of immigrants.” | <a href="https://www.youtube.com/watch?v=KAoPAwlvrHM">New York Post</a> (Mar 1, 2025)',
     quote2:
@@ -193,7 +195,7 @@ export const candidateContent = {
       "3 | Cuomo's website says he'll streamline approvals, improve agency coordination, set timelines for permit decisions, and provide more transparency to help small businesses. | <a href=\"https://www.andrewcuomo.com/issues#public-safety\">Cuomo for Mayor</a>",
     quizResponse2:
       "1 | “We will expand bike lanes for ordinary New Yorkers where possible, balanced against concerns about congestion and dangerous use of e-bikes.” | Candidate statement (May 5, 2025)",
-    quizResponse3: "3 |",
+    quizResponse3: "3",
     quizResponse4:
       '1 | “We need more police in our subways, more police in our high crime areas, more police to stop the number of recidivists.” Cuomo wants to increase the NYPD by 5,000 officers, or 15%, bringing the force to approximately 39,000. | <a href="https://www.andrewcuomo.com/sites/default/files/documents/public-safety-plan.pdf">Cuomo for Mayor Safety Plan</a>',
     quizResponse5:
@@ -222,7 +224,7 @@ export const candidateContent = {
     quizResponse18:
       "1 | “I would like to be remembered as a mayor who lifted the quality of life of each and every New Yorkers by increasing public safety, addressing the crisis of affordability, and building transformative public projects that will last generations.” | Candidate statement (May 5, 2025)",
     quizResponse19:
-      '4 | Cuomo led his father Mario Cuomo\'s campaign for governor shortly after graduating from Albany School of Law. Roles since include assistant district attorney for Manhattan, U.S. Secretary of Housing and Urban Development, state attorney general and governor. He also founded HELP USA, a homeless services group. | <a href="https://www.andrewcuomo.com/about">Cuomo for Mayor website</a>',
+      '4 | Cuomo led his father Mario Cuomo\'s campaign for governor shortly after graduating from Albany School of Law. Roles since include assistant district attorney for Manhattan, U.S. Secretary of Housing and Urban Development, state attorney general and governor. He also founded HELP USA, a homeless services group. | <a href="https://www.andrewcuomo.com/about">Cuomo for Mayor</a>',
   },
   candidateBrad: {
     name: "Brad Lander",
@@ -234,7 +236,7 @@ export const candidateContent = {
     quote2:
       'Housing | “We do not have to be a city where thousands of people who are mentally ill are sleeping on the streets and are sometimes often a danger to themselves and to others.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">The New York Editorial Board</a> (Dec 15, 2024)',
     quote3:
-      'Background | “I have always seen myself as a pragmatic, pro-growth progressive, and I think the evidence is pretty clear. What I like to do is bring people together, set ambitious goals and then take pragmatic and really data-driven steps to get things done.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">The New York Editorial Board</a> (Dec 15, 2024)',
+      'Leadership | “I have always seen myself as a pragmatic, pro-growth progressive, and I think the evidence is pretty clear. What I like to do is bring people together, set ambitious goals and then take pragmatic and really data-driven steps to get things done.” | <a href="https://nyeditorialboard.substack.com/p/brad-lander-interview-transcript">The New York Editorial Board</a> (Dec 15, 2024)',
     quizResponse1:
       "1 | “We can have a strong, year-round outdoor dining program, with less red tape for restaurants, but still with oversight to ensure cleanliness and remove abandoned sheds.” | Candidate statement (May 7, 2025)",
     quizResponse2:
@@ -246,7 +248,7 @@ export const candidateContent = {
     quizResponse5:
       "1 | “The best long-term solution is to install new turnstiles, like those in Paris and Amsterdam, that prevent fare evasion, and to expand half-priced Fair Fares for low-income, students, and seniors.” | Candidate statement (May 7, 2025)",
     quizResponse5a:
-      "1 | “We can end the humanitarian disaster that is Rikers by following the Lippmann Commission 2.0 recommendations, including new secure treatment beds and ensuring timely trials.” | Candidate statement (May 7, 2025)",
+      "2 | “We can end the humanitarian disaster that is Rikers by following the Lippmann Commission 2.0 recommendations, including new secure treatment beds and ensuring timely trials.” | Candidate statement (May 7, 2025)",
     quizResponse6:
       "1 | “All of the above! My plan includes building 500,000 new units (focusing on genuinely affordable), preserving what we have, protecting tenants from eviction, and increasing pathways to home ownership.” | Candidate statement (May 7, 2025)",
     quizResponse7:
@@ -276,7 +278,7 @@ export const candidateContent = {
     name: "Zellnor Myrie",
     party: "democrat",
     website: "https://www.zellnor.nyc/",
-    bio: "Zellnor Myrie, representing central Brooklyn in the state Senate since 2019, has made expanding housing development, after school programs and the police force core tenets of his mayoral campaign.{newParagraph}As a senator, he advanced tenant protections and wrote the Clean Slate Act, which allows the courts to seal some conviction records. Myrie has also advanced laws related to gun industry liability, tenant protections and early voting. He’s currently the chair of the state Senate’s elections committee.{newParagraph}He is the son of Costa Rican immigrants and grew up in Brooklyn and The Bronx. He often reflects on his New York City upbringing, positioning the experiences as drivers of his stances on immigration, education and public safety.",
+    bio: "Zellnor Myrie, a state senator representing central Brooklyn since 2019, has prioritized expanding housing development, after school programs and the police force in his mayoral campaign.{newParagraph}As a senator, he advanced tenant protections and wrote the Clean Slate Act, which allows the courts to seal some conviction records. Myrie has also advanced laws related to gun industry liability, tenant protections and early voting. He’s currently the chair of the state Senate’s elections committee.{newParagraph}He is the son of Costa Rican immigrants and grew up in Brooklyn and The Bronx. He often reflects on his New York City upbringing, positioning the experiences as drivers of his stances on immigration, education and public safety.",
     quote1:
       'Federal Government | “I want to be very clear: It is in our city’s DNA to stand up to bullies. We don’t let people push us around in New York City.” | <a href="https://x.com/zellnor4ny/status/1900202985294037487">X</a> (Mar 13, 2025)',
     quote2:
@@ -320,7 +322,7 @@ export const candidateContent = {
     name: "Jessica Ramos",
     party: "democrat",
     website: "https://www.ramosfornyc.com/",
-    bio: "State Sen. Jessica Ramos’ vision for NYC includes expanded child care programs and embedding mental health support into every aspect of city life.{newParagraph}Ramos, who has represented Corona, East Elmhurst and Jackson Heights since 2019, is a big proponent of organized labor: she used to negotiate contracts for SSEU Local 371 and 32BJ SEIU and currently chairs the Senate’s labor committee. She weaves job training programs into her broader policies supporting immigration and mental health.{newParagraph}Where most other candidates prioritize tenants in their housing agendas Ramos also promotes homeownership. The daughter of Colombian immigrants, she is committed to making city-provided resources accessible in languages that people can understand.",
+    bio: "State Sen. Jessica Ramos’ vision for NYC includes expanded child care programs and embedding mental health support into every aspect of city life.{newParagraph}Ramos, who has represented Corona, East Elmhurst and Jackson Heights since 2019, is a big proponent of organized labor: she used to negotiate contracts for SSEU Local 371 and 32BJ SEIU and currently chairs the Senate’s labor committee. She weaves job training programs into her broader policies supporting immigration and mental health.{newParagraph}Where most other candidates prioritize tenants in their housing agendas, Ramos also promotes homeownership. The daughter of Colombian immigrants, she says she is committed to making city-provided resources accessible in languages that people can understand.",
     quote1:
       "Public Safety | “There's policing of the streets, but also there's just an education of the population in terms of conflict resolution and other things…” | <a href=\"https://nyeditorialboard.substack.com/p/jessica-ramos-interview-transcript\">The New York Editorial Board</a> (Jan 12, 2025)",
     quote2:
@@ -363,7 +365,7 @@ export const candidateContent = {
     name: "Scott Stringer",
     party: "democrat",
     website: "https://scottstringernyc.com/",
-    bio: "Scott Stringer, who previously ran for mayor in 2021, wants to leverage his decades of political experience to expand and reorganize the police department, flip empty lots into new housing units and improve sanitation.{newParagraph}Hailing from Manhattan’s Washington Heights, Stringer often credits his time organizing to keep Mitchell-Lama housing units out of the hands of profiteering owners as a stepping stone to his political career. He served as a state Assembly member for 13 years before becoming Manhattan Borough President in 2006. He then served as the city’s comptroller.{newParagraph}When he ran for mayor in 2021, a former campaign volunteer alleged sexual misconduct, prompting some allies to withdraw their endorsements. Stringer has strongly denied those allegations.",
+    bio: "Scott Stringer, who previously ran for mayor in 2021, wants to leverage his decades of political experience to expand and reorganize the police department, flip empty lots into new housing units and improve sanitation.{newParagraph}Hailing from Manhattan’s Washington Heights, Stringer often credits his time organizing to keep Mitchell-Lama housing units out of the hands of profiteering owners as a stepping stone to his political career. He served as a state Assembly member for 13 years before becoming Manhattan Borough President in 2006. He then served as the city’s comptroller.{newParagraph}When he ran for mayor in 2021, a former campaign volunteer accused him of sexual misconduct, prompting some allies to withdraw their endorsements.",
     quote1:
       "Public Safety | “What I'm going to do is we're going to hire 3,000 more cops – because we've been at the lowest level of policing in many years – and we're also going to, for the first time, align policing with the greatest mental health initiative this city will ever see.” | <a href=\"https://www.youtube.com/watch?v=dx8-BNCoZ_A\">Bronx Democrats Mayoral Forum</a> (Jan 31, 2025)",
     quote2:

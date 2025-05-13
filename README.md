@@ -9,7 +9,7 @@
 - **[TypeScript](https://www.typescriptlang.org/)**: Ensures type safety and better developer experience.
 - **[ArchieML](https://archieml.org/)**: For syncing site content with Google Docs used by editorial staff.
 - **[Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)**: For global state management (see [useAppStore.ts](src/useAppStore.ts) for implementation).
-  
+
 ## 📁 Project Structure
 
 ```
@@ -92,6 +92,10 @@ and following the steps in the terminal. Once that's running, you should see a m
 
 Lastly, find what google doc you want to pull content from and copy the "Document ID" from the URL, which is the long string of characters
 at the end of the URL. Use this ID in the above command where it says `DOCID=XXXXXX`.
+
+#### Common Error: Refreshing Google Access token
+
+Every few weeks or so, depending on your account settings, you may get an error like `GaxiosError: invalid_grant`, which means you need to refresh your Google Doc API access. What you need to do is find the `.aml-gdoc-credentials` file you created when you first initiated this integration, delete it, and start over as if setting things up as if for the first time.
 
 ### `npm run build`
 
