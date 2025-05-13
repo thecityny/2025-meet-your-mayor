@@ -207,11 +207,11 @@ details {
     background-color: colors.$city-black;
     box-shadow: 2px 4px 0px
       color.adjust($color: colors.$city-grey, $lightness: -10%);
+  }
 
-    &:focus-visible {
-      // Make focus border more visible for accessibility purposes:
-      border-width: 2px;
-    }
+  &:focus-visible {
+    // Make focus border more visible for accessibility purposes:
+    border-width: 2px;
   }
 
   &.is-extra-dark {
