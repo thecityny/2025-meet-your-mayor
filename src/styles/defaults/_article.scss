@@ -21,21 +21,6 @@
   outline: none;
 }
 
-img:not([alt]) {
-  outline: 3px solid colors.$city-orange;
-}
-
-a,
-a:visited {
-  color: colors.$city-blue;
-}
-
-a:hover,
-a:active,
-a:focus {
-  color: colors.$city-grey;
-}
-
 // prettier-ignore
 @media(prefers-reduced-motion: reduce) {
   *,

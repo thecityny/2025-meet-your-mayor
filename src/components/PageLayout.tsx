@@ -122,7 +122,7 @@ const Footer = () => {
             Ben Fractenberg
           </OutboundLink>{" "}
           and courtesy of the Jim Walden campaign. Design support from Tember
-          Hopkins . Development support from Sam Guzik.
+          Hopkins. Development support from Sam Guzik.
         </div>
 
         <div className="eyebrow mt-5 has-text-centered">
