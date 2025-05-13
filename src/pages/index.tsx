@@ -35,64 +35,8 @@ const Homepage = () => {
       <div className="hero is-fullheight-with-navbar has-color-background">
         <IntroAnimation isMobile />
         <div className="hero-body pt-6">
-          <div className="columns" style={{ width: "100%" }}>
-            <div className="column is-half">
-              <h1 className="headline has-text-left mt-0">
-                Meet Your Mayor 2025
-              </h1>
-              <div className="attribution">
-                <p className="eyebrow has-text-left mb-2">
-                  Updated: {getDateUpdated()}
-                </p>
-                <p className="deck has-text-left" style={{ maxWidth: "600px" }}>
-                  Who should you rank on your ballot to be the next mayor of New
-                  York City? Take the same quiz the candidates did and find your
-                  closest match.
-                </p>
-                <div className="is-flex is-flex-direction-column my-6">
-                  <SmoothScroll
-                    className="mb-4"
-                    to={
-                      questionsLeftToAnswer.length === 0
-                        ? "results"
-                        : !!party
-                        ? `question-${questionsLeftToAnswer[0]}`
-                        : "quiz"
-                    }
-                  >
-                    <button
-                      className="button is-extra-dark"
-                      style={{ width: "100%", maxWidth: "350px" }}
-                    >
-                      {questionsLeftToAnswer.length === 0
-                        ? "View my results"
-                        : !!party
-                        ? "Continue the quiz"
-                        : "Take the quiz"}
-                    </button>
-                  </SmoothScroll>
-
-                  <button
-                    className="button is-white"
-                    onClick={() =>
-                      // Since we use the #learn container to smooth scroll to the #results
-                      // section from a Candidate page, we need to make sure this button here
-                      // clears the location state so that it indeed goes to #learn.
-                      navigate("#learn", { replace: true })
-                    }
-                    style={{ width: "100%", maxWidth: "350px" }}
-                  >
-                    See the candidates{" "}
-                  </button>
-                </div>
-                <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
-                  <div className="mr-3 is-flex-shrink-2">
-                    Share Meet Your Mayor:
-                  </div>{" "}
-                  <SocialShareButtons />
-                </div>
-              </div>
-            </div>
+          <div className="columns" style={{ width: "100%", height: "80vh" }}>
+            <div className="column is-half" />
             <IntroAnimation />
           </div>
         </div>
