@@ -392,13 +392,12 @@ const Quiz = () => {
                                           onClick={() => {
                                             recordAnswer(number, optionNumber);
                                             track(
-                                              `${
+                                              `Question ${number}: ${
                                                 !!answerSelected
-                                                  ? "Changed"
-                                                  : "Recorded"
+                                                  ? "changed"
+                                                  : "recorded"
                                               } answer`,
                                               {
-                                                question: number,
                                                 answer: optionNumber,
                                               }
                                             );

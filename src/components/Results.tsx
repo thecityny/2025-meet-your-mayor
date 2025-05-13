@@ -163,16 +163,13 @@ const Results: React.FC = () => {
 
   useEffect(() => {
     setScore(score);
-    if (questionsLeftToAnswer.length === 0) {
-      track("Received final score", {
-        score: JSON.stringify(
-          score.map((candidate) => ({
-            candidateName: candidate.candidateName,
-            matchingPercentage: Math.round(
-              (candidate.totalScore / candidate.totalPossibleScore) * 100
-            ),
-          }))
-        ),
+    if (!!questionsLeftToAnswer && questionsLeftToAnswer.length === 0) {
+      score.forEach((candidate, i) => {
+        track(`${candidate.candidateName} ranked #${i + 1} in final score`, {
+          matchingPercentage: Math.round(
+            (candidate.totalScore / candidate.totalPossibleScore) * 100
+          ),
+        });
       });
     }
   }, [score]);
