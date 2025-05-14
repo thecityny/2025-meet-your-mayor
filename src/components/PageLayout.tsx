@@ -213,7 +213,7 @@ export const PageLayout: React.FC<{
 
   const siteName = customMetadata?.siteName || process.env.GATSBY_SITE_NAME;
   const shareImage = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}/${
-    customMetadata?.shareImageFilename || "social-image.jpg"
+    customMetadata?.shareImageFilename || "meet-your-mayor.jpg"
   }`;
   const seoHeadline =
     customMetadata?.seoHeadline || process.env.GATSBY_SEO_HEADLINE;
@@ -255,7 +255,6 @@ export const PageLayout: React.FC<{
         <script type="application/ld+json">{`{
           "@type": "NewsArticle",
           "@context": "http://schema.org",
-
           "headline": "${seoHeadline}",
           "image": {
               "@type": "ImageObject",
