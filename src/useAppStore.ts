@@ -18,6 +18,7 @@ export const blankAnswersList = Object.entries(questionContent).map(
 );
 
 type AppState = {
+  version: number;
   party: Party;
   setParty: (party: Party, delay?: number) => void;
   favoriteTopics: string[];
@@ -36,8 +37,9 @@ type AppState = {
 };
 
 export const useAppStore = create<AppState>()(
-  persist(
+  persist<AppState>(
     (set, get) => ({
+      version: 2,
       party: null,
       setParty: (party, delay) => {
         track(`Selected party`, {
@@ -77,7 +79,28 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "app-store",
-      version: 1,
+      version: 2,
+      migrate: (persistedState, version): AppState => {
+        console.log("Migrating AppState from version", version);
+
+        const state = persistedState as AppState;
+
+        if (!!!version || version < 2) {
+          return {
+            ...state,
+            answers: blankAnswersList,
+            favoriteTopics: [],
+            highestVisibleQuestion: 0,
+            score: null,
+            party: null,
+            version: 2,
+          };
+        } else
+          return {
+            ...state,
+            version: 2,
+          };
+      },
     }
   )
 );
