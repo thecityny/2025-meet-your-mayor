@@ -248,11 +248,11 @@ export const candidateContent = {
     quizResponse5:
       "1 | “The best long-term solution is to install new turnstiles, like those in Paris and Amsterdam, that prevent fare evasion, and to expand half-priced Fair Fares for low-income, students, and seniors.” | Candidate statement (May 7, 2025)",
     quizResponse5a:
-      "2 | “We can end the humanitarian disaster that is Rikers by following the Lippmann Commission 2.0 recommendations, including new secure treatment beds and ensuring timely trials.” | Candidate statement (May 7, 2025)",
+      "1 | “We can end the humanitarian disaster that is Rikers by following the Lippmann Commission 2.0 recommendations, including new secure treatment beds and ensuring timely trials.” | Candidate statement (May 7, 2025)",
     quizResponse6:
       "1 | “All of the above! My plan includes building 500,000 new units (focusing on genuinely affordable), preserving what we have, protecting tenants from eviction, and increasing pathways to home ownership.” | Candidate statement (May 7, 2025)",
     quizResponse7:
-      "0 | “The choice must be made by a majority vote of residents in any NYCHA development. Residents should have all options to consider: private management, Preservation Trust, infill, or remaining traditional Section 9.” | Candidate statement (May 7, 2025)",
+      "3 | “The choice must be made by a majority vote of residents in any NYCHA development. Residents should have all options to consider: private management, Preservation Trust, infill, or remaining traditional Section 9.” | Candidate statement (May 7, 2025)",
     quizResponse8:
       "2 | “This year, the evidence supports a rent freeze. The proposed increases are far beyond justification.” | Candidate statement (May 7, 2025)",
     quizResponse9:
@@ -460,11 +460,11 @@ export const candidateContent = {
     quote3:
       "Public Safety | “I don't believe that every single person that jumps a turnstile is a bad actor, and I also don't believe that the juice is worth the squeeze. If we go after all of those people, how much money are we spending on enforcement that we could have for other programs?” | <a href=\"https://www.youtube.com/live/lqQIiczm7Kc\">Transit Riders Mayoral Forum</a> (Dec 2, 2024)",
     quizResponse1:
-      "0 | Walden wants to give more power to local communities and BIDs to decide. | Candidate statement (May 8, 2025)",
+      "1 | Walden wants to give more power to local communities and BIDs to decide. | Candidate statement (May 8, 2025)",
     quizResponse2:
       "3 | “Strike a balance across the city by expanding the network where appropriate, but close those that are underutilized or cause other problems.” | Candidate statement (May 8, 2025)",
     quizResponse3:
-      "0 | Walden supports containerization, with “special exceptions and supports for the elderly and disabled.” | Candidate statement (May 8, 2025)",
+      "3 | Walden supports containerization, with “special exceptions and supports for the elderly and disabled.” | Candidate statement (May 8, 2025)",
     quizResponse4:
       '1 | “That\'s going to be my day one priority ... to get more cops on the street.” | <a href="https://www.youtube.com/watch?v=7nh3KBOrRrg">Vital City/CUNY Mayoral Forum</a> (Apr 7, 2025)',
     quizResponse5:
@@ -480,18 +480,18 @@ export const candidateContent = {
     quizResponse9:
       "1 | Walden wants to “offer test prep in disadvantaged communities.” | Candidate statement (May 8, 2025)",
     quizResponse10:
-      '0 | “You have to reduce the class size, particularly in K-3, to get down to manageable numbers." Walden says he wants to "put more bespoke supports there to identify kids who fall behind.” | Candidate statement (May 8, 2025)',
+      '1 | “You have to reduce the class size, particularly in K-3, to get down to manageable numbers." Walden says he wants to "put more bespoke supports there to identify kids who fall behind.” | Candidate statement (May 8, 2025)',
     quizResponse12:
       '2 | Walden says he wants a voter referendum on amending the laws “to better balance our support for migrants with our need for safety.” He tweeted: “\'Sanctuary City" is a wonderful ideal for a different time. It needs SERIOUS reform. Now. Starting with cooperating fully with ICE on migrant criminals.” | <a href="https://x.com/jimfornyc/status/1875669206777340115">X</a> (Jan 4, 2025)',
     quizResponse13:
       '1 | Walden is offering a plan to “shield New Yorkers from Project 2025.” He said: “I want to cooperate with Washington where I can, and where I can’t, I am the right person to know the power of the courts to push back.” | <a href="https://brooklyneagle.com/articles/2025/02/03/nyc-mayoral-candidate-jim-walden-mulls-run-as-republican/">Brooklyn Daily Eagle</a> (Feb 3, 2025)',
-    quizResponse14: "",
+    quizResponse14: "1",
     quizResponse15:
       '1 | “Severely mentally ill people do not belong anywhere other than in treatment that will help them get better. It is the right thing for them. It was terrible social policy to let them languish on the streets, where they create violence and harm to themselves, as well as harm to our communities.” | <a href="https://www.youtube.com/watch?v=7nh3KBOrRrg">Vital City/CUNY Mayoral Forum</a> (Apr 7, 2025)',
     quizResponse17:
       "3 | “I lead by example. I manage closely without micro-managing, except when needed.” | Candidate statement (May 8, 2025)",
     quizResponse18:
-      "0 | “That I worked tirelessly to solve as many problems as I could, putting people over politics.” | Candidate statement (May 8, 2025)",
+      "4 | “That I worked tirelessly to solve as many problems as I could, putting people over politics.” | Candidate statement (May 8, 2025)",
     quizResponse19: "4 |",
   },
   candidateCurtis: {
