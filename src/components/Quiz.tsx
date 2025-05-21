@@ -17,6 +17,7 @@ import { Party, useAppStore } from "../useAppStore";
 import { Methodology } from "./Methodology";
 import { scroller } from "react-scroll";
 import { track } from "@amplitude/analytics-browser";
+import { Changelog } from "./Changelog";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -53,6 +54,12 @@ const Quiz = () => {
   const toggleMethodology = () => {
     const currentVisibility = methodologyVisible;
     setMethodologyVisible(!currentVisibility);
+  };
+
+  const [changelogVisible, setChangelogVisible] = useState(false);
+  const toggleChangelog = () => {
+    const currentVisibility = changelogVisible;
+    setChangelogVisible(!currentVisibility);
   };
 
   const democraticCandidates = generateListOfCandidatesByParty("democrat");
@@ -226,7 +233,7 @@ const Quiz = () => {
                     ))}
                   </>
                 )}
-                <div className="mb-5">
+                <div className="mb-2">
                   <button
                     key="x"
                     className="eyebrow is-link is-inline-block"
@@ -237,6 +244,18 @@ const Quiz = () => {
                   </button>
 
                   {methodologyVisible && <Methodology />}
+                </div>
+                <div className="mb-5">
+                  <button
+                    key="x"
+                    className="eyebrow is-link is-inline-block"
+                    onClick={() => toggleChangelog()}
+                  >
+                    What's changed since launch{" "}
+                    <span>{changelogVisible ? "-" : "+"}</span>
+                  </button>
+
+                  {changelogVisible && <Changelog />}
                 </div>
               </div>
             </div>
