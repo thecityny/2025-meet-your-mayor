@@ -181,6 +181,7 @@ const Quiz = () => {
                           className="control"
                           onClick={() => {
                             setMethodologyVisible(false);
+                            setChangelogVisible(false);
 
                             setTimeout(() => {
                               scroller.scrollTo("question-1", {
@@ -200,7 +201,10 @@ const Quiz = () => {
                         >
                           <div
                             className="button"
-                            onClick={() => setMethodologyVisible(false)}
+                            onClick={() => {
+                              setMethodologyVisible(false);
+                              setChangelogVisible(false);
+                            }}
                           >
                             {button.label}
                           </div>
