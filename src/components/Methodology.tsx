@@ -1,5 +1,6 @@
 import React from "react";
 import { OutboundLink } from "./Links";
+import { Changelog } from "./Changelog";
 
 export const Methodology = () => (
   <div className="copy">
@@ -56,5 +57,7 @@ export const Methodology = () => (
       </OutboundLink>
       .
     </p>
+    <p className="mt-2 has-text-weight-semibold">Updates</p>
+    <Changelog />
   </div>
 );
