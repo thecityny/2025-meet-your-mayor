@@ -193,9 +193,7 @@ const Quiz = () => {
                         >
                           <div
                             className="button"
-                            onClick={() => {
-                              setMethodologyVisible(false);
-                            }}
+                            onClick={() => setMethodologyVisible(false)}
                           >
                             {button.label}
                           </div>
@@ -228,7 +226,7 @@ const Quiz = () => {
                     ))}
                   </>
                 )}
-                <div className="mb-2">
+                <div className="mb-5">
                   <button
                     key="x"
                     className="eyebrow is-link is-inline-block"
