@@ -12,6 +12,9 @@ import { NewsletterSignupBanner } from "./NewsletterSignup";
 import { useAppStore } from "../useAppStore";
 import { getQuestionsLeftToAnswer } from "./Results";
 
+const CANDIDATE_PAGE_DESCRIPTION =
+  "Who should you rank on your ballot to be the next mayor of New York City? Take our quiz to find your closest match.";
+
 const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { candidateName } = pageContext;
   const score = useAppStore((state) => state.score);
@@ -43,7 +46,12 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   return (
     <PageLayout
       customMetadata={{
+        shareImageFilename: `composites/${kebabCase(candidateName)}-social.jpg`,
         siteName: `${candidateName} | ${process.env.GATSBY_SITE_NAME}`,
+        seoHeadline: `${candidateName}: Meet Your Mayor`,
+        socialHeadline: `${candidateName}: Meet Your Mayor`,
+        socialDescription: CANDIDATE_PAGE_DESCRIPTION,
+        seoDescription: CANDIDATE_PAGE_DESCRIPTION,
       }}
     >
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
