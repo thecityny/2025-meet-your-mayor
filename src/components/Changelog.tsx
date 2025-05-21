@@ -23,7 +23,7 @@ const CHANGELOG_ENTRIES = [
 ];
 
 export const Changelog = () => (
-  <div className="my-2">
+  <div className="my-3">
     {CHANGELOG_ENTRIES.map((entry, i) => (
       <div key={i}>
         {entry.date}
