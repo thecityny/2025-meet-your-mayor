@@ -74,7 +74,7 @@ export const EmailMeMyResults: React.FC<{ topMatches: ScoreCard }> = ({
                 className="input is-small"
                 type="email"
                 aria-label="Input your email to send your results to"
-                placeholder="Email me my results"
+                placeholder="Email them to me"
                 value={email}
                 onChange={handleChange}
                 required
