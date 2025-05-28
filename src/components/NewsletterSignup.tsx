@@ -10,7 +10,7 @@ const THE_CITY_FALLBACK_NEWSLETTER_LINK =
 
 const GOTHAMIST_FALLBACK_NEWSLETTER_LINK = "https://gothamist.com/newsletters";
 
-type RequestStatus = "idle" | "loading" | "success" | "error";
+export type RequestStatus = "idle" | "loading" | "success" | "error";
 
 export const NewsletterSignupBanner: React.FC = () => {
   const [email, setEmail] = useState<string>("");

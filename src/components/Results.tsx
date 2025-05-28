@@ -9,6 +9,7 @@ import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
 import { useAppStore } from "../useAppStore";
 import { track } from "@amplitude/analytics-browser";
+import { EmailMeMyResults } from "./EmailMeMyResults";
 
 export const getQuestionsLeftToAnswer = () => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
@@ -326,13 +327,33 @@ const Results: React.FC = () => {
                   />
                 </div>
 
-                <a href="#main" onClick={() => resetAnswers()}>
-                  <button className="button is-link is-white">
+                <EmailMeMyResults
+                  topMatches={score.slice(
+                    0,
+                    MINIMUM_MATCHES_TO_SHOW + candidatesTiedWithLastPlace
+                  )}
+                />
+                <a
+                  href="#main"
+                  className="is-hidden-tablet mt-4 mb-5"
+                  onClick={() => resetAnswers()}
+                >
+                  <button className="button is-link is-white is-pulled-right mt-0">
                     Take Quiz Again
                   </button>
                 </a>
               </div>
             </div>
+            <a
+              href="#main"
+              className="is-hidden-mobile"
+              onClick={() => resetAnswers()}
+            >
+              <button className="button is-link is-white is-pulled-right mt-0 ml-3">
+                Take Quiz Again
+              </button>
+            </a>
+
             <div className="deck has-text-left ml-0 mt-5">
               You matched most closely with{" "}
               <span className="has-text-weight-semibold">
