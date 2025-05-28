@@ -13,7 +13,7 @@ export const EmailMeMyResults: React.FC<{ topMatches: ScoreCard }> = ({
       (match, i) =>
         `${i + 1}. ${match.candidateName} (${Math.round(
           (match.totalScore / match.totalPossibleScore) * 100
-        )}%)`
+        )}% match)`
     )
     .join("\n");
 
