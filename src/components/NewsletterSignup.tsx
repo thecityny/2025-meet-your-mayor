@@ -1,6 +1,7 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { OutboundLink } from "./Links";
 import { useLocation } from "@reach/router";
+import classnames from "classnames";
 
 const GOTHAMIST_EMAIL_LIST_NAME =
   "Gothamist Membership++Politics Brief Newsletter";
@@ -12,7 +13,9 @@ const GOTHAMIST_FALLBACK_NEWSLETTER_LINK = "https://gothamist.com/newsletters";
 
 type RequestStatus = "idle" | "loading" | "success" | "error";
 
-export const NewsletterSignupBanner: React.FC = () => {
+export const NewsletterSignupBanner: React.FC<{
+  isOnLandingPage?: boolean;
+}> = ({ isOnLandingPage }) => {
   const [email, setEmail] = useState<string>("");
   const [statusTheCity, setStatusTheCity] = useState<RequestStatus>("idle");
   const [statusGothamist, setStatusGothamist] = useState<RequestStatus>("idle");
@@ -103,17 +106,38 @@ export const NewsletterSignupBanner: React.FC = () => {
   };
 
   return (
-    <div className="newsletter-signup">
-      <div className="container py-4">
+    <div
+      className="newsletter-signup"
+      style={{ maxWidth: isOnLandingPage ? "350px" : "unset" }}
+    >
+      <div
+        className={classnames("container", "py-4", isOnLandingPage && "px-4")}
+      >
         <form
           onSubmit={handleSubmit}
-          className="is-flex is-justify-content-center"
+          className={classnames(
+            "is-flex",
+            !isOnLandingPage && "is-justify-content-center"
+          )}
         >
-          <div className="field ">
-            <div className="eyebrow mb-2 has-text-centered">
-              SEND ME ELECTION UPDATES FROM THE CITY AND GOTHAMIST:
+          <div className="field">
+            <div
+              className={classnames(
+                "eyebrow",
+                "mb-2",
+                !isOnLandingPage && "has-text-centered"
+              )}
+            >
+              {isOnLandingPage
+                ? "Remind me when it's time to vote:"
+                : "SEND ME ELECTION UPDATES FROM THE CITY AND GOTHAMIST:"}
             </div>
-            <div className="is-flex is-align-items-center">
+            <div
+              className={classnames(
+                "is-flex",
+                !isOnLandingPage && "is-align-items-center"
+              )}
+            >
               <div className="control mr-3 is-flex-grow-1">
                 <input
                   className="input is-small"
@@ -142,9 +166,21 @@ export const NewsletterSignupBanner: React.FC = () => {
           </div>
         </form>
         {statusTheCity === "success" && statusGothamist === "success" ? (
-          <p className="label mt-2 has-text-centered">You're signed up!</p>
+          <p
+            className={classnames(
+              "label mt-2",
+              !isOnLandingPage && "has-text-centered"
+            )}
+          >
+            You're signed up!
+          </p>
         ) : statusTheCity === "success" && statusGothamist === "error" ? (
-          <p className="label mt-2 has-text-centered">
+          <p
+            className={classnames(
+              "label mt-2",
+              !isOnLandingPage && "has-text-centered"
+            )}
+          >
             You're signed up with THE CITY! Something went wrong with Gothamist.{" "}
             <OutboundLink to={GOTHAMIST_FALLBACK_NEWSLETTER_LINK}>
               Sign up manually
@@ -152,7 +188,12 @@ export const NewsletterSignupBanner: React.FC = () => {
             .
           </p>
         ) : statusTheCity === "error" && statusGothamist === "success" ? (
-          <p className="label mt-2 has-text-centered">
+          <p
+            className={classnames(
+              "label mt-2",
+              !isOnLandingPage && "has-text-centered"
+            )}
+          >
             You're signed up with Gothamist! Something went wrong with THE CITY.{" "}
             <OutboundLink to={THE_CITY_FALLBACK_NEWSLETTER_LINK}>
               Sign up manually
@@ -160,7 +201,12 @@ export const NewsletterSignupBanner: React.FC = () => {
             .
           </p>
         ) : statusTheCity === "error" && statusGothamist === "error" ? (
-          <p className="label mt-2 has-text-centered">
+          <p
+            className={classnames(
+              "label mt-2",
+              !isOnLandingPage && "has-text-centered"
+            )}
+          >
             Something went wrong. Sign up manually via{" "}
             <OutboundLink to={THE_CITY_FALLBACK_NEWSLETTER_LINK}>
               THE CITY
