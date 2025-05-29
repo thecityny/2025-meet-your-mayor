@@ -85,6 +85,9 @@ const Homepage = () => {
                     See the candidates{" "}
                   </button>
                 </div>
+                <div className="homepage-election-updates">
+                  <NewsletterSignupBanner isOnLandingPage />
+                </div>
                 <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
                   <div className="mr-3 is-flex-shrink-2">
                     Share Meet Your Mayor:
