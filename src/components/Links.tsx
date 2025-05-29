@@ -15,7 +15,8 @@ export const OutboundLink: React.FC<{
 }> = ({ to, children, className, style }) => {
   const isGothamistLink =
     to.includes("gothamist.com") || to.includes("wnyc.org");
-  const isTheCityLink = to.includes("www.thecity.nyc");
+  const isTheCityLink =
+    to.includes("www.thecity.nyc") || to.includes("donorbox.org");
   return (
     <a
       className={className}
