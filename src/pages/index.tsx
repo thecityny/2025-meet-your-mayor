@@ -100,7 +100,6 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <NewsletterSignupBanner />
       <Quiz />
       <NewsletterSignupBanner />
       <div className="hero is-fullheight-with-navbar pt-6">
