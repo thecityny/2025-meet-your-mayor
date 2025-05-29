@@ -111,7 +111,7 @@ export const NewsletterSignupBanner: React.FC<{
       style={{ maxWidth: isOnLandingPage ? "350px" : "unset" }}
     >
       <div
-        className={classnames("container", "py-4", isOnLandingPage && "px-0")}
+        className={classnames("container", "py-4", isOnLandingPage && "px-4")}
       >
         <form
           onSubmit={handleSubmit}

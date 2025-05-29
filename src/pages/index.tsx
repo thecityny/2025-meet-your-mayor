@@ -89,7 +89,7 @@ const Homepage = () => {
                   <NewsletterSignupBanner isOnLandingPage />
                 </div>
                 <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
-                  <div className="mr-3 is-flex-shrink-2">
+                  <div className="mr-3 is-flex-shrink-2 pl-4">
                     Share Meet Your Mayor:
                   </div>{" "}
                   <SocialShareButtons />
