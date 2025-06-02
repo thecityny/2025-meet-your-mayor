@@ -155,9 +155,17 @@ export const NewsletterSignupBanner: React.FC<{
                     statusTheCity === "loading" || statusGothamist === "loading"
                   }
                 >
-                  {statusTheCity === "loading" || statusGothamist === "loading"
-                    ? "Submitting..."
-                    : "Sign Up"}
+                  {statusTheCity === "loading" ||
+                  statusGothamist === "loading" ? (
+                    <>
+                      Submitting
+                      <span className="dot">.</span>
+                      <span className="dot">.</span>
+                      <span className="dot">.</span>
+                    </>
+                  ) : (
+                    <>Sign Up</>
+                  )}
                 </button>
               </div>
             </div>

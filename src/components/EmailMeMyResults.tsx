@@ -86,7 +86,16 @@ export const EmailMeMyResults: React.FC<{ topMatches: ScoreCard }> = ({
                 type="submit"
                 disabled={status === "loading"}
               >
-                {status === "loading" ? "Sending..." : "Send"}
+                {status === "loading" ? (
+                  <>
+                    Sending
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                  </>
+                ) : (
+                  <>Send</>
+                )}
               </button>
             </div>
           </div>

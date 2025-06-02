@@ -713,6 +713,20 @@ hr {
 
 // ANIMATIONS:
 
+.dot {
+  animation: fadeIn 1s steps(2, jump-none) infinite;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}
+
 @keyframes slideIn {
   0% {
     opacity: 0;
