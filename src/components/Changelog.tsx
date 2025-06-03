@@ -16,7 +16,7 @@ const CHANGELOG_ENTRIES = [
         <OutboundLink to="https://gothamist.com/news/mamdani-to-get-key-endorsement-for-nyc-mayor-in-battle-for-asian-american-votes">
           told Gothamist
         </OutboundLink>{" "}
-        he has no plans to change the admissions test if elected mayor. We
+        he has no plans to change the SHSAT admissions test if elected mayor. We
         updated question #10 accordingly.
       </>,
     ],
