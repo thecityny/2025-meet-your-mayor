@@ -36,10 +36,12 @@ type AppState = {
   resetAnswers: () => void;
 };
 
+const CURRENT_APP_VERSION = 2;
+
 export const useAppStore = create<AppState>()(
   persist<AppState>(
     (set, get) => ({
-      version: 2,
+      version: CURRENT_APP_VERSION,
       party: null,
       setParty: (party, delay) => {
         track(`Selected party`, {
@@ -79,13 +81,13 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "app-store",
-      version: 2,
+      version: CURRENT_APP_VERSION,
       migrate: (persistedState, version): AppState => {
         console.log("Migrating AppState from version", version);
 
         const state = persistedState as AppState;
 
-        if (!!!version || version < 2) {
+        if (!!!version || version < CURRENT_APP_VERSION) {
           return {
             ...state,
             answers: blankAnswersList,
@@ -93,12 +95,12 @@ export const useAppStore = create<AppState>()(
             highestVisibleQuestion: 0,
             score: null,
             party: null,
-            version: 2,
+            version: CURRENT_APP_VERSION,
           };
         } else
           return {
             ...state,
-            version: 2,
+            version: CURRENT_APP_VERSION,
           };
       },
     }
