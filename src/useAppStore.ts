@@ -45,7 +45,7 @@ type AppState = {
  * which essentially resets the quiz answers and other state to their defaults
  * for every user.
  */
-const CURRENT_APP_VERSION = 2;
+const CURRENT_APP_VERSION = 3;
 
 export const useAppStore = create<AppState>()(
   persist<AppState>(
