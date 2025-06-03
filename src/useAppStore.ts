@@ -36,10 +36,21 @@ type AppState = {
   resetAnswers: () => void;
 };
 
+/**
+ * The current version of the app.
+ * This is used to migrate the app state when the app is updated, like when
+ * a candidate changes their answer to a quiz question.
+ *
+ * Note: incrementing this number will trigger a migration of the app state,
+ * which essentially resets the quiz answers and other state to their defaults
+ * for every user.
+ */
+const CURRENT_APP_VERSION = 3;
+
 export const useAppStore = create<AppState>()(
   persist<AppState>(
     (set, get) => ({
-      version: 2,
+      version: CURRENT_APP_VERSION,
       party: null,
       setParty: (party, delay) => {
         track(`Selected party`, {
@@ -79,13 +90,13 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "app-store",
-      version: 2,
+      version: CURRENT_APP_VERSION,
       migrate: (persistedState, version): AppState => {
         console.log("Migrating AppState from version", version);
 
         const state = persistedState as AppState;
 
-        if (!!!version || version < 2) {
+        if (!!!version || version < CURRENT_APP_VERSION) {
           return {
             ...state,
             answers: blankAnswersList,
@@ -93,12 +104,12 @@ export const useAppStore = create<AppState>()(
             highestVisibleQuestion: 0,
             score: null,
             party: null,
-            version: 2,
+            version: CURRENT_APP_VERSION,
           };
         } else
           return {
             ...state,
-            version: 2,
+            version: CURRENT_APP_VERSION,
           };
       },
     }

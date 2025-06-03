@@ -29,7 +29,7 @@ export const candidateContent = {
     quizResponse8:
       '1 | “Yes, I will freeze the rent every single year that I am the mayor of New York City.” | <a href="https://www.facebook.com/housing4allNY/posts/pfbid0j3UoPQu7ynV17AuwKJwGkxoqwgFr6VP8XdzY4uh8kGAzw9MNL3WZ9Wsgv7mwyw1Ul?rdid=uDjctMts38LVGX1b&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1AqAMTcX7A%2F">Housing Justice for All Mayoral Forum</a> (Dec 7, 2024)',
     quizResponse9:
-      "0 | “As a Bronx Science alum and a former standardized test tutor, I’ve seen firsthand the promise and the failure of our specialized high schools and their admissions process.” | Candidate statement (Apr 18, 2025)",
+      "1 | “As a Bronx Science alum and a former standardized test tutor, I’ve seen firsthand the promise and the failure of our specialized high schools and their admissions process.” | Candidate statement (Apr 18, 2025)",
     quizResponse10:
       "1 | “NYC Reads is an important step in the right direction. We need to continue our citywide commitment to wide-scale literacy efforts, while honing our programming — including providing educators with support.” | Candidate statement (Apr 18, 2025)",
     quizResponse12:
