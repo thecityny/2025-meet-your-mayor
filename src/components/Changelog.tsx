@@ -1,4 +1,5 @@
 import React from "react";
+import { OutboundLink } from "./Links";
 
 /**
  * An array of objects, which include a date in the format like "May 21, 2025",
@@ -7,6 +8,19 @@ import React from "react";
  * NOTE: Please use the <OutboundLink> component for hyperlinks.
  */
 const CHANGELOG_ENTRIES = [
+  {
+    date: "June 3, 2025",
+    changes: [
+      <>
+        Zohran Mamdani{" "}
+        <OutboundLink to="https://gothamist.com/news/mamdani-to-get-key-endorsement-for-nyc-mayor-in-battle-for-asian-american-votes">
+          told Gothamist
+        </OutboundLink>{" "}
+        he has no plans to change the admissions test if elected mayor. We
+        updated question #10 accordingly.
+      </>,
+    ],
+  },
   {
     date: "May 21, 2025",
     changes: [
