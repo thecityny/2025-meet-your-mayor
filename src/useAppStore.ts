@@ -36,6 +36,15 @@ type AppState = {
   resetAnswers: () => void;
 };
 
+/**
+ * The current version of the app.
+ * This is used to migrate the app state when the app is updated, like when
+ * a candidate changes their answer to a quiz question.
+ *
+ * Note: incrementing this number will trigger a migration of the app state,
+ * which essentially resets the quiz answers and other state to their defaults
+ * for every user.
+ */
 const CURRENT_APP_VERSION = 2;
 
 export const useAppStore = create<AppState>()(
