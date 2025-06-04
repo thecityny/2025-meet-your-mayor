@@ -2,6 +2,9 @@
 
 **A multi-page Gatsby-powered news application by [THE CITY](https://www.thecity.nyc) and [Gothamist](https://gothamist.com/), designed to inform New Yorkers about the 2025 NYC mayoral candidates.**
 
+[![See it Live](https://img.shields.io/badge/See%20it%20Live-blue?style=for-the-badge)](https://projects.thecity.nyc/meet-your-mayor-2025-election-quiz-candidates/)
+
+
 ## 🛠️ Technologies Used
 
 - **[Gatsby](https://www.gatsbyjs.com/)**: A React-based open-source framework for creating fast websites.
