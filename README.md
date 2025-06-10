@@ -115,6 +115,7 @@ This code is free and open source and you are permitted to use for your own proj
 - Change [`_fonts/scss`](src/styles/_fonts.scss) — our fonts are proprietary and are not permitted for use outside of THE CITY's domain. Please change these fonts to ones you own publishing rights to, or use free, web-safe fonts instead.
 - Remove [`logo.svg`](src/assets/logo.svg) and [`logo-gothamist.svg`](src/assets/logo-gothamist.svg) — our logos are trademarked and cannot be used without THE CITY and Gothamist's explicit permission. Please remove these logos [from the header](src/components/PageLayout.tsx), or swap in your own logo.
 - Remove all items inside the [`static`](static) directory — these are licensed photos and illustrations that only THE CITY and Gothamist are authorized to use.
+- Remove analytics infrastructure from [`PageLayout.tsx`](src/components/PageLayout.tsx), including the `Analytics` element and any [Amplitude tracking code](https://amplitude.com/).
 
 Also, as part of our license, we require that any online publication of work built using this software **include a credit and link to THE CITY**. The template includes the suggested sentence “Made with ♥ in NYC...” in the page footer — feel free to leave that in.
 
