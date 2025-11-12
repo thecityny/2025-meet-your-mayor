@@ -11,18 +11,31 @@ import { navigate } from "gatsby";
 import { getQuestionsLeftToAnswer } from "../components/Results";
 import { useAppStore } from "../useAppStore";
 
-const getDateUpdated = () => {
-  const timestamp = process.env.GATSBY_UPDATE_DATE;
+const formatDate = (timestamp: string) => {
+  const date = new Date(timestamp.replace(/-/g, "/"));
+  const dateFormatted = date.toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  return dateFormatted;
+};
+
+const getDatePublished = () => {
+  const timestamp = process.env.GATSBY_PUB_DATE;
   if (!timestamp) {
     throw new Error("No publication date defined in .env file!");
   } else {
-    const date = new Date(timestamp.replace(/-/g, "/"));
-    const dateFormatted = date.toLocaleDateString("en-us", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-    return dateFormatted;
+    return formatDate(timestamp);
+  }
+};
+
+const getDateUpdated = () => {
+  const timestamp = process.env.GATSBY_UPDATE_DATE;
+  if (!timestamp) {
+    throw new Error("No updated date defined in .env file!");
+  } else {
+    return formatDate(timestamp);
   }
 };
 
@@ -41,8 +54,11 @@ const Homepage = () => {
                 Meet Your Mayor 2025
               </h1>
               <div className="attribution">
-                <p className="eyebrow has-text-left mb-2">
-                  Updated: {getDateUpdated()}
+                <p className="eyebrow has-text-left">
+                  Published: {getDatePublished()}{" "}
+                  <br className="is-hidden-desktop" />
+                  <span className="is-hidden-touch">•</span> Updated:{" "}
+                  {getDateUpdated()}
                 </p>
                 <p className="deck has-text-left" style={{ maxWidth: "600px" }}>
                   Who should you rank on your ballot to be the next mayor of New
